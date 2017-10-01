@@ -1,3 +1,4 @@
+
 (function($) {
   'use strict';
 
@@ -67,6 +68,15 @@
 	}
 
   $('#revolutionSlider').revolution(sliderOptions);
+  
+  $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+		type: 'iframe',
+		mainClass: 'mfp-fade',
+		removalDelay: 60,
+		preloader: true,
+
+		fixedContentPos: false
+	});
 
 
 
@@ -93,6 +103,8 @@ $('.carousel .item').each(function(){
      
   }
 });
+
+
 
 // $(function() {
 //   // Add Object Line

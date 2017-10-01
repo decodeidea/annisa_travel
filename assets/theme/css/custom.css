@@ -441,7 +441,7 @@ a.social-icon, a.social-icon:visited {
 
 
 #header .header-nav-main nav > ul > li:hover > a {
-  color: hsla(0,0%,100%,.6) !important;
+  color: #0099e6 !important;
 }
 #header .header-nav-main nav > ul > li.active > a {
   background: transparent;
@@ -694,6 +694,7 @@ html .annis-title{
 	width: 370px!important;
     height: 346px!important;
     margin-left: 52px;
+	margin-bottom: 80px;
 }
 .ml{
 	margin-left:0 !important;
