@@ -23,17 +23,12 @@ class DC_Controller extends CI_Controller {
         $this->tbl_news= $this->tbl_prefix . 'news';
         $this->tbl_contact= $this->tbl_prefix . 'contact';
         $this->tbl_banner= $this->tbl_prefix .'banner';
-        $this->tbl_unit= $this->tbl_prefix .'unit';
-        $this->tbl_category_unit= $this->tbl_prefix .'category_unit';
-        $this->tbl_condition= $this->tbl_prefix .'condition';
-        $this->tbl_transaction= $this->tbl_prefix .'transaction';
-        $this->tbl_brand= $this->tbl_prefix .'brand';
-        $this->tbl_cicilan_unit= $this->tbl_prefix .'cicilan_unit';
-        $this->tbl_album_unit= $this->tbl_prefix .'album_unit';
-        $this->tbl_event= $this->tbl_prefix .'event';
         $this->tbl_video= $this->tbl_prefix .'video';
-        $this->tbl_gallery= $this->tbl_prefix .'gallery';
-        $this->tbl_fasilitas= $this->tbl_prefix .'fasilitas';
+        $this->tbl_destination= $this->tbl_prefix .'destination';
+        $this->tbl_category_program= $this->tbl_prefix .'program_category';
+        $this->tbl_program= $this->tbl_prefix .'program';
+        $this->tbl_program_day= $this->tbl_prefix .'program_day';
+        $this->tbl_program_images= $this->tbl_prefix .'program_images';
         
 
         //load model fo all page

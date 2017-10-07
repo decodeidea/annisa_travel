@@ -2,10 +2,12 @@
         <div class="slider-container rev_slider_wrapper" style="height: 100vh;">
 					<div id="revolutionSlider" class="slider rev_slider manual">
 						<ul>
+							<?php foreach ($banner as $key) {
+							?>
 							<li data-transition="fade"
                   data-description="Article"
-                  data-title="Kiat-Kiat Beribadah Selama Berpuasa">
-								<img src="<?php echo base_url() ?>assets/theme/img/slides/slide-2.jpg"
+                  data-title="<?php echo $key->title ?>">
+								<img src="<?php echo base_url() ?>assets/uploads/banner/<?php echo $key->id ?>/<?php echo $key->images ?>"
 									alt=""
 									data-bgposition="center center"
 									data-bgfit="cover"
@@ -29,9 +31,9 @@
                   data-width="650"
                   data-height="auto"
                   style="z-index: 5"
-                  data-mask_in="x:0px;y:0px;">Kiat-Kiat Beribadah Selama Berpuasa</div>
+                  data-mask_in="x:0px;y:0px;"><?php echo $key->title ?></div>
 
-                <a href="<?php echo base_url() ?>article/detail"
+                <a href="<?php echo $key->link ?>"
                   class="tp-caption"
                   data-hash
                   data-hash-offset="85"
@@ -47,141 +49,7 @@
 
                 <div class="tp-opacity-overlay"></div>
 							</li>
-              <li data-transition="fade"
-                  data-description="Diskon"
-                  data-title="Cash Back Hingga 5 Juta Umroh Reguler 9 Hari">
-                <img src="<?php echo base_url() ?>assets/theme/img/slides/slide-2.jpg"
-                  alt=""
-                  data-bgposition="center center"
-                  data-bgfit="cover"
-                  data-bgrepeat="no-repeat"
-                  class="rev-slidebg">
-
-                <div class="tp-caption top-label"
-									data-x="left" data-hoffset="-30"
-									data-y="center" data-voffset="-67"
-									data-start="200"
-									style="z-index: 5"
-									data-transform_in="opacity:0;s:600;">Diskon</div>
-
-                <div class="tp-caption main-label"
-                  data-x="left" data-hoffset="-30"
-                  data-y="center" data-voffset="5"
-                  data-start="200"
-                  data-whitespace="normal"
-                  data-transform_in="opacity:0;s:600;"
-                  data-transform_out="opacity:0;s:600;"
-                  data-width="650"
-                  data-height="auto"
-                  style="z-index: 5"
-                  data-mask_in="x:0px;y:0px;">Cash Back Hingga 5 Juta Umroh Reguler 9 Hari</div>
-
-                <a href="<?php echo base_url() ?>article/detail"
-                  class="tp-caption"
-                  data-hash
-                  data-hash-offset="85"
-                  href="#home-intro"
-                  data-x="left" data-hoffset="-30"
-                  data-y="center" data-voffset="150"
-                  data-start="200"
-                  data-whitespace="nowrap"
-                  data-transform_in="opacity:0;s:600;"
-                  data-transform_out="opacity:0;s:600;"
-                  style="z-index: 5"
-                  data-mask_in="x:0px;y:0px;">More Info <i class="fa fa-angle-right"></i></a>
-
-                <div class="tp-opacity-overlay"></div>
-              </li>
-              <li data-transition="fade"
-                  data-description="Promo"
-                  data-title="Cash Back Hingga 1 Juta Honey Moon In China">
-                <img src="<?php echo base_url() ?>assets/theme/img/slides/slide-3.jpg"
-                  alt=""
-                  data-bgposition="center center"
-                  data-bgfit="cover"
-                  data-bgrepeat="no-repeat"
-                  class="rev-slidebg">
-
-                <div class="tp-caption top-label"
-									data-x="left" data-hoffset="-30"
-									data-y="center" data-voffset="-67"
-									data-start="200"
-									style="z-index: 5"
-									data-transform_in="opacity:0;s:600;">Promo</div>
-
-                <div class="tp-caption main-label"
-                  data-x="left" data-hoffset="-30"
-                  data-y="center" data-voffset="5"
-                  data-start="200"
-                  data-whitespace="normal"
-                  data-transform_in="opacity:0;s:600;"
-                  data-transform_out="opacity:0;s:600;"
-                  data-width="650"
-                  data-height="auto"
-                  style="z-index: 5"
-                  data-mask_in="x:0px;y:0px;">Cash Back Hingga 1 Juta Honey Moon In China</div>
-
-                <a href="<?php echo base_url() ?>article/detail"
-                  class="tp-caption"
-                  data-hash
-                  data-hash-offset="85"
-                  href="#home-intro"
-                  data-x="left" data-hoffset="-30"
-                  data-y="center" data-voffset="150"
-                  data-start="200"
-                  data-whitespace="nowrap"
-                  data-transform_in="opacity:0;s:600;"
-                  data-transform_out="opacity:0;s:600;"
-                  style="z-index: 5"
-                  data-mask_in="x:0px;y:0px;">More Info <i class="fa fa-angle-right"></i></a>
-
-                <div class="tp-opacity-overlay"></div>
-              </li>
-              <li data-transition="fade"
-                  data-description="Article"
-                  data-title="Menjaga Kondisi Badan Selama D Mekah">
-                <img src="<?php echo base_url() ?>assets/theme/img/slides/slide-4.jpg"
-                  alt=""
-                  data-bgposition="center center"
-                  data-bgfit="cover"
-                  data-bgrepeat="no-repeat"
-                  class="rev-slidebg">
-
-                <div class="tp-caption top-label"
-									data-x="left" data-hoffset="-30"
-									data-y="center" data-voffset="-67"
-									data-start="200"
-									style="z-index: 5"
-									data-transform_in="opacity:0;s:600;">Article</div>
-
-                <div class="tp-caption main-label"
-                  data-x="left" data-hoffset="-30"
-                  data-y="center" data-voffset="5"
-                  data-start="200"
-                  data-whitespace="normal"
-                  data-transform_in="opacity:0;s:600;"
-                  data-transform_out="opacity:0;s:600;"
-                  data-width="650"
-                  data-height="auto"
-                  style="z-index: 5"
-                  data-mask_in="x:0px;y:0px;">Menjaga Kondisi Badan Selama D Mekah</div>
-
-                <a href="<?php echo base_url() ?>article/detail"
-                  class="tp-caption"
-                  data-hash
-                  data-hash-offset="85"
-                  href="#home-intro"
-                  data-x="left" data-hoffset="-30"
-                  data-y="center" data-voffset="150"
-                  data-start="200"
-                  data-whitespace="nowrap"
-                  data-transform_in="opacity:0;s:600;"
-                  data-transform_out="opacity:0;s:600;"
-                  style="z-index: 5"
-                  data-mask_in="x:0px;y:0px;">More Info <i class="fa fa-angle-right"></i></a>
-
-                  <div class="tp-opacity-overlay"></div>
-              </li>
+							<?php } ?>
 						</ul>
 					</div>
         </div>
@@ -197,19 +65,20 @@
 			
 			<div class="destination col-md-12">
 				<ul id="portfolioGrid" class="p-none">
+					<?php foreach ($top_destination as $key) { ?>
 					<li class="col-sm-6 col-md-4 isotope-item p-none top-desti ml">
 						<div class="portfolio-grid-item">
-							<a href="<?php echo base_url() ?>product/detail" class="text-decoration-none popup-with-move-anim">
+							<a href="<?php echo site_url() ?>/program/detail/<?php echo $key->id ?>/<?php echo $key->title ?>" class="text-decoration-none popup-with-move-anim">
 								<span class="thumb-info">
 									<span class="thumb-info-wrapper size-3 m-none">
-										<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/annisa/desti_1.jpg');"></span>
+										<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->image_id ?>/<?php echo $key->image ?>');"></span>
 										
 									</span>
 								</span>
 							</a>
 							<div class="image-gallery-line"></div>
 							<div class="image-gallery-title">
-								<a href="<?php echo base_url() ?>product/detail" style="text-decoration: none;"><span class="item-title">Umroh Plus Aqso Jordan</span>	</a>
+								<a href="<?php echo site_url() ?>/product/detail" style="text-decoration: none;"><span class="item-title"><?php echo $key->title ?></span>	</a>
 							</div>
 							<div class="image-gallery-date">
 								<span class="item-date">9 Oktober 2017 - 9 Hari</span>	
@@ -217,64 +86,17 @@
 						</div>
 						<span class="item-info">
 							<span class="item-rp">Rp</span>
-							<span class="item-price">34.000</span>
-							<span class="item-kos">.000</span>
+							<span class="item-price"><?php echo idr($key->price1) ?></span>
 						</span>
 						
 					</li>
-					<li class="col-sm-6 col-md-4 isotope-item p-none top-desti">
-						<div class="portfolio-grid-item">
-							<a href="<?php echo base_url() ?>product/detail" class="text-decoration-none popup-with-move-anim">
-								<span class="thumb-info">
-									<span class="thumb-info-wrapper size-3 m-none">
-										<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/annisa/desti_2.jpg');"></span>
-										
-									</span>
-								</span>
-							</a>
-							<div class="image-gallery-line"></div>
-							<div class="image-gallery-title">
-								<a href="<?php echo base_url() ?>product/detail" style="text-decoration: none;"><span class="item-title">Umroh Plus Aqso Jordan</span>	</a>
-							</div>
-							<div class="image-gallery-date">
-								<span class="item-date">9 Oktober 2017 - 9 Hari</span>	
-							</div>
-						</div>
-						<span class="item-info">
-							<span class="item-rp">Rp</span>
-							<span class="item-price">34.000</span>
-							<span class="item-kos">.000</span>
-						</span>
-					</li>
-					<li class="col-sm-6 col-md-4 isotope-item p-none top-desti">
-						<div class="portfolio-grid-item">
-							<a href="<?php echo base_url() ?>product/detail" class="text-decoration-none popup-with-move-anim">
-								<span class="thumb-info">
-									<span class="thumb-info-wrapper size-3 m-none">
-										<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/annisa/desti_3.jpg');"></span>
-									</span>
-								</span>
-							</a>
-							<div class="image-gallery-line"></div>
-							<div class="image-gallery-title">
-								<a href="<?php echo base_url() ?>product/detail" style="text-decoration: none;"><span class="item-title">Umroh Plus Aqso Jordan</span>	</a>
-							</div>
-							<div class="image-gallery-date">
-								<span class="item-date">9 Oktober 2017 - 9 Hari</span>	
-							</div>
-						</div>
-						<span class="item-info">
-							<span class="item-rp">Rp</span>
-							<span class="item-price">34.000</span>
-							<span class="item-kos">.000</span>
-						</span>
-					</li>
+					<?php } ?>
 				</ul>
 				
 				
 				
 				<div class="button-see col-md-12 center">
-					<a class="btn btn-primary mt-xl mb-sm" href="<?php echo base_url() ?>product">See More <i class="fa fa-angle-right pl-xs"></i></a>
+					<a class="btn btn-primary mt-xl mb-sm" href="<?php echo site_url() ?>/program">See More <i class="fa fa-angle-right pl-xs"></i></a>
 				</div>
 			</div>
 
@@ -292,97 +114,26 @@
 			</div>
 			<div class="featured row">
 				<ul id="portfolioGrid" class="p-none">
-						
+						<?php foreach ($destination as $key) {
+							# code...
+						?>
 						<li class="col-sm-12 col-md-8 isotope-item p-none">
 							<div class="portfolio-grid-item">
-								<a href="<?php echo base_url() ?>product/detail" class="text-decoration-none popup-with-move-anim">
+								<a href="#" class="text-decoration-none popup-with-move-anim">
 									<span class="thumb-info">
 										<span class="thumb-info-wrapper size-1 m-none">
-											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/featured/saudi.jpg');"></span>
-											<span class="thumb-info-plus-outF font-weight-bold">Saudia Arabia</span>
+											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/uploads/destination/<?php echo $key->id  ?>/<?php echo $key->images ?>');"></span>
+											<span class="thumb-info-plus-outF font-weight-bold"><?php echo $key->title ?></span>
 											
 										</span>
 									</span>
 								</a>
 							</div>
 						</li>
-						<li class="col-sm-12 col-md-4 isotope-item p-none">
-							<div class="portfolio-grid-item">
-								<a href="<?php echo base_url() ?>product/detail" class="text-decoration-none popup-with-move-anim">
-									<span class="thumb-info">
-										<span class="thumb-info-wrapper size-1 m-none">
-											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/featured/dubai.jpg');"></span>
-											<span class="thumb-info-plus-outF font-weight-bold">Dubai</span>
-										</span>
-									</span>
-								</a>
-							</div>
-						</li>
-						<li class="col-sm-12 col-md-6 isotope-item p-none">
-							<div class="portfolio-grid-item">
-								<a href="<?php echo base_url() ?>product/detail" class="text-decoration-none popup-with-move-anim">
-									<span class="thumb-info">
-										<span class="thumb-info-wrapper size-1 m-none">
-											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/featured/thailand.jpg');"></span>
-											<span class="thumb-info-plus-outF font-weight-bold">Thailand</span>
-										</span>
-									</span>
-								</a>
-							</div>
-						</li>
-						<li class="col-sm-12 col-md-6 isotope-item p-none">
-							<div class="portfolio-grid-item">
-								<a href="<?php echo base_url() ?>product/detail" class="text-decoration-none popup-with-move-anim">
-									<span class="thumb-info">
-										<span class="thumb-info-wrapper size-1 m-none">
-											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/featured/indonesia.jpg');"></span>
-											<span class="thumb-info-plus-outF font-weight-bold">Indonesia</span>
-										</span>
-									</span>
-								</a>
-							</div>
-						</li>
-						<li class="col-sm-12 col-md-6 isotope-item p-none">
-							<div class="portfolio-grid-item">
-								<a href="<?php echo base_url() ?>product/detail" class="text-decoration-none popup-with-move-anim">
-									<span class="thumb-info">
-										<span class="thumb-info-wrapper size-1 m-none">
-											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/featured/france.jpg');"></span>
-											<span class="thumb-info-plus-outF font-weight-bold">France</span>
-										</span>
-									</span>
-								</a>
-							</div>
-						</li>
-						<li class="col-sm-12 col-md-3 isotope-item p-none">
-							<div class="portfolio-grid-item">
-								<a href="<?php echo base_url() ?>product/detail" class="text-decoration-none popup-with-move-anim">
-									<span class="thumb-info">
-										<span class="thumb-info-wrapper size-1 m-none">
-											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/featured/japan.jpg');"></span>
-											<span class="thumb-info-plus-outF font-weight-bold">Japan</span>
-										</span>
-									</span>
-								</a>
-							</div>
-						</li>
-						<li class="col-sm-12 col-md-3 isotope-item p-none">
-							<div class="portfolio-grid-item">
-								<a href="<?php echo base_url() ?>product/detail" class="text-decoration-none popup-with-move-anim">
-									<span class="thumb-info">
-										<span class="thumb-info-wrapper size-1 m-none">
-											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/featured/malaysia.jpg');"></span>
-											<span class="thumb-info-plus-outF font-weight-bold">Malaysia</span>
-										</span>
-									</span>
-								</a>
-							</div>
-						</li>
-					
-						
+						<?php } ?>
 					</ul>
 					<div class="button-see2 col-md-12 center">
-						<a class="btn btn-primary mt-xl mb-sm" href="<?php echo base_url() ?>product">See More <i class="fa fa-angle-right pl-xs"></i></a>
+						<a class="btn btn-primary mt-xl mb-sm" href="#">See More <i class="fa fa-angle-right pl-xs"></i></a>
 					</div>
 			</div>
 		</div>
@@ -471,11 +222,12 @@
 								
 								<div class="carousel slide" id="myCarousel">
 								  <div class="carousel-inner">
+								  	<?php foreach ($popular_destination as $key) { ?>
 										<div class="item active">
 										  <div class="col-lg-4 col-xs-4 col-md-4 col-sm-4">
-											<a href="<?php echo base_url() ?>product/detail"><img src="<?php echo base_url() ?>assets/theme/img/pb/pb_1.jpg" class="img-responsive"></a>
+											<a href="<?php echo site_url() ?>/program/detail/<?php echo $key->id ?>/<?php echo $key->title ?>"><img src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->image_id ?>/<?php echo $key->image ?>" class="img-responsive"></a>
 											<div class="pd-dest">
-												<a href="<?php echo base_url() ?>product/detail" style="text-decoration: none;"><span class="pd-dest-tit">UMROH PLUS TURKI</span></a>
+												<a href="<?php echo site_url() ?>/program/detail/<?php echo $key->id ?>/<?php echo $key->title ?>" style="text-decoration: none;"><span class="pd-dest-tit"><?php echo $key->title ?></span></a>
 												</br>
 												<span class="pd-dest-date">06 Oktober 2017 - 9 Hari</span>
 												</br>
@@ -489,45 +241,7 @@
 											</div>
 										  </div>
 										</div>
-										<div class="item">
-										  <div class="col-lg-4 col-xs-4 col-md-4 col-sm-4">
-										  <a href="<?php echo base_url() ?>product/detail">
-											<img src="<?php echo base_url() ?>assets/theme/img/pb/pb_2.jpg" class="img-responsive"></a>
-											<div class="pd-dest">
-												<a href="<?php echo base_url() ?>product/detail" style="text-decoration: none;"><span class="pd-dest-tit">UMROH PLUS TURKI</span></a>
-												</br>
-												<span class="pd-dest-date">06 Oktober 2017 - 9 Hari</span>
-												</br>
-												<div class="product-ratings" >
-													<span class="pd-dest-child">fasilitas</span>
-													<div class="ratings-box tl-dest">
-														
-														<div class="rating" style="width:80%"></div>
-													</div>
-												</div>
-											</div>
-										  </div>
-										</div>
-										<div class="item">
-										  <div class="col-lg-4 col-xs-4 col-md-4 col-sm-4">
-										  <a href="<?php echo base_url() ?>product/detail">
-											<img src="<?php echo base_url() ?>assets/theme/img/pb/pb_3.jpg" class="img-responsive"></a>
-											<div class="pd-dest">
-												<a href="<?php echo base_url() ?>product/detail" style="text-decoration: none;"><span class="pd-dest-tit">UMROH PLUS TURKI</span></a>
-												</br>
-												<span class="pd-dest-date">06 Oktober 2017 - 9 Hari</span>
-												</br>
-												<div class="product-ratings" >
-													<span class="pd-dest-child">fasilitas</span>
-													<div class="ratings-box tl-dest">
-														
-														<div class="rating" style="width:80%"></div>
-													</div>
-												</div>
-											</div>
-										  </div>
-										</div>
-										
+										<?php } ?>
 								  </div>
 								  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
 								  <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
@@ -551,7 +265,7 @@
 					<ul id="portfolioGrid" class="p-none">
 						<li class="col-sm-6 col-md-3 isotope-item p-none">
 							<div class="portfolio-grid-item">
-								<a href="<?php echo base_url() ?>article/detail" class="text-decoration-none popup-with-move-anim">
+								<a href="<?php echo site_url() ?>/article/detail" class="text-decoration-none popup-with-move-anim">
 									<span class="thumb-info">
 										<span class="thumb-info-wrapper size-4 m-none">
 											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/expe/expe_1.jpg');"></span>
@@ -580,7 +294,7 @@
 						</li>
 						<li class="col-sm-6 col-md-3 isotope-item p-none">
 							<div class="portfolio-grid-item">
-								<a href="<?php echo base_url() ?>article/detail" class="text-decoration-none popup-with-move-anim">
+								<a href="<?php echo site_url() ?>/article/detail" class="text-decoration-none popup-with-move-anim">
 									<span class="thumb-info">
 										<span class="thumb-info-wrapper size-4 m-none">
 											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/expe/expe_2.jpg');"></span>
@@ -592,7 +306,7 @@
 								<div class="pd-expe">
 									<div class="testimonial-author">
 										<div class="testimonial-author-thumbnail">
-											<img src="<?php echo base_url() ?>assets/theme/img/annisa/umara.png" class="img-responsive img-circle" alt="">
+											<img src="<?php echo base_url() ?>/assets/theme/img/annisa/umara.png" class="img-responsive img-circle" alt="">
 										</div>
 										<p><strong>John Smith - SEMARANG</strong></p>
 										<div class="product-ratings" >
@@ -608,7 +322,7 @@
 						</li>
 						<li class="col-sm-6 col-md-3 isotope-item p-none">
 							<div class="portfolio-grid-item">
-								<a href="<?php echo base_url() ?>article/detail" class="text-decoration-none popup-with-move-anim">
+								<a href="<?php echo site_url() ?>/article/detail" class="text-decoration-none popup-with-move-anim">
 									<span class="thumb-info">
 										<span class="thumb-info-wrapper size-4 m-none">
 											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/expe/expe_3.jpg');"></span>
@@ -636,7 +350,7 @@
 						</li>
 						<li class="col-sm-6 col-md-3 isotope-item p-none">
 							<div class="portfolio-grid-item">
-								<a href="<?php echo base_url() ?>article/detail" class="text-decoration-none popup-with-move-anim">
+								<a href="<?php echo site_url() ?>/article/detail" class="text-decoration-none popup-with-move-anim">
 									<span class="thumb-info">
 										<span class="thumb-info-wrapper size-4 m-none">
 											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/expe/expe_4.jpg');"></span>
@@ -648,7 +362,7 @@
 								<div class="pd-expe">
 									<div class="testimonial-author">
 										<div class="testimonial-author-thumbnail">
-											<img src="<?php echo base_url() ?>assets/theme/img/annisa/umara.png" class="img-responsive img-circle" alt="">
+											<img src="<?php echo base_url() ?>/assets/theme/img/annisa/umara.png" class="img-responsive img-circle" alt="">
 										</div>
 										<p><strong>John Smith - SEMARANG</strong></p>
 										<div class="product-ratings" >
@@ -664,7 +378,7 @@
 						</li>
 					</ul>
 					<div class="button-see2 col-md-12 center">
-						<a class="btn btn-primary mt-xl mb-sm" href="<?php echo base_url() ?>article">See More <i class="fa fa-angle-right pl-xs"></i></a>
+						<a class="btn btn-primary mt-xl mb-sm" href="<?php echo site_url() ?>/article">See More <i class="fa fa-angle-right pl-xs"></i></a>
 					</div>
 				</div>
 				
@@ -735,7 +449,7 @@
       					</article>
       				</div>
               <div class="col-md-12 mt-xlg center">
-                <a href="<?php echo base_url() ?>article"><button type="button" class="btn btn-primary">See More</button></a>
+                <a href="<?php echo site_url() ?>/article"><button type="button" class="btn btn-primary">See More</button></a>
               </div>
     				</div>
           </div>

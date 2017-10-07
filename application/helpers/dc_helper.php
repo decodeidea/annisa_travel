@@ -41,7 +41,7 @@ function get_client_ip_server() {
 		return $name;
 	}
 	function idr($angka){
-		$angka ="IDR. ".number_format($angka,2,',','.');
+		$angka =number_format($angka,2,',','.');
 		$duitnya=str_replace(",00", "", $angka);
 		return $duitnya;
 	
@@ -253,3 +253,21 @@ function get_client_ip_server() {
 		$data = $ci->db->get();
 		return $data;
 	}
+	function tanggal_indo($tanggal)
+{
+	$bulan = array (1 =>   'Januari',
+				'Februari',
+				'Maret',
+				'April',
+				'Mei',
+				'Juni',
+				'Juli',
+				'Agustus',
+				'September',
+				'Oktober',
+				'November',
+				'Desember'
+			);
+	$split = explode('-', $tanggal);
+	return $split[2] . ' ' . $bulan[ (int)$split[1] ] . ' ' . $split[0];
+}

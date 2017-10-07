@@ -13,6 +13,7 @@ $.extend( true, $.fn.dataTable.defaults, {
 $('.delete').on( "click",function() {
 		$("#quick-access").css("display","block");
     });
+
 /* Default class modification */
 $.extend( $.fn.dataTableExt.oStdClasses, {
 	"sWrapper": "dataTables_wrapper form-inline"
@@ -271,6 +272,28 @@ $(document).ready(function() {
 	$("div.toolbar").html('<div class="table-tools-actions"><a id="add_button" href="'+$('#site_url').val()+"/"+$('#controller').val()+"/"+$('#method').val()+'_form/"><button class="btn btn-primary" style="margin-left:12px">Tambah</button></a></div>');
 		
 	}
+	var oTable50 = $('#list_data2').dataTable( {
+	   "sDom": "<'row'<'col-md-6'l <'toolbar'>><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
+        			"oTableTools": {
+			"aButtons": [
+				{
+					"sExtends":    "collection",
+					"sButtonText": "<i class='fa fa-cloud-download'></i>",
+					"aButtons":    [ "csv", "xls", "pdf", "copy"]
+				}
+			]
+		},
+        "aoColumnDefs": [
+            { "bSortable": false, "aTargets": [ 0 ] }
+        ],
+        
+				"oLanguage": {
+			"sLengthMenu": "_MENU_ ",
+			"sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
+		},
+    });
+	$('#list_data2_wrapper .dataTables_filter input').addClass("input-medium ");
+    $('#list_data2_wrapper .dataTables_length select').addClass("select2-wrapper span12");
 	
 	
 	$('#example2_wrapper .dataTables_filter input').addClass("input-medium ");
@@ -352,3 +375,26 @@ function delete_data()
     		});
 
           };
+
+function featured_destination(id,value){
+	 		controller = $('#controller').val();
+  			method = $('#method').val();
+  			site_url = $('#site_url').val();
+      		$.ajax({
+        	url : controller + "/"+method+"_featured/",
+        	data: {
+        	 "id": id,
+        	 "value":value
+        	  },
+        	type: "POST",
+        	dataType: "JSON",
+        	success: function(data)
+        	{
+        		window.location= site_url +"/"+ controller + "/"+method;
+        	},
+        	error: function (jqXHR, textStatus, errorThrown)
+        	{
+            	alert('Error adding / update data');
+        	}
+    		});
+};

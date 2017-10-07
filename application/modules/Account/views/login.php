@@ -1,6 +1,6 @@
 
     <div class="row">
-      <div class="col-md-6 tex-center" style="background: url(<?php echo base_url() ?>assets/theme/img/LOGIN.jpg); height: 100vh; background-size: cover">
+      <div class="col-md-6 tex-center" style="background: url(<?php echo base_url() ?>assets/theme/img/login.jpg); height: 100vh; background-size: cover">
         <div class="login-form-social text-center">
          <a href="<?php echo base_url() ?>"> <img src="<?php echo base_url() ?>assets/theme/img/logo.png" width="150px"></a>
           <br><br>

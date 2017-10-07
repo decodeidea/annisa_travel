@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 01, 2017 at 05:39 PM
+-- Generation Time: Oct 07, 2017 at 07:54 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -67,7 +67,11 @@ CREATE TABLE `dc_banner` (
 --
 
 INSERT INTO `dc_banner` (`id`, `title`, `description`, `images`, `link`, `lang`, `date_created`, `date_modified`, `id_creator`, `id_modifier`) VALUES
-(3, 'Ways of Worshiping During Fasting', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod \r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim \r\nveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea \r\ncommodo consequat. Duis aute irure dolor in reprehenderit in voluptate \r\nvelit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint \r\noccaecat cupidatat non proident, sunt in culpa qui officia deserunt \r\nmollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem \r\naccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab\r\n illo inventore veritatis et quasi architecto beatae vitae dicta sunt \r\nexplicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut \r\nodit aut fugit, sed quia consequuntur magni dolores eos qui ratione \r\nvoluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum \r\nquia dolor sit amet, consectetur, adipisci velit, sed quia non numquam \r\neius modi tempora incidunt ut labore et dolore magnam aliquam quaerat \r\nvoluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam \r\ncorporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?\r\n Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse \r\nquam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo \r\nvoluptas nulla pariatur?</p>', '707504.jpg', '#', 'en', '0000-00-00 00:00:00', '2017-10-01 22:37:44', 0, 1);
+(3, 'Ways of Worshiping During Fasting', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod \r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim \r\nveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea \r\ncommodo consequat. Duis aute irure dolor in reprehenderit in voluptate \r\nvelit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint \r\noccaecat cupidatat non proident, sunt in culpa qui officia deserunt \r\nmollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem \r\naccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab\r\n illo inventore veritatis et quasi architecto beatae vitae dicta sunt \r\nexplicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut \r\nodit aut fugit, sed quia consequuntur magni dolores eos qui ratione \r\nvoluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum \r\nquia dolor sit amet, consectetur, adipisci velit, sed quia non numquam \r\neius modi tempora incidunt ut labore et dolore magnam aliquam quaerat \r\nvoluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam \r\ncorporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?\r\n Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse \r\nquam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo \r\nvoluptas nulla pariatur?</p>', '707504.jpg', '#', 'en', '0000-00-00 00:00:00', '2017-10-01 22:37:44', 0, 1),
+(4, 'Lorem ipsum dolor sit amet', '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem \r\naccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab\r\n illo inventore veritatis et quasi architecto beatae vitae dicta sunt \r\nexplicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut \r\nodit aut fugit, sed quia consequuntur magni dolores eos qui ratione \r\nvoluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum \r\nquia dolor sit amet, consectetur, adipisci velit, sed quia non numquam \r\neius modi tempora incidunt ut labore et dolore magnam aliquam quaerat \r\nvoluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam \r\ncorporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?\r\n Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse \r\nquam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo \r\nvoluptas nulla pariatur</p>', '00-lede-lyon-france-travel-guide.jpg', '#', 'en', '2017-10-01 23:07:17', NULL, 1, NULL),
+(5, 'Lorem ipsum dolor sit amet', '<p>lorem ipsum<br></p>', 'france-feature.jpg', '#', 'en', '2017-10-01 23:07:39', NULL, 1, NULL),
+(6, 'Lorem ipsum dolor sit amet', 'lorem ipsum dolor amet<br>', 'France-Travel3.jpg', '#', 'en', '2017-10-01 23:08:05', NULL, 1, NULL),
+(7, 'Kiat-kiat Beribadah Selama Berpuasa', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod \r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim \r\nveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea \r\ncommodo consequat. Duis aute irure dolor in reprehenderit in voluptate \r\nvelit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint \r\noccaecat cupidatat non proident, sunt in culpa qui officia deserunt \r\nmollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem \r\naccusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab\r\n illo inventore veritatis et quasi architecto beatae vitae dicta sunt \r\nexplicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut \r\nodit aut fugit, sed quia consequuntur magni dolores eos qui ratione \r\nvoluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum \r\nquia dolor sit amet, consectetur, adipisci velit, sed quia non numquam \r\neius modi tempora incidunt ut labore et dolore magnam aliquam quaerat \r\nvoluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam \r\ncorporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?\r\n Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse \r\nquam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo \r\nvoluptas nulla pariatur?</p>', '707504.jpg', '#', 'id', '0000-00-00 00:00:00', '2017-10-01 22:37:44', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -108,6 +112,32 @@ CREATE TABLE `dc_default` (
   `id_creator` int(250) NOT NULL,
   `id_modifier` int(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dc_destination`
+--
+
+CREATE TABLE `dc_destination` (
+  `id` int(100) NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `images` text NOT NULL,
+  `description` text NOT NULL,
+  `featured` int(1) NOT NULL,
+  `lang` enum('en','id') NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_modified` datetime DEFAULT NULL,
+  `id_creator` int(250) NOT NULL,
+  `id_modifier` int(250) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `dc_destination`
+--
+
+INSERT INTO `dc_destination` (`id`, `title`, `images`, `description`, `featured`, `lang`, `date_created`, `date_modified`, `id_creator`, `id_modifier`) VALUES
+(1, 'France', 'region-france.jpg', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod \r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim \r\nveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea \r\ncommodo consequat. Duis aute irure dolor in reprehenderit in voluptate \r\nvelit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint \r\noccaecat cupidatat non proident, sunt in culpa qui officia deserunt \r\nmollit anim id est laborum</p>', 1, 'en', '2017-10-06 01:03:13', NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -225,7 +255,7 @@ INSERT INTO `dc_menu` (`id`, `name_menu`, `sub_menu`, `target`, `icon`, `positio
 (23, 'Video', '1', 'video', 'none', 6, 'en', '2017-04-27 15:07:41', NULL, 1, NULL),
 (24, 'Konten', '0', 'admin_content', 'icon-custom-thumb', 1, 'id', '0000-00-00 00:00:00', '2017-10-01 22:16:27', 0, 1),
 (25, 'Halaman Statis', '24', 'static_page', 'none', 1, 'id', '2017-10-01 21:31:58', NULL, 1, NULL),
-(26, 'Artikle', '24', 'article', 'none', 2, 'id', '2017-10-01 21:32:16', NULL, 1, NULL),
+(26, 'Artikel', '24', 'article', 'none', 2, 'id', '0000-00-00 00:00:00', '2017-10-07 12:50:33', 0, 1),
 (27, 'Banner', '24', 'banner', 'none', 3, 'id', '2017-10-01 21:32:35', NULL, 1, NULL),
 (28, 'Video', '24', 'video', 'none', 4, 'id', '2017-10-01 21:32:55', NULL, 1, NULL),
 (29, 'Pesan', '0', 'message', 'fa fa-envelope', 2, 'id', '0000-00-00 00:00:00', '2017-10-01 21:57:41', 0, 1),
@@ -236,7 +266,15 @@ INSERT INTO `dc_menu` (`id`, `name_menu`, `sub_menu`, `target`, `icon`, `positio
 (34, 'User', '32', 'user', 'none', 2, 'id', '2017-10-01 21:35:40', NULL, 1, NULL),
 (35, 'Akses User', '32', 'user_accsess', 'none', 3, 'id', '2017-10-01 21:36:08', NULL, 1, NULL),
 (36, 'Group User', '32', 'user_groups', 'none', 4, 'id', '2017-10-01 21:36:32', NULL, 1, NULL),
-(37, 'Tampilan', '32', 'appearance', 'none', 5, 'id', '2017-10-01 21:37:05', NULL, 1, NULL);
+(37, 'Tampilan', '32', 'appearance', 'none', 5, 'id', '2017-10-01 21:37:05', NULL, 1, NULL),
+(38, 'Program', '0', 'admin_program', 'fa fa-asterisk', 2, 'en', '2017-10-06 00:50:34', NULL, 1, NULL),
+(39, 'Destination', '38', 'destination', 'none', 1, 'en', '2017-10-06 00:51:06', NULL, 1, NULL),
+(40, 'Category Program', '38', 'category_program', 'none', 2, 'en', '2017-10-06 00:51:46', NULL, 1, NULL),
+(41, 'Program', '38', 'program', 'none', 3, 'en', '2017-10-06 00:52:04', NULL, 1, NULL),
+(42, 'Program', '0', 'admin_program', 'fa fa-asterisk', 2, 'id', '2017-10-06 00:50:34', NULL, 1, NULL),
+(43, 'Wisata', '42', 'destination', 'none', 1, 'id', '2017-10-06 00:51:06', NULL, 1, NULL),
+(44, 'Kategori Program', '42', 'category_program', 'none', 2, 'id', '2017-10-06 00:51:46', NULL, 1, NULL),
+(45, 'Program', '42', 'program', 'none', 3, 'id', '2017-10-06 00:52:04', NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -319,7 +357,15 @@ INSERT INTO `dc_menu_accsess` (`id`, `id_menu`, `id_group`, `accsess`) VALUES
 (72, 34, 1, 1),
 (73, 35, 1, 1),
 (74, 36, 1, 1),
-(75, 37, 1, 1);
+(75, 37, 1, 1),
+(76, 38, 1, 1),
+(77, 39, 1, 1),
+(78, 40, 1, 1),
+(79, 41, 1, 1),
+(80, 42, 1, 1),
+(81, 43, 1, 1),
+(82, 44, 1, 1),
+(83, 45, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -338,6 +384,111 @@ CREATE TABLE `dc_news` (
   `id_creator` int(11) NOT NULL,
   `id_modifier` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dc_program`
+--
+
+CREATE TABLE `dc_program` (
+  `id` int(100) NOT NULL,
+  `id_destination` int(100) NOT NULL,
+  `id_program_category` int(100) NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `itenary` text NOT NULL,
+  `fasilitas` text NOT NULL,
+  `price1` int(100) NOT NULL,
+  `price2` int(100) NOT NULL,
+  `price3` int(100) NOT NULL,
+  `lang` enum('en','id') NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_modified` datetime DEFAULT NULL,
+  `id_creator` int(250) NOT NULL,
+  `id_modifier` int(250) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `dc_program`
+--
+
+INSERT INTO `dc_program` (`id`, `id_destination`, `id_program_category`, `title`, `itenary`, `fasilitas`, `price1`, `price2`, `price3`, `lang`, `date_created`, `date_modified`, `id_creator`, `id_modifier`) VALUES
+(1, 1, 1, 'Lorem ipsum dolor', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod \r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim \r\nveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea \r\ncommodo consequat. Duis aute irure dolor in reprehenderit in voluptate \r\nvelit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint \r\noccaecat cupidatat non proident, sunt in culpa qui officia deserunt \r\nmollit anim id est laborum.</p>', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod \r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim \r\nveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea \r\ncommodo consequat. Duis aute irure dolor in reprehenderit in voluptate \r\nvelit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint \r\noccaecat cupidatat non proident, sunt in culpa qui officia deserunt \r\nmollit anim id est laborum.</p>', 2500000, 2500000, 2500000, 'en', '2017-10-06 01:26:19', NULL, 1, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dc_program_category`
+--
+
+CREATE TABLE `dc_program_category` (
+  `id` int(100) NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `images` text NOT NULL,
+  `description` text NOT NULL,
+  `lang` enum('en','id') NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_modified` datetime DEFAULT NULL,
+  `id_creator` int(250) NOT NULL,
+  `id_modifier` int(250) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `dc_program_category`
+--
+
+INSERT INTO `dc_program_category` (`id`, `title`, `images`, `description`, `lang`, `date_created`, `date_modified`, `id_creator`, `id_modifier`) VALUES
+(1, 'Honey Moon', 'A_couple_takes_a_walk_on_tropical_beach_of_La_Digue_in_Seychelles.jpg', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod \r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim \r\nveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea \r\ncommodo consequat. Duis aute irure dolor in reprehenderit in voluptate \r\nvelit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint \r\noccaecat cupidatat non proident, sunt in culpa qui officia deserunt \r\nmollit anim id est laborum</p>', 'en', '2017-10-06 01:09:18', NULL, 1, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dc_program_day`
+--
+
+CREATE TABLE `dc_program_day` (
+  `id` int(100) NOT NULL,
+  `id_program` int(100) NOT NULL,
+  `day` date NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_modified` datetime DEFAULT NULL,
+  `id_creator` int(250) NOT NULL,
+  `id_modifier` int(250) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `dc_program_day`
+--
+
+INSERT INTO `dc_program_day` (`id`, `id_program`, `day`, `date_created`, `date_modified`, `id_creator`, `id_modifier`) VALUES
+(1, 1, '2017-10-31', '0000-00-00 00:00:00', '2017-10-06 02:19:16', 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dc_program_images`
+--
+
+CREATE TABLE `dc_program_images` (
+  `id` int(100) NOT NULL,
+  `id_program` int(100) NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `images` text NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_modified` datetime DEFAULT NULL,
+  `id_creator` int(250) NOT NULL,
+  `id_modifier` int(250) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `dc_program_images`
+--
+
+INSERT INTO `dc_program_images` (`id`, `id_program`, `title`, `images`, `date_created`, `date_modified`, `id_creator`, `id_modifier`) VALUES
+(1, 1, '1', '150713155054-destination-france-lyon-super-169.jpg', '2017-10-06 01:48:43', NULL, 1, NULL),
+(6, 1, '2', 'destination-france.jpg', '2017-10-06 01:59:23', NULL, 1, NULL),
+(7, 1, '3', 'France-2.jpg', '2017-10-06 01:59:29', NULL, 1, NULL),
+(8, 1, '4', 'region-france.jpg', '2017-10-06 01:59:36', NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -447,6 +598,12 @@ ALTER TABLE `dc_default`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `dc_destination`
+--
+ALTER TABLE `dc_destination`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `dc_groups`
 --
 ALTER TABLE `dc_groups`
@@ -474,6 +631,30 @@ ALTER TABLE `dc_menu_accsess`
 -- Indexes for table `dc_news`
 --
 ALTER TABLE `dc_news`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `dc_program`
+--
+ALTER TABLE `dc_program`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `dc_program_category`
+--
+ALTER TABLE `dc_program_category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `dc_program_day`
+--
+ALTER TABLE `dc_program_day`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `dc_program_images`
+--
+ALTER TABLE `dc_program_images`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -507,7 +688,7 @@ ALTER TABLE `dc_appearance`
 -- AUTO_INCREMENT for table `dc_banner`
 --
 ALTER TABLE `dc_banner`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `dc_contact`
 --
@@ -518,6 +699,11 @@ ALTER TABLE `dc_contact`
 --
 ALTER TABLE `dc_default`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `dc_destination`
+--
+ALTER TABLE `dc_destination`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `dc_groups`
 --
@@ -532,17 +718,37 @@ ALTER TABLE `dc_icons`
 -- AUTO_INCREMENT for table `dc_menu`
 --
 ALTER TABLE `dc_menu`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT for table `dc_menu_accsess`
 --
 ALTER TABLE `dc_menu_accsess`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 --
 -- AUTO_INCREMENT for table `dc_news`
 --
 ALTER TABLE `dc_news`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `dc_program`
+--
+ALTER TABLE `dc_program`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `dc_program_category`
+--
+ALTER TABLE `dc_program_category`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `dc_program_day`
+--
+ALTER TABLE `dc_program_day`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `dc_program_images`
+--
+ALTER TABLE `dc_program_images`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `dc_static_content`
 --

@@ -1,9 +1,9 @@
 <div role="main" class="main pt-sm">
         <div class="container">
       <div class="row">
-        <div class="breadcumb">
-          <span><a href="#" >Saudi Arabia </a> </span> > <span> <a href="#" > Umroh Series </a></span>
-        </div>
+        <!-- <div class="breadcumb">
+          <span><a href="#" >Saudi Arabia </a> </span> > <span> <a href="#" >  ?> </a></span>
+        </div> -->
       </div>
     </div>
     
@@ -12,7 +12,7 @@
       <div class="row">
       
         <div class="col-md-12 center">
-          <h1 class="title-news"> Umroh Series Reguler 9 Hari </h1>
+          <h1 class="title-news"> <?php echo $data->title ?></h1>
           <div class="bg-line-red"> </div>
         </div>
       </div>
@@ -23,44 +23,29 @@
                 <div class="carousel slide" id="myCarousel">
                   <!-- Carousel items -->
                   <div class="carousel-inner">
-                    <div class="active item alif" data-slide-number="0">
-                    <img src="<?php echo base_url() ?>assets/theme/img/detail/det_1.jpg"></div>
-
-                    <div class="item alif" data-slide-number="1">
-                    <img src="<?php echo base_url() ?>assets/theme/img/detail/det_1.jpg"></div>
-
-                    <div class="item alif" data-slide-number="2">
-                    <img src="<?php echo base_url() ?>assets/theme/img/detail/det_1.jpg"></div>
-
-                    <div class="item alif" data-slide-number="3">
-                    <img src="<?php echo base_url() ?>assets/theme/img/detail/det_1.jpg"></div>
-
-                    <div class="item alif" data-slide-number="4">
-                    <img src="<?php echo base_url() ?>assets/theme/img/detail/det_1.jpg"></div>
-
-                    <div class="item alif" data-slide-number="5">
-                    <img src="<?php echo base_url() ?>assets/theme/img/detail/det_1.jpg"></div>
+                    <?php
+                     $no=0;
+                     foreach ($album_image as $key) {
+                     ?>
+                    <div class="<?php if($no==0){echo"active ";} ?>item alif" data-slide-number="<?php echo $no ?>">
+                    <img src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->id ?>/<?php echo $key->images ?>"></div>
+                    <?php
+                     $no++;
+                     } ?>
                   </div><!-- Carousel nav -->
                   <!--<a class="carousel-control left" data-slide="prev" href="#myCarousel">‹</a> <a class="carousel-control right" data-slide="next" href="#myCarousel">›</a> !-->
                 </div>
                   <ul class="thumbnails-alif">
+                    <?php 
+                    $no=0;
+                    foreach ($album_image as $key) {
+                     ?>
                     <li class="thumb-sub-alif">
-                      <a class="img-alif" id="carousel-selector-0"><img src="<?php echo base_url() ?>assets/theme/img/detail/det_1.jpg"></a>
+                      <a class="img-alif" id="carousel-selector-<?php echo $no ?>"><img src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->id ?>/<?php echo $key->images ?>"></a>
                     </li>
-
-                    <li class="thumb-sub-alif">
-                      <a class="img-alif" id="carousel-selector-1"><img src="<?php echo base_url() ?>assets/theme/img/detail/det_1.jpg"></a>
-                    </li>
-
-                    <li class="thumb-sub-alif">
-                      <a class="img-alif" id="carousel-selector-2"><img src="<?php echo base_url() ?>assets/theme/img/detail/det_1.jpg"></a>
-                    </li>
-
-                    <li class="thumb-sub-alif">
-                      <a class="img-alif" id="carousel-selector-3"><img src="<?php echo base_url() ?>assets/theme/img/detail/det_1.jpg"></a>
-                    </li>
-
-                    
+                    <?php
+                     $no++;
+                     } ?>
                   </ul>
               </div>
               
@@ -73,11 +58,11 @@
                     </ul>
                     <div class="tab-content">
                       <div class="tab-pane active" id="productDescription">
-                        <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis, massa fringilla consequat blandit, mauris ligula porta nisi, non tristique enim sapien vel nisl. Suspendisse vestibulum lobortis dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent nec tempus nibh. Donec mollis commodo metus et fringilla. Etiam venenatis, diam id adipiscing convallis, nisi eros lobortis tellus, feugiat adipiscing ante ante sit amet dolor. Vestibulum vehicula scelerisque facilisis. Sed faucibus placerat bibendum. Maecenas sollicitudin commodo justo, quis hendrerit leo consequat ac. Proin sit amet risus sapien, eget interdum dui. Proin justo sapien, varius sit amet hendrerit id, egestas quis mauris.</p>
+                       <?php echo $data->itenary ?>
                       
                       </div>
                       <div class="tab-pane" id="productInfo">
-                        <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis, massa fringilla consequat blandit, mauris ligula porta nisi, non tristique enim sapien vel nisl. Suspendisse vestibulum lobortis dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent nec tempus nibh. Donec mollis commodo metus et fringilla. Etiam venenatis, diam id adipiscing convallis, nisi eros lobortis tellus, feugiat adipiscing ante ante sit amet dolor. Vestibulum vehicula scelerisque facilisis. Sed faucibus placerat bibendum. Maecenas sollicitudin commodo justo, quis hendrerit leo consequat ac. Proin sit amet risus sapien, eget interdum dui. Proin justo sapien, varius sit amet hendrerit id, egestas quis mauris.</p>
+                        <?php echo $data->fasilitas ?>
                       
                       </div>
                       <div class="tab-pane" id="productReviews">
@@ -99,7 +84,7 @@
                 <div class="nav div-room-white">
                   <div class="col-md-7 rt">
                     <span class="room-type">QUAD ROOM</span></br>
-                    <span class="room-price">Rp.21,5 Juta/orang</span>
+                    <span class="room-price">Rp. <?php echo idr($data->price1) ?>/orang</span>
                   </div>
                   <div class="col-md-4">
                     <div class="quantity">
@@ -112,7 +97,7 @@
                 <div class="nav div-room">
                   <div class="col-md-7 rt">
                     <span class="room-type">TRIPLE ROOM</span></br>
-                    <span class="room-price">Rp.21,5 Juta/orang</span>
+                    <span class="room-price">Rp.<?php echo idr($data->price2) ?>/orang</span>
                   </div>
                   <div class="col-md-4">
                     <div class="quantity">
@@ -124,8 +109,8 @@
                 </div>
                 <div class="nav div-room-white">
                   <div class="col-md-7 rt">
-                    <span class="room-type">QUAD ROOM</span></br>
-                    <span class="room-price">Rp.21,5 Juta/orang</span>
+                    <span class="room-type">DOUBLE ROOM</span></br>
+                    <span class="room-price">Rp.<?php echo idr($data->price3) ?>/orang</span>
                   </div>
                   <div class="col-md-4">
                     <div class="quantity">

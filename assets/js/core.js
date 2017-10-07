@@ -717,6 +717,17 @@ function unblockUI(el) {
         }
     }
 });
+$('#summernote2').summernote({
+    height: 300,
+    callbacks: {
+        onImageUpload : function(files, editor, welEditable) {
+
+             for(var i = files.length - 1; i >= 0; i--) {
+                     sendFile(files[i], this);
+            }
+        }
+    }
+});
              function sendFile(file, el) {
 var form_data = new FormData();
 form_data.append('file', file);

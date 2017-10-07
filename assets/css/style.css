@@ -8267,3 +8267,6 @@ input[type="file"] {
 .div-logo{
   padding: 10px;
 }
+.button-add-data{
+  top: 0px; left: 90px; position: absolute; z-index: 10;
+}

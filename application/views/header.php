@@ -1,4 +1,4 @@
-<header id="header" class="header-transparent-none">
+<header id="header" class="<?php if($this->uri->segment(2)=='Home' or $this->uri->segment(2)=='home' or $this->uri->segment(2)==''){ echo"header-transparent";}else{ echo"header-transparent-none";} ?>">
         <div class="header-body-none">
           <div class="header-container container">
             <div class="header-logo">
@@ -14,60 +14,29 @@
                       <a class="dropdown-toggle dnone" href="#">
                         Umrah & Haji
                       </a>
-                      <ul class="dropdown-menu">
-                       <li>
-                          <a href="<?php echo site_url('product/category') ?>">Umrah Reguler</a>
-                        </li>
-                        <li>
-                          <a href="<?php echo site_url() ?>product/category">Umrah Plus</a>
-                        </li>
-                        <li>
-                          <a href="<?php echo base_url() ?>product/category">Haji Plus</a>
-                        </li>
-                        <li>
-                          <a href="<?php echo base_url() ?>product/category">Tabungan & Pembiayaan</a>
-                        </li>
-                        <li>
-                          <a href="<?php echo base_url() ?>product/category">Kemitraan</a>
-                        </li>
-                      </ul>
                     </li>
                     <li class="dropdown">
                       <a class="dropdown-toggle dnone" href="#">
                         Wisata
                       </a>
-                      <ul class="dropdown-menu">
-                       <li>
-                          <a href="<?php echo base_url() ?>product/category">Wisata Domestik</a>
-                        </li>
-                        <li>
-                          <a href="<?php echo base_url() ?>product/category">Wisata Internasional</a>
-                        </li>
-                        <li>
-                          <a href="<?php echo base_url() ?>product/category">Wisata Edukatif</a>
-                        </li>
-                        <li>
-                          <a href="<?php echo base_url() ?>product/category">Wisata Halal Trip</a>
-                        </li>
-                      </ul>
                     </li>
                     <li class="dropdown">
                       <a class="dropdown-toggle dnone" href="#">
                         Perusahaan
                       </a>
                       <ul class="dropdown-menu">
+                        <?php
+                        $static_page='dc_static_content';
+                        $query = $this->db->query("SELECT * from ".$static_page." where lang ='".$this->lang->lang()."'" );
+                        $result = $query->result();
+                        foreach( $result as $key )
+                        {
+                          $title=strtolower($key->title);
+                        ?>
                         <li>
-                          <a href="<?php echo base_url() ?>article/detail">Corporate Travel Management</a>
+                          <a href="<?php echo site_url() ?>/<?php echo str_replace(' ','-',$title) ?>"><?php echo $key->title ?></a>
                         </li>
-                        <li>
-                          <a href="<?php echo base_url() ?>article/detail">Mice</a>
-                        </li>
-                        <li>
-                          <a href="<?php echo base_url() ?>article/detail">Layanan Ekstra</a>
-                        </li>
-                        <li>
-                          <a href="<?php echo base_url() ?>article/detail">Rekam Jejak</a>
-                        </li>
+                        <?php } ?>
                       </ul>
                     </li>
                   </ul>
@@ -95,12 +64,12 @@
                       </ul>
                     </li>
                     <li class="">
-                      <a class="dnone"  href="<?php echo base_url() ?>account/login">
+                      <a class="dnone"  href="<?php echo site_url('account/login') ?>">
                         Sign In
                       </a>
                     </li>
                     <li class="">
-                      <a class="dnone" href="<?php echo base_url() ?>account/register">
+                      <a class="dnone" href="<?php echo site_url('account/register') ?>">
                         Sign Up
                       </a>
                     </li>
