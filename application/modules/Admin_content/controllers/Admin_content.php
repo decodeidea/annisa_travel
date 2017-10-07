@@ -157,7 +157,7 @@ class Admin_content extends DC_controller {
 	function article_form($id=null){
 		$this->check_access();
 		$data = $this->controller_attr;
-		$data['function']='news';
+		$data['function']='article';
 		if ($id) {
             $data['data'] = select_where($this->tbl_news, 'id', $id)->row();
         }
@@ -410,7 +410,7 @@ class Admin_content extends DC_controller {
         else{
             $data['data'] = null;
         }
-		$data['page'] = $this->load->view('Admin_content/banner_form',$data,true);
+		$data['page'] = $this->load->view('Admin_content/video_form',$data,true);
 		$this->load->view('layout_backend',$data);
 	}
 
