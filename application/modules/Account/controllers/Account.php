@@ -13,7 +13,7 @@ class Account extends DC_controller {
 		}else{
 			$method=str_replace('_',' ',$this->router->fetch_method());
 		}
-		$this->controller_attr = array('controller' => 'account','controller_name' => 'Account');
+		$this->controller_attr = array('controller' => 'Account','controller_name' => 'Account');
 	}
 	
 	 function index(){

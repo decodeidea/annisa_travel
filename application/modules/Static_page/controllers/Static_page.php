@@ -13,7 +13,7 @@ class Static_page extends DC_controller {
 		}else{
 			$method=str_replace('_',' ',$this->router->fetch_method());
 		}
-		$this->controller_attr = array('controller' => 'static_page','controller_name' => $this->uri->segment('1'),'method'=>ucwords($method));
+		$this->controller_attr = array('controller' => 'Static_page','controller_name' => $this->uri->segment('1'),'method'=>ucwords($method));
 	}
 	
 	 function index(){

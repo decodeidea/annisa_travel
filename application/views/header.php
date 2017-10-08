@@ -2,7 +2,7 @@
         <div class="header-body-none">
           <div class="header-container container">
             <div class="header-logo">
-              <a href="<?php echo base_url() ?>">
+              <a href="<?php echo site_url() ?>">
                 <img alt="Annisa Travel" width="160" src="<?php echo base_url() ?>assets/theme/img/logo.png">
               </a>
             </div>
@@ -64,12 +64,12 @@
                       </ul>
                     </li>
                     <li class="">
-                      <a class="dnone"  href="<?php echo site_url('account/login') ?>">
+                      <a class="dnone"  href="<?php echo site_url('Account/login') ?>">
                         Sign In
                       </a>
                     </li>
                     <li class="">
-                      <a class="dnone" href="<?php echo site_url('account/register') ?>">
+                      <a class="dnone" href="<?php echo site_url('Account/register') ?>">
                         Sign Up
                       </a>
                     </li>

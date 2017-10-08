@@ -13,7 +13,7 @@ class Admin extends DC_controller {
 		}else{
 			$method=str_replace('_',' ',$this->router->fetch_method());
 		}
-		$this->controller_attr = array('controller' => 'admin','controller_name' => 'Admin','method'=>ucwords($method),'menu'=>$this->get_menu());
+		$this->controller_attr = array('controller' => 'Admin','controller_name' => 'Admin','method'=>ucwords($method),'menu'=>$this->get_menu());
 	}
 	
 	public function index(){
@@ -66,10 +66,10 @@ class Admin extends DC_controller {
 			else{
 					$this->session->set_flashdata('notif','info');
 					$this->session->set_flashdata('msg','Username not registered');
-					redirect(site_url().'/admin/login');
+					redirect(site_url().'/Admin/login');
 			}
 		}else{
-			redirect(site_url().'/admin/dashboard');
+			redirect(site_url().'/Admin/dashboard');
 		}
 	}
 	function logout(){
@@ -77,15 +77,15 @@ class Admin extends DC_controller {
 		$data += array('function' => 'logout','function_name' => 'Logout');
 		if($this->session->userdata('admin') != FALSE){
 			$this->session->unset_userdata('admin');
-			redirect(site_url().'/admin/login');
+			redirect(site_url().'/Admin/login');
 		}
 		else
-			redirect(site_url().'/admin');
+			redirect(site_url().'/Admin');
 	}
 
 	 function dashboard(){
 	 	if($this->session->userdata('admin') == FALSE){
-			redirect(site_url().'/admin/login');
+			redirect(site_url().'/Admin/login');
 		}
 		$data = $this->controller_attr;
 		$data['page'] = $this->load->view('Admin/dashboard',$data,true);
@@ -94,7 +94,7 @@ class Admin extends DC_controller {
 
 	 function profile(){
 	 	if($this->session->userdata('admin') == FALSE){
-			redirect(site_url().'/admin/login');
+			redirect(site_url().'/Admin/login');
 		}
 		$data = $this->controller_attr;
 		$data['function']='profile';

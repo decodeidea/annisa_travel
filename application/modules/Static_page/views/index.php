@@ -53,19 +53,19 @@
                 <h2>Artikel Populer</h2>
                 <div class="sidebar-article">
                   <img src="<?php echo base_url() ?>assets/theme/img/sidebar-content.png" width="100%">
-                  <a href="<?php echo base_url() ?>article/detail" style="text-decoration: none;"><span>Jalan-jalan ke Dubai hanya Rp.1000,-</span></a>
+                  <a href="<?php echo site_url() ?>article/detail/1" style="text-decoration: none;"><span>Jalan-jalan ke Dubai hanya Rp.1000,-</span></a>
                 </div>
                 <div class="sidebar-article">
                   <img src="<?php echo base_url() ?>assets/theme/img/sidebar-content.png" width="100%">
-                   <a href="<?php echo base_url() ?>article/detail" style="text-decoration: none;"><span>Kiat-kiat Menjaga Stamina selama Beribadah Umroh</span></a>
+                   <a href="<?php echo site_url() ?>article/detail/1" style="text-decoration: none;"><span>Kiat-kiat Menjaga Stamina selama Beribadah Umroh</span></a>
                 </div>
                 <div class="sidebar-article">
                   <img src="<?php echo base_url() ?>assets/theme/img/sidebar-content.png" width="100%">
-                   <a href="<?php echo base_url() ?>article/detail" style="text-decoration: none;"><span>Cara Pergi haji di umur 20 tahun</span></a>
+                   <a href="<?php echo site_url() ?>article/detail/1" style="text-decoration: none;"><span>Cara Pergi haji di umur 20 tahun</span></a>
                 </div>
                 <div class="sidebar-article">
                   <img src="<?php echo base_url() ?>assets/theme/img/sidebar-content.png" width="100%">
-                  <a href="<?php echo base_url() ?>article/detail" style="text-decoration: none;"> <span>Jalan-jalan ke Dubai hanya Rp.1000,-</span></a>
+                  <a href="<?php echo site_url() ?>article/detail/1" style="text-decoration: none;"> <span>Jalan-jalan ke Dubai hanya Rp.1000,-</span></a>
                 </div>
               </div>
             </div>

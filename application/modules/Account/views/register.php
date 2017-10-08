@@ -14,7 +14,7 @@
           <div class="register-form">
             <h3>Daftar Annisa Travel</h3>
             <span>Sudah punya akun? Masuk </span><a href="login.html">di sini</a>
-            <form action="<?php echo base_url() ?>account" class="form-login">
+            <form action="<?php echo site_url() ?>/Account" class="form-login">
             <div class="form-group">
               <div class="inner-addon left-addon">
                 <i class="glyphicon glyphicon-user"></i>

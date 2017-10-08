@@ -14,11 +14,11 @@ class Message extends DC_controller {
 		}else{
 			$method=str_replace('_',' ',$this->router->fetch_method());
 		}
-		$this->controller_attr = array('controller' => 'message','controller_name' => 'Message','method'=>ucwords($method),'menu'=>$this->get_menu());
+		$this->controller_attr = array('controller' => 'Message','controller_name' => 'Message','method'=>ucwords($method),'menu'=>$this->get_menu());
 	}
 	
 	 function index(){
-		redirect('message/inbox');
+		redirect(site_url().'/Message/inbox');
 	}
 	
 	function inbox(){
@@ -26,7 +26,7 @@ class Message extends DC_controller {
 		$data = $this->controller_attr;
 		$data['function']='inbox';
 		$data['list']=select_all($this->tbl_contact);
-		$data['page'] = $this->load->view('message/list_inbox',$data,true);
+		$data['page'] = $this->load->view('Message/list_inbox',$data,true);
 		$this->load->view('layout_backend',$data);
 	}
 
@@ -40,7 +40,7 @@ class Message extends DC_controller {
         else{
             $data['email'] = null;
         }
-		$data['page'] = $this->load->view('message/inbox_form',$data,true);
+		$data['page'] = $this->load->view('Message/inbox_form',$data,true);
 		$this->load->view('layout_backend',$data);
 	}
 

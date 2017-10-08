@@ -36,7 +36,7 @@
          <h3><?php echo $this->appearance->name ?> Login Form</h3>
         </div>
     <div class="tiles grey p-t-20 p-b-20 text-black">
-      <form id="frm_login" class="animated fadeIn" action="<?php echo base_url() ?>en/admin/do_login" method="post">
+      <form id="frm_login" class="animated fadeIn" action="<?php echo site_url() ?>/Admin/do_login" method="post">
       <input type="hidden" name="base_url" id="base_url" value="<?php echo base_url() ?>">   
                     <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
                     

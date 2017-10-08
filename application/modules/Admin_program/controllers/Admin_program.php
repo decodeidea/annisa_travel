@@ -14,7 +14,7 @@ class Admin_program extends DC_controller {
 		}else{
 			$method=str_replace('_',' ',$this->router->fetch_method());
 		}
-		$this->controller_attr = array('controller' => 'admin_program','controller_name' => 'Program','method'=>ucwords($method),'menu'=>$this->get_menu());
+		$this->controller_attr = array('controller' => 'Admin_program','controller_name' => 'Program','method'=>ucwords($method),'menu'=>$this->get_menu());
 	}
 	
 	 function index(){

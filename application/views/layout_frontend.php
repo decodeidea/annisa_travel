@@ -196,7 +196,6 @@
 	<script src="<?php echo base_url() ?>assets/theme/vendor/owl.carousel/owl.carousel.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/theme/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/theme/vendor/vide/vide.min.js"></script>
-
 	<!-- Theme Base, Components and Settings -->
 	<script src="<?php echo base_url() ?>assets/theme/js/theme.js"></script>
 
@@ -205,7 +204,7 @@
     <script src="<?php echo base_url() ?>assets/theme/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
     <script src="<?php echo base_url() ?>assets/theme/vendor/circle-flip-slideshow/js/jquery.flipshow.min.js"></script>
     <script src="<?php echo base_url() ?>assets/theme/js/views/view.home.js"></script>
-<?php if($this->uri->segment(2)=='program' and $this->uri->segment(3)=='detail') { }else{?>
+<?php if($this->uri->segment(2)=='Program' and $this->uri->segment(3)=='detail') { }else{?>
 	
 	<!-- Theme Custom -->
 	<script src="<?php echo base_url() ?>assets/theme/js/custom.js"></script>

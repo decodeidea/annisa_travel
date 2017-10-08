@@ -54,7 +54,7 @@
                     <ul class="nav nav-tabs">
                       <li class="active"><a href="#productDescription" data-toggle="tab">Itenary</a></li>
                       <li><a href="#productInfo" data-toggle="tab">Fasilitas</a></li>
-                      <li><a href="#productReviews" data-toggle="tab">Ulasan (15)</a></li>
+                      <!--<li><a href="#productReviews" data-toggle="tab">Ulasan (15)</a></li>-->
                     </ul>
                     <div class="tab-content">
                       <div class="tab-pane active" id="productDescription">
@@ -64,11 +64,11 @@
                       <div class="tab-pane" id="productInfo">
                         <?php echo $data->fasilitas ?>
                       
-                      </div>
+                      </div><!-- 
                       <div class="tab-pane" id="productReviews">
                         <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis, massa fringilla consequat blandit, mauris ligula porta nisi, non tristique enim sapien vel nisl. Suspendisse vestibulum lobortis dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent nec tempus nibh. Donec mollis commodo metus et fringilla. Etiam venenatis, diam id adipiscing convallis, nisi eros lobortis tellus, feugiat adipiscing ante ante sit amet dolor. Vestibulum vehicula scelerisque facilisis. Sed faucibus placerat bibendum. Maecenas sollicitudin commodo justo, quis hendrerit leo consequat ac. Proin sit amet risus sapien, eget interdum dui. Proin justo sapien, varius sit amet hendrerit id, egestas quis mauris.</p>
                       
-                      </div>
+                      </div> -->
                     </div>
                   </div>
               </div>
@@ -129,34 +129,23 @@
                     <h5>Ketersedian Tanggal</h5>
                   </div>
                 </div>
-                
+                <?php foreach ($date as $key) {
+                  # code...
+                 ?>
                 <div class="nav div-room">
                   <div class="col-md-12 rto">
-                    <span class="room-day">RABU</span></br>
-                    <span class="room-date">22 November 2017</span>
+                    <span class="room-day" style="text-transform: uppercase;"><?php echo hari_indo($key->day) ?></span></br>
+                    <span class="room-date"><?php echo tanggal_indo($key->day) ?></span>
                   </div>
-                  
                 </div>
-                <div class="nav div-room">
-                  <div class="col-md-12 rto">
-                    <span class="room-day">RABU</span></br>
-                    <span class="room-date">22 November 2017</span>
-                  </div>
-                  
-                </div>
-                <div class="nav div-room">
-                  <div class="col-md-12 rto">
-                    <span class="room-day">RABU</span></br>
-                    <span class="room-date">22 November 2017</span>
-                  </div>
-                  
-                </div>
+                <?php } ?>
+
                 <div class="col-md-12 br-bar">
                   <div class="line-bar"></div>
                 </div>
                 <div class="nav div-btn">
                   <div class="col-md-12 text-center">
-                    <button type="submit" name="submit" class="btn-book" >BOOK NOW </button>
+                    <a href="<?php echo site_url() ?>/Payment"><button type="submit" name="submit" class="btn-book" >BOOK NOW </button></a>
                   </div>
                   <div class="col-md-12 text-center mtb12">
                     <button type="submit" name="submit" class="btn-whis" >SAVE TO WISHLIST </button>

@@ -68,7 +68,7 @@
 					<?php foreach ($top_destination as $key) { ?>
 					<li class="col-sm-6 col-md-4 isotope-item p-none top-desti ml">
 						<div class="portfolio-grid-item">
-							<a href="<?php echo site_url() ?>/program/detail/<?php echo $key->id ?>/<?php echo $key->title ?>" class="text-decoration-none popup-with-move-anim">
+							<a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>" class="text-decoration-none popup-with-move-anim">
 								<span class="thumb-info">
 									<span class="thumb-info-wrapper size-3 m-none">
 										<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->image_id ?>/<?php echo $key->image ?>');"></span>
@@ -78,7 +78,7 @@
 							</a>
 							<div class="image-gallery-line"></div>
 							<div class="image-gallery-title">
-								<a href="<?php echo site_url() ?>/product/detail" style="text-decoration: none;"><span class="item-title"><?php echo $key->title ?></span>	</a>
+								<a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>" style="text-decoration: none;"><span class="item-title"><?php echo $key->title ?></span>	</a>
 							</div>
 							<div class="image-gallery-date">
 								<span class="item-date">9 Oktober 2017 - 9 Hari</span>	
@@ -96,7 +96,7 @@
 				
 				
 				<div class="button-see col-md-12 center">
-					<a class="btn btn-primary mt-xl mb-sm" href="<?php echo site_url() ?>/program">See More <i class="fa fa-angle-right pl-xs"></i></a>
+					<a class="btn btn-primary mt-xl mb-sm" href="<?php echo site_url() ?>/Program">See More <i class="fa fa-angle-right pl-xs"></i></a>
 				</div>
 			</div>
 
@@ -114,12 +114,14 @@
 			</div>
 			<div class="featured row">
 				<ul id="portfolioGrid" class="p-none">
-						<?php foreach ($destination as $key) {
-							# code...
+						<?php
+						$no=0;
+						 foreach ($destination as $key) {
+						$no++;
 						?>
-						<li class="col-sm-12 col-md-8 isotope-item p-none">
+						<li class="col-sm-12 col-md-<?php if($no==1){echo"8";}elseif($no==2){echo"4";}elseif($no==4){echo"2";}elseif($no==5){echo"8";}else{echo"2";} ?> isotope-item p-none">
 							<div class="portfolio-grid-item">
-								<a href="#" class="text-decoration-none popup-with-move-anim">
+								<a href="<?php echo site_url() ?>/Destination/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title)?>" class="text-decoration-none popup-with-move-anim">
 									<span class="thumb-info">
 										<span class="thumb-info-wrapper size-1 m-none">
 											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/uploads/destination/<?php echo $key->id  ?>/<?php echo $key->images ?>');"></span>
@@ -151,48 +153,26 @@
 			</div>
 			<div class="featured row">
 				<ul id="portfolioGrid" class="p-none">
+					<?php foreach ($video as $key) {
+					
+					 ?>
 					<li class="col-sm-6 col-md-4 isotope-item p-none">
 						<div class="portfolio-grid-item">
-							<a href="#photographyLightbox" class="text-decoration-none popup-with-move-anim">
-								<span class="thumb-info">
-									<span class="thumb-info-wrapper size-2 m-none">
-										<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/annisa/video/video_1.jpg');"></span>
-										<span class="thumb-info-plus-out">Welcome <br/>to the Japan</span>
-										<span class="thumb-info-plus-icon"><img src="<?php echo base_url() ?>assets/theme/img/annisa/video/icon_play.png"</span>
-									</span>
-								</span>
-							</a>
-						</div>
+									<a class="popup-youtube text-decoration-none" href="<?php echo $key->source ?>" >
+										<span class="thumb-info">
+											<span class="thumb-info-wrapper size-2 m-none">
+												<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/uploads/video/<?php echo $key->id ?>/<?php echo $key->images ?>');"></span>
+												<span class="thumb-info-plus-out"><?php  echo $key->title?></span>
+												<span class="thumb-info-plus-icon"><img src="<?php echo base_url() ?>assets/theme/img/annisa/video/icon_play.png"></span>
+											</span>
+										</span>
+									</a>
+								</div>
 					</li>
-					<li class="col-sm-6 col-md-4 isotope-item p-none">
-						<div class="portfolio-grid-item">
-							<a href="#photographyLightbox" class="text-decoration-none popup-with-move-anim">
-								<span class="thumb-info">
-									<span class="thumb-info-wrapper size-2 m-none">
-										<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/annisa/video/video_2.jpg');"></span>
-										<span class="thumb-info-plus-out">Indahnya <br/>Raja Ampat</span>
-										<span class="thumb-info-plus-icon"><img src="<?php echo base_url() ?>assets/theme/img/annisa/video/icon_play.png"</span>
-									</span>
-								</span>
-							</a>
-						</div>
-					</li>
-					<li class="col-sm-6 col-md-4 isotope-item p-none">
-						<div class="portfolio-grid-item">
-							<a href="#photographyLightbox" class="text-decoration-none popup-with-move-anim">
-								<span class="thumb-info">
-									<span class="thumb-info-wrapper size-2 m-none">
-										<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/annisa/video/video_3.jpg');"></span>
-										<span class="thumb-info-plus-out">Beautiful <br/>of Petra	</span>
-										<span class="thumb-info-plus-icon"><img src="<?php echo base_url() ?>assets/theme/img/annisa/video/icon_play.png"</span>
-									</span>
-								</span>
-							</a>
-						</div>
-					</li>
+					<?php } ?>
 				</ul>
 				<div class="button-see2 col-md-12 center">
-					<a class="btn btn-primary mt-xl mb-sm" href="#">See More <i class="fa fa-angle-right pl-xs"></i></a>
+					<a class="btn btn-primary mt-xl mb-sm" href="<?php echo site_url() ?>/Video">See More <i class="fa fa-angle-right pl-xs"></i></a>
 				</div>
 			</div>
 			
@@ -225,9 +205,9 @@
 								  	<?php foreach ($popular_destination as $key) { ?>
 										<div class="item active">
 										  <div class="col-lg-4 col-xs-4 col-md-4 col-sm-4">
-											<a href="<?php echo site_url() ?>/program/detail/<?php echo $key->id ?>/<?php echo $key->title ?>"><img src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->image_id ?>/<?php echo $key->image ?>" class="img-responsive"></a>
+											<a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo $key->title ?>"><img src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->image_id ?>/<?php echo $key->image ?>" class="img-responsive"></a>
 											<div class="pd-dest">
-												<a href="<?php echo site_url() ?>/program/detail/<?php echo $key->id ?>/<?php echo $key->title ?>" style="text-decoration: none;"><span class="pd-dest-tit"><?php echo $key->title ?></span></a>
+												<a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo $key->title ?>" style="text-decoration: none;"><span class="pd-dest-tit"><?php echo $key->title ?></span></a>
 												</br>
 												<span class="pd-dest-date">06 Oktober 2017 - 9 Hari</span>
 												</br>
@@ -265,7 +245,7 @@
 					<ul id="portfolioGrid" class="p-none">
 						<li class="col-sm-6 col-md-3 isotope-item p-none">
 							<div class="portfolio-grid-item">
-								<a href="<?php echo site_url() ?>/article/detail" class="text-decoration-none popup-with-move-anim">
+								<a href="<?php echo site_url() ?>/Experience/detail" class="text-decoration-none popup-with-move-anim">
 									<span class="thumb-info">
 										<span class="thumb-info-wrapper size-4 m-none">
 											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/expe/expe_1.jpg');"></span>
@@ -294,7 +274,7 @@
 						</li>
 						<li class="col-sm-6 col-md-3 isotope-item p-none">
 							<div class="portfolio-grid-item">
-								<a href="<?php echo site_url() ?>/article/detail" class="text-decoration-none popup-with-move-anim">
+								<a href="<?php echo site_url() ?>/Experience/detail" class="text-decoration-none popup-with-move-anim">
 									<span class="thumb-info">
 										<span class="thumb-info-wrapper size-4 m-none">
 											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/expe/expe_2.jpg');"></span>
@@ -322,7 +302,7 @@
 						</li>
 						<li class="col-sm-6 col-md-3 isotope-item p-none">
 							<div class="portfolio-grid-item">
-								<a href="<?php echo site_url() ?>/article/detail" class="text-decoration-none popup-with-move-anim">
+								<a href="<?php echo site_url() ?>/Experience/detail" class="text-decoration-none popup-with-move-anim">
 									<span class="thumb-info">
 										<span class="thumb-info-wrapper size-4 m-none">
 											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/expe/expe_3.jpg');"></span>
@@ -350,7 +330,7 @@
 						</li>
 						<li class="col-sm-6 col-md-3 isotope-item p-none">
 							<div class="portfolio-grid-item">
-								<a href="<?php echo site_url() ?>/article/detail" class="text-decoration-none popup-with-move-anim">
+								<a href="<?php echo site_url() ?>/Experience/detail" class="text-decoration-none popup-with-move-anim">
 									<span class="thumb-info">
 										<span class="thumb-info-wrapper size-4 m-none">
 											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/expe/expe_4.jpg');"></span>
@@ -378,7 +358,7 @@
 						</li>
 					</ul>
 					<div class="button-see2 col-md-12 center">
-						<a class="btn btn-primary mt-xl mb-sm" href="<?php echo site_url() ?>/article">See More <i class="fa fa-angle-right pl-xs"></i></a>
+						<a class="btn btn-primary mt-xl mb-sm" href="#">See More <i class="fa fa-angle-right pl-xs"></i></a>
 					</div>
 				</div>
 				
@@ -404,50 +384,21 @@
         <section class="section section-no-background">
           <div class="container mt-xlg">
             <div class="row">
+            	<?php foreach ($article as $key) {
+            		# code...
+            	 ?>
               <div class="col-md-6 mb-xlg">
       					<article>
       						<div class="col-md-9">
-      							<h2> Global Opportunities</h2>
-      							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat ex finibus urna tincidunt, auctor ullamcorper risus luctus. Nunc et feugiat arcu, in placerat risus. Phasellus condimentum sapien vi.</p>
+      							<a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>"><h2><?php echo $key->title ?></h2>
+      							<?php echo substr($key->content, 0,100) ?></p>
       						</div>
         						<div class="col-md-3 pl-none pr-none">
-      								<img src="<?php echo base_url() ?>assets/theme/img/blog_1.jpg" alt="" class="img-responsive" style="width:100%">
+      								<img src="<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/<?php echo $key->images ?>" alt="" class="img-responsive" style="width:100%">
         						</div>
       					</article>
       				</div>
-              <div class="col-md-6 mb-xlg">
-      					<article>
-      						<div class="col-md-9">
-      							<h2>Kiat-Kiat Menjaga Stamina Selama Beribadah Umroh</h2>
-      							<p>Ketika kita menjalankan rangkaian ibadah haji atau umroh, maka menjaga kesehatan dan kebugaran tubuh adalah hal yang sangat penting. Sebab pelaksanaan ibadah umrah dibutuhkan ...</p>
-      						</div>
-        						<div class="col-md-3 pl-none pr-none">
-      								<img src="<?php echo base_url() ?>assets/theme/img/blog_2.jpg" alt="" class="img-responsive" style="width:100%">
-        						</div>
-      					</article>
-      				</div>
-              <div class="col-md-6 mb-xlg">
-      					<article>
-      						<div class="col-md-9">
-      							<h2> Global Opportunities</h2>
-      							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat ex finibus urna tincidunt, auctor ullamcorper risus luctus. Nunc et feugiat arcu, in placerat risus. Phasellus condimentum sapien vi.</p>
-      						</div>
-        						<div class="col-md-3 pl-none pr-none">
-      								<img src="<?php echo base_url() ?>assets/theme/img/blog_3.jpg" alt="" class="img-responsive" style="width:100%">
-        						</div>
-      					</article>
-      				</div>
-              <div class="col-md-6 mb-xlg">
-      					<article>
-      						<div class="col-md-9">
-      							<h2> Global Opportunities</h2>
-      							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat ex finibus urna tincidunt, auctor ullamcorper risus luctus. Nunc et feugiat arcu, in placerat risus. Phasellus condimentum sapien vi.</p>
-      						</div>
-        						<div class="col-md-3 pl-none pr-none">
-      								<img src="<?php echo base_url() ?>assets/theme/img/blog_4.jpg" alt="" class="img-responsive" style="width:100%">
-        						</div>
-      					</article>
-      				</div>
+      				<?php } ?>
               <div class="col-md-12 mt-xlg center">
                 <a href="<?php echo site_url() ?>/article"><button type="button" class="btn btn-primary">See More</button></a>
               </div>

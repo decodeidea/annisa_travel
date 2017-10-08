@@ -46,7 +46,7 @@
           </a> </li>
       </ul>
       <!-- BEGIN LOGO -->
-      <a href="<?php echo site_url() ?>/admin"><img src="<?php echo base_url() ?>assets/uploads/settings/<?php echo $this->appearance->logo ?>" class="logo" alt=""  data-src="<?php echo base_url() ?>assets/uploads/settings/<?php echo $this->appearance->logo ?>" data-src-retina="<?php echo base_url() ?>assets/uploads/settings/<?php echo $this->appearance->logo ?>" height="40px" style="margin-top: 10px" /></a>
+      <a href="<?php echo site_url() ?>/Admin"><img src="<?php echo base_url() ?>assets/uploads/settings/<?php echo $this->appearance->logo ?>" class="logo" alt=""  data-src="<?php echo base_url() ?>assets/uploads/settings/<?php echo $this->appearance->logo ?>" data-src-retina="<?php echo base_url() ?>assets/uploads/settings/<?php echo $this->appearance->logo ?>" height="40px" style="margin-top: 10px" /></a>
       <!-- END LOGO -->
       <ul class="nav pull-right notifcation-center">
         <li class="dropdown" id="header_task_bar"> <a href="<?php echo site_url() ?>/admin" class="dropdown-toggle active" data-toggle="">
@@ -110,10 +110,10 @@
             <div class="iconset top-settings-dark "></div>
             </a>
             <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
-              <li><a href="<?php echo site_url() ?>/admin/profile"> <?php echo lang('my_account') ?></a> </li>
+              <li><a href="<?php echo site_url() ?>/Admin/profile"> <?php echo lang('my_account') ?></a> </li>
               
               <li class="divider"></li>
-              <li><a href="<?php echo site_url() ?>/admin/logout"><i class="fa fa-power-off"></i>&nbsp;&nbsp;<?php echo lang('logout') ?></a></li>
+              <li><a href="<?php echo site_url() ?>/Admin/logout"><i class="fa fa-power-off"></i>&nbsp;&nbsp;<?php echo lang('logout') ?></a></li>
             </ul>
           </li>
           <li class="quicklinks"> <span class="h-seperate"></span></li>
@@ -147,7 +147,7 @@
       <!-- BEGIN SIDEBAR MENU -->
       <p class="menu-title">BROWSE <span class="pull-right"><a href="javascript:;"><i class="fa fa-refresh"></i></a></span></p>
       <ul>
-        <li class="start"> <a href="<?php echo site_url() ?>admin"> <i class="icon-custom-home"></i> <span class="title">Dashboard</span> <span class="selected"></span></a> 
+        <li class="start"> <a href="<?php echo site_url() ?>Admin"> <i class="icon-custom-home"></i> <span class="title">Dashboard</span> <span class="selected"></span></a> 
         </li>
 <?php foreach ($menu as $submenu) { ?>
   <?php if( $submenu->sub_menu==0){?>

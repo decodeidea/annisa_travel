@@ -16,7 +16,7 @@
               <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="javascript:;" class="reload"></a> </div>
             </div>
             <div class="grid-body ">
-<a id="add_button" href="<?php echo site_url() ?>/admin_program/album_program_form/?id_program=<?php echo $this->uri->segment('4')?>"><button class="btn btn-primary">Add Image</button></a>
+<a id="add_button" href="<?php echo site_url() ?>/Admin_program/album_program_form/?id_program=<?php echo $this->uri->segment('4')?>"><button class="btn btn-primary">Add Image</button></a>
   <div class="row gallery-list">
   <?php foreach ($list as $key) {?>
   <div class="col-md-3">
