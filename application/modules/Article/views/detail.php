@@ -189,7 +189,71 @@
           </div>
           
       </div>
-      <section class="section section-no-background mt-none">
+    
+            </div>
+            <div class="col-md-4 pull-right">
+              <div class="sidebar">
+                <h2>Artikel Populer</h2>
+                <?php foreach ($article_populer as $key) {
+                  # code...
+                 ?>
+                <div class="sidebar-article">
+                  <img src="<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/<?php echo $key->images ?>" width="100%">
+                  <a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" style="text-decoration: none;"><span><?php echo $key->title ?></span></a>
+                </div>
+                <?php } ?>
+              </div>
+            </div>
+			<div class="col-md-4 pull-right mt-xlg">
+              <div class="sidebar">
+                <h2>Hot Promo</h2>
+					<div class="row m-none mb-xlg">
+						<div class="col-md-6 pl-none pr-none">
+							<div class="badge">
+							  <span>5%</span>
+							</div>
+							<img src="<?php echo base_url() ?>assets/theme/img/desti_2.jpg" alt="" class="img-responsive" style="width:100%">
+						</div>
+						<div class="col-md-6">
+							<h1 class="title-cat-side"> Umroh Series Reguler 9 hari *3</h1>
+							<span class="sum-side">Mejadi Arac/Concord (Hotel Madinah) Airlines by Lion Air/Malindo</span>
+							<div class="red-cat-side">
+								<span class="sfs">Start From</span>
+								<span class="rps">Rp</span>
+								<span class="prices">34.000</span>
+								<span class="koss">.000</span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row m-none mb-xlg">
+						<div class="col-md-6 pl-none pr-none">
+							<img src="<?php echo base_url() ?>assets/theme/img/desti_2.jpg" alt="" class="img-responsive" style="width:100%">
+						</div>
+						<div class="col-md-6">
+							<h1 class="title-cat-side"> Umroh Series Reguler 9 hari *3</h1>
+							<span class="sum-side">Mejadi Arac/Concord (Hotel Madinah) Airlines by Lion Air/Malindo</span>
+							<div class="red-cat-side">
+								<span class="sfs">Start From</span>
+								<span class="rps">Rp</span>
+								<span class="prices">34.000</span>
+								<span class="koss">.000</span>
+							</div>
+						</div>
+					</div>
+					
+					
+              </div>
+            </div>
+			
+			
+			
+          </div>
+          </div>
+        </div>
+        </section>
+		
+		  <section class="section section-no-background mt-none">
       <div class="container">
         <div class="row">
           <div class="bg-breadcumb col-md-12">
@@ -302,22 +366,4 @@
         </div>
       </div>
     </section>
-            </div>
-            <div class="col-md-3 pull-right">
-              <div class="sidebar">
-                <h2>Artikel Populer</h2>
-                <?php foreach ($article_populer as $key) {
-                  # code...
-                 ?>
-                <div class="sidebar-article">
-                  <img src="<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/<?php echo $key->images ?>" width="100%">
-                  <a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" style="text-decoration: none;"><span><?php echo $key->title ?></span></a>
-                </div>
-                <?php } ?>
-              </div>
-            </div>
-          </div>
-          </div>
-        </div>
-        </section>
-      </div>
+</div>

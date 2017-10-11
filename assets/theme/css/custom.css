@@ -78,11 +78,87 @@ h1, h2, h3, h4, h5, h6, a, p, span {
   }
 }
 /* evolution */
+.badge {
+	position: absolute;
+    font-family: oswald, sans-serif;
+    font-size: 13px;
+    transform: rotate(45deg);
+    top: 20px;
+    left: 14px;
+    /* margin: 13px auto; */
+    background: #ae0613;
+    width: 40px;
+    height: 40px;
+    line-height: 38px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 8px;
+    color: #FFFFFF;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+}
+.badge span {
+  display: block;
+  transform: rotate(-45deg);
+  opacity: .9;
+}
+
+.red-cat-side {
+    height: 42px;
+    width: 100%;
+    background-color: #ae0613;
+    position: relative;
+    top: 11px;
+}
+.red-cat-side .sfs {
+    margin: 0;
+    padding: 0;
+    margin-left: 13px;
+    font-size: 10px;
+    color: #FFF;
+}
+.red-cat-side .rps {
+    color: #fff;
+    font-size: 13px;
+    position: absolute;
+    left: 19px;
+    bottom: 2px;
+    font-weight: bold;
+}
+.red-cat-side .prices {
+    color: #fff;
+    font-size: 17px;
+    position: absolute;
+    left: 41px;
+    bottom: 2px;
+    font-weight: 900;
+}
+.red-cat-side .koss {
+    color: #fff;
+    font-size: 11px;
+    position: absolute;
+    left: 100px;
+    m: 15px;
+    bottom: 18px;
+    font-weight: bold;
+}
+.sum-side{
+	font-size:12px;
+}
 .heading.heading-border {
     margin-bottom: 25px;
     margin-top: 35px !Important;
   
 }
+.title-cat-side{
+	font-size: 15px;
+    line-height: 21px;
+    font-weight: bold;
+    width: 100%;
+	        margin-bottom: 11px;
+	
+}
+    
+
 /* category */
 .thumb-info-plus-catra-p-2{
 	letter-spacing: 1px;
@@ -1136,7 +1212,7 @@ html .annis-title{
 .item-info{
 	position: absolute;
     bottom: 10%;
-    left: 46%;
+    left: 50%;
     z-index: 99;
     background-color: #ae0613;
     width: 205px;
