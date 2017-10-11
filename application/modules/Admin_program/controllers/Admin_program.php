@@ -570,7 +570,7 @@ class Admin_program extends DC_controller {
 
 	function program_day_add(){
 		$data = $this->controller_attr;
-		$data['function']='album_program';
+		$data['function']='program_day';
 		$table_field = $this->db->list_fields($this->tbl_program_day);
 		$insert = array();
         foreach ($table_field as $field) {

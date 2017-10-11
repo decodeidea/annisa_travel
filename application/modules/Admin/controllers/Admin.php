@@ -19,10 +19,10 @@ class Admin extends DC_controller {
 	public function index(){
 		$data = $this->controller_attr;
 		if($this->session->userdata('admin') != FALSE){
-			redirect(site_url().'/admin/dashboard');
+			redirect(site_url().'/Admin/dashboard');
 		}
 		else{
-			redirect(site_url().'/admin/login');
+			redirect(site_url().'/Admin/login');
 		}
 	}
 	

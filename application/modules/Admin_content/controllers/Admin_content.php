@@ -504,7 +504,7 @@ class Admin_content extends DC_controller {
 	function video_delete($id){
 		$data = $this->controller_attr;
 		$function='video';
-		$query=delete($this->tbl_banner,'id',$id);
+		$query=delete($this->tbl_video,'id',$id);
 		if($query){
 			$this->session->set_flashdata('notif','success');
 			$this->session->set_flashdata('msg','Your data have been deleted');

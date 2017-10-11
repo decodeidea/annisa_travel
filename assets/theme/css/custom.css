@@ -1026,6 +1026,7 @@ html .annis-title{
 .thumbnails-alif .thumb-sub-alif{
 	float: left;
     margin-left: 14px;
+    margin-bottom: 10px;
 }
 .img-alif > img{
 	cursor: pointer;
@@ -1055,8 +1056,7 @@ html .annis-title{
 }
 
 .top-desti{
-	width: 370px!important;
-    height: 346px!important;
+	  height: 346px!important;
     margin-left: 52px;
 	margin-bottom: 80px;
 }

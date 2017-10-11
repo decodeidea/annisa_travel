@@ -65,7 +65,7 @@
 			<div class="destination col-md-12">
 				<ul id="portfolioGrid" class="p-none">
 					<?php foreach ($top_destination as $key) { ?>
-					<li class="col-sm-6 col-md-4 isotope-item p-none top-desti ml">
+					<li class="col-md-4 isotope-item p-none top-desti ml">
 						<div class="portfolio-grid-item">
 							<a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>" class="text-decoration-none popup-with-move-anim">
 								<span class="thumb-info">
@@ -200,8 +200,8 @@
 								
 								<div class="carousel slide" id="myCarousel">
 								  <div class="carousel-inner">
-								  	<?php foreach ($popular_destination as $key) { ?>
-										<div class="item active">
+								  	<?php $no=1; foreach ($popular_destination as $key) { ?>
+										<div class="item <?php if($no==1){echo"active";} ?> ">
 										  <div class="col-lg-4 col-xs-4 col-md-4 col-sm-4">
 											<a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo $key->title ?>"><img src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->image_id ?>/<?php echo $key->image ?>" class="img-responsive"></a>
 											<div class="pd-dest">
@@ -219,7 +219,7 @@
 											</div>
 										  </div>
 										</div>
-										<?php } ?>
+										<?php $no++; } ?>
 								  </div>
 								  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
 								  <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
@@ -362,7 +362,7 @@
 			</div>
 		</div>
 
-	  <section class="section section-text-light section-background" style="background-image: url(<?php echo base_url() ?>assets/theme/img/travell_inspiration.jpg);background-position:center; margin-top: 95px;">
+	  <section class="section section-text-light section-background" style="background-image: url(<?php echo base_url() ?>assets/uploads/news/<?php echo $feat_article->id ?>/<?php echo $feat_article->images ?>);background-position:center; background-size: cover; margin-top: 95px;">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 center">
@@ -371,7 +371,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<h1 style="width:35%;margin-top:250px;"><strong>Jalan-Jalan ke Dubai  Hanya Rp. 1000,-</strong></h2>
+						<h1 style="width:35%;margin-top:250px;"><strong><?php echo $feat_article->title ?></strong></h2>
 						<h4><i>Ujang Suryana</i><h4>
 					</div>
 				</div>
