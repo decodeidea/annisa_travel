@@ -77,6 +77,12 @@ h1, h2, h3, h4, h5, h6, a, p, span {
     opacity: 1;
   }
 }
+/* evolution */
+.heading.heading-border {
+    margin-bottom: 25px;
+    margin-top: 35px !Important;
+  
+}
 /* category */
 .thumb-info-plus-catra-p-2{
 	letter-spacing: 1px;
@@ -1054,8 +1060,10 @@ html .annis-title{
     margin-left: 52px;
 	margin-bottom: 80px;
 }
-.ml{
-	margin-left:0 !important;
+@media only screen and (min-width:960px){
+	.ml{
+		margin-left:0 !important;
+	}
 }
 .bg-breadcumb{
 	padding-left: 0;
@@ -1127,8 +1135,8 @@ html .annis-title{
 }
 .item-info{
 	position: absolute;
-    bottom: 30px;
-    left: 171px;
+    bottom: 10%;
+    left: 46%;
     z-index: 99;
     background-color: #ae0613;
     width: 205px;

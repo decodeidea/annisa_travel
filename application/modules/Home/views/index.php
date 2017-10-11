@@ -57,10 +57,9 @@
 		<div class="container">
 		<div class="row">
 			<div class="bg-breadcumb col-md-12">
-				<div class="bg-title col-md-3">
+				<div class="heading heading-border heading-middle-border">
 					<h1>Top Destination</h1>
 				</div>
-				<div class="bg-line col-md-9"></div>
 			</div>
 			
 			<div class="destination col-md-12">
@@ -72,7 +71,10 @@
 								<span class="thumb-info">
 									<span class="thumb-info-wrapper size-3 m-none">
 										<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->image_id ?>/<?php echo $key->image ?>');"></span>
-										
+										<span class="item-info">
+											<span class="item-rp">Rp</span>
+											<span class="item-price"><?php echo idr($key->price1) ?></span>
+										</span>
 									</span>
 								</span>
 							</a>
@@ -84,10 +86,7 @@
 								<span class="item-date">9 Oktober 2017 - 9 Hari</span>	
 							</div>
 						</div>
-						<span class="item-info">
-							<span class="item-rp">Rp</span>
-							<span class="item-price"><?php echo idr($key->price1) ?></span>
-						</span>
+						
 						
 					</li>
 					<?php } ?>
@@ -146,10 +145,9 @@
 	  <div class="container">
 		<div class="row">
 			<div class="bg-breadcumb col-md-12">
-				<div class="bg-title col-md-1">
+				<div class="heading heading-border heading-middle-border">
 					<h1>Video</h1>
 				</div>
-				<div class="bg-line col-md-11"></div>
 			</div>
 			<div class="featured row">
 				<ul id="portfolioGrid" class="p-none">
@@ -236,10 +234,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="bg-breadcumb col-md-12">
-					<div class="bg-title col-md-2">
+					<div class="heading heading-border heading-middle-border">
 						<h1>Experience</h1>
 					</div>
-					<div class="bg-line col-md-10"></div>
 				</div>
 				<div class="featured row">
 					<ul id="portfolioGrid" class="p-none">
