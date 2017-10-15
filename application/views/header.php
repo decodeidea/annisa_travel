@@ -1,4 +1,4 @@
-<header id="header" class="<?php if($this->uri->segment(2)=='Home' or $this->uri->segment(2)=='home' or $this->uri->segment(2)==''){ echo"header-transparent";}else{ echo"header-transparent-none";} ?>">
+<header id="header" class="<?php if($this->uri->segment(2)=='Home' or $this->uri->segment(2)=='home' or $this->uri->segment(2)==''){ echo"header-transparent";}else{ echo"header-transparent-none";} ?>" style='top: -4px'>
   <div class="header-body-none">
     <div class="header-container container">
       <div class="header-logo">
