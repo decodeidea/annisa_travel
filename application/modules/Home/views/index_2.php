@@ -6,7 +6,7 @@
 							?>
 							<li data-transition="fade"
                   data-description="Article"
-                  data-title="<?php echo $key->title ?>">
+                  data-title="<?php echo substr($key->title, 0,25) ?>..">
 								<img src="<?php echo base_url() ?>assets/uploads/banner/<?php echo $key->id ?>/<?php echo $key->images ?>"
 									alt=""
 									data-bgposition="center center"
@@ -57,9 +57,10 @@
 		<div class="container">
 		<div class="row">
 			<div class="bg-breadcumb col-md-12">
-				<div class="heading heading-border heading-middle-border">
+				<div class="bg-title col-md-3">
 					<h1>Top Destination</h1>
 				</div>
+				<div class="bg-line col-md-9"></div>
 			</div>
 			
 			<div class="destination col-md-12">
@@ -71,10 +72,7 @@
 								<span class="thumb-info">
 									<span class="thumb-info-wrapper size-3 m-none">
 										<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->image_id ?>/<?php echo $key->image ?>');"></span>
-										<span class="item-info">
-											<span class="item-rp">Rp</span>
-											<span class="item-price"><?php echo idr($key->price1) ?></span>
-										</span>
+										
 									</span>
 								</span>
 							</a>
@@ -86,7 +84,10 @@
 								<span class="item-date">9 Oktober 2017 - 9 Hari</span>	
 							</div>
 						</div>
-						
+						<span class="item-info">
+							<span class="item-rp">Rp</span>
+							<span class="item-price"><?php echo idr($key->price1) ?></span>
+						</span>
 						
 					</li>
 					<?php } ?>
@@ -145,9 +146,10 @@
 	  <div class="container">
 		<div class="row">
 			<div class="bg-breadcumb col-md-12">
-				<div class="heading heading-border heading-middle-border">
+				<div class="bg-title col-md-1">
 					<h1>Video</h1>
 				</div>
+				<div class="bg-line col-md-11"></div>
 			</div>
 			<div class="featured row">
 				<ul id="portfolioGrid" class="p-none">
@@ -234,9 +236,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="bg-breadcumb col-md-12">
-					<div class="heading heading-border heading-middle-border">
+					<div class="bg-title col-md-2">
 						<h1>Experience</h1>
 					</div>
+					<div class="bg-line col-md-10"></div>
 				</div>
 				<div class="featured row">
 					<ul id="portfolioGrid" class="p-none">
@@ -380,26 +383,30 @@
 
         <section class="section section-no-background">
           <div class="container mt-xlg">
-            <div class="row">
-            	<?php foreach ($article as $key) {
-            		# code...
+            
+            	<?php
+            	$no=0;
+            	 foreach ($article as $key) {
+            		$no++;
+            		if($no==1 or $no ==3){ echo'<div class="row">'; }
             	 ?>
-              <div class="col-md-6 mb-xlg">
-      					<article>
-      						<div class="col-md-9">
-      							<a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>"><h2><?php echo $key->title ?></h2>
-      							<?php echo substr($key->content, 0,100) ?></p>
+            	<div class="col-md-6" style="min-height: 200px;">
+            		<div class="row">
+            			<div class="col-md-9">
+      							<a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>"><h2><?php echo $key->title ?></h2></a>
+      							<?php echo substr($key->content, 0,100); if( $key->content!=''){echo"</p>";}?>
       						</div>
-        						<div class="col-md-3 pl-none pr-none">
-      								<img src="<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/<?php echo $key->images ?>" alt="" class="img-responsive" style="width:100%">
+      						<div class="col-md-3 pl-none pr-none">
+      								<img src="<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/<?php echo $key->images ?>" alt="" class="img-responsive">
         						</div>
-      					</article>
-      				</div>
-      				<?php } ?>
-              <div class="col-md-12 mt-xlg center">
-                <a href="<?php echo site_url() ?>/article"><button type="button" class="btn btn-primary">See More</button></a>
-              </div>
-    				</div>
+            		</div>
+            	</div>
+            	<?php if($no==2 or $no==4){ echo'</div>'; }
+            	 } ?>
+            	 <div class="button-see2 col-md-12 center">
+						<a class="btn btn-primary mt-xl mb-sm" href="<?php echo site_url() ?>/Article">See More <i class="fa fa-angle-right pl-xs"></i></a>
+					</div>
+            </div>
           </div>
         </section>
 
