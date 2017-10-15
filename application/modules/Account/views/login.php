@@ -13,17 +13,17 @@
         <div class="login-form">
         <h3>Masuk Annisa Travel</h3>
         <span>Belum punya akun? Daftar </span><a href="register">di sini</a>  
-        <form action="<?php echo site_url() ?>/Account" class="form-login">
+        <form action="<?php echo site_url() ?>/Account/do_login" class="form-login" method="post">
           <div class="form-group">
             <div class="inner-addon left-addon">
     <i class="glyphicon glyphicon-envelope"></i>
-    <input type="text" class="form-control text-login" placeholder="Masukan email kamu" />
+    <input type="text" name="email" class="form-control text-login" placeholder="Masukan email kamu" />
 </div>
           </div>
           <div class="form-group">
             <div class="inner-addon left-addon">
     <i class="glyphicon glyphicon-lock"></i>
-    <input type="password" class="form-control text-login" placeholder="Masukan kata sandi" />
+    <input type="password" name="password" class="form-control text-login" placeholder="Masukan kata sandi" />
 </div>
           </div>
           <div class="form-group">
@@ -33,7 +33,7 @@
             </div>
           </div>
           <div class="form-group">
-            <button class="btn btn-login">Masuk</button>
+            <button type="submit" class="btn btn-login">Masuk</button>
           </div>
         <?php if($this->session->flashdata('msg')){ ?>
                             <div class="form-group text-center" >

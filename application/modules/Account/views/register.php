@@ -14,37 +14,42 @@
           <div class="register-form">
             <h3>Daftar Annisa Travel</h3>
             <span>Sudah punya akun? Masuk </span><a href="login.html">di sini</a>
-            <form action="<?php echo site_url() ?>/Account" class="form-login">
+            <form action="<?php echo site_url() ?>/Account/do_register" class="form-login"  method="post">
             <div class="form-group">
               <div class="inner-addon left-addon">
                 <i class="glyphicon glyphicon-user"></i>
-                <input type="text" class="form-control text-login" placeholder="Nama Lengkap" />
+                <input type="text" name="first_name" required class="form-control text-login" placeholder="Nama Lengkap" />
               </div>
             </div>
             <div class="form-group">
               <div class="inner-addon left-addon">
                 <i class="glyphicon glyphicon-phone"></i>
-                <input type="password" class="form-control text-login" placeholder="Nomor Telepon" />
+                <input type="password" name="phone" required class="form-control text-login" placeholder="Nomor Telepon" />
                 <span class="help-block">Pastikan nomor ponsel Anda aktif untuk keamanan dan kemudahan transaksi.</span>
               </div>
             </div>
             <div class="form-group">
               <div class="inner-addon left-addon">
                 <i class="glyphicon glyphicon-envelope"></i>
-                <input type="password" class="form-control text-login" placeholder="Email" />
+                <input type="password" name="email" required class="form-control text-login" placeholder="Email" />
               </div>
             </div>
             <div class="form-group">
               <div class="inner-addon left-addon">
                 <i class="glyphicon glyphicon-lock"></i>
-                <input type="password" class="form-control text-login" placeholder="Masukan kata sandi" />
+                <input type="password" name="password" required class="form-control text-login" placeholder="Masukan kata sandi" />
                 <span class="help-block">Minimal 6 karakter</span>
               </div>
             </div>
             <div class="form-group">
-              <button class="btn btn-login">Daftar Akun</button>
+              <button type="submit" class="btn btn-login">Daftar Akun</button>
               <span class="help-agreement">Dengan Menekan Daftar Akun Saya Mengkonfirmasi Telah Menyetujui <br> <a href="#">Syarat dan Ketentuan</a> Serta <a href="#">Kebijakan Privasi</a> Annisa Travel</span>
             </div>
+            <?php if($this->session->flashdata('msg')){ ?>
+                            <div class="form-group text-center" >
+                        <h4 style="color:red"><?php echo $this->session->flashdata('msg') ?></h4>
+                        </div>
+                        <?php } ?>
           </form>
           </div>
         </div>
