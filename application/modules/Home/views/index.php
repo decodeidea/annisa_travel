@@ -34,7 +34,7 @@
                   data-mask_in="x:0px;y:0px;"><?php echo $key->title ?></div>
 
                 <a href="<?php echo $key->link ?>"
-                  class="tp-caption"
+                  class="tp-caption more-info"
                   data-hash
                   data-hash-offset="85"
                   href="#home-intro"
