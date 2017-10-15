@@ -41,7 +41,7 @@
             </div>
             </div>
             <div class="content-article">
-              <?php echo  $data->content ?>
+              <?php echo str_replace("<img", "<img style='width:100%!important;'", $data->content)   ?>
               <!-- <div class="article-terkait">
                 <span class="head-terkait">ARTIKEL TERKAIT</span>
                 <div class="list-terkait">

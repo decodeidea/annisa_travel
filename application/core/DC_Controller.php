@@ -56,7 +56,7 @@ class DC_Controller extends CI_Controller {
 
     function get_menu(){
         if($this->session->userdata('admin')){
-            $user_groups=$this->session->userdata['admin']['user_group'];
+            $user_groups=$this->session->userdata('admin')['user_group'];
         }else{
             $user_groups=0;
         }
@@ -67,7 +67,7 @@ class DC_Controller extends CI_Controller {
 
     function check_access(){
         if($this->session->userdata('admin')){
-            $user_groups=$this->session->userdata['admin']['user_group'];
+            $user_groups=$this->session->userdata('admin')['user_group'];
         }else{
             $user_groups=0;
         }

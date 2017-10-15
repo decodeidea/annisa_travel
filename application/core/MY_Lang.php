@@ -12,17 +12,17 @@ class MY_Lang extends CI_Lang {
 
 	// languages
 	var $languages = array(
-		'en' => 'english',
-		'id' => 'indonesia'
+		'id' => 'indonesia',
+		'en' => 'english'
+		
 	);
 
 	// special URIs (not localized)
 	var $special = array (
-		
 	);
 	
 	// where to redirect if no language in URI
-	var $default_uri = ''; 
+	var $default_uri = 'Home'; 
 
 	/**************************************************/
 	

@@ -65,7 +65,7 @@ $route['en/admin/(:any)'] = 'Admin/$1';
 $route['id/admin/'] = 'Admin';
 $route['id/admin/(:any)'] = 'Admin/$1';
 
-$route['^(en|id)/(.+)$'] = "$2";
+$route['^(id|en)/(.+)$'] = "$2";
 $route['^id$'] = $route['default_controller'];
 $route['^en$'] = $route['default_controller'];
 $route['404_override'] = '';

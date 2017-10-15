@@ -98,7 +98,7 @@ class Admin extends DC_controller {
 		}
 		$data = $this->controller_attr;
 		$data['function']='profile';
-        $data['data'] = select_where($this->tbl_user,'id',$this->session->userdata['admin']['id'])->row();
+        $data['data'] = select_where($this->tbl_user,'id',$this->session->userdata('admin')['id'])->row();
 		$data['page'] = $this->load->view('Admin/profile',$data,true);
 		$this->load->view('layout_backend',$data);
 	}
@@ -109,7 +109,7 @@ class Admin extends DC_controller {
 		$id=$this->input->post('id');
 		$table_field = $this->db->list_fields($this->tbl_user);
 		$update = array();
-		$user=select_where($this->tbl_user,'id',$this->session->userdata['admin']['id'])->row();
+		$user=select_where($this->tbl_user,'id',$this->session->userdata('admin')['id'])->row();
         foreach ($table_field as $field) {
             $update[$field] = $this->input->post($field);
         }
@@ -162,12 +162,14 @@ class Admin extends DC_controller {
                     echo"error upload";
                     die();
                 }
-        }
+        } 
+        $update['date_created']= $user->date_created;
+        $update['id_creator']=$user->id_creator;
         $update['date_modified']= date("Y-m-d H:i:s");
-        $update['id_modifier']=$this->session->userdata['admin']['id'];
+        $update['id_modifier']=$this->session->userdata('admin')['id'];
         $query=update($this->tbl_user,$update,'id',$id);
 		if($query){
-			$admin_user=select_where($this->tbl_user,'id',$this->session->userdata['admin']['id'])->row();
+			$admin_user=select_where($this->tbl_user,'id',$this->session->userdata('admin')['id'])->row();
 			$data_user = array(
 						'id' => $admin_user->id,
 						'username' => $admin_user->username,

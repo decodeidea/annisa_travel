@@ -59,9 +59,11 @@ class Admin_content extends DC_controller {
         }else{
         	 $update['images']=$_FILES['images']['name'];
         }
+        $update['date_created']=$static->date_created;
+        $update['id_creator']=$static->id_creator;
         $update['lang']=$this->lang->lang();
         $update['date_modified']= date("Y-m-d H:i:s");
-        $update['id_modifier']=$this->session->userdata['admin']['id'];
+        $update['id_modifier']=$this->session->userdata('admin')['id'];
         $query=update($this->tbl_static_content,$update,'id',$id);
 		if($query){
 			if(!empty($_FILES['images']['name'])){
@@ -95,7 +97,9 @@ class Admin_content extends DC_controller {
 		$table_field = $this->db->list_fields($this->tbl_static_content);
 		$insert = array();
         foreach ($table_field as $field) {
+        	if($field!='id'){
             $insert[$field] = $this->input->post($field);
+        	}
         }
         if(empty($_FILES['images']['name'])){
         	$insert['images']=='';
@@ -104,8 +108,9 @@ class Admin_content extends DC_controller {
         }
         $insert['lang']=$this->lang->lang();
         $insert['date_created']= date("Y-m-d H:i:s");
-        $insert['id_creator']=$this->session->userdata['admin']['id'];
+        $insert['id_creator']=$this->session->userdata('admin')['id'];
         $query=insert_all($this->tbl_static_content,$insert);
+        $insert['id']=$this->input->post('id');
 		if($query){
 			if(!empty($_FILES['images']['name'])){
 			if (!file_exists('assets/uploads/static-page/'.$this->db->insert_id())) {
@@ -179,13 +184,15 @@ class Admin_content extends DC_controller {
             $update[$field] = $this->input->post($field);
         }
         if(empty($_FILES['images']['name'])){
-        	$update['images']=$news->images;
+        	$update['images']=$static->images;
         }else{
         	 $update['images']=$_FILES['images']['name'];
         }
+        $update['date_created']=$static->date_created;
+        $update['id_creator']=$static->id_creator;
         $update['lang']=$this->lang->lang();
         $update['date_modified']= date("Y-m-d H:i:s");
-        $update['id_modifier']=$this->session->userdata['admin']['id'];
+        $update['id_modifier']=$this->session->userdata('admin')['id'];
         $query=update($this->tbl_news,$update,'id',$id);
 		if($query){
 			if(!empty($_FILES['images']['name'])){
@@ -219,7 +226,9 @@ class Admin_content extends DC_controller {
 		$table_field = $this->db->list_fields($this->tbl_news);
 		$insert = array();
         foreach ($table_field as $field) {
-            $insert[$field] = $this->input->post($field);
+            if($field!='id'){
+            	$insert[$field] = $this->input->post($field);
+			}
         }
         if(empty($_FILES['images']['name'])){
         	$insert['images']=='';
@@ -228,8 +237,9 @@ class Admin_content extends DC_controller {
         }
         $insert['lang']=$this->lang->lang();
         $insert['date_created']= date("Y-m-d H:i:s");
-        $insert['id_creator']=$this->session->userdata['admin']['id'];
+        $insert['id_creator']=$this->session->userdata('admin')['id'];
         $query=insert_all($this->tbl_news,$insert);
+        $insert['id']=$this->input->post('id');
 		if($query){
 			if(!empty($_FILES['images']['name'])){
 			if (!file_exists('assets/uploads/news/'.$this->db->insert_id())) {
@@ -306,9 +316,11 @@ class Admin_content extends DC_controller {
         }else{
         	 $update['images']=$_FILES['images']['name'];
         }
+        $update['date_created']=$banner->date_created;
+        $update['id_creator']=$banner->id_creator;
         $update['lang']=$this->lang->lang();
         $update['date_modified']= date("Y-m-d H:i:s");
-        $update['id_modifier']=$this->session->userdata['admin']['id'];
+        $update['id_modifier']=$this->session->userdata('admin')['id'];
         $query=update($this->tbl_banner,$update,'id',$id);
 		if($query){
 			if(!empty($_FILES['images']['name'])){
@@ -342,7 +354,9 @@ class Admin_content extends DC_controller {
 		$table_field = $this->db->list_fields($this->tbl_banner);
 		$insert = array();
         foreach ($table_field as $field) {
-            $insert[$field] = $this->input->post($field);
+             if($field!='id'){
+            	$insert[$field] = $this->input->post($field);
+			}
         }
         if(empty($_FILES['images']['name'])){
         	$insert['images']=='';
@@ -351,8 +365,9 @@ class Admin_content extends DC_controller {
         }
         $insert['lang']=$this->lang->lang();
         $insert['date_created']= date("Y-m-d H:i:s");
-        $insert['id_creator']=$this->session->userdata['admin']['id'];
+        $insert['id_creator']=$this->session->userdata('admin')['id'];
         $query=insert_all($this->tbl_banner,$insert);
+        $insert['id']=$this->input->post('id');
 		if($query){
 			if(!empty($_FILES['images']['name'])){
 			if (!file_exists('assets/uploads/banner/'.$this->db->insert_id())) {
@@ -429,9 +444,11 @@ class Admin_content extends DC_controller {
         }else{
         	 $update['images']=$_FILES['images']['name'];
         }
+        $update['date_created']=$banner->date_created;
+        $update['id_creator']=$banner->id_creator;
         $update['lang']=$this->lang->lang();
         $update['date_modified']= date("Y-m-d H:i:s");
-        $update['id_modifier']=$this->session->userdata['admin']['id'];
+        $update['id_modifier']=$this->session->userdata('admin')['id'];
         $query=update($this->tbl_banner,$update,'id',$id);
 		if($query){
 			if(!empty($_FILES['images']['name'])){
@@ -465,7 +482,9 @@ class Admin_content extends DC_controller {
 		$table_field = $this->db->list_fields($this->tbl_video);
 		$insert = array();
         foreach ($table_field as $field) {
-            $insert[$field] = $this->input->post($field);
+            if($field!='id'){
+            	$insert[$field] = $this->input->post($field);
+			}
         }
         if(empty($_FILES['images']['name'])){
         	$insert['images']=='';
@@ -474,8 +493,9 @@ class Admin_content extends DC_controller {
         }
         $insert['lang']=$this->lang->lang();
         $insert['date_created']= date("Y-m-d H:i:s");
-        $insert['id_creator']=$this->session->userdata['admin']['id'];
+        $insert['id_creator']=$this->session->userdata('admin')['id'];
         $query=insert_all($this->tbl_video,$insert);
+        $insert['id']=$this->input->post('id');
 		if($query){
 			if(!empty($_FILES['images']['name'])){
 			if (!file_exists('assets/uploads/video/'.$this->db->insert_id())) {

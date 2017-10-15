@@ -49,7 +49,7 @@ class Admin_program extends DC_controller {
 		$data['function']='destination';
 		$id=$this->input->post('id');
 		$table_field = $this->db->list_fields($this->tbl_destination);
-		$static=select_where($this->tbl_static_content,'id',$id)->row();
+		$static=select_where($this->tbl_destination,'id',$id)->row();
 		$update = array();
         foreach ($table_field as $field) {
             $update[$field] = $this->input->post($field);
@@ -59,9 +59,13 @@ class Admin_program extends DC_controller {
         }else{
         	 $update['images']=$_FILES['images']['name'];
         }
+        $update['date_created']=$static->date_created;
+        $update['id_creator']=$static->id_creator;
+        $update['date_created']=$static->date_created;
+        $update['id_creator']=$static->id_creator;
         $update['lang']=$this->lang->lang();
         $update['date_modified']= date("Y-m-d H:i:s");
-        $update['id_modifier']=$this->session->userdata['admin']['id'];
+        $update['id_modifier']=$this->session->userdata('admin')['id'];
         $query=update($this->tbl_destination,$update,'id',$id);
 		if($query){
 			if(!empty($_FILES['images']['name'])){
@@ -95,7 +99,9 @@ class Admin_program extends DC_controller {
 		$table_field = $this->db->list_fields($this->tbl_destination);
 		$insert = array();
         foreach ($table_field as $field) {
-            $insert[$field] = $this->input->post($field);
+             if($field!='id'){
+            	$insert[$field] = $this->input->post($field);
+			}
         }
         if(empty($_FILES['images']['name'])){
         	$insert['images']=='';
@@ -104,8 +110,9 @@ class Admin_program extends DC_controller {
         }
         $insert['lang']=$this->lang->lang();
         $insert['date_created']= date("Y-m-d H:i:s");
-        $insert['id_creator']=$this->session->userdata['admin']['id'];
+        $insert['id_creator']=$this->session->userdata('admin')['id'];
         $query=insert_all($this->tbl_destination,$insert);
+        $insert['id']=$this->input->post('id');
 		if($query){
 			if(!empty($_FILES['images']['name'])){
 			if (!file_exists('assets/uploads/destination/'.$this->db->insert_id())) {
@@ -198,9 +205,13 @@ class Admin_program extends DC_controller {
         }else{
         	 $update['images']=$_FILES['images']['name'];
         }
+        $update['date_created']=$static->date_created;
+        $update['id_creator']=$static->id_creator;
+        $update['date_created']=$static->date_created;
+        $update['id_creator']=$static->id_creator;
         $update['lang']=$this->lang->lang();
         $update['date_modified']= date("Y-m-d H:i:s");
-        $update['id_modifier']=$this->session->userdata['admin']['id'];
+        $update['id_modifier']=$this->session->userdata('admin')['id'];
         $query=update($this->tbl_category_program,$update,'id',$id);
 		if($query){
 			if(!empty($_FILES['images']['name'])){
@@ -234,7 +245,9 @@ class Admin_program extends DC_controller {
 		$table_field = $this->db->list_fields($this->tbl_category_program);
 		$insert = array();
         foreach ($table_field as $field) {
-            $insert[$field] = $this->input->post($field);
+             if($field!='id'){
+            	$insert[$field] = $this->input->post($field);
+			}
         }
         if(empty($_FILES['images']['name'])){
         	$insert['images']=='';
@@ -243,8 +256,9 @@ class Admin_program extends DC_controller {
         }
         $insert['lang']=$this->lang->lang();
         $insert['date_created']= date("Y-m-d H:i:s");
-        $insert['id_creator']=$this->session->userdata['admin']['id'];
+        $insert['id_creator']=$this->session->userdata('admin')['id'];
         $query=insert_all($this->tbl_category_program,$insert);
+        $insert['id']=$this->input->post('id');
 		if($query){
 			if(!empty($_FILES['images']['name'])){
 			if (!file_exists('assets/uploads/category_program/'.$this->db->insert_id())) {
@@ -325,14 +339,11 @@ class Admin_program extends DC_controller {
         foreach ($table_field as $field) {
             $update[$field] = $this->input->post($field);
         }
-        if(empty($_FILES['images']['name'])){
-        	$update['images']=$static->images;
-        }else{
-        	 $update['images']=$_FILES['images']['name'];
-        }
+        $update['date_created']=$static->date_created;
+        $update['id_creator']=$static->id_creator;
         $update['lang']=$this->lang->lang();
         $update['date_modified']= date("Y-m-d H:i:s");
-        $update['id_modifier']=$this->session->userdata['admin']['id'];
+        $update['id_modifier']=$this->session->userdata('admin')['id'];
         $query=update($this->tbl_program,$update,'id',$id);
 		if($query){
 			$this->session->set_flashdata('notif','success');
@@ -350,17 +361,15 @@ class Admin_program extends DC_controller {
 		$table_field = $this->db->list_fields($this->tbl_program);
 		$insert = array();
         foreach ($table_field as $field) {
-            $insert[$field] = $this->input->post($field);
-        }
-        if(empty($_FILES['images']['name'])){
-        	$insert['images']=='';
-        }else{
-        	 $insert['images']=$_FILES['images']['name'];
+             if($field!='id'){
+            	$insert[$field] = $this->input->post($field);
+			}
         }
         $insert['lang']=$this->lang->lang();
         $insert['date_created']= date("Y-m-d H:i:s");
-        $insert['id_creator']=$this->session->userdata['admin']['id'];
+        $insert['id_creator']=$this->session->userdata('admin')['id'];
         $query=insert_all($this->tbl_program,$insert);
+        $insert['id']=$this->input->post('id');
 		if($query){
 			if(!empty($_FILES['images']['name'])){
 			if (!file_exists('assets/uploads/program/'.$this->db->insert_id())) {
@@ -428,7 +437,7 @@ class Admin_program extends DC_controller {
 		$data['function']='album_program';
 		$id=$this->input->post('id');
 		$table_field = $this->db->list_fields($this->tbl_program_images);
-		$category_unit=select_where($this->tbl_program_images,'id',$id)->row();
+		$static=select_where($this->tbl_program_images,'id',$id)->row();
 		$update = array();
         foreach ($table_field as $field) {
             $update[$field] = $this->input->post($field);
@@ -438,8 +447,10 @@ class Admin_program extends DC_controller {
         }else{
         	 $update['images']=$_FILES['images']['name'];
         }
+        $update['date_created']=$static->date_created;
+        $update['id_creator']=$static->id_creator;
         $update['date_modified']= date("Y-m-d H:i:s");
-        $update['id_modifier']=$this->session->userdata['admin']['id'];
+        $update['id_modifier']=$this->session->userdata('admin')['id'];
         $query=update($this->tbl_program_images,$update,'id',$id);
 		if($query){
 			if(!empty($_FILES['images']['name'])){
@@ -473,7 +484,9 @@ class Admin_program extends DC_controller {
 		$table_field = $this->db->list_fields($this->tbl_program_images);
 		$insert = array();
         foreach ($table_field as $field) {
-            $insert[$field] = $this->input->post($field);
+             if($field!='id'){
+            	$insert[$field] = $this->input->post($field);
+			}
         }
         if(empty($_FILES['images']['name'])){
         	$insert['images']=='';
@@ -481,8 +494,9 @@ class Admin_program extends DC_controller {
         	 $insert['images']=$_FILES['images']['name'];
         }
         $insert['date_created']= date("Y-m-d H:i:s");
-        $insert['id_creator']=$this->session->userdata['admin']['id'];
+        $insert['id_creator']=$this->session->userdata('admin')['id'];
         $query=insert_all($this->tbl_program_images,$insert);
+        $insert['id']=$this->input->post('id');
 		if($query){
 			if(!empty($_FILES['images']['name'])){
 			if (!file_exists('assets/uploads/album_program/'.$this->db->insert_id())) {
@@ -550,13 +564,15 @@ class Admin_program extends DC_controller {
 		$data['function']='program_day';
 		$id=$this->input->post('id');
 		$table_field = $this->db->list_fields($this->tbl_program_day);
-		$category_unit=select_where($this->tbl_program_day,'id',$id)->row();
+		$static=select_where($this->tbl_program_day,'id',$id)->row();
 		$update = array();
         foreach ($table_field as $field) {
             $update[$field] = $this->input->post($field);
         }
+        $update['date_created']=$static->date_created;
+        $update['id_creator']=$static->id_creator;
         $update['date_modified']= date("Y-m-d H:i:s");
-        $update['id_modifier']=$this->session->userdata['admin']['id'];
+        $update['id_modifier']=$this->session->userdata('admin')['id'];
         $query=update($this->tbl_program_day,$update,'id',$id);
 		if($query){
 			$this->session->set_flashdata('notif','success');
@@ -574,11 +590,14 @@ class Admin_program extends DC_controller {
 		$table_field = $this->db->list_fields($this->tbl_program_day);
 		$insert = array();
         foreach ($table_field as $field) {
-            $insert[$field] = $this->input->post($field);
+             if($field!='id'){
+            	$insert[$field] = $this->input->post($field);
+			}
         }
        	$insert['date_created']= date("Y-m-d H:i:s");
-        $insert['id_creator']=$this->session->userdata['admin']['id'];
+        $insert['id_creator']=$this->session->userdata('admin')['id'];
         $query=insert_all($this->tbl_program_day,$insert);
+        $insert['id']=$this->input->post('id');
 		if($query){
 			$this->session->set_flashdata('notif','success');
 			$this->session->set_flashdata('msg','Your data have been added');

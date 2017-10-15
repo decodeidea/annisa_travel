@@ -60,13 +60,16 @@ class Setting_system extends DC_controller {
 		$data['function']='menu';
 		$id=$this->input->post('id');
 		$table_field = $this->db->list_fields($this->tbl_menu);
+		$static = select_where($this->tbl_menu, 'id', $id)->row();
 		$update = array();
         foreach ($table_field as $field) {
             $update[$field] = $this->input->post($field);
         }
+        $update['date_created']=$static->date_created;
+        $update['id_creator']=$static->id_creator;
         $update['lang']=$this->lang->lang();
         $update['date_modified']= date("Y-m-d H:i:s");
-        $update['id_modifier']=$this->session->userdata['admin']['id'];
+        $update['id_modifier']=$this->session->userdata('admin')['id'];
         $query=update($this->tbl_menu,$update,'id',$id);
 		if($query){
 			$this->session->set_flashdata('notif','success');
@@ -84,12 +87,15 @@ class Setting_system extends DC_controller {
 		$table_field = $this->db->list_fields($this->tbl_menu);
 		$insert = array();
         foreach ($table_field as $field) {
-            $insert[$field] = $this->input->post($field);
+             if($field!='id'){
+            	$insert[$field] = $this->input->post($field);
+			}
         }
         $insert['lang']=$this->lang->lang();
         $insert['date_created']= date("Y-m-d H:i:s");
-        $insert['id_creator']=$this->session->userdata['admin']['id'];
+        $insert['id_creator']=$this->session->userdata('admin')['id'];
         $query=insert_all($this->tbl_menu,$insert);
+        $insert['id']=$this->input->post('id');
 		if($query){
 			$this->session->set_flashdata('notif','success');
 			$this->session->set_flashdata('msg','Your data have been added');
@@ -141,12 +147,15 @@ class Setting_system extends DC_controller {
 		$data['function']='user_groups';
 		$id=$this->input->post('id');
 		$table_field = $this->db->list_fields($this->tbl_groups);
+		$static = select_where($this->tbl_groups, 'id', $id)->row();
 		$update = array();
         foreach ($table_field as $field) {
             $update[$field] = $this->input->post($field);
         }
+        $update['date_created']=$static->date_created;
+        $update['id_creator']=$static->id_creator;
         $update['date_modified']= date("Y-m-d H:i:s");
-        $update['id_modifier']=$this->session->userdata['admin']['id'];
+        $update['id_modifier']=$this->session->userdata('admin')['id'];
         $query=update($this->tbl_groups,$update,'id',$id);
 		if($query){
 			$this->session->set_flashdata('notif','success');
@@ -164,11 +173,14 @@ class Setting_system extends DC_controller {
 		$table_field = $this->db->list_fields($this->tbl_groups);
 		$insert = array();
         foreach ($table_field as $field) {
-            $insert[$field] = $this->input->post($field);
+             if($field!='id'){
+            	$insert[$field] = $this->input->post($field);
+			}
         }
         $insert['date_created']= date("Y-m-d H:i:s");
-        $insert['id_creator']=$this->session->userdata['admin']['id'];
+        $insert['id_creator']=$this->session->userdata('admin')['id'];
         $query=insert_all($this->tbl_groups,$insert);
+        $insert['id']=$this->input->post('id');
 		if($query){
 			$this->session->set_flashdata('notif','success');
 			$this->session->set_flashdata('msg','Your data have been added');
@@ -386,8 +398,10 @@ class Setting_system extends DC_controller {
                     die();
                 }
         }
+        $update['date_created']=$user->date_created;
+        $update['id_creator']=$user->id_creator;
         $update['date_modified']= date("Y-m-d H:i:s");
-        $update['id_modifier']=$this->session->userdata['admin']['id'];
+        $update['id_modifier']=$this->session->userdata('admin')['id'];
         $query=update($this->tbl_user,$update,'id',$id);
 		if($query){
 			$this->session->set_flashdata('notif','success');
@@ -405,7 +419,9 @@ class Setting_system extends DC_controller {
 		$table_field = $this->db->list_fields($this->tbl_user);
 		$insert = array();
         foreach ($table_field as $field) {
-            $insert[$field] = $this->input->post($field);
+             if($field!='id'){
+            	$insert[$field] = $this->input->post($field);
+			}
         }
         $email=select_where($this->tbl_user,'email',$update['email'])->num_rows();
         if($email>0){
@@ -432,8 +448,9 @@ class Setting_system extends DC_controller {
         	 $insert['photo']=$_FILES['photo']['name'];
         }
         $insert['date_created']= date("Y-m-d H:i:s");
-        $insert['id_creator']=$this->session->userdata['admin']['id'];
+        $insert['id_creator']=$this->session->userdata('admin')['id'];
         $query=insert_all($this->tbl_user,$insert);
+        $insert['id']=$this->input->post('id');
 		if($query){
 			if(!empty($_FILES['photo']['name'])){
 			if (!file_exists('assets/uploads/user-admin/'.$this->db->insert_id())) {
@@ -510,8 +527,10 @@ class Setting_system extends DC_controller {
                     die();
                 }
         }
+        $update['date_created']=$appearance->date_created;
+        $update['id_creator']=$appearance->id_creator;
         $update['date_modified']= date("Y-m-d H:i:s");
-        $update['id_modifier']=$this->session->userdata['admin']['id'];
+        $update['id_modifier']=$this->session->userdata('admin')['id'];
         $query=update($this->tbl_appearance,$update,'id',$id);
 		if($query){
 			$this->session->set_flashdata('notif','success');

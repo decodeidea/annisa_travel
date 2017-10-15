@@ -53,7 +53,7 @@ class Message extends DC_controller {
             $insert[$field] = $this->input->post($field);
         }
         $insert['date_created']= date("Y-m-d H:i:s");
-        $insert['id_creator']=$this->session->userdata['admin']['id'];
+        $insert['id_creator']=$this->session->userdata('admin')['id'];
         $query=insert_all($this->tbl_contact,$insert);
 		if($query){
 			$this->session->set_flashdata('notif','success');

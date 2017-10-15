@@ -77,8 +77,8 @@ class MX_Lang extends CI_Lang
 
 	// languages
 	var $languages = array(
-		'en' => 'english',
-		'id' => 'indonesia'
+		'id' => 'indonesia',
+		'en' => 'english'
 	);
 
 	// special URIs (not localized)

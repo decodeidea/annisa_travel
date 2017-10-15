@@ -1,4 +1,3 @@
-
     <div class="row">
       <div class="col-md-6 tex-center" style="background: url(<?php echo base_url() ?>assets/theme/img/login.jpg); height: 100vh; background-size: cover">
         <div class="login-form-social text-center">
@@ -6,8 +5,8 @@
           <br><br>
           <span>Masuk dengan</span>
           <br><br>
-          <A href="#"><img src="<?php echo base_url() ?>assets/theme/img/facebook-login.png" height="40px"></A><br><br>
-          <a href="#"><img src="<?php echo base_url() ?>assets/theme/img/google-login.png" height="40px"></a>
+          <A href="<?php echo $login_url ?>"><img src="<?php echo base_url() ?>assets/theme/img/facebook-login.png" height="40px"></A><br><br>
+          <a href="<?php echo $login_google ?>"><img src="<?php echo base_url() ?>assets/theme/img/google-login.png" height="40px"></a>
         </div>
       </div>
       <div class="col-md-6">
@@ -36,7 +35,13 @@
           <div class="form-group">
             <button class="btn btn-login">Masuk</button>
           </div>
+        <?php if($this->session->flashdata('msg')){ ?>
+                            <div class="form-group text-center" >
+                        <h4 style="color:red"><?php echo $this->session->flashdata('msg') ?></h4>
+                        </div>
+                        <?php } ?>
         </form>
+
         </div>
       </div>
     </div>
