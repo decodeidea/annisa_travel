@@ -63,6 +63,11 @@
                   </li>
                 </ul>
               </li>
+              <?php if($this->session->userdata('validated')){ ?>
+              <li class="">
+                <a class="dnone" href="<?php echo site_url('Account') ?>">Hello, <?php echo $this->session->userdata('firstname') ?></a>
+              </li>
+              <?php }else{ ?>
               <li class="">
                 <a class="dnone"  href="<?php echo site_url('Account/login') ?>">
                   Sign In
@@ -73,6 +78,7 @@
                   Sign Up
                 </a>
               </li>
+              <?php } ?>
               <li class="">
                 <a class="dnone" href="javascript:void()" data-toggle="modal" data-target="#modal-search">
                   Search

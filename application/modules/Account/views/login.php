@@ -17,13 +17,13 @@
           <div class="form-group">
             <div class="inner-addon left-addon">
     <i class="glyphicon glyphicon-envelope"></i>
-    <input type="text" name="email" class="form-control text-login" placeholder="Masukan email kamu" />
+    <input type="email" required name="email" class="form-control text-login" placeholder="Masukan email kamu" />
 </div>
           </div>
           <div class="form-group">
             <div class="inner-addon left-addon">
     <i class="glyphicon glyphicon-lock"></i>
-    <input type="password" name="password" class="form-control text-login" placeholder="Masukan kata sandi" />
+    <input type="password" required name="password" class="form-control text-login" placeholder="Masukan kata sandi" />
 </div>
           </div>
           <div class="form-group">
@@ -36,9 +36,11 @@
             <button type="submit" class="btn btn-login">Masuk</button>
           </div>
         <?php if($this->session->flashdata('msg')){ ?>
-                            <div class="form-group text-center" >
-                        <h4 style="color:red"><?php echo $this->session->flashdata('msg') ?></h4>
+        <div class="form-group">
+                            <div class="alert alert-danger text-center text-login" style="height: auto;">
+                        <?php echo $this->session->flashdata('msg') ?>
                         </div>
+                      </div>
                         <?php } ?>
         </form>
 

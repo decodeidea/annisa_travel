@@ -118,6 +118,7 @@ class Account extends DC_controller {
                     );
 
            $this->session->set_userdata($data);
+            redirect(site_url('Account'));
          }else{
         $data_new = array(
         'first_name' => $user_profile['name'],
@@ -152,18 +153,17 @@ public function do_login()
     $this->form_validation->set_rules('email', 'EMAIL', 'trim|required|valid_email');
     $this->form_validation->set_rules('password', 'PASSWORD', 'trim|required');
     if ($this->form_validation->run() == FALSE) {
-      //die("Fail");
-      $this->index();
+      redirect(site_url('Account/login'));
     }else{
           $this->db->where('email', $this->input->post('email'));
           $query = $this->db->get('dc_member');
           if($query->num_rows() == 1)
     {
       $row=$query->row();
-      $pass=$this->encrypt->decode($row->password);
+      $pass=$row->password;
       if($pass==$this->input->post('password')){
          $data = array(
-          'id' => $row->id,
+                    'id' => $row->id,
                     'email' => $row->email,
                     'password' => $row->password,
                     'firstname'=>$row->first_name,
@@ -172,16 +172,16 @@ public function do_login()
                     );
 
            $this->session->set_userdata($data);
-           redirect('dashboard');
+           redirect(site_url('Account'));
       }else{
         $this->session->set_flashdata('msg','Password yang anda masukan salah');
           $this->session->set_flashdata('email',$this->input->post('email'));
-              redirect('login');
+              redirect(site_url('Account/login'));
       }
     }else{
       $this->session->set_flashdata('msg','Email yang anda masukan belum terdaftar');
           $this->session->set_flashdata('email',$this->input->post('email'));
-              redirect('login');
+              redirect(site_url('Account/login'));
     }
       
       }

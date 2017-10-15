@@ -2289,4 +2289,7 @@ text-align: center;
   transition: color .4s;
   width: 3.8rem;
 }
-
+.tp-tab-mask, .tp-thumb-mask {
+    box-sizing: border-box !important;
+    top: -50px;
+}
