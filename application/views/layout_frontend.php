@@ -180,6 +180,21 @@
 				</div>
       </footer>
       <?php } ?>
+
+      <div id="modal-search" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalSearch">
+        <div class="modal-dialog  modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <label class="label-search">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+              </label>
+              <input class="input-search" id="search-input" type="text" placeholder="Search places, cities, countries and continents" autocomplete="off" autocorrect="off">
+              <button class="button-close" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
 	<!-- Vendor -->
 	<script src="<?php echo base_url() ?>assets/theme/vendor/jquery/jquery.min.js"></script>
@@ -205,7 +220,7 @@
     <script src="<?php echo base_url() ?>assets/theme/vendor/circle-flip-slideshow/js/jquery.flipshow.min.js"></script>
     <script src="<?php echo base_url() ?>assets/theme/js/views/view.home.js"></script>
 <?php if($this->uri->segment(2)=='Program' and $this->uri->segment(3)=='detail') { }else{?>
-	
+
 	<!-- Theme Custom -->
 	<script src="<?php echo base_url() ?>assets/theme/js/custom.js"></script>
 <?php } ?>
@@ -215,13 +230,13 @@
 
 	<script>
 		jQuery(document).ready(function($) {
- 
+
 				$('#myCarousel').carousel({
 						interval: 5000
 				});
-		 
+
 				$('#carousel-text').html($('#slide-content-0').html());
-		 
+
 				//Handles the carousel thumbnails
 				$('[id^=carousel-selector-]').click( function(){
 						var id_selector = $(this).attr("id");
@@ -229,15 +244,15 @@
 						var id = parseInt(id);
 						$('#myCarousel').carousel(id);
 				});
-		 
-		 
+
+
 				// When the carousel slides, auto update the text
 				$('#myCarousel').on('slid', function (e) {
 						var id = $('.item.active').data('slide-number');
 						$('#carousel-text').html($('#slide-content-'+id).html());
 				});
 		});
-		
+
 		// Starrr plugin (https://github.com/dobtco/starrr)
 		var __slice = [].slice;
 
@@ -344,11 +359,11 @@
 		});
 
 		$( document ).ready(function() {
-			  
+
 		  $('#stars').on('starrr:change', function(e, value){
 			$('#count').html(value);
 		  });
-		  
+
 		  $('#stars-existing').on('starrr:change', function(e, value){
 			$('#count-existing').html(value);
 		  });
