@@ -17,9 +17,13 @@ class Account extends DC_controller {
 	}
 	
 	 function index(){
+    if(!$this->session->userdata('validated')){
+      $this->session->set_flashdata('msg','Maaf anda harus login terlebih dahulu untuk mengakses halaman ini.');
+          redirect(site_url('Account/login'));
+    }
 		$data = $this->controller_attr;
 		$data['function']='index';
-		$data['list']='';
+		$data['data']=select_where($this->tbl_member,'id',$this->session->userdata('id'))->row();
 		$data['page'] = $this->load->view('Account/index',$data,true);
 		$this->load->view('layout_frontend',$data);
 	}
@@ -73,8 +77,8 @@ class Account extends DC_controller {
       $this->db->where('email', $user_profile['email']);
           $query = $this->db->get('dc_member');
           $row = $query->row();
-      $data = array(
-          'id' => $row->id,
+                    $data = array(
+                    'id' => $row->id,
                     'email' => $row->email,
                     'password' => $row->password,
                     'firstname'=>$row->first_name,

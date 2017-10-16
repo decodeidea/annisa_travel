@@ -197,7 +197,6 @@
 <script src="<?php echo base_url() ?>assets/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url() ?>assets/plugins/jquery-block-ui/jqueryblockui.js" type="text/javascript"></script>
 <script src="<?php echo base_url() ?>assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js" type="text/javascript"></script>
-<script src="<?php echo base_url() ?>assets/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url() ?>assets/plugins/jquery-datatable/js/jquery.dataTables.min.js" type="text/javascript" ></script>
 <script src="<?php echo base_url() ?>assets/plugins/jquery-datatable/extra/js/dataTables.tableTools.min.js" type="text/javascript" ></script>
 <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/datatables-responsive/js/datatables.responsive.js"></script>

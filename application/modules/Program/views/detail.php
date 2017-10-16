@@ -82,6 +82,8 @@
 
                 <h4 class="heading-primary annis-title">HARGA</h4>
                 <div class="nav div-room-white">
+                  <form action="<?php echo site_url('Payment/tmp_payment'); ?>" method="POST">
+                    <input type="hidden" name="id_program" value="<?php echo $data->id ?>">
                   <div class="col-md-7 rt">
                     <span class="room-type">QUAD ROOM</span></br>
                     <span class="room-price">Rp. <?php echo idr($data->price1) ?>/orang</span>
@@ -89,7 +91,7 @@
                   <div class="col-md-4">
                     <div class="quantity">
                       <input type="button" class="minus" value="-">
-                      <input type="text" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
+                      <input type="text" class="input-text qty text" title="Qty" value="0" name="quantity1" min="1" step="1">
                       <input type="button" class="plus" value="+">
                     </div>
                   </div>
@@ -102,7 +104,7 @@
                   <div class="col-md-4">
                     <div class="quantity">
                       <input type="button" class="minus" value="-">
-                      <input type="text" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
+                      <input type="text" class="input-text qty text" title="Qty" value="0" name="quantity2" min="1" step="1">
                       <input type="button" class="plus" value="+">
                     </div>
                   </div>
@@ -115,7 +117,7 @@
                   <div class="col-md-4">
                     <div class="quantity">
                       <input type="button" class="minus" value="-">
-                      <input type="text" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
+                      <input type="text" class="input-text qty text" title="Qty" value="0" name="quantity3" min="1" step="1">
                       <input type="button" class="plus" value="+">
                     </div>
                   </div>
@@ -129,26 +131,30 @@
                     <h5>Ketersedian Tanggal</h5>
                   </div>
                 </div>
-                <?php foreach ($date as $key) {
+                <div class="">
+                  <select class="select2 form-control">
+                    <?php foreach ($date as $key) {
                   # code...
                  ?>
-                <div class="nav div-room">
-                  <div class="col-md-12 rto">
-                    <span class="room-day" style="text-transform: uppercase;"><?php echo hari_indo($key->day) ?></span></br>
-                    <span class="room-date"><?php echo tanggal_indo($key->day) ?></span>
-                  </div>
+                    <option value="<?php echo $key->day ?>">
+                     <?php echo hari_indo($key->day) ?>, <?php echo tanggal_indo($key->day) ?>
+                    </option>
+                    <?php } ?>
+                  </select>
                 </div>
-                <?php } ?>
 
                 <div class="col-md-12 br-bar">
                   <div class="line-bar"></div>
                 </div>
                 <div class="nav div-btn">
                   <div class="col-md-12 text-center">
-                    <a href="<?php echo site_url() ?>/Payment"><button type="submit" name="submit" class="btn-book" >BOOK NOW </button></a>
+                   <button type="submit" name="submit" class="btn-book" >BOOK NOW </button>
                   </div>
+                </form>
                   <div class="col-md-12 text-center mtb12">
+                    <form action="#" method="POST">
                     <button type="submit" name="submit" class="btn-whis" >SAVE TO WISHLIST </button>
+                    </form>
                   </div>
                   
                 </div>
@@ -212,96 +218,31 @@
         </div>
       </div>
       <div class="featured row">
-        
+        <?php foreach ($program_related as $key) {
+         ?>
           <div class="col-sm-4 col-md-3">
-            <a href="#" class="text-decoration-none">
+            <a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" class="text-decoration-none">
               <span class="thumb-info thumb-info-side-image thumb-info-side-image-custom thumb-info-no-zoom thumb-info-no-zoom thumb-info-side-image-custom-highlight">
                 <span class="thumb-info-side-image-wrapper">
-                  <img alt="" class="img-responsive" src="<?php echo base_url() ?>assets/theme/img/pb/pb_1.jpg">
+                  <img alt="" class="img-responsive" src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->id_image ?>/<?php echo $key->image ?>">
                 </span>
                 <span class="thumb-info-caption">
                   <span class="thumb-info-caption-text p-xl">
-                    <span>Umroh Series</span>
-                    <h4 class="font-weight-semibold mb-xs">Reguler 12 hari</h4>
-                    <p>Nikmati indahnya beribadah dan berdoa di dua kota suci Mekkah dan Madinah.
-                       Nikmati perjalanan anda seama 12 hari.
-                       Anda akan diajak Umroh dan berziarah islami di Mekkah dan Madinah. Ayo serunya Umroh bersama kami..</p>
+                    <span><?php echo $key->category ?></span>
+                    <div style="min-height: 50px">
+                    <h4 class="font-weight-semibold mb-xs"><?php echo $key->title ?></h4>
+                    </div>
+                    <?php echo substr($key->itenary, 0,200) ?>..</p>
                     <span class="sf">Start From</span>
                     <span class="item-rp-pb">Rp</span>
-                    <span class="item-price-pb">34.000</span>
-                    <span class="item-kos-pb">.000</span>
+                    <span class="item-price-pb"><?php echo idr($key->price1) ?></span>
+                    <!--<span class="item-kos-pb">.000</span>-->
                   </span>
                 </span>
               </span>
             </a>
           </div>
-          <div class="col-sm-4 col-md-3">
-            <a href="#" class="text-decoration-none">
-              <span class="thumb-info thumb-info-side-image thumb-info-side-image-custom thumb-info-no-zoom thumb-info-no-zoom thumb-info-side-image-custom-highlight">
-                <span class="thumb-info-side-image-wrapper">
-                  <img alt="" class="img-responsive" src="<?php echo base_url() ?>assets/theme/img/pb/pb_2.jpg">
-                </span>
-                <span class="thumb-info-caption">
-                  <span class="thumb-info-caption-text p-xl">
-                    <span>Umroh Series</span>
-                    <h4 class="font-weight-semibold mb-xs">Reguler 12 hari</h4>
-                    <p>Nikmati indahnya beribadah dan berdoa di dua kota suci Mekkah dan Madinah.
-                       Nikmati perjalanan anda seama 12 hari.
-                       Anda akan diajak Umroh dan berziarah islami di Mekkah dan Madinah. Ayo serunya Umroh bersama kami..</p>
-                    <span class="sf">Start From</span>
-                    <span class="item-rp-pb">Rp</span>
-                    <span class="item-price-pb">34.000</span>
-                    <span class="item-kos-pb">.000</span>
-                  </span>
-                </span>
-              </span>
-            </a>
-          </div>
-          <div class="col-sm-4 col-md-3">
-            <a href="#" class="text-decoration-none">
-              <span class="thumb-info thumb-info-side-image thumb-info-side-image-custom thumb-info-no-zoom thumb-info-no-zoom thumb-info-side-image-custom-highlight">
-                <span class="thumb-info-side-image-wrapper">
-                  <img alt="" class="img-responsive" src="<?php echo base_url() ?>assets/theme/img/pb/pb_3.jpg">
-                </span>
-                <span class="thumb-info-caption">
-                  <span class="thumb-info-caption-text p-xl">
-                    <span>Umroh Series</span>
-                    <h4 class="font-weight-semibold mb-xs">Reguler 12 hari</h4>
-                    <p>Nikmati indahnya beribadah dan berdoa di dua kota suci Mekkah dan Madinah.
-                       Nikmati perjalanan anda seama 12 hari.
-                       Anda akan diajak Umroh dan berziarah islami di Mekkah dan Madinah. Ayo serunya Umroh bersama kami..</p>
-                    <span class="sf">Start From</span>
-                    <span class="item-rp-pb">Rp</span>
-                    <span class="item-price-pb">34.000</span>
-                    <span class="item-kos-pb">.000</span>
-                  </span>
-                </span>
-              </span>
-            </a>
-          </div>
-          <div class="col-sm-4 col-md-3">
-            <a href="#" class="text-decoration-none">
-              <span class="thumb-info thumb-info-side-image thumb-info-side-image-custom thumb-info-no-zoom thumb-info-no-zoom thumb-info-side-image-custom-highlight">
-                <span class="thumb-info-side-image-wrapper">
-                  <img alt="" class="img-responsive" src="<?php echo base_url() ?>assets/theme/img/pb/pb_4.jpg">
-                </span>
-                <span class="thumb-info-caption">
-                  <span class="thumb-info-caption-text p-xl">
-                    <span>Umroh Series</span>
-                    <h4 class="font-weight-semibold mb-xs">Reguler 12 hari</h4>
-                    <p>Nikmati indahnya beribadah dan berdoa di dua kota suci Mekkah dan Madinah.
-                       Nikmati perjalanan anda seama 12 hari.
-                       Anda akan diajak Umroh dan berziarah islami di Mekkah dan Madinah. Ayo serunya Umroh bersama kami..</p>
-                    <span class="sf">Start From</span>
-                    <span class="item-rp-pb">Rp</span>
-                    <span class="item-price-pb">34.000</span>
-                    <span class="item-kos-pb">.000</span>
-                  </span>
-                </span>
-              </span>
-            </a>
-          </div>
-          
+          <?php } ?>
       </div>
     </div>
     
@@ -425,3 +366,12 @@
        
 
       </div>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+<script type="text/javascript">
+      $( document ).ready(function() {
+
+    $('.select2').select2();
+    });
+</script>

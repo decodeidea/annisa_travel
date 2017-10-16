@@ -18,7 +18,7 @@
 					<div class="row">
 						
 						<div class="tab-content border-none">
-							<div id="account" class="col-md-9 col-md-push-3 my-account form-section tab-pane active">
+							<div id="account" class="col-md-9 col-md-push-3 my-account form-section tab-pane">
 								
 								<h1 class="h2 heading-primary font-weight-normal">Profile</h1>
 								
@@ -107,7 +107,7 @@
 								</div>
 							</div>
 							
-							<div id="pesanan" class="col-md-9 col-md-push-3 my-account form-section tab-pane">
+							<div id="pesanan" class="col-md-9 col-md-push-3 my-account form-section tab-pane active">
 								<h1 class="h2 heading-primary font-weight-normal">Pesanan</h1>
 								
 								
@@ -565,13 +565,17 @@
 								
 								<ul class="nav nav-list">
 									<div class="side-profile">
-										<img src="<?php echo base_url() ?>assets/theme/img/team-29.jpg" width="200"/>
-										<h2>H.Umar Rudin</h2>
-										<span>Semarang</span>
-										<p>Member Sejak Agustus 2016</p>
+										<?php if($data->login_type==1){ ?>
+										<img src="<?php echo base_url() ?>assets/uploads/member/<?php echo $data->id ?>/<?php echo $this->session->userdata('photo') ?>" width="235"/>
+										<?php }else{ ?>
+										<img src="<?php echo $this->session->userdata('photo') ?>" width="235"/>
+										<?php } ?>
+										<h2><?php echo $this->session->userdata('firstname') ?></h2>
+										<span><?php echo $data->address ?></span>
+										<p>Member Sejak <?php echo substr(tanggal_indo($data->date_created),12,12) ?></p>
 									</div>
-									<li class="active"><a href="#account" data-toggle="tab">Profile</a></li>
-									<li><a href="#pesanan" data-toggle="tab">Pesanan (1)</a></li>
+									<li><a href="#account" data-toggle="tab">Profile</a></li>
+									<li  class="active"><a href="#pesanan" data-toggle="tab">Pesanan (1)</a></li>
 									<li><a href="#mywhislist" data-toggle="tab">My Whislist</a></li>
 									<li><a href="#myexpe" data-toggle="tab">My Experience</a></li>
 									<li><a href="#listexpe" data-toggle="tab">List Experience</a></li>

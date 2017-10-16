@@ -56,8 +56,25 @@ class Program extends DC_controller {
 		$data['data']=select_where($this->tbl_program,'id',$id)->row();
 		$data['album_image']=select_where($this->tbl_program_images,'id_program',$id)->result();
 		$data['date']=select_where($this->tbl_program_day,'id_program',$id)->result();
+		$data['date_start']=select_where_order($this->tbl_program_day,'id_program',$id,'id','ASC')->row();
+		$data['date_stop']=select_where_order($this->tbl_program_day,'id_program',$id,'id','DESC')->row();
+		$program_related=select_where_array_limit_order($this->tbl_program,$array=array('id_program_category'=>$data['data']->id_program_category,'lang'=>$this->lang->lang()),4,'id','DESC')->result();
+		foreach ($program_related as $key) {
+			$image=select_where($this->tbl_program_images,'id_program',$key->id)->row();
+			$key->image=$image->images;
+			$key->id_image=$image->id;
+			$category=select_where($this->tbl_category_program,'id',$key->id_program_category)->row();
+			$key->category=$category->title;
+		}
+		$data['program_related']=$program_related;
 		$data['page'] = $this->load->view('Program/detail',$data,true);
 		$this->load->view('layout_frontend',$data);
+	}
+
+	function tmp_payment(){
+		$data_payment=array(
+			'id_program' => $this->input->post('id_program'), 
+		);
 	}
 }
 
