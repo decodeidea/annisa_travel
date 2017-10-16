@@ -14,9 +14,21 @@
                   <div class="row">
                     <div class="col-md-8 col-sm-8 col-xs-8">
                       <div class="form-group">
-                        <label class="form-label">Date</label>
+                        <label class="form-label">Start Date</label>
                         <div class="controls">
                           <input type="text" name="day" class="datepicker form-control" required value="<?php if(isset($data)){ echo $data->day; } ?>">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">End date</label>
+                        <div class="controls">
+                          <input type="text" name="off_day" class="datepicker form-control" required value="<?php if(isset($data)){ echo $data->off_day; } ?>">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">Kuota</label>
+                        <div class="controls">
+                          <input type="text" name="stock" class="datepicker form-control" required value="<?php if(isset($data)){ echo $data->stock; } ?>">
                         </div>
                       </div>
                         <div class="form-group">

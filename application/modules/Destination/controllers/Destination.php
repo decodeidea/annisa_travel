@@ -19,7 +19,7 @@ class Destination extends DC_controller {
 	 function index(){
 		$data = $this->controller_attr;
 		$data['function']='index';
-		$data['list']='';
+		$data['list']=select_where($this->tbl_destination,'lang',$this->lang->lang())->result();
 		$data['page'] = $this->load->view('Destination/index',$data,true);
 		$this->load->view('layout_frontend',$data);
 	}

@@ -25,6 +25,8 @@ class Home extends DC_controller {
 			$image=select_where($this->tbl_program_images,'id_program',$key->id)->row();
 			$key->image=$image->images;
 			$key->image_id=$image->id;
+			$date=select_where($this->tbl_program_day,'id_program',$key->id)->row();
+			$key->date=$date;
 		}
 		$data['top_destination']=$top_destination;
 		$popular_destination=select_where_limit_order($this->tbl_program,'lang',$this->lang->lang(),6,'id','DESC')->result();
@@ -32,6 +34,8 @@ class Home extends DC_controller {
 			$image=select_where($this->tbl_program_images,'id_program',$key->id)->row();
 			$key->image=$image->images;
 			$key->image_id=$image->id;
+			$date=select_where($this->tbl_program_day,'id_program',$key->id)->row();
+			$key->date=$date;
 		}
 		$data['video']=select_where_limit_order($this->tbl_video,'lang',$this->lang->lang(),'3','id','DESC')->result();
 		$data['article']=select_where_limit_order($this->tbl_news,'lang',$this->lang->lang(),'4','id','DESC')->result();

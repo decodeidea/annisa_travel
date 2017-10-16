@@ -83,7 +83,22 @@
 								<a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>" style="text-decoration: none;"><span class="item-title"><?php echo $key->title ?></span>	</a>
 							</div>
 							<div class="image-gallery-date">
-								<span class="item-date">9 Oktober 2017 - 9 Hari</span>	
+								<span class="item-date"><?php echo tanggal_indo(substr($key->date->day, 0,10)) ?> - <?php
+
+
+$now = $key->date->day; // or your date as well
+$your_date = $key->date->off_day;
+$datediff = $now - $your_date;
+
+if(floor($datediff / (60 * 60 * 24))==0){
+echo 1;
+}else{
+	echo floor($datediff / (60 * 60 * 24));
+}
+
+
+
+								 ?> Hari</span>	
 							</div>
 						</div>
 						
@@ -134,7 +149,7 @@
 						<?php } ?>
 					</ul>
 					<div class="button-see2 col-md-12 center">
-						<a class="btn btn-primary mt-xl mb-sm" href="#">See More <i class="fa fa-angle-right pl-xs"></i></a>
+						<a class="btn btn-primary mt-xl mb-sm" href="<?php echo site_url('Destination') ?>">See More <i class="fa fa-angle-right pl-xs"></i></a>
 					</div>
 			</div>
 		</div>
@@ -207,7 +222,22 @@
 											<div class="pd-dest">
 												<a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo $key->title ?>" style="text-decoration: none;"><span class="pd-dest-tit"><?php echo $key->title ?></span></a>
 												</br>
-												<span class="pd-dest-date">06 Oktober 2017 - 9 Hari</span>
+												<span class="pd-dest-date"><?php echo tanggal_indo(substr($key->date->day, 0,10)) ?> - <?php
+
+
+$now = $key->date->day; // or your date as well
+$your_date = $key->date->off_day;
+$datediff = $now - $your_date;
+
+if(floor($datediff / (60 * 60 * 24))==0){
+echo 1;
+}else{
+	echo floor($datediff / (60 * 60 * 24));
+}
+
+
+
+								 ?> Hari</span>
 												</br>
 												<div class="product-ratings" >
 													<span class="pd-dest-child">fasilitas</span>
