@@ -51,9 +51,21 @@
 		<!-- Head Libs -->
 		<script src="<?php echo base_url() ?>assets/theme/vendor/modernizr/modernizr.min.js"></script>
 
+
 	<script src="<?php echo base_url() ?>assets/theme/vendor/jquery/jquery.min.js"></script>
 	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+		<!-- Facebook Button BEGIN -->                            
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=216339198484146";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
   </head>
 
   <body>
