@@ -253,117 +253,26 @@
         </div>
         </section>
 		
-		  <section class="section section-no-background mt-none">
-      <div class="container">
-        <div class="row">
-          <div class="bg-breadcumb col-md-12">
-            <div class="heading heading-border heading-middle-border">
-              <h1>Ulasan</h1>
-            </div>
-          </div>
-          <div class="featured row">
-            <div class="ulasan">
-              <h4>Bagikan pengalaman kamu bersama Annisa Travel</h4>
-              <form id="" action="#" method="POST" class="custom-form-style-1 form-ulasan">
-                
-                <span>Berikan peringkat untuk produk ini</span>
-                 <div class="lead">
-                  <div id="stars" class="starrr" data-rating="0"><span class="glyphicon .glyphicon-star glyphicon-star"></span><span class="glyphicon .glyphicon-star glyphicon-star"></span><span class="glyphicon .glyphicon-star glyphicon-star"></span><span class="glyphicon .glyphicon-star glyphicon-star"></span><span class="glyphicon .glyphicon-star glyphicon-star"></span></div>
-                  <input name="rating" id="count" type="hidden">
-                 </div>
-                 <span>Deskripsi Ulasan</span>
-                <div class="row mt10">
-                  <div class="form-group">
-                    <div class="col-md-12">
-                      <textarea maxlength="5000" data-msg-required="Please enter your comment." rows="10" class="form-control" name="comment" id="message" placeholder="Your message" required=""></textarea>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 text-center">
-                    <input value="SUBMIT REVIEW" class="btn btn-primary custom-btn-style-1 text-uppercase" data-loading-text="Loading..." type="submit">
-                  </div>
-                </div>
-              </form>
-              
-              <ul class="comments custom-comments-style">
-                <li>
-                  <div class="comment">
-                    <div class="img-thumbnail custom-thumb-style-1 p-none">
-                      <img class="avatar" alt="" src="<?php echo base_url() ?>assets/theme/img/annisa/umara.png">
-                    </div>
-                    <div class="comment-block">
-                      <span class="comment-by">
-                        <strong class="text-uppercase text-color-dark">H.Umar - SEMARANG</strong>
-                        <br>
-                        <span>Review</span>
-                        <span id="stars" class="starrr rev" data-rating="5"><span class="glyphicon .glyphicon-star glyphicon-star stars-gold"></span><span class="glyphicon .glyphicon-star glyphicon-star stars-gold"></span><span class="glyphicon .glyphicon-star glyphicon-star stars-gold"></span><span class="glyphicon .glyphicon-star glyphicon-star stars-gold"></span><span class="glyphicon .glyphicon-star glyphicon-star stars-gold"></span></span>
-                          
-                        <span class="pull-right">
-                          <span> <a class="font-size-xs" href="#"><i class="fa fa-reply"></i> Reply</a></span>
-                        </span>
-                      </span>
-                      <p class="font-size-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
-                      
-                      <span class="date pull-right font-size-xs mb-lg">November 12, 2017 at 1:38 pm</span>
-                    </div>
-                  </div>
-
-                  
-                </li>
-                <li>
-                  <div class="comment">
-                    <div class="img-thumbnail custom-thumb-style-1 p-none">
-                      <img class="avatar" alt="" src="<?php echo base_url() ?>assets/theme/img/annisa/umara.png">
-                    </div>
-                    <div class="comment-block">
-                      <span class="comment-by">
-                        <strong class="text-uppercase text-color-dark">H.Umar - SEMARANG</strong>
-                        <br>
-                        <span>Review</span>
-                        <span id="stars" class="starrr rev" data-rating="5"><span class="glyphicon .glyphicon-star glyphicon-star stars-gold"></span><span class="glyphicon .glyphicon-star glyphicon-star stars-gold"></span><span class="glyphicon .glyphicon-star glyphicon-star stars-gold"></span><span class="glyphicon .glyphicon-star glyphicon-star stars-gold"></span><span class="glyphicon .glyphicon-star glyphicon-star stars-gold"></span></span>
-                          
-                        <span class="pull-right">
-                          <span> <a class="font-size-xs" href="#"><i class="fa fa-reply"></i> Reply</a></span>
-                        </span>
-                      </span>
-                      <p class="font-size-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
-                      
-                      <span class="date pull-right font-size-xs mb-lg">November 12, 2017 at 1:38 pm</span>
-                    </div>
-                  </div>
-
-                  
-                </li>
-                <li>
-                  <div class="comment">
-                    <div class="img-thumbnail custom-thumb-style-1 p-none">
-                      <img class="avatar" alt="" src="<?php echo base_url() ?>assets/theme/img/annisa/umara.png">
-                    </div>
-                    <div class="comment-block">
-                      <span class="comment-by">
-                        <strong class="text-uppercase text-color-dark">H.Umar - SEMARANG</strong>
-                        <br>
-                        <span>Review</span>
-                        <span id="stars" class="starrr rev" data-rating="5"><span class="glyphicon .glyphicon-star glyphicon-star stars-gold"></span><span class="glyphicon .glyphicon-star glyphicon-star stars-gold"></span><span class="glyphicon .glyphicon-star glyphicon-star stars-gold"></span><span class="glyphicon .glyphicon-star glyphicon-star stars-gold"></span><span class="glyphicon .glyphicon-star glyphicon-star stars-gold"></span></span>
-                          
-                        <span class="pull-right">
-                          <span> <a class="font-size-xs" href="#"><i class="fa fa-reply"></i> Reply</a></span>
-                        </span>
-                      </span>
-                      <p class="font-size-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                      <span class="date pull-right font-size-xs mb-lg">November 12, 2017 at 1:38 pm</span>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-              
-          
-            
-          </div>
-          
-        </div>
-      </div>
-    </section>
+		<section class="section section-no-background mt-none">
+			<div class="container">
+			<div class="row">
+			  <div class="bg-breadcumb col-md-12">
+				<div class="heading heading-border heading-middle-border">
+				  <h1>Ulasan</h1>
+				</div>
+			  </div>
+			  <div class="featured row">
+				<div class="ulasan">
+				  <h4>Bagikan pengalaman kamu bersama Annisa Travel</h4>
+					<div class="fb-comments" data-href="<?php echo site_url() ?>/Article/detail/<?php echo $data->id ?>/<?php echo str_replace(" ", "-",$data->title) ?>" data-width="100%" data-numposts="2" data-colorscheme="light"></div>
+				
+				</div>
+				  
+			  
+				
+			  </div>
+			  
+			</div>
+			</div>
+		</section>
 </div>
