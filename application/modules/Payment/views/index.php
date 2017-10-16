@@ -1,6 +1,6 @@
 
       <div role="main" class="main">
-	  
+	  <?php if($data->num_rows()>0){ ?>
 		<div class="container">
 			<div class="row step">
 				<div class="step-pay">
@@ -21,7 +21,7 @@
 							<table class="table-payment">
 								<thead>
 									<tr>
-										<th>PRODUCT</th>
+										<th>Program</th>
 										<th>ROOM</th>
 										<th>HARGA</th>
 										<th>PAX</th>
@@ -533,5 +533,9 @@
 			</div>
 		</section>
     
-
+<?php }else{ ?>
+<br><br><br><br>
+<div class="alert alert-warning col-md-7 center">Silahkan pesan program terlebih dahulu</div>
+<br><br>
+<?php } ?>
       </div>

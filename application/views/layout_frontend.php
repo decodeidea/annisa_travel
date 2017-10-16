@@ -50,12 +50,6 @@
 
 		<!-- Head Libs -->
 		<script src="<?php echo base_url() ?>assets/theme/vendor/modernizr/modernizr.min.js"></script>
-
-
-	<script src="<?php echo base_url() ?>assets/theme/vendor/jquery/jquery.min.js"></script>
-	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
 		<!-- Facebook Button BEGIN -->                            
 		<div id="fb-root"></div>
 		<script>(function(d, s, id) {
@@ -110,40 +104,39 @@
 						<div class="col-md-9">
 							<div class="row">
 								<div class="col-md-3">
-									<h5>Blog</h5>
+									<h5>MENU</h5>
 									<ul class="list-unstyled">
-										<li><a href="blog-full-width.html">Blog Full Width</a></li>
-										<li><a href="blog-large-image.html">Blog Large Image</a></li>
-										<li><a href="blog-medium-image.html">Blog Medium Image</a></li>
-										<li><a href="blog-post.html">Single Post</a></li>
+										<li><a href="#">Tentang Kami</a></li>
+										<li><a href="#">CSR</a></li>
+										<li><a href="#">Karir</a></li>
+										<li><a href="#">Blog</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3">
-									<h5>Pages</h5>
+									<h5>Bantuan</h5>
 									<ul class="list-unstyled">
-										<li><a href="page-full-width.html">Full width</a></li>
-										<li><a href="page-left-sidebar.html">Left sidebar</a></li>
-										<li><a href="page-right-sidebar.html">Right sidebar</a></li>
-										<li><a href="page-custom-header.html">Custom Header</a></li>
+										<li><a href="#">Kontak</a></li>
+										<li><a href="#">Pembayaran</a></li>
+										<li><a href="#">Jadwal Acara</a></li>
+										<li><a href="#">Masuk</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3">
-									<h5>Portfolio</h5>
+									<h5>Dokumen</h5>
 									<ul class="list-unstyled">
-										<li><a href="portfolio-2-columns.html">2 Columns</a></li>
-										<li><a href="portfolio-3-columns.html">3 Columns</a></li>
-										<li><a href="portfolio-4-columns.html">4 Columns</a></li>
-										<li><a href="portfolio-single-small-slider.html">Single Project</a></li>
+										<li><a href="#">Mitra dan Rekanan</a></li>
+										<li><a href="#">Syarat dan Ketentuan</a></li>
+										<li><a href="#">Kebijakan Pribadi</a></li>
+										<li><a href="#">FAQ</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3">
-									<h5>Extra Pages</h5>
+									<h5>Pendaftaran</h5>
 									<ul class="list-unstyled">
-										<li><a href="page-team.html">Team</a></li>
-										<li><a href="page-services.html">Services</a></li>
-										<li><a href="page-careers.html">Careers</a></li>
-										<li><a href="page-faq.html">FAQ</a></li>
-										<li><a href="sitemap.html">Sitemap</a></li>
+										<li><a href="#">Umroh</a></li>
+										<li><a href="#">Haji</a></li>
+										<li><a href="#">Mitra</a></li>
+										<li><a href="#">Kredit Pelanggan</a></li>
 									</ul>
 								</div>
                 <div class="col-md-8">
@@ -213,6 +206,7 @@
       </div>
     </div>
 	<!-- Vendor -->
+	<script src="<?php echo base_url() ?>assets/theme/vendor/jquery/jquery.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/theme/vendor/jquery.appear/jquery.appear.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/theme/vendor/jquery.easing/jquery.easing.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/theme/vendor/jquery-cookie/jquery-cookie.min.js"></script>

@@ -71,10 +71,5 @@ class Program extends DC_controller {
 		$this->load->view('layout_frontend',$data);
 	}
 
-	function tmp_payment(){
-		$data_payment=array(
-			'id_program' => $this->input->post('id_program'), 
-		);
-	}
 }
 

@@ -133,7 +133,7 @@
                   </div>
                 </div>
                 <div class="">
-                  <select class="select2 form-control">
+                  <select name="date" class="select2 form-control">
                     <?php foreach ($date as $key) {
                   # code...
                  ?>
