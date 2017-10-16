@@ -49,6 +49,7 @@
 		<link rel="stylesheet" href="<?php echo base_url() ?>assets/theme/css/custom.css">
 
 		<!-- Head Libs -->
+		<script src="<?php echo base_url() ?>assets/theme/vendor/jquery/jquery.min.js"></script>
 		<script src="<?php echo base_url() ?>assets/theme/vendor/modernizr/modernizr.min.js"></script>
 		<!-- Facebook Button BEGIN -->                            
 		<div id="fb-root"></div>
@@ -206,7 +207,6 @@
       </div>
     </div>
 	<!-- Vendor -->
-	<script src="<?php echo base_url() ?>assets/theme/vendor/jquery/jquery.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/theme/vendor/jquery.appear/jquery.appear.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/theme/vendor/jquery.easing/jquery.easing.min.js"></script>
 	<script src="<?php echo base_url() ?>assets/theme/vendor/jquery-cookie/jquery-cookie.min.js"></script>

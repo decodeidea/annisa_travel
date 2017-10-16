@@ -37,9 +37,9 @@
 					</li>
 					<?php } ?>
 				</ul>
-				<div class="button-see2 col-md-12 center">
+				<!-- <div class="button-see2 col-md-12 center">
 					<a class="btn btn-primary mt-xl mb-sm" href="#">See More <i class="fa fa-angle-right pl-xs"></i></a>
-				</div>
+				</div> -->
 			</div>
             
           

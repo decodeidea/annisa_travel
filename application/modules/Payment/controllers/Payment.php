@@ -19,7 +19,11 @@ class Payment extends DC_controller {
 	 function index(){
 		$data = $this->controller_attr;
 		$data['function']='index';
-		$data['data']=select_where($this->tbl_tmp_payment,'id_member',$this->session->userdata('id'));
+		$tmp=select_where($this->tbl_tmp_payment,'id_member',$this->session->userdata('id'));
+		foreach ($tmp->result() as $key) {
+			$key->program=select_where($this->tbl_program,'id',$key->id_program)->row();
+		}
+		$data['data']=$tmp;
 		$data['page'] = $this->load->view('Payment/index',$data,true);
 		$this->load->view('layout_frontend',$data);
 	}
@@ -34,23 +38,40 @@ class Payment extends DC_controller {
 		$data = $this->controller_attr;
 		if($this->session->userdata('id')){
 		$program=select_where($this->tbl_program,'id',$this->input->post('id_program'))->row();
-		$total1=$program->price1*$this->input->post('quantity1');
-		$total2=$program->price2*$this->input->post('quantity2');
-		$total3=$program->price3*$this->input->post('quantity3');
-		$total_all=$total1+$total2+$total3;
+		if($this->input->post('quantity1')>=1){
 		$tmp_data=array(
 			'id_member'=>$this->session->userdata('id'),
 			'id_program'=>$this->input->post('id_program'),
-			'price1'=>$program->price1,
-			'price2'=>$program->price2,
-			'price3'=>$program->price3,
-			'qtt1'=>$this->input->post('quantity1'),
-			'qtt2'=>$this->input->post('quantity2'),
-			'qtt3'=>$this->input->post('quantity3'),
-			'total_price'=>$total_all,
+			'price'=>$program->price1,
+			'type_room'=>'quad',
+			'qtt'=>$this->input->post('quantity1'),
 			'date_created'=>date('Y-m-d H:i:s'),
 		);
 		$insert=$this->db->insert($this->tbl_tmp_payment,$tmp_data);
+		}elseif($this->input->post('quantity2')>=1){
+			$tmp_data=array(
+			'id_member'=>$this->session->userdata('id'),
+			'id_program'=>$this->input->post('id_program'),
+			'price'=>$program->price2,
+			'type_room'=>'double',
+			'qtt'=>$this->input->post('quantity2'),
+			'date_created'=>date('Y-m-d H:i:s'),
+		);
+		$insert=$this->db->insert($this->tbl_tmp_payment,$tmp_data);
+		}elseif($this->input->post('quantity3')>=1){
+			$tmp_data=array(
+			'id_member'=>$this->session->userdata('id'),
+			'id_program'=>$this->input->post('id_program'),
+			'price'=>$program->price3,
+			'type_room'=>'triple',
+			'qtt'=>$this->input->post('quantity3'),
+			'date_created'=>date('Y-m-d H:i:s'),
+		);
+		$insert=$this->db->insert($this->tbl_tmp_payment,$tmp_data);
+		}else{
+			$this->session->set_flashdata('msg','Maaf anda harus mengisi salah satu quantity');
+			redirect(site_url('Program/detail/'.$program->id.'/'.str_replace(" ", "-", $program->title)));
+		}
 		if($insert){
 			redirect(site_url('Payment'));
 		}else{

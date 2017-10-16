@@ -2373,3 +2373,7 @@ text-align: center;
   float: none;
   position: relative;
 }
+.panel-heading{
+  padding-top: 5px!important;
+  padding-bottom:5px!important;
+}

@@ -133,7 +133,7 @@
                   </div>
                 </div>
                 <div class="">
-                  <select name="date" class="select2 form-control">
+                  <select name="date" required class="select2 form-control">
                     <?php foreach ($date as $key) {
                   # code...
                  ?>
@@ -143,7 +143,14 @@
                     <?php } ?>
                   </select>
                 </div>
-
+<?php if($this->session->flashdata('msg')){ ?>
+<br>
+        <div class="form-group">
+                            <div class="alert alert-danger text-center text-login" style="height: auto;">
+                        <?php echo $this->session->flashdata('msg') ?>
+                        </div>
+                      </div>
+                        <?php } ?>
                 <div class="col-md-12 br-bar">
                   <div class="line-bar"></div>
                 </div>
