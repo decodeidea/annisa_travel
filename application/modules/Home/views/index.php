@@ -397,7 +397,7 @@
       				</div>
       				<?php } ?>
               <div class="col-md-12 mt-xlg center">
-                <a href="<?php echo site_url() ?>/article"><button type="button" class="btn btn-primary">See More</button></a>
+                <a href="<?php echo site_url() ?>/Article"><button type="button" class="btn btn-primary">See More</button></a>
               </div>
     				</div>
           </div>
