@@ -28,7 +28,7 @@
                       <div class="form-group">
                         <label class="form-label">Kuota</label>
                         <div class="controls">
-                          <input type="text" name="stock" class="datepicker form-control" required value="<?php if(isset($data)){ echo $data->stock; } ?>">
+                          <input type="text" name="stock" class="form-control" required value="<?php if(isset($data)){ echo $data->stock; } ?>">
                         </div>
                       </div>
                         <div class="form-group">
