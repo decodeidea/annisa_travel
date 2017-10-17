@@ -196,7 +196,7 @@ class Admin_content extends DC_controller {
         $query=update($this->tbl_news,$update,'id',$id);
 		if($query){
 			if(!empty($_FILES['images']['name'])){
-			unlink('assets/uploads/news/'.$id.'/'.$news->images);
+			unlink('assets/uploads/news/'.$id.'/'.$static->images);
 			if (!file_exists('assets/uploads/news/'.$id)) {
     				mkdir('assets/uploads/news/'.$id, 0777, true);
 			 }
@@ -206,6 +206,16 @@ class Admin_content extends DC_controller {
              $this->upload->initialize($config);
              if($this->upload->do_upload('images')){
                     $uploadData = $this->upload->data();
+                    $this->load->library('image_lib');
+                    $config_th["source_image"] = 'assets/uploads/news/'.$id.'/'.$_FILES['images']['name'];
+			$config_th['new_image'] = 'assets/uploads/news/'.$id.'/thumb_'.$_FILES['images']['name'];
+			$config_th["width"] = 250;
+			$config_th["height"] = 350;
+			$config_th['maintain_ratio'] = FALSE;
+			$config_th['image_library'] = 'gd2';
+			 $this->image_lib->clear();
+			$this->image_lib->initialize($config_th);
+    		$this->image_lib->resize();
                 }else{
                     echo"error upload";
                     die();
@@ -245,12 +255,18 @@ class Admin_content extends DC_controller {
 			if (!file_exists('assets/uploads/news/'.$this->db->insert_id())) {
     				mkdir('assets/uploads/news/'.$this->db->insert_id(), 0777, true);
 			 }
-        	 $config['upload_path'] = 'assets/uploads/news/'.$this->db->insert_id();
+			$config['upload_path'] = 'assets/uploads/news/'.$this->db->insert_id();
              $config['allowed_types'] = 'jpg|jpeg|png|gif';
              $config['file_name'] = $_FILES['images']['name'];
              $this->upload->initialize($config);
              if($this->upload->do_upload('images')){
                     $uploadData = $this->upload->data();
+            $config_th["source_image"] = 'assets/uploads/news/'.$this->db->insert_id().'/'.$_FILES['images']['name'];
+			$config_th['new_image'] = 'assets/uploads/news/'.$this->db->insert_id().'/thumb_'.$_FILES['images']['name'];
+			$config_th["width"] = 250;
+			$config_th["height"] = 350;
+			$this->load->library('image_lib', $config_th);
+			$this->image_lib->fit();
                 }else{
                     echo"error upload";
                     die();

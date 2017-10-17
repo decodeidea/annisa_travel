@@ -21,8 +21,8 @@
   <?php foreach ($list as $key) {?>
   <div class="col-md-3">
   <img width="100%" src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->id ?>/<?php echo $key->images ?>">
-  <div class="footer-gallery"><a href="<?php echo base_url() ?>admin_unit/album_unit_form/<?php echo $key->id ?>"><button data-toggle="tooltip" data-original-title="Edit" class="btn btn-warning btn-xs btn-mini tip" type="button"><i class="fa fa-pencil"></i></button></a> 
-  <a href="<?php echo site_url() ?>/admin_program/album_program_delete/<?php echo $key->id ?>?id_program=<?php echo $key->id_program ?>">
+  <div class="footer-gallery"><a href="<?php echo base_url() ?>Admin_program/album_program_form/<?php echo $key->id ?>"><button data-toggle="tooltip" data-original-title="Edit" class="btn btn-warning btn-xs btn-mini tip" type="button"><i class="fa fa-pencil"></i></button></a> 
+  <a href="<?php echo site_url() ?>/Admin_program/album_program_delete/<?php echo $key->id ?>?id_program=<?php echo $key->id_program ?>">
   <button id="del<?php echo $key->id ?>" data-toggle="tooltip" data-original-title="Delete" class="btn btn-danger btn-xs btn-mini tip" type="button"><i class="fa fa-times"></i></button></a></div>
   </div>
   <?php } ?>
