@@ -26,16 +26,27 @@
               </div>
             </div>
               <div class="col-md-7 patop20">
-                <div class="list-head-article">
-                <a href="#"><img src="<?php echo base_url() ?>assets/theme/img/facebook-flat.png" width="40"></a> 
-                <a href="#"><img src="<?php echo base_url() ?>assets/theme/img/twitter-flat.png" width="40"></a> 
-                <a href="#"><img src="<?php echo base_url() ?>assets/theme/img/mail-open-flat.png" width="40"></a> 
-                <a href="#"><img src="<?php echo base_url() ?>assets/theme/img/google-plus-4-512.gif" width="40"></a>
-                </div>
+                <!--<div class="list-head-article">
+					<div class="link pull-right">
+						<span class='st__large' displayText=''></span>
+						<span class='st_facebook_large' displayText='Facebook'></span>
+						<span class='st_twitter_large' displayText='Tweet'></span>
+						<span class='st_googleplus_large' displayText='Google +'></span>
+						<span class='st_pinterest_large' displayText='Pinterest'></span>
+					</div>
+				</div>
                 <div  class="list-head-article">
-                <div class="comment-article"><img src="<?php echo base_url() ?>assets/theme/img/message.png" width="25"> <span class="count-comment">0</span></div>
-              </div>
-              <div class="list-head-article text-center"><span>Share</span><br><span class=" count-share">0</span></div>
+					<div class="comment-article"><img src="<?php echo base_url() ?>assets/theme/img/message.png" width="25"> <span class="count-comment">0</span></div>
+				  </div>!-->
+				
+					<div class="link pull-right">
+						<span class='st__large' displayText=''></span>
+						<span class='st_facebook_large' displayText='Facebook'></span>
+						<span class='st_twitter_large' displayText='Tweet'></span>
+						<span class='st_googleplus_large' displayText='Google +'></span>
+						<span class='st_pinterest_large' displayText='Pinterest'></span>
+					</div>
+				
               <div class="clearfix"></div>
               </div>
             </div>
@@ -195,3 +206,7 @@
 			</div>
 		</section>
 </div>
+<script type="text/javascript" id="st_insights_js" src="http://w.sharethis.com/button/buttons.js?publisher=4bbaedf6-2c2f-4846-b1ac-bef09de330ca"></script>
+<script type="text/javascript">
+	stLight.options({publisher: "4bbaedf6-2c2f-4846-b1ac-bef09de330ca", doNotHash: false, doNotCopy: false, hashAddressBar: false});
+</script>
