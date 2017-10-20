@@ -261,12 +261,16 @@ class Admin_content extends DC_controller {
              $this->upload->initialize($config);
              if($this->upload->do_upload('images')){
                     $uploadData = $this->upload->data();
-            $config_th["source_image"] = 'assets/uploads/news/'.$this->db->insert_id().'/'.$_FILES['images']['name'];
-			$config_th['new_image'] = 'assets/uploads/news/'.$this->db->insert_id().'/thumb_'.$_FILES['images']['name'];
+           $this->load->library('image_lib');
+                    $config_th["source_image"] = 'assets/uploads/news/'.$id.'/'.$_FILES['images']['name'];
+			$config_th['new_image'] = 'assets/uploads/news/'.$id.'/thumb_'.$_FILES['images']['name'];
 			$config_th["width"] = 250;
 			$config_th["height"] = 350;
-			$this->load->library('image_lib', $config_th);
-			$this->image_lib->fit();
+			$config_th['maintain_ratio'] = FALSE;
+			$config_th['image_library'] = 'gd2';
+			 $this->image_lib->clear();
+			$this->image_lib->initialize($config_th);
+    		$this->image_lib->resize();
                 }else{
                     echo"error upload";
                     die();

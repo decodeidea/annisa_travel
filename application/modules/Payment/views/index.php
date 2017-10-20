@@ -1,7 +1,7 @@
 
       <div role="main" class="main">
 	  <?php if($data->num_rows()>0){ ?>
-	  <form action="#" method="post">
+	  <form action="<?php echo site_url('Payment/submit_payment') ?>" method="post" enctype="multipart/form-data">
 		<div class="container">
 			<div class="row step">
 				<div class="step-pay">
@@ -27,34 +27,44 @@
 										<th>HARGA</th>
 										<th>PAX</th>
 										<th>TOTAL</th>
+										<th class="text-center">ACTION</th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php
 									$total_price=0;
+									$no=0;
 									foreach ($data->result() as $key) {
+										$no++;
 									 $total_price+=$key->price*$key->qtt;
 									?>
+
+									<input type="hidden" name="id_program<?php echo $no ?>" value="<?php echo $key->program->id ?>">
+									<input type="hidden" name="type_room<?php echo $no ?>" value="<?php echo $key->type_room ?>">
+									<input type="hidden" name="qtt<?php echo $no ?>" value="<?php echo $key->qtt ?>">
+									<input type="hidden" name="total_amountp<?php echo $no ?>" value="<?php echo $key->price*$key->qtt?>">
 									<tr class="py-tr">
 										<td><?php echo $key->program->title ?></td>
 										<td style="text-transform: uppercase;"><?php echo $key->type_room ?></td>
 										<td>Rp. <?php echo idr($key->price) ?>.-</td>
 										<td><?php echo $key->qtt ?> Orang</td>
 										<td>Rp. <?php echo idr($key->price*$key->qtt) ?></td>
+										<td class="text-center"><a href="#" alt="delete" onclick="delete_tmp(<?php echo $key->id ?>)" ><span class="glyphicon glyphicon-remove"></span></a></td>
 									</tr>
 									<?php }
 									$ppn=$total_price/100*10;
 									?>
 
+									<input type="hidden" name="no" value="<?php echo $no ?>">
 									<tr class="py-col">
 										<td colspan="3"></td>
 										<td class="ppn">Ppn 10%</td>
-										<td><?php echo idr($ppn) ?></td>
+										<td><?php echo idr($ppn) ?> <input type="hidden" name="ppn" value="<?php echo $ppn ?>"></td>
 									</tr>
 									<tr class="py-col">
 										<td colspan="3"></td>
 										<td class="tot">Total Pembayaran</td>
-										<td class="tot"><?php echo idr($ppn+$total_price); ?></td>
+										<td class="tot"> <input type="hidden" name="total_amount" value="<?php echo $total_price ?>"><?php echo idr($ppn+$total_price); ?></td>
 									</tr>
 								</tbody>
 							</table>
@@ -148,7 +158,6 @@
 								<div class="panel-title PMP">Masukan kode Voucher / promo ID / Kupon ID :</div>
 							</div>
 							<div class="panel-heading border-none">
-								<form action="#" id="frmBillingAddress" method="post">
 									<div class="row">
 										<div class="form-group">
 											<div class="col-md-5">
@@ -157,7 +166,6 @@
 											
 										</div>
 									</div>
-								</form>
 							</div>
 										
 							

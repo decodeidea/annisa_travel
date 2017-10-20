@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2017 at 09:07 PM
+-- Generation Time: Oct 20, 2017 at 07:40 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -442,6 +442,71 @@ INSERT INTO `dc_news` (`id`, `title`, `images`, `content`, `lang`, `date_created
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `dc_payment`
+--
+
+CREATE TABLE `dc_payment` (
+  `id` int(100) NOT NULL,
+  `invoice` varchar(100) NOT NULL,
+  `id_doku` int(100) NOT NULL,
+  `id_member` int(100) NOT NULL,
+  `total_amount` int(100) NOT NULL,
+  `total_amount_ppn` int(100) NOT NULL,
+  `type_transaction` varchar(250) NOT NULL,
+  `id_voucher` int(100) NOT NULL,
+  `date_created` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `dc_payment`
+--
+
+INSERT INTO `dc_payment` (`id`, `invoice`, `id_doku`, `id_member`, `total_amount`, `total_amount_ppn`, `type_transaction`, `id_voucher`, `date_created`) VALUES
+(1, '#ANO28GNAOM8V2', 0, 14, 2500000, 250000, 'doku_walet', 0, '2017-10-20'),
+(2, '#ANBI08H2GKN0F', 0, 14, 2500000, 250000, 'doku_walet', 0, '2017-10-20'),
+(3, '#ANTIZPUXC4WYC', 0, 14, 2500000, 250000, 'doku_walet', 0, '2017-10-20'),
+(4, '#ANLJCAKVB12IL', 0, 14, 2500000, 250000, 'doku_walet', 0, '2017-10-20'),
+(5, '#ANHD1QJUFX8GC', 0, 14, 500000, 50000, 'doku_walet', 0, '2017-10-20'),
+(6, '#ANXPHMRIMMVS2', 0, 14, 500000, 50000, 'doku_walet', 0, '2017-10-20'),
+(7, '#AN22YM0900VQM', 0, 14, 500000, 50000, 'doku_walet', 0, '2017-10-20'),
+(8, '#ANWWBTVRC12OO', 0, 14, 500000, 50000, 'doku_walet', 0, '2017-10-20'),
+(9, '#ANFIU8E77XBHI', 0, 14, 500000, 50000, 'doku_walet', 0, '2017-10-20'),
+(10, '#ANA2WHO6LCYM4', 0, 14, 500000, 50000, 'doku_walet', 0, '2017-10-20'),
+(11, '#ANTETL4XRMYUX', 0, 14, 500000, 50000, 'doku_walet', 0, '2017-10-20'),
+(12, '#AN9KZA4NPABGV', 0, 14, 500000, 50000, 'doku_walet', 0, '2017-10-20'),
+(13, '#ANFNTMJIDE8PV', 0, 14, 1000000, 100000, 'doku_walet', 0, '2017-10-20'),
+(14, '#ANWQXMK8WAE3J', 0, 14, 3000000, 300000, 'doku_walet', 0, '2017-10-20'),
+(15, '#ANSYBHBPMW3W9', 0, 14, 500000, 50000, 'doku_walet', 0, '2017-10-20'),
+(16, '#AN54YRWIWECLU', 0, 14, 3000000, 300000, 'doku_walet', 0, '2017-10-20'),
+(17, '#ANYHYQOT0MZM7', 0, 14, 3000000, 300000, 'doku_walet', 0, '2017-10-20'),
+(18, '#ANUK94ROEWNLB', 0, 14, 500000, 50000, 'doku_walet', 0, '2017-10-20'),
+(19, '#AN1D89UMW0JGJ', 0, 14, 3000000, 300000, 'permata', 0, '2017-10-20'),
+(20, '#AN4GTV1PZ7ASS', 0, 14, 3000000, 300000, 'permata', 0, '2017-10-20'),
+(21, '#ANATEA2EJ91MG', 0, 14, 3000000, 300000, 'doku_walet', 0, '2017-10-20'),
+(22, '#AN71VA0SYIGGH', 0, 14, 3000000, 300000, 'doku_walet', 0, '2017-10-20'),
+(23, '#ANZ4N4LE6PPC9', 0, 14, 1000000, 100000, 'doku_walet', 0, '2017-10-20'),
+(24, '#ANCLNLX8K3GUO', 0, 14, 1000000, 100000, 'Kartu_kredit', 0, '2017-10-20'),
+(25, '#ANDIAYOU1ITX6', 0, 14, 1000000, 100000, 'doku_walet', 0, '2017-10-20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dc_payment_product`
+--
+
+CREATE TABLE `dc_payment_product` (
+  `id` int(100) NOT NULL,
+  `id_payment` int(100) NOT NULL,
+  `id_program` int(100) NOT NULL,
+  `type_room` varchar(100) NOT NULL,
+  `qtt` int(100) NOT NULL,
+  `total_amount` int(100) NOT NULL,
+  `date_created` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `dc_program`
 --
 
@@ -644,15 +709,6 @@ CREATE TABLE `dc_tmp_payment` (
   `date_created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `dc_tmp_payment`
---
-
-INSERT INTO `dc_tmp_payment` (`id`, `id_member`, `id_program`, `type_room`, `price`, `qtt`, `date_created`) VALUES
-(3, 14, 9, 'quad', 1000000, 1, '2017-10-17 00:55:02'),
-(4, 14, 9, 'quad', 1000000, 1, '2017-10-17 01:17:43'),
-(5, 14, 9, 'double', 500000, 2, '2017-10-17 01:18:32');
-
 -- --------------------------------------------------------
 
 --
@@ -711,6 +767,55 @@ INSERT INTO `dc_video` (`id`, `title`, `images`, `source`, `lang`, `date_created
 (6, 'Discover Maboneng', 'video_1.jpg', 'https://www.youtube.com/watch?v=SbeHjcLOkgs', 'id', '2017-10-09 02:06:22', NULL, 1, NULL),
 (7, 'Explore Swiss Mountain', 'video_2.jpg', 'https://www.youtube.com/watch?v=UREdFi72aww', 'id', '2017-10-09 02:06:38', NULL, 1, NULL),
 (8, 'Dangerous but, Beatifull Place', 'video_3.jpg', 'https://www.youtube.com/watch?v=_pT4F6My7pA', 'id', '2017-10-09 02:06:53', NULL, 1, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dc_voucher`
+--
+
+CREATE TABLE `dc_voucher` (
+  `id` int(100) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `amount` int(100) NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_modified` datetime DEFAULT NULL,
+  `id_creator` int(250) NOT NULL,
+  `id_modifier` int(250) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `doku`
+--
+
+CREATE TABLE `doku` (
+  `id` int(11) NOT NULL,
+  `transidmerchant` varchar(125) NOT NULL,
+  `totalamount` double NOT NULL,
+  `words` varchar(200) NOT NULL,
+  `statustype` varchar(1) NOT NULL,
+  `response_code` varchar(50) NOT NULL,
+  `approvalcode` char(6) NOT NULL,
+  `trxstatus` varchar(50) NOT NULL,
+  `payment_channel` int(2) NOT NULL,
+  `paymentcode` int(8) NOT NULL,
+  `session_id` varchar(48) NOT NULL,
+  `bank_issuer` varchar(100) NOT NULL,
+  `creditcard` varchar(16) NOT NULL,
+  `payment_date_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `verifyid` varchar(30) NOT NULL,
+  `verifyscore` int(3) NOT NULL,
+  `verifystatus` varchar(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `doku`
+--
+
+INSERT INTO `doku` (`id`, `transidmerchant`, `totalamount`, `words`, `statustype`, `response_code`, `approvalcode`, `trxstatus`, `payment_channel`, `paymentcode`, `session_id`, `bank_issuer`, `creditcard`, `payment_date_time`, `verifyid`, `verifyscore`, `verifystatus`) VALUES
+(1, '#ANDIAYOU1ITX6', 0, '', '', '', '', 'Requested', 0, 0, '', '', '', '0000-00-00 00:00:00', '', 0, '');
 
 --
 -- Indexes for dumped tables
@@ -783,6 +888,18 @@ ALTER TABLE `dc_news`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `dc_payment`
+--
+ALTER TABLE `dc_payment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `dc_payment_product`
+--
+ALTER TABLE `dc_payment_product`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `dc_program`
 --
 ALTER TABLE `dc_program`
@@ -828,6 +945,18 @@ ALTER TABLE `dc_user`
 -- Indexes for table `dc_video`
 --
 ALTER TABLE `dc_video`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `dc_voucher`
+--
+ALTER TABLE `dc_voucher`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `doku`
+--
+ALTER TABLE `doku`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -890,6 +1019,16 @@ ALTER TABLE `dc_menu_accsess`
 ALTER TABLE `dc_news`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
+-- AUTO_INCREMENT for table `dc_payment`
+--
+ALTER TABLE `dc_payment`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+--
+-- AUTO_INCREMENT for table `dc_payment_product`
+--
+ALTER TABLE `dc_payment_product`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `dc_program`
 --
 ALTER TABLE `dc_program`
@@ -918,7 +1057,7 @@ ALTER TABLE `dc_static_content`
 -- AUTO_INCREMENT for table `dc_tmp_payment`
 --
 ALTER TABLE `dc_tmp_payment`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `dc_user`
 --
@@ -929,6 +1068,16 @@ ALTER TABLE `dc_user`
 --
 ALTER TABLE `dc_video`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `dc_voucher`
+--
+ALTER TABLE `dc_voucher`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `doku`
+--
+ALTER TABLE `doku`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

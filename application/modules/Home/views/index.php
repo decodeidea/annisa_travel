@@ -89,7 +89,6 @@
 $now = $key->date->day; // or your date as well
 $your_date = $key->date->off_day;
 $datediff = $now - $your_date;
-
 if(floor($datediff / (60 * 60 * 24))==0){
 echo 1;
 }else{

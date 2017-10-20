@@ -1,3 +1,4 @@
+<?php $this->session->set_userdata('current',current_url()); ?>
 <div role="main" class="main pt-sm">
         <div class="container">
       <div class="row">

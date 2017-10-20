@@ -579,7 +579,7 @@
 									<li><a href="#mywhislist" data-toggle="tab">My Whislist</a></li>
 									<li><a href="#myexpe" data-toggle="tab">My Experience</a></li>
 									<li><a href="#listexpe" data-toggle="tab">List Experience</a></li>
-									<li><a href="#">Logout</a></li>
+									<li><a href="<?php echo site_url('Account/logout') ?>">Logout</a></li>
 									
 								</ul>
 

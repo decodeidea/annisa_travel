@@ -88,8 +88,12 @@ class Account extends DC_controller {
                     );
 
            		$this->session->set_userdata($data);
-         	}
-            	redirect(site_url('Account'));
+         	} if($this->session->userdata('current')){
+            redirect($this->session->userdata('current'));
+          }else{
+            redirect(site_url('Account'));
+          }
+            	
         	}else{
             	$data['login_url'] = $this->facebook->getLoginUrl(array(
                 'redirect_uri' => site_url('Account/login'), 
@@ -122,7 +126,11 @@ class Account extends DC_controller {
                     );
 
            $this->session->set_userdata($data);
+            if($this->session->userdata('current')){
+            redirect($this->session->userdata('current'));
+          }else{
             redirect(site_url('Account'));
+          }
          }else{
         $data_new = array(
         'first_name' => $user_profile['name'],
@@ -147,7 +155,11 @@ class Account extends DC_controller {
                     );
 
            $this->session->set_userdata($data);
+            if($this->session->userdata('current')){
+            redirect($this->session->userdata('current'));
+          }else{
             redirect(site_url('Account'));
+          }
     } 
    
   }
@@ -176,7 +188,11 @@ public function do_login()
                     );
 
            $this->session->set_userdata($data);
-           redirect(site_url('Account'));
+           if($this->session->userdata('current')){
+            redirect($this->session->userdata('current'));
+          }else{
+            redirect(site_url('Account'));
+          }
       }else{
         $this->session->set_flashdata('msg','Password yang anda masukan salah');
           $this->session->set_flashdata('email',$this->input->post('email'));

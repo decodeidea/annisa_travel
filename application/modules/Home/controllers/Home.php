@@ -19,7 +19,7 @@ class Home extends DC_controller {
 	 function index(){
 		$data = $this->controller_attr;
 		$data['function']='home';
-		$data['banner']=select_where($this->tbl_banner,'lang',$this->lang->lang())->result();
+		$data['banner']=select_where_limit_order($this->tbl_banner,'lang',$this->lang->lang(),'4','id','DESC')->result();
 		$top_destination=select_where_limit_order($this->tbl_program,'lang',$this->lang->lang(),3,'id','DESC')->result();
 		foreach ($top_destination as $key) {
 			$image=select_where($this->tbl_program_images,'id_program',$key->id)->row();

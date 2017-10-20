@@ -31,6 +31,8 @@ class DC_Controller extends CI_Controller {
         $this->tbl_program_images= $this->tbl_prefix .'program_images';
         $this->tbl_member= $this->tbl_prefix .'member';
         $this->tbl_tmp_payment= $this->tbl_prefix .'tmp_payment';
+        $this->tbl_payment_product= $this->tbl_prefix .'payment_product';
+        $this->tbl_payment= $this->tbl_prefix .'payment';
         
 
         //load model fo all page
