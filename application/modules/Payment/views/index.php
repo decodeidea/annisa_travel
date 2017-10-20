@@ -93,49 +93,49 @@
 										
 										<h4 class="panel-title cpay">
 												<div class="cr">
-													<input type="radio" name="pembayaran" required value="doku_walet"> Doku Wallet
+													<input type="radio" name="pembayaran" required value="04"> Doku Wallet
 												</div>
 										</h4>
 									</div>
 									<div class="panel-heading">
 										<h4 class="panel-title cpay">
 												<div class="cr">
-													<input type="radio" name="pembayaran" required="" value="Kartu_kredit"> Kartu Kredit
+													<input type="radio" name="pembayaran" required="" value="15"> Kartu Kredit
 												</div>
 										</h4>
 									</div>
 									<div class="panel-heading">
 										<h4 class="panel-title cpay">
 												<div class="cr">
-													<input type="radio" name="pembayaran" required="" value="alfamart"> Alfamart Group
+													<input type="radio" name="pembayaran" required="" value="35"> Alfamart Group
 												</div>
 										</h4>
 									</div>
 									<div class="panel-heading">
 										<h4 class="panel-title cpay">
 												<div class="cr">
-													<input type="radio" name="pembayaran" required="" value="permata"> PermataNET
+													<input type="radio" name="pembayaran" required="" value="28"> PermataNET
 												</div>
 										</h4>
 									</div>
 									<div class="panel-heading">
 										<h4 class="panel-title cpay">
 												<div class="cr">
-													<input type="radio" name="pembayaran" required="" value="muamalat"> Internet Banking Muamalat
+													<input type="radio" name="pembayaran" required="" value="25"> Internet Banking Muamalat
 												</div>
 										</h4>
 									</div>
 									<div class="panel-heading">
 										<h4 class="panel-title cpay">
 												<div class="cr">
-													<input type="radio" name="pembayaran" required="" value="danamon"> Danamon online banking
+													<input type="radio" name="pembayaran" required="" value="26"> Danamon online banking
 												</div>
 										</h4>
 									</div>
 									<div class="panel-heading">
 										<h4 class="panel-title cpay">
 												<div class="cr">
-													<input type="radio" name="pembayaran" required="" value="va"> Virtual Permata & Virtual Mandiri
+													<input type="radio" name="pembayaran" required="" value="36"> Virtual Permata & Virtual Mandiri
 												</div>
 										</h4>
 									</div>

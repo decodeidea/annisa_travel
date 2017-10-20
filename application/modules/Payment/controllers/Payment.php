@@ -84,14 +84,14 @@ class Payment extends DC_controller {
 	}
 
 	function submit_payment(){
-		$invoice="#AN".generateRandom();
+		$invoice="AN".generateRandom();
 		$data_payment=array(
 			'invoice' => $invoice,
 			'id_member' => $this->session->userdata('id'),
 			'total_amount'=>$this->input->post('total_amount'),
 			'total_amount_ppn'=> $this->input->post('ppn'),
 			'type_transaction' =>$this->input->post('pembayaran'),
-			'id_voucher' => '',
+			'id_voucher' => 0,
 			'date_created' => date('Y-m-d H:i:s'),
 		);
 		$insert=$this->db->insert($this->tbl_payment,$data_payment);
@@ -115,41 +115,35 @@ class Payment extends DC_controller {
 		$amount=$this->input->post('total_amount')+$this->input->post('ppn');
 		$this->db->query("DELETE FROM ".$this->tbl_tmp_payment." where ".$this->tbl_tmp_payment.".id_member ='".$this->session->userdata('id')."' ");
 		$sess=md5(date("Y-m-d H:i:s").rand(111,999));
-    $words = sha1($amount.".00".'25239E9Zo7aplQ0N'.$data_payment['invoice']);
-    $form = "<form id='order' name='order' method='post' action='http://staging.doku.com/Suite/Receive'>";
-                                                        
-    $form .= "<input type='hidden' name='MALLID' value='2523'>";
-    $form .= "<input type='hidden' name='CHAINMERCHANT' value='NA'>";
-                $form .= "<input type='hidden' name='TRANSIDMERCHANT' value='q1HokwZ9HEWU'>";
-    $form .= "<input type='hidden' name='CURRENCY' value='360'>";
-    $form .= "<input type='hidden' name='PURCHASECURRENCY' value='360'>";
-                $form .= "<input type='hidden' name='AMOUNT' value='".$amount.".00'>";
-                $form .= "<input type='hidden' name='REGISTERAMOUNT' value='".$amount.".00'>";
-                $form .= "<input type='hidden' name='PURCHASEAMOUNT' value='".$amount.".00'>";
-    $form .= "<input type='hidden' name='SESSIONID' value='".$this->session->userdata('id')."'>";
-                $form .= "<input type='hidden' name='REQUESTDATETIME' value='".date('YmdHis')."'>";
-    $form .= "<input type='hidden' name='SHAREDKEY' value='9E9Zo7aplQ0N'>";
-                $form .= "<input type='hidden' name='WORDS' value='".$words."'>";
-    $form .= "<input type='hidden' name='CUSTOMERID' value='".$this->session->userdata('id')."'>";
-                $form .= "<input type='hidden' name='NAME' value='".$this->session->userdata('firstname')."'>";
-    $form .= "<input type='hidden' name='BASKET' value='Payment,".$amount.",1,".$amount."'>";
-                $form .= "<input type='hidden' name='EMAIL' value='".$this->session->userdata('email')."'>";
-                $form .= "<input type='hidden' name='ADDRESS' value=''>";
-                $form .= "<input type='hidden' name='CITY' value=''>";
-                $form .= "<input type='hidden' name='STATE' value=''>";
-                $form .= "<input type='hidden' name='ZIPCODE' value=''>";
-    /*BILL*/	$form .= "<input type='hidden' name='PAYMENTCHANNEL' value='15'>";
-				$form .= "<input type='hidden' name='BILLNUMBER' value='".$data_payment['invoice']."'>"; 
-				
-                $form .= "<input type='hidden' name='BILLDETAIL' value='Pembayaran Annisa Travel'>"; 
-				
-				 $form .= "<input type='hidden' name='BILLDETAIL' value='Pembayaran Annisa Travel'>"; 
-				   
-                $form .= "<input type='hidden' name='FLATSTATUS' value='TRUE'>";
-                $form .= "<input type='hidden' name='MOBILEPHONE' value=''>";
-                $form .= "</form>";
+    $words = sha1($amount.".00".'51168NCpDfgS383l'.$data_payment['invoice']);
+    $form='<form action="https://staging.doku.com/Suite/Receive" id="MerchatPaymentPage" name="MerchatPaymentPage" method="post"  >
+    <input name="BASKET" type="hidden" id="BASKET" value="Basket testing 1,'.$amount.'.00,1,'.$amount.'.00" size="100" />
+    <input name="MALLID" type="hidden" id="MALLID" value="5116" size="12" />
+    <input name="CHAINMERCHANT" type="hidden" id="CHAINMERCHANT" value="NA" size="12" />
+    <input name="CURRENCY" type="hidden" id="CURRENCY" value="360" size="3" maxlength="3" />
+    <input name="PURCHASECURRENCY" type="hidden" id="PURCHASECURRENCY" value="360" size="3" maxlength="3" />
+    <input name="AMOUNT" type="hidden" id="AMOUNT" value="'.$amount.'.00" size="12" />
+    <input name="PURCHASEAMOUNT" type="hidden" id="PURCHASEAMOUNT" value="'.$amount.'.00" size="12" />
+    <input name="TRANSIDMERCHANT" type="hidden" id="TRANSIDMERCHANT" size="16" value="'.$data_payment["invoice"].'" />
+    <input type="hidden" id="WORDS" name="WORDS"  size="60" value="'.$words.'" />
+    <input value="'.date('YmdHis').'" name="REQUESTDATETIME" type="hidden" id="REQUESTDATETIME" size="14" maxlength="14" />
+    <input type="hidden" id="SESSIONID" name="SESSIONID" value="'.$sess.'" />
+    <input name="PAYMENTCHANNEL" type="hidden" id="PAYMENTCHANNEL" value="'.$this->input->post("pembayaran").'"  />
+    <input name="EMAIL" type="hidden" id="EMAIL" value="'.$this->session->userdata("email").'" size="12" />
+    <input name="NAME" type="hidden" id="NAME" value="'.$this->session->userdata("firstname").'" size="30" maxlength="50" />
+    <input name="ADDRESS" type="hidden" id="ADDRESS" value="" size="50" maxlength="50" />
+    <input name="COUNTRY" type="hidden" id="COUNTRY" value="360" size="50" maxlength="50" />
+    <input name="STATE" type="hidden" id="STATE" value="" size="50" maxlength="50" />
+    <input name="CITY" type="hidden" id="CITY" value="" size="50" maxlength="50" />
+    <input name="PROVINCE" type="hidden" id="PROVINCE" value="" size="50" maxlength="50" />
+    <input name="ZIPCODE" type="hidden" id="ZIPCODE" value="" size="6" maxlength="10" />
+    <input name="HOMEPHONE" type="hidden" id="HOMEPHONE" value="" size="12" maxlength="20" />
+    <input name="MOBILEPHONE" type="hidden" id="MOBILEPHONE" value="" size="12" maxlength="20" />
+    <input name="WORKPHONE" type="hidden" id="WORKPHONE" value="" size="12" maxlength="20" />
+    <input name="BIRTHDATE" type="hidden" id="BIRTHDATE" value="" size="12" maxlength="20" />
+</form>';
     			$form.="<script language=\"JavaScript\" type=\"text/javascript\">";
-    			$form.="document.getElementById('order').submit();";
+    			$form.="document.getElementById('MerchatPaymentPage').submit();";
     			$form.="</script>";
     			echo $form;
             
@@ -157,79 +151,93 @@ class Payment extends DC_controller {
 		echo"wleee";
 	}
 	}
-	function notify(){
-		if($_POST['TRANSIDMERCHANT']) {
+	function regnotify(){
+              error_reporting(E_ALL ^ E_NOTICE);
+       if($_POST['TRANSIDMERCHANT']) {
         $order_number = $_POST['TRANSIDMERCHANT'];
         
-	} 
-else {
-	$order_number = 0;
-	}
-    
+  }elseif($_POST['BILLNUMBER']){
+    $order_number = $_POST['BILLNUMBER'];
+  }
+        else { $order_number = 0; }
     $totalamount = $_POST['AMOUNT'];
     $words    = $_POST['WORDS'];
     $statustype = $_POST['STATUSTYPE'];
     $response_code = $_POST['RESPONSECODE'];
     $approvalcode   = $_POST['APPROVALCODE'];
-    $status         = $_POST['RESULTMSG'];
-    $paymentchannel = $_POST['PAYMENTCHANNEL'];
-    $paymentcode = $_POST['PAYMENTCODE'];
-    $session_id = $_POST['SESSIONID'];
-    $bank_issuer = $_POST['BANK'];
-    $cardnumber = $_POST['MCN'];
-    $payment_date_time = $_POST['PAYMENTDATETIME'];
-    $verifyid = $_POST['VERIFYID'];
-    $verifyscore = $_POST['VERIFYSCORE'];
-    $verifystatus = $_POST['VERIFYSTATUS'];
+    $status         = (isset($_POST['STATUS']) ? $_POST['STATUS'] :  $_POST['RESULTMSG'] );
+    
+   $paymentcode = $_POST['PAYMENTCODE'];
+   $session_id = $_POST['SESSIONID'];
+   $bank_issuer = $_POST['BANK'];
+    $cardnumber = $_POST['CARDNUMBER'];
+    $payment_date_time = date('Y-m-d H:i:s');
+    $customer=$_POST['CUSTOMERID'];
+   $verifyid = $_POST['VERIFYID'];
+   $sql = "select transidmerchant,totalamount from doku where transidmerchant='".$order_number."'and trxstatus='Requested'";
+  $checkout=$this->db->query($sql)->row_array();
+  $hasil=$checkout['transidmerchant'];
+  $amount=$checkout['totalamount'];
+    if ($status=="SUCCESS") {
+       //             $sql = "UPDATE doku SET trxstatus='Success', words='$words', statustype='$statustype',
+       //       trxstatus='$status', payment_channel='$paymentchannel', creditcard='$cardnumber',
+       // payment_date_time='$payment_date_time' where transidmerchant='$order_number'";
+       //             // echo "sql : ".$sql;
+       //             //$qz=$this->db->query("UPDATE sv_invoices SET status='Paid' WHERE no_invoice='$order_number'");
+       //              $qzz=$this->db->query("UPDATE sv_donatur SET status='Active' WHERE id='$customer'");
+       //              $qzzz=$this->db->query("UPDATE sv_invoices SET status='Paid' WHERE no_invoice='$order_number'");
+       //              $result = $this->db->query($sql) ;
+       //              if(!$result){die("Stop2");}
+          
+          // $this->load->library('email');
+          //   $config['protocol'] = 'sendmail';
+          //   $config['mailtype'] = 'html';
+          //   $config['charset'] = 'iso-8859-1';
+          //   $config['wordwrap'] = TRUE;
 
-// Validasi Wors
-   $MALLID =''; //input mallid
-   $SHAREDKEY =''; //input sharedkey
-   
-   $WORDS_GENERATED = sha1($totalamount.$MALLID.$SHAREDKEY.$order_number.$status.$verifystatus);    
-   if ( $words == $WORDS_GENERATED ) {
+          //   $this->email->initialize($config);
+         
+        
+          //   $this->email->from('donasi@yappika-actionaid.or.id', 'Donasi YAPPIKA');
+          //   $this->email->to($data['email']); 
+          // //$this->email->cc('another@another-example.com'); 
+          // //$this->email->bcc('them@their-example.com'); 
+          //   $mail=$this->load->view('donasi/mail_sukses',NULL,TRUE);
 
-// Basic SQL
-	$sql = "select transidmerchant,totalamount from doku where transidmerchant='".$order_number."'and trxstatus='Requested'";
-	$checkout = $this->db->query($sql);
-	// echo "sql : ".$sql;
-	// $hasil=$checkout['transidmerchant'];
-	// $amount=$checkout['totalamount'];
+          //   $this->email->subject('Terima Kasih Untuk Donasi Anda');
+          //   $this->email->message($mail);
 
-// Custom Field
+          //   $this->email->send(); 
+      
+    } else {
+      // $sql = "UPDATE doku set trxstatus='Failed' where transidmerchant='".$order_number."'";
+      // $result = $this->db->query($sql) ;
+      //                     if(!$result){die("Stop3");}
+      //         $this->load->library('email');
+      //     $config['protocol'] = 'sendmail';
+      //     $config['mailtype'] = 'html';
+      //     $config['charset'] = 'iso-8859-1';
+      //     $config['wordwrap'] = TRUE;
 
-	if (!$hasil) {
+      //     $this->email->initialize($config);
+        
+        
+      //     $this->email->from('donasi@yappika-actionaid.or.id', 'Donasi YAPPIKA');
+      //     $this->email->to($data['email']); 
+      //     //$this->email->cc('another@another-example.com'); 
+      //     //$this->email->bcc('them@their-example.com'); 
+      //     $mail=$this->load->view('donasi/mail_failed',NULL,TRUE);
 
-	  echo 'Stop1';
+      //     $this->email->subject('Terima Kasih Untuk Dukungan Anda');
+      //     $this->email->message($mail); 
 
-	} else {
-
-		if ($status=="SUCCESS") {
-                   $sql = "UPDATE doku SET trxstatus='Success', words='$words', statustype='$statustype', response_code='$response_code', approvalcode='$approvalcode',
-		         trxstatus='$status', payment_channel='$paymentchannel', paymentcode='$paymentcode', session_id='$session_id', bank_issuer='$bank_issuer', creditcard='$cardnumber',
-			 payment_date_time='$payment_date_time', verifyid='$verifyid', verifyscore='$verifyscore', verifystatus='$verifystatus' where transidmerchant='$order_number'";
-        // echo "sql : ".$sql;
-		$result = $this->db->query($sql);
-		  
-		} else {
+      //     $this->email->send();
  
- 		  $sql = "UPDATE doku set trxstatus='Failed' where transidmerchant='".$order_number."'";
-
-		  $result = $this->db->query($sql);
  
- 
-		}
-		echo 'Continue';
-	
-	}
-	
-} else {
-	echo "Stop | Words not match";
-	}
-	}
+    }
+    echo 'Continue';
+  
+  }
 
-	function identty(){
-
-	}
 }
 
