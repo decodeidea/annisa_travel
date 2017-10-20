@@ -390,7 +390,7 @@
 										<p>Member Sejak <?php echo substr(tanggal_indo($data->date_created),12,12) ?></p>
 									</div>
 									<li><a href="#account" data-toggle="tab">Profile</a></li>
-									<li  class="active"><a href="#pesanan" data-toggle="tab">Pesanan (1)</a></li>
+									<li  class="active"><a href="#pesanan" data-toggle="tab">Pesanan</a></li>
 									<li><a href="#mywhislist" data-toggle="tab">My Whislist</a></li>
 									<li><a href="#myexpe" data-toggle="tab">My Experience</a></li>
 									<li><a href="#listexpe" data-toggle="tab">List Experience</a></li>
