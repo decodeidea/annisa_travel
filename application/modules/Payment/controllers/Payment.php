@@ -96,7 +96,8 @@ class Payment extends DC_controller {
 		);
 		$insert=$this->db->insert($this->tbl_payment,$data_payment);
 		$id_payment=$this->db->insert_id();
-	for ($i=1; $i < $this->input->post('no'); $i++) { 
+		$no=$this->input->post('no');
+	for ($i=1; $i <=$no; $i++) { 
 		$product=array(
 			'id_payment' => $id_payment,
 			'id_program' => $this->input->post('id_program'.$i),
@@ -104,8 +105,10 @@ class Payment extends DC_controller {
 			'qtt'=>$this->input->post('qtt'.$i),
 			'total_amount'=> $this->input->post('total_amountp'.$i),
 			'date_created' => date('Y-m-d H:i:s'),
+
 		);
 		$insert=$this->db->insert($this->tbl_payment_product,$product);
+	
 	}
 	if($insert){
 		$this->db->query("INSERT INTO doku SET transidmerchant='".$data_payment['invoice']."',trxstatus='Requested'");

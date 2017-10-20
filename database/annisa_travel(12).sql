@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2017 at 07:40 PM
+-- Generation Time: Oct 20, 2017 at 08:30 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -454,6 +454,8 @@ CREATE TABLE `dc_payment` (
   `total_amount_ppn` int(100) NOT NULL,
   `type_transaction` varchar(250) NOT NULL,
   `id_voucher` int(100) NOT NULL,
+  `voucher_amount` int(100) NOT NULL,
+  `total_all_amount` int(100) NOT NULL,
   `date_created` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -461,32 +463,41 @@ CREATE TABLE `dc_payment` (
 -- Dumping data for table `dc_payment`
 --
 
-INSERT INTO `dc_payment` (`id`, `invoice`, `id_doku`, `id_member`, `total_amount`, `total_amount_ppn`, `type_transaction`, `id_voucher`, `date_created`) VALUES
-(1, '#ANO28GNAOM8V2', 0, 14, 2500000, 250000, 'doku_walet', 0, '2017-10-20'),
-(2, '#ANBI08H2GKN0F', 0, 14, 2500000, 250000, 'doku_walet', 0, '2017-10-20'),
-(3, '#ANTIZPUXC4WYC', 0, 14, 2500000, 250000, 'doku_walet', 0, '2017-10-20'),
-(4, '#ANLJCAKVB12IL', 0, 14, 2500000, 250000, 'doku_walet', 0, '2017-10-20'),
-(5, '#ANHD1QJUFX8GC', 0, 14, 500000, 50000, 'doku_walet', 0, '2017-10-20'),
-(6, '#ANXPHMRIMMVS2', 0, 14, 500000, 50000, 'doku_walet', 0, '2017-10-20'),
-(7, '#AN22YM0900VQM', 0, 14, 500000, 50000, 'doku_walet', 0, '2017-10-20'),
-(8, '#ANWWBTVRC12OO', 0, 14, 500000, 50000, 'doku_walet', 0, '2017-10-20'),
-(9, '#ANFIU8E77XBHI', 0, 14, 500000, 50000, 'doku_walet', 0, '2017-10-20'),
-(10, '#ANA2WHO6LCYM4', 0, 14, 500000, 50000, 'doku_walet', 0, '2017-10-20'),
-(11, '#ANTETL4XRMYUX', 0, 14, 500000, 50000, 'doku_walet', 0, '2017-10-20'),
-(12, '#AN9KZA4NPABGV', 0, 14, 500000, 50000, 'doku_walet', 0, '2017-10-20'),
-(13, '#ANFNTMJIDE8PV', 0, 14, 1000000, 100000, 'doku_walet', 0, '2017-10-20'),
-(14, '#ANWQXMK8WAE3J', 0, 14, 3000000, 300000, 'doku_walet', 0, '2017-10-20'),
-(15, '#ANSYBHBPMW3W9', 0, 14, 500000, 50000, 'doku_walet', 0, '2017-10-20'),
-(16, '#AN54YRWIWECLU', 0, 14, 3000000, 300000, 'doku_walet', 0, '2017-10-20'),
-(17, '#ANYHYQOT0MZM7', 0, 14, 3000000, 300000, 'doku_walet', 0, '2017-10-20'),
-(18, '#ANUK94ROEWNLB', 0, 14, 500000, 50000, 'doku_walet', 0, '2017-10-20'),
-(19, '#AN1D89UMW0JGJ', 0, 14, 3000000, 300000, 'permata', 0, '2017-10-20'),
-(20, '#AN4GTV1PZ7ASS', 0, 14, 3000000, 300000, 'permata', 0, '2017-10-20'),
-(21, '#ANATEA2EJ91MG', 0, 14, 3000000, 300000, 'doku_walet', 0, '2017-10-20'),
-(22, '#AN71VA0SYIGGH', 0, 14, 3000000, 300000, 'doku_walet', 0, '2017-10-20'),
-(23, '#ANZ4N4LE6PPC9', 0, 14, 1000000, 100000, 'doku_walet', 0, '2017-10-20'),
-(24, '#ANCLNLX8K3GUO', 0, 14, 1000000, 100000, 'Kartu_kredit', 0, '2017-10-20'),
-(25, '#ANDIAYOU1ITX6', 0, 14, 1000000, 100000, 'doku_walet', 0, '2017-10-20');
+INSERT INTO `dc_payment` (`id`, `invoice`, `id_doku`, `id_member`, `total_amount`, `total_amount_ppn`, `type_transaction`, `id_voucher`, `voucher_amount`, `total_all_amount`, `date_created`) VALUES
+(1, '#ANO28GNAOM8V2', 0, 14, 2500000, 250000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(2, '#ANBI08H2GKN0F', 0, 14, 2500000, 250000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(3, '#ANTIZPUXC4WYC', 0, 14, 2500000, 250000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(4, '#ANLJCAKVB12IL', 0, 14, 2500000, 250000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(5, '#ANHD1QJUFX8GC', 0, 14, 500000, 50000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(6, '#ANXPHMRIMMVS2', 0, 14, 500000, 50000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(7, '#AN22YM0900VQM', 0, 14, 500000, 50000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(8, '#ANWWBTVRC12OO', 0, 14, 500000, 50000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(9, '#ANFIU8E77XBHI', 0, 14, 500000, 50000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(10, '#ANA2WHO6LCYM4', 0, 14, 500000, 50000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(11, '#ANTETL4XRMYUX', 0, 14, 500000, 50000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(12, '#AN9KZA4NPABGV', 0, 14, 500000, 50000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(13, '#ANFNTMJIDE8PV', 0, 14, 1000000, 100000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(14, '#ANWQXMK8WAE3J', 0, 14, 3000000, 300000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(15, '#ANSYBHBPMW3W9', 0, 14, 500000, 50000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(16, '#AN54YRWIWECLU', 0, 14, 3000000, 300000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(17, '#ANYHYQOT0MZM7', 0, 14, 3000000, 300000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(18, '#ANUK94ROEWNLB', 0, 14, 500000, 50000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(19, '#AN1D89UMW0JGJ', 0, 14, 3000000, 300000, 'permata', 0, 0, 0, '2017-10-20'),
+(20, '#AN4GTV1PZ7ASS', 0, 14, 3000000, 300000, 'permata', 0, 0, 0, '2017-10-20'),
+(21, '#ANATEA2EJ91MG', 0, 14, 3000000, 300000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(22, '#AN71VA0SYIGGH', 0, 14, 3000000, 300000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(23, '#ANZ4N4LE6PPC9', 0, 14, 1000000, 100000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(24, '#ANCLNLX8K3GUO', 0, 14, 1000000, 100000, 'Kartu_kredit', 0, 0, 0, '2017-10-20'),
+(25, '#ANDIAYOU1ITX6', 0, 14, 1000000, 100000, 'doku_walet', 0, 0, 0, '2017-10-20'),
+(26, '#ANXEF0L236PLS', 0, 14, 3000000, 300000, 'muamalat', 0, 0, 0, '2017-10-21'),
+(27, '#ANDP6KJ1XMQQX', 0, 14, 1000000, 100000, 'muamalat', 0, 0, 0, '2017-10-21'),
+(28, '#ANTPR22HKFEZW', 0, 14, 1000000, 100000, 'muamalat', 0, 0, 0, '2017-10-21'),
+(29, '#ANEQGIBAIXPKD', 0, 14, 1000000, 100000, 'Kartu_kredit', 0, 0, 0, '2017-10-21'),
+(30, '#AN9NTXHRQI15J', 0, 14, 1000000, 100000, 'Kartu_kredit', 0, 0, 0, '2017-10-21'),
+(31, '#ANYWDYLJI6BW8', 0, 14, 1000000, 100000, 'Kartu_kredit', 0, 0, 0, '2017-10-21'),
+(32, '#ANYEIKIQB4JOR', 0, 14, 1000000, 100000, 'Kartu_kredit', 0, 0, 0, '2017-10-21'),
+(33, '#ANZ90TSE5ZK6V', 0, 14, 1000000, 100000, 'Kartu_kredit', 0, 0, 0, '2017-10-21'),
+(34, '#AN6YCKX1126F2', 0, 14, 1000000, 100000, 'alfamart', 0, 0, 0, '2017-10-21');
 
 -- --------------------------------------------------------
 
@@ -503,6 +514,15 @@ CREATE TABLE `dc_payment_product` (
   `total_amount` int(100) NOT NULL,
   `date_created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `dc_payment_product`
+--
+
+INSERT INTO `dc_payment_product` (`id`, `id_payment`, `id_program`, `type_room`, `qtt`, `total_amount`, `date_created`) VALUES
+(1, 31, 7, 'quad', 1, 1000000, '2017-10-21 01:27:23'),
+(2, 33, 7, 'quad', 1, 1000000, '2017-10-21 01:28:10'),
+(3, 34, 7, 'quad', 1, 1000000, '2017-10-21 01:28:35');
 
 -- --------------------------------------------------------
 
@@ -815,7 +835,11 @@ CREATE TABLE `doku` (
 --
 
 INSERT INTO `doku` (`id`, `transidmerchant`, `totalamount`, `words`, `statustype`, `response_code`, `approvalcode`, `trxstatus`, `payment_channel`, `paymentcode`, `session_id`, `bank_issuer`, `creditcard`, `payment_date_time`, `verifyid`, `verifyscore`, `verifystatus`) VALUES
-(1, '#ANDIAYOU1ITX6', 0, '', '', '', '', 'Requested', 0, 0, '', '', '', '0000-00-00 00:00:00', '', 0, '');
+(1, '#ANDIAYOU1ITX6', 0, '', '', '', '', 'Requested', 0, 0, '', '', '', '0000-00-00 00:00:00', '', 0, ''),
+(2, '#ANXEF0L236PLS', 0, '', '', '', '', 'Requested', 0, 0, '', '', '', '0000-00-00 00:00:00', '', 0, ''),
+(3, '#ANDP6KJ1XMQQX', 0, '', '', '', '', 'Requested', 0, 0, '', '', '', '0000-00-00 00:00:00', '', 0, ''),
+(4, '#ANTPR22HKFEZW', 0, '', '', '', '', 'Requested', 0, 0, '', '', '', '0000-00-00 00:00:00', '', 0, ''),
+(5, '#AN6YCKX1126F2', 0, '', '', '', '', 'Requested', 0, 0, '', '', '', '0000-00-00 00:00:00', '', 0, '');
 
 --
 -- Indexes for dumped tables
@@ -1022,12 +1046,12 @@ ALTER TABLE `dc_news`
 -- AUTO_INCREMENT for table `dc_payment`
 --
 ALTER TABLE `dc_payment`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `dc_payment_product`
 --
 ALTER TABLE `dc_payment_product`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `dc_program`
 --
@@ -1057,7 +1081,7 @@ ALTER TABLE `dc_static_content`
 -- AUTO_INCREMENT for table `dc_tmp_payment`
 --
 ALTER TABLE `dc_tmp_payment`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `dc_user`
 --
@@ -1077,7 +1101,7 @@ ALTER TABLE `dc_voucher`
 -- AUTO_INCREMENT for table `doku`
 --
 ALTER TABLE `doku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
