@@ -106,8 +106,8 @@
 									</div>
 								</div>
 							</div>
-							
-							<div id="pesanan" class="col-md-9 col-md-push-3 my-account form-section tab-pane active">
+							<?php //print_r($cek_menu);exit(); ?>
+							<div id="pesanan" class="col-md-9 col-md-push-3 my-account form-section tab-pane <?php echo isset($_GET['mn'])?"":"active"; ?>">
 								<h1 class="h2 heading-primary font-weight-normal">Pesanan</h1>
 								
 								
@@ -413,41 +413,60 @@
 								
 							</div>
 							
-							<div id="mywhislist" class="col-md-9 col-md-push-3 my-account form-section tab-pane">
+							<div id="mywhislist" class="col-md-9 col-md-push-3 my-account form-section tab-pane <?php echo isset($_GET['mn'])?"active":"" ?>">
 								<h1 class="h2 heading-primary font-weight-normal">My Whislist</h1>
 								
 								<div class="featured-box featured-box-primary align-left mt-sm">
 									<div class="box-content">
-										<div class="agent-item book">
-											<div class="row">
-												<div class="col-md-2">
-													<img src="<?php echo base_url() ?>assets/theme/img/pb/pb_1.jpg" class="img-responsive" alt="">
-												</div>
-												<div class="col-md-8">
-													<h3 class="mt-xs mb-xs"><a href="">Umroh Plus Turki 12 Hari</a></h3>
-													<h6 class="mb-xs">06 Oktober 2017 - 12 Hari</h6>
-													<p>A successful real estate broker for over 20 years, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate.</p>
+										<?php 
+										
+											$get_whis = select_where($this->tbl_whislist,'id_member',$data->id)->result();
+										    //print_r($get_whis);exit();
+											foreach ($get_whis as $key => $value) {
 													
+											$get_program = select_where($this->tbl_program,'id',$value->id_program)->row();
+											
+											$image_program=select_where($this->tbl_program_images,'id_program',$value->id_program)->row();
+											//print_r($image_program);exit();
+											$date_program=select_where($this->tbl_program_day,'id_program',$value->id_program)->row();
+										?>
+
+											<div class="agent-item book">
+												<div class="row">
+													<div class="col-md-2">
+														<img src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $image_program->id ?>/<?php echo $image_program->images ?>" class="img-responsive" alt="">
+													</div>
+													<div class="col-md-8">
+														<h3 class="mt-xs mb-xs"><a href="<?php echo site_url() ?>/Program/detail/<?php echo $get_program->id ?>/<?php echo str_replace(" ", "-",$get_program->title) ?>"><?php echo $get_program->title ?></a></h3>
+														<h6 class="mb-xs">
+															<?php echo tanggal_indo(substr($date_program->day, 0,10)) ?> -
+															<?php
+																$now = $date_program->day; // or your date as well
+																$your_date = $date_program->off_day;
+																$datediff = $now - $your_date;
+
+																if(floor($datediff / (60 * 60 * 24))==0){
+																echo 1;
+																}else{
+																	echo floor($datediff / (60 * 60 * 24));
+																}
+															?>
+
+															 Hari
+														</h6>
+														<p>A successful real estate broker for over 20 years, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate.</p>
+														
+														
+													</div>
 													
 												</div>
-												
 											</div>
-										</div>
-										<div class="agent-item book">
-											<div class="row">
-												<div class="col-md-2">
-													<img src="<?php echo base_url() ?>assets/theme/img/pb/pb_1.jpg" class="img-responsive" alt="">
-												</div>
-												<div class="col-md-8">
-													<h3 class="mt-xs mb-xs"><a href="">Umroh Plus Turki 12 Hari</a></h3>
-													<h6 class="mb-xs">06 Oktober 2017 - 12 Hari</h6>
-													<p>A successful real estate broker for over 20 years, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate.</p>
-													
-													
-												</div>
-												
-											</div>
-										</div>
+
+										<?php
+											}
+										?>
+										
+									
 									</div>
 								</div>
 							</div>
@@ -579,7 +598,7 @@
 									<li><a href="#mywhislist" data-toggle="tab">My Whislist</a></li>
 									<li><a href="#myexpe" data-toggle="tab">My Experience</a></li>
 									<li><a href="#listexpe" data-toggle="tab">List Experience</a></li>
-									<li><a href="<?php echo site_url('Account/logout') ?>">Logout</a></li>
+									<li><a href="#">Logout</a></li>
 									
 								</ul>
 

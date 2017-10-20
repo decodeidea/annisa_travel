@@ -23,15 +23,43 @@ class Account extends DC_controller {
     }
 		$data = $this->controller_attr;
 		$data['function']='index';
+    $data['cek_menu']='0';//kode 0 active default
 		$data['data']=select_where($this->tbl_member,'id',$this->session->userdata('id'))->row();
 		$data['page'] = $this->load->view('Account/index',$data,true);
 		$this->load->view('layout_frontend',$data);
 	}
+
+  function whislist(){
+    $data = $this->controller_attr;
+    $data['function']='whislist';
+    $data['cek_menu']='1';//1kode active whislist
+    $data['data']=select_where($this->tbl_member,'id',$this->session->userdata('id'))->row();
+    if($this->session->userdata('id')){
+   
+       //echo "msul";exit();
+        $tmp_data=array(
+          'id_member'=>$this->session->userdata('id'),
+          'id_program'=>$_POST['idP'],
+          'date_created'=>date('Y-m-d H:i:s'),
+        );
+        $insert=$this->db->insert($this->tbl_whislist,$tmp_data);
+        if($insert){
+         redirect(site_url('Account?mn=mywhislist'));
+        }
+      
+    }else{
+      $this->session->set_flashdata('msg','Maaf anda harus login terlebih dahulu untuk memesan program');
+      redirect(site_url('Account/login'));
+     
+    }
+  }
+
 	function login(){
 		$data = $this->controller_attr;
 		$this->load->library('facebook');
     	$this->load->library('googleplus');
 		$data['function']='login';
+     $data['cek_menu']='0';//kode 0 active default
 		if($this->session->userdata('validated')){
       		redirect(site_url('Account'));
     	}else{
@@ -270,5 +298,6 @@ public function do_login()
 
         redirect(site_url('Account/login'));
     }
+   
 }
 

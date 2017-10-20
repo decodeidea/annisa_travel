@@ -161,7 +161,8 @@
                   </div>
                 </form>
                   <div class="col-md-12 text-center mtb12">
-                    <form action="#" method="POST">
+                    <form action="<?php echo site_url('Account/whislist') ?>" method="POST">
+                    <input type="hidden" name="idP" value="<?php echo $data->id ?>">
                     <button type="submit" name="submit" class="btn-whis" >SAVE TO WISHLIST </button>
                     </form>
                   </div>
