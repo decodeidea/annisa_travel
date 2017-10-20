@@ -54,6 +54,53 @@ class Account extends DC_controller {
     }
   }
 
+  function change_profile(){
+    $data = $this->controller_attr;
+    $data['function']='profile';
+    $id=$this->input->post('id');
+    $first_name = $this->input->post('first_name')." ".$this->input->post('last_name');
+    $table_field = $this->db->list_fields($this->tbl_member);
+    $static=select_where($this->tbl_member,'id',$id)->row();
+    $update = array();
+        foreach ($table_field as $field) {
+            $update[$field] = $this->input->post($field);
+        }
+        if(empty($_FILES['profile_pict']['name'])){
+          $update['profile_pict']=$static->profile_pict;
+        }else{
+           $update['profile_pict']=$_FILES['profile_pict']['name'];
+        }
+        $update['first_name']=$first_name;
+        $update['date_created']=$static->date_created;
+        $update['date_modified']= date("Y-m-d H:i:s");
+      
+        $query=update($this->tbl_member,$update,'id',$id);
+    if($query){
+      if(!empty($_FILES['profile_pict']['name'])){
+      unlink('assets/uploads/profile/'.$id.'/'.$static->profile_pict);
+      if (!file_exists('assets/uploads/profile/'.$id)) {
+            mkdir('assets/uploads/profile/'.$id, 0777, true);
+       }
+           $config['upload_path'] = 'assets/uploads/profile/'.$id;
+             $config['allowed_types'] = 'jpg|jpeg|png|gif';
+             $config['file_name'] = $_FILES['profile_pict']['name'];
+             $this->upload->initialize($config);
+             if($this->upload->do_upload('profile_pict')){
+                    $uploadData = $this->upload->data();
+                }else{
+                    echo"error upload";
+                    die();
+              }
+          }
+      $this->session->set_flashdata('notif','success');
+      $this->session->set_flashdata('msg','Your data have been updated');
+    }else{
+      $this->session->set_flashdata('notif','error');
+      $this->session->set_flashdata('msg','Your data not updated');
+    }
+    redirect(site_url('Account?mn=profile'));
+  }
+
   function experience(){
     $data = $this->controller_attr;
     $data['function']='whislist';

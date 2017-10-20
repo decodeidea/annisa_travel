@@ -18,33 +18,55 @@
 					<div class="row">
 						
 						<div class="tab-content border-none">
-							<div id="account" class="col-md-9 col-md-push-3 my-account form-section tab-pane">
+							<div id="account" class="col-md-9 col-md-push-3 my-account form-section tab-pane <?php echo (isset($_GET['mn']) && $_GET['mn'] == 'profile')?"active":"" ?>">
 								
 								<h1 class="h2 heading-primary font-weight-normal">Profile</h1>
-								
+								<?php 
+									if($this->session->flashdata('msg')){
+								?>
+										<div class="alert alert-danger text-center text-login" style="height: auto;">
+				                        	<?php echo $this->session->flashdata('msg') ?>
+				                        </div>
+								<?php
+									}
+								?>
 								<div class="featured-box featured-box-primary featured-box-flat featured-box-text-left mt-md">
 									<div class="box-content">
 									
-										<form action="#">
-												
+										<form action="<?php echo site_url('Account/change_profile') ?>" id="frmBillingAddress" method="POST" enctype="multipart/form-data">
+											<input type="hidden" name="id" value="<?php echo $data->id ?>">
+											<?php
+												$name_m = explode(' ',$data->first_name);
+												//print_r($name_m);exit();
+											?>
 											<h4 class="heading-primary text-uppercase mb-lg">ACCOUNT INFORMATION</h4>
 											<div class="row">
-												<div class="col-sm-4 col-md-3">
+												<div class="col-sm-4 col-md-6">
 													<div class="form-group">
 														<label class="font-weight-normal">First Name <span class="required">*</span></label>
-														<input type="text" class="form-control" required>
+														<input type="text" name="first_name" value="<?php echo isset($name_m[0])?$name_m[0]:"" ?>" class="form-control" required>
 													</div>
 												</div>
-												<div class="col-sm-4 col-md-3">
-													<div class="form-group">
-														<label class="font-weight-normal">Middle Name</label>
-														<input type="text" class="form-control">
-													</div>
-												</div>
-												<div class="col-sm-4 col-md-5">
+											
+												<div class="col-sm-4 col-md-6">
 													<div class="form-group">
 														<label class="font-weight-normal">Last Name <span class="required">*</span></label>
-														<input type="text" class="form-control" required>
+														<input type="text" name="last_name" value="<?php echo isset($name_m[1])?$name_m[1]:"" ?>" class="form-control" required>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-4 col-md-6">
+													<div class="form-group">
+														<label class="font-weight-normal">Email Address <span class="required">*</span></label>
+														<input type="email" name="email" value="<?php echo isset($data->email)?$data->email:"" ?>" class="form-control" required>
+													</div>
+												</div>
+											
+												<div class="col-sm-4 col-md-6">
+													<div class="form-group">
+														<label class="font-weight-normal">Phone Number <span class="required">*</span></label>
+														<input type="text" name="phone" value="<?php echo isset($data->phone)?$data->phone:"" ?>" class="form-control" required>
 													</div>
 												</div>
 											</div>
@@ -52,44 +74,23 @@
 											<div class="row">
 												<div class="col-xs-12">
 													<div class="form-group">
-														<label class="font-weight-normal">Email Address <span class="required">*</span></label>
-														<input type="email" class="form-control" required>
+														<label class="font-weight-normal">Alamat <span class="required">*</span></label>
+														<textarea class="form-control" name="address"><?php echo isset($data->address)?$data->address:"" ?></textarea>
 													</div>
 												</div>
 
-												<div class="col-xs-12">
-													<div class="form-group">
-														<label class="font-weight-normal">Current Password <span class="required">*</span></label>
-														<input type="password" class="form-control" required>
-													</div>
+												
+											</div>
+											<div class="row">
+											<div class="form-group">
+												<div class="col-md-12">
+													<label>Do you have photos to share? <small>(optional)</small></label>
+													<input type="file" name="profile_pict" id="profile_pict" value="<?php echo isset($data->profile_pict)?$data->profile_pict:"" ?>" class="form-control">
 												</div>
 											</div>
-
-											<div class="checkbox mb-xs">
-												<label>
-													<input type="checkbox" value="1" id="change-pass-checkbox">
-													Change Password
-												</label>
 											</div>
 
-											<div id="account-chage-pass">
-												<h4 class="heading-primary text-uppercase mb-lg">CHANGE PASSWORD</h4>
-												<div class="row">
-													<div class="col-sm-6">
-														<div class="form-group">
-															<label class="font-weight-normal">Password <span class="required">*</span></label>
-															<input type="password" class="form-control" required>
-														</div>
-													</div>
-
-													<div class="col-sm-6">
-														<div class="form-group">
-															<label class="font-weight-normal">Confirm Password <span class="required">*</span></label>
-															<input type="password" class="form-control" required>
-														</div>
-													</div>
-												</div>
-											</div>
+											
 
 											<div class="row">
 												<div class="col-xs-12">
@@ -98,7 +99,7 @@
 													<div class="form-action clearfix mt-none">
 														<a href="#" class="pull-left"><i class="fa fa-angle-double-left"></i> Back</a>
 
-														<input type="submit" class="btn btn-primary" value="Save">
+														<input type="submit" name="submit" class="btn btn-primary" value="Save">
 													</div>
 												</div>
 											</div>
@@ -473,10 +474,17 @@
 							
 							<div id="myexpe" class="col-md-9 col-md-push-3 my-account form-section tab-pane <?php echo (isset($_GET['mn']) && $_GET['mn'] == 'experience')?"active":"" ?>">
 								<h1 class="h2 heading-primary font-weight-normal">Share Your Experience</h1>
-								<?php //print_r($data);exit(); ?>
-								<div class="alert alert-danger text-center text-login" style="height: auto;">
-		                        	<?php echo $this->session->flashdata('msg') ?>
-		                        </div>
+								<?php 
+									if($this->session->flashdata('msg')){
+								?>
+										<div class="alert alert-danger text-center text-login" style="height: auto;">
+				                        	<?php echo $this->session->flashdata('msg') ?>
+				                        </div>
+								<?php
+									}
+								?>
+								
+								
 								<div class="featured-box featured-box-primary align-left mt-sm">
 									<div class="box-content">
 										<form action="<?php echo site_url('Account/experience') ?>" id="frmBillingAddress" method="POST" enctype="multipart/form-data">
