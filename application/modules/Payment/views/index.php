@@ -27,7 +27,6 @@
 										<th>HARGA</th>
 										<th>PAX</th>
 										<th>TOTAL</th>
-										<th class="text-center">ACTION</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -49,7 +48,7 @@
 										<td>Rp. <?php echo idr($key->price) ?>.-</td>
 										<td><?php echo $key->qtt ?> Orang</td>
 										<td>Rp. <?php echo idr($key->price*$key->qtt) ?></td>
-										<td class="text-center"><a href="#" alt="delete" onclick="delete_tmp(<?php echo $key->id ?>)" ><span class="glyphicon glyphicon-remove"></span></a></td>
+										
 									</tr>
 									<?php }
 									$ppn=$total_price/100*10;
@@ -188,7 +187,7 @@
     </form>
 <?php }else{ ?>
 <br><br><br><br>
-<div class="alert alert-warning col-md-7 center">Silahkan pesan program terlebih dahulu</div>
+<div class="alert alert-danger col-md-7 center" style="float: none; margin: 0 auto; position: relative; padding: 100px"><h4>Silahkan pesan program terlebih dahulu.</h4></div>
 <br><br>
 <?php } ?>
       </div>

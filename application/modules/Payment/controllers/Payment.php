@@ -30,13 +30,19 @@ class Payment extends DC_controller {
 	function finish(){
 		$data = $this->controller_attr;
 		$data['function']='finish';
-		$data['list']='';
+		$data['data']=select_where($this->tbl_payment,'invoice',$_POST['order_number'])->row();
+		$data['product']=select_where($this->tbl_payment_product,'id_payment',$data['data']->id)->result();
 		$data['page'] = $this->load->view('Payment/finish',$data,true);
 		$this->load->view('layout_frontend',$data);
 	}
 	function tmp_payment(){
 		$data = $this->controller_attr;
 		if($this->session->userdata('id')){
+			$data_tmp=select_where($this->tbl_tmp_payment,'id_member',$this->session->userdata('id'))->num_rows();
+			
+		if($data_tmp>0){
+			$this->db->query("DELETE FROM dc_tmp_payment WHERE dc_tmp_payment.id_member = '".$this->session->userdata('id')."'");
+		}
 		$program=select_where($this->tbl_program,'id',$this->input->post('id_program'))->row();
 		if($this->input->post('quantity1')>=1){
 		$tmp_data=array(
@@ -48,27 +54,31 @@ class Payment extends DC_controller {
 			'date_created'=>date('Y-m-d H:i:s'),
 		);
 		$insert=$this->db->insert($this->tbl_tmp_payment,$tmp_data);
-		}elseif($this->input->post('quantity2')>=1){
+		}
+		if($this->input->post('quantity2')>=1){
 			$tmp_data=array(
 			'id_member'=>$this->session->userdata('id'),
 			'id_program'=>$this->input->post('id_program'),
 			'price'=>$program->price2,
-			'type_room'=>'double',
+			'type_room'=>'triple',
 			'qtt'=>$this->input->post('quantity2'),
 			'date_created'=>date('Y-m-d H:i:s'),
 		);
 		$insert=$this->db->insert($this->tbl_tmp_payment,$tmp_data);
-		}elseif($this->input->post('quantity3')>=1){
+		}
+		if($this->input->post('quantity3')>=1){
 			$tmp_data=array(
 			'id_member'=>$this->session->userdata('id'),
 			'id_program'=>$this->input->post('id_program'),
 			'price'=>$program->price3,
-			'type_room'=>'triple',
+			'type_room'=>'double',
 			'qtt'=>$this->input->post('quantity3'),
 			'date_created'=>date('Y-m-d H:i:s'),
 		);
 		$insert=$this->db->insert($this->tbl_tmp_payment,$tmp_data);
-		}else{
+		}
+
+		if($this->input->post('quantity3')<=0 and $this->input->post('quantity2')<=0 and $this->input->post('quantity1')<=0){
 			$this->session->set_flashdata('msg','Maaf anda harus mengisi salah satu quantity');
 			redirect(site_url('Program/detail/'.$program->id.'/'.str_replace(" ", "-", $program->title)));
 		}
@@ -92,12 +102,13 @@ class Payment extends DC_controller {
 			'total_amount_ppn'=> $this->input->post('ppn'),
 			'type_transaction' =>$this->input->post('pembayaran'),
 			'id_voucher' => 0,
+			'total_amount_ppn'=> $this->input->post('ppn')+$this->input->post('total_amount'),
 			'date_created' => date('Y-m-d H:i:s'),
 		);
 		$insert=$this->db->insert($this->tbl_payment,$data_payment);
 		$id_payment=$this->db->insert_id();
 		$no=$this->input->post('no');
-	for ($i=1; $i <=$no; $i++) { 
+		for ($i=1; $i <=$no; $i++) { 
 		$product=array(
 			'id_payment' => $id_payment,
 			'id_program' => $this->input->post('id_program'.$i),

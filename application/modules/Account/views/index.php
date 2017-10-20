@@ -4,7 +4,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<ul class="breadcrumb breadcrumb-valign-mid">
-								<li><a href="#">Umroh & Haji</a></li>
+								<li><a href="#">Account</a></li>
 								<li class="active">My Account</li>
 							</ul>
 							
@@ -129,6 +129,9 @@
 											<div class="tab-content">
 												<div id="psi" class="tab-pane active">
 													<h4><strong>Detail Transaksi</strong></h4>
+													<?php foreach ($data_pesanan as $key) {
+														# code...
+													?>
 													<div class="tp">
 														<table class="table-payment">
 															<thead>
@@ -142,269 +145,33 @@
 															</thead>
 															<tbody>
 																<tr class="py-tr">
-																	<td><a href="" >Umroh Series Reguler 9 Hari</a></td>
-																	<td>Quad</td>	
-																	<td>3 Orang</td>
+																	<td><a href="" ><?php echo $key->program ?></a></td>
+																	<td style="text-transform: uppercase;"><?php 
+																	$qtt=0;
+																	foreach ($key->product as $key2) {
+																		$qtt+=$key2->qtt;
+																		echo $key2->type_room.", ";
+																	} ?></td>	
+																	<td><?php echo $qtt ?> Orang</td>
 																	<td> 
-																		Rp. 70.950.000 
+																		Rp. <?php echo idr($key->total_all_amount) ?> 
 																		<a class="lr" href="">Lihat Rincian</a>
 																	</td>
-																	<td>PAID</td>
+																	<td style="text-transform: uppercase;"><?php echo $key->doku->trxstatus ?></td>
 																</tr>
-																
 															</tbody>
 														</table>
-														
-														
 													</div>
-													<div class="col-md-12">
-														<hr/>
-													</div>
-													<h4><strong>Isi Data</strong></h4>
-													<div class="tp">
-														<form action="#">
-															<div class="row">
-																<div class="col-sm-4 col-md-6">
-																	<div class="form-group">
-																		<label class="font-weight-normal">Nama Lengkap<span class="required">*</span></label>
-																		<input type="text" class="form-control" required>
-																	</div>
-																</div>
-																<div class="col-sm-4 col-md-6">
-																	<div class="form-group">
-																		<label class="font-weight-normal">Tempat/Tgl Lahir</label>
-																		<input type="text" class="form-control">
-																	</div>
-																</div>
-															
-															</div>
-															<div class="row">
-																<div class="col-sm-4 col-md-6">
-																	<div class="form-group">
-																		<label class="font-weight-normal">Nama Ayah<span class="required">*</span></label>
-																		<input type="text" class="form-control" required>
-																	</div>
-																</div>
-																<div class="col-sm-4 col-md-6">
-																	<div class="form-group">
-																		<label class="font-weight-normal">Nama Ibu</label>
-																		<input type="text" class="form-control">
-																	</div>
-																</div>
-															
-															</div>
-															<div class="row">
-																<div class="col-sm-4 col-md-6">
-																	<div class="form-group">
-																		<label class="font-weight-normal">No.ID KTP<span class="required">*</span></label>
-																		<input type="text" class="form-control" required>
-																	</div>
-																</div>
-																<div class="col-sm-4 col-md-6">
-																	<div class="form-group">
-																		<label class="font-weight-normal">Upload KTP</label>
-																		<input type="file" class="form-control">
-																	</div>
-																</div>
-															
-															</div>
+													<?php } ?>
 
-															<div class="row">
-																<div class="col-sm-4 col-md-2">
-																	<div class="form-group">
-																		<label class="font-weight-normal">Jenis Kelamin<span class="required">*</span></label>
-																		<select class="form-control">
-																			<option value=""></option>
-																		</select>
-																	</div>
-																</div>
-																<div class="col-sm-4 col-md-5">
-																	<div class="form-group">
-																		<label class="font-weight-normal">Nama Mahram</label>
-																		<input type="input" class="form-control">
-																	</div>
-																</div>
-																<div class="col-sm-4 col-md-5">
-																	<div class="form-group">
-																		<label class="font-weight-normal">Status</label>
-																		<input type="input" class="form-control">
-																	</div>
-																</div>
-															
-															</div>
-
-															<div class="row">
-																<div class="col-xs-12">
-																	<div class="form-group">
-																		<label class="font-weight-normal">Alamat <span class="required">*</span></label>
-																		<input type="input" class="form-control" required>
-																	</div>
-																</div>
-																<div class="col-sm-4 col-md-2">
-																	<div class="form-group">
-																		<label class="font-weight-normal">RT/RW<span class="required">*</span></label>
-																		<input type="input" class="form-control" required>
-																	</div>
-																</div>
-																<div class="col-sm-4 col-md-2">
-																	<div class="form-group">
-																		<label class="font-weight-normal">Kelurahan<span class="required">*</span></label>
-																		<input type="input" class="form-control" required>
-																	</div>
-																</div>
-																<div class="col-sm-4 col-md-2">
-																	<div class="form-group">
-																		<label class="font-weight-normal">Kecamatan<span class="required">*</span></label>
-																		<input type="input" class="form-control" required>
-																	</div>
-																</div>
-																<div class="col-sm-4 col-md-2">
-																	<div class="form-group">
-																		<label class="font-weight-normal">Kode Pos<span class="required">*</span></label>
-																		<input type="input" class="form-control" required>
-																	</div>
-																</div>
-															</div>
-															<div class="row">
-																<div class="col-sm-4 col-md-6">
-																	<div class="form-group">
-																		<label class="font-weight-normal">Telepon<span class="required">*</span></label>
-																		<input type="text" class="form-control" required>
-																	</div>
-																</div>
-																<div class="col-sm-4 col-md-6">
-																	<div class="form-group">
-																		<label class="font-weight-normal">Email</label>
-																		<input type="email" class="form-control">
-																	</div>
-																</div>
-															
-															</div>
-
-															<div class="checkbox mb-xs" style="border: 1px solid #CCC;">
-																
-															</div>
-
-															<div id="account-chage-pass">
-															
-																<div class="row">
-																	<div class="col-sm-4 col-md-6">
-																		<div class="form-group">
-																			<label class="font-weight-normal">No. Paspor<span class="required">*</span></label>
-																			<input type="text" class="form-control" required>
-																		</div>
-																	</div>
-																	<div class="col-sm-4 col-md-6">
-																		<div class="form-group">
-																			<label class="font-weight-normal">Upload Paspor</label>
-																			<input type="file" class="form-control">
-																		</div>
-																	</div>
-																
-																</div>
-																<div class="row">
-																	<div class="col-sm-4 col-md-4">
-																		<div class="form-group">
-																			<label class="font-weight-normal">Dikeluarkan di<span class="required">*</span></label>
-																			<select class="form-control">
-																				<option value=""></option>
-																			</select>
-																		</div>
-																	</div>
-																	<div class="col-sm-4 col-md-4">
-																		<div class="form-group">
-																			<label class="font-weight-normal">Tanggal dikeluarkan</label>
-																			<input type="input" class="form-control">
-																		</div>
-																	</div>
-																	<div class="col-sm-4 col-md-4">
-																		<div class="form-group">
-																			<label class="font-weight-normal">Tanggal berlaku</label>
-																			<input type="input" class="form-control">
-																		</div>
-																	</div>
-																
-																</div>
-															</div>
-															
-															<div class="checkbox mb-xs" style="border: 1px solid #CCC;">
-																
-															</div>
-															<div id="account-chage-pass">
-															
-																<div class="row">
-																	
-																	<div class="col-sm-4 col-md-3">
-																		<div class="form-group">
-																			<label class="font-weight-normal">Merokok</label>
-																			<select class="form-control">
-																				<option value=""></option>
-																			</select>
-																		</div>
-																	</div>
-																
-																
-																	<div class="col-sm-4 col-md-4">
-																		<div class="form-group">
-																			<label class="font-weight-normal">Memiliki Penyakit Khusus<span class="required">*</span></label>
-																			<select class="form-control">
-																				<option value=""></option>
-																			</select>
-																			
-																		</div>
-																	</div>
-																	
-																	<div class="col-sm-4 col-md-4">
-																		<div class="form-group">
-																			<label class="font-weight-normal"></label>
-																			<input type="input" value="-- sebutkan --" class="form-control">
-																		</div>
-																	</div>
-																
-																</div>
-																<div class="row">
-																	
-																	<div class="col-sm-4 col-md-4">
-																		<div class="form-group">
-																			<label class="font-weight-normal">Kursi Roda</label>
-																			<select class="form-control">
-																				<option value=""></option>
-																			</select>
-																		</div>
-																	</div>
-																</div>
-															</div>
-
-															<div class="row">
-															<div class="col-xs-12">
-															
-
-																<div class="form-action clearfix mt-none">
-																	<a href="" class="pull-left"><i class="fa fa-angle-double-left"></i> Back</a>
-
-																	<input type="submit" class="btn btn-primary" value="Tambah Data">
-																</div>
-															</div>
-															</div>
-														</form>
-													</div>
-													<div class="checkbox mb-xs">
-														<label>
-															<input type="checkbox" value="1" id="change-pass-checkbox">
-															Saya setuju mendaftar Umrah dengan Annisa Travel sesuai dengan syarat dan kondisi yang berlaku
-															</br>
-															<a href="">Terms & Condition</a>
-														</label>
-														<div class="row text-center">
-															<input type="submit" class="btn btn-primary" value="SUBMIT">
-														</div>
-													</div>
 												
 												</div>
 												
 												<div id="ps" class="tab-pane">
-													<p>Recent</p>
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.</p>
+													
+												</div>
+												<div id="pb" class="tab-pane">
+													
 												</div>
 											</div>
 										</div>
