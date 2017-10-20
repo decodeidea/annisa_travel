@@ -198,8 +198,10 @@
               <label class="label-search">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
               </label>
-              <input class="input-search" id="search-input" type="text" placeholder="Search places, cities, countries and continents" autocomplete="off" autocorrect="off">
-              <button class="button-close" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              	<form action="<?php echo site_url('Search') ?>" method="get">
+	              <input class="input-search" id="search-input" name="q" type="text" placeholder="Search Your Destination" autocomplete="off" autocorrect="off">
+	              <button class="button-close" type="button" name="submit" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	            </form>  
             </div>
 
           </div>
