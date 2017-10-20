@@ -24,7 +24,19 @@ class Account extends DC_controller {
 		$data = $this->controller_attr;
 		$data['function']='index';
     $data['cek_menu']='0';//kode 0 active default
-		$data['data']=select_where($this->tbl_member,'id',$this->session->userdata('id'))->row();
+    $data_pesanan=select_where_array($this->tbl_payment,$arrayName = array('id_member' => $this->session->userdata('id'),'inquiry'=>'0' ))->result();
+    foreach ($data_pesanan as $key) {
+      $doku=select_where($this->tbl_doku,'transidmerchant',$key->invoice)->row();
+      $key->doku=$doku;
+        $pay_program=select_where($this->tbl_payment_product,'id_payment',$key->id)->result();
+        $key->product=$pay_program;
+        foreach ($pay_program as $key2) {
+          $program=select_where($this->tbl_program,'id',$key2->id_program)->row();
+        }
+        $key->program=$program->title;
+    }
+    $data['data_pesanan']=$data_pesanan;
+    $data['data']=select_where($this->tbl_member,'id',$this->session->userdata('id'))->row();
 		$data['page'] = $this->load->view('Account/index',$data,true);
 		$this->load->view('layout_frontend',$data);
 	}
