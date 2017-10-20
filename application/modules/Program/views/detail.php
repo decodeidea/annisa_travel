@@ -149,7 +149,7 @@
                     <a href="<?php echo site_url() ?>/Payment"><button type="submit" name="submit" class="btn-book" >BOOK NOW </button></a>
                   </div>
                   <div class="col-md-12 text-center mtb12">
-                    <button type="submit" name="submit" class="btn-whis" >SAVE TO WISHLIST </button>
+                    <a href="<?php echo site_url() ?>/Account"><button type="submit" name="submit" class="btn-whis" >SAVE TO WISHLIST </button></a>
                   </div>
                   
                 </div>
