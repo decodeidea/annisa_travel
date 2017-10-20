@@ -90,6 +90,20 @@ function get_client_ip_server() {
 		$data = $ci->db->get();
 		return $data;
 	}
+	function select_where_group($table,$join,$column,$where,$group_by){
+		//print_r($join);exit();
+		$ci=& get_instance();
+		$ci->load->database('default',TRUE);
+		$ci->db->select('*');
+		$ci->db->from($table);
+		$ci->db->join($join, "$table.id_payment = $join.id");
+		$ci->db->where($column,$where);
+		$ci->db->group_by($group_by);
+		$data = $ci->db->get();
+
+		//print_r($data->result());exit();
+		return $data;
+	}
 	function select_where_order($table,$column,$where,$order_by,$order_type){
 		$ci=& get_instance();
 		$ci->load->database('default',TRUE);

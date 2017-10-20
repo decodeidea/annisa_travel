@@ -30,6 +30,26 @@ class Model_basic extends CI_Model {
                 return $data->result();
 	}
 
+
+        function get_search($search){
+
+                $this->db->select('P.*, D.title as title_dest');
+                $this->db->from('dc_program as P');
+                $this->db->join("dc_destination as D","D.id = P.id_destination");
+
+
+                //$this->db->select('p.*, d.title dest_name');
+                ///$this->db->from("$this->tbl_program p");
+                //$this->db->join("$this->tbl_destination d", 'd.id = p.id_destination');
+               // $this->db->where('p.title', );
+                $this->db->like('p.title', $search);
+                $this->db->or_like('d.title', $search);
+                $data=$this->db->get();
+                //print_r($data);exit();
+                return $data->result();
+
+        }
+
         
 
 }

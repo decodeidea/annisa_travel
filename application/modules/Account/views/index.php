@@ -180,7 +180,7 @@
 								
 							</div>
 							
-							<div id="mywhislist" class="col-md-9 col-md-push-3 my-account form-section tab-pane <?php echo isset($_GET['mn'])?"active":"" ?>">
+							<div id="mywhislist" class="col-md-9 col-md-push-3 my-account form-section tab-pane <?php echo (isset($_GET['mn']) && $_GET['mn'] == 'mywhislist')?"active":"" ?>">
 								<h1 class="h2 heading-primary font-weight-normal">My Whislist</h1>
 								
 								<div class="featured-box featured-box-primary align-left mt-sm">
@@ -221,7 +221,7 @@
 
 															 Hari
 														</h6>
-														<p>A successful real estate broker for over 20 years, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate.</p>
+														<p><?php echo substr($get_program->itenary, 0, 200) ?>...</p>
 														
 														
 													</div>
@@ -238,22 +238,25 @@
 								</div>
 							</div>
 							
-							<div id="myexpe" class="col-md-9 col-md-push-3 my-account form-section tab-pane">
+							<div id="myexpe" class="col-md-9 col-md-push-3 my-account form-section tab-pane <?php echo (isset($_GET['mn']) && $_GET['mn'] == 'experience')?"active":"" ?>">
 								<h1 class="h2 heading-primary font-weight-normal">Share Your Experience</h1>
-								
+								<?php //print_r($data);exit(); ?>
+								<div class="alert alert-danger text-center text-login" style="height: auto;">
+		                        	<?php echo $this->session->flashdata('msg') ?>
+		                        </div>
 								<div class="featured-box featured-box-primary align-left mt-sm">
 									<div class="box-content">
-										<form action="http://preview.oklerthemes.com/" id="frmBillingAddress" method="post">
-											
+										<form action="<?php echo site_url('Account/experience') ?>" id="frmBillingAddress" method="POST" enctype="multipart/form-data">
+											<input type="hidden" name="id_member" value="<?php echo $data->id ?>">
 											<div class="row">
 												<div class="form-group">
 													<div class="col-md-6">
 														<label>Story Title</label>
-														<input type="text" value="" class="form-control">
+														<input type="text" name="title" id="title" value="" class="form-control">
 													</div>
 													<div class="col-md-6">
 														<label>Name</label>
-														<input type="text" value="" class="form-control">
+														<input type="text" name="name" id="name" value="<?php echo isset($data->first_name)?$data->first_name:"" ?>" class="form-control">
 													</div>
 												</div>
 											</div>
@@ -261,28 +264,32 @@
 											<div class="row">
 												<div class="form-group">
 													<div class="col-md-12">
-														<label>Category</label>
-														<select class="form-control">
-															<option value="">Select a category</option>
+														<label>Program</label>
+														<select class="form-control" name="id_program" id="id_program">
+															<option value="">Select a program</option>
+															<?php 
+																$expe_program = select_where_group($this->tbl_payment_product,$this->tbl_payment,'id_member',$data->id,'id_program')->result();
+																
+																//print_r($expe_program);exit();
+																foreach ($expe_program as $key => $value) {
+																	$get_program = select_where($this->tbl_program,'id',$value->id_program)->row();
+																	# code...
+															?>
+																<option value="<?php echo $value->id_program ?>"><?php echo $get_program->title ?></option>
+															<?php
+																}
+															?>
+															
 														</select>
 													</div>
 												</div>
 											</div>
-											<div class="row">
-												<div class="form-group">
-													<div class="col-md-12">
-														<label>Destination</label>
-														<select class="form-control">
-															<option value="">Select a destination</option>
-														</select>
-													</div>
-												</div>
-											</div>
+											
 											<div class="row">
 												<div class="form-group">
 													<div class="col-md-12">
 														<label>Type Your Story </label>
-														<textarea id="summernote" name="content" placeholder="Enter text ..." class="form-control" rows="10"></textarea>
+														<textarea id="summernote" name="your_story" id="your_story" placeholder="Enter text ..." class="form-control" rows="10"></textarea>
 													</div>
 												</div>
 											</div>
@@ -290,7 +297,7 @@
 											<div class="form-group">
 												<div class="col-md-12">
 													<label>Do you have photos to share? <small>(optional)</small></label>
-													<input type="file" value="" class="form-control">
+													<input type="file" name="images" id="images" value="" class="form-control">
 												</div>
 											</div>
 											</div>
@@ -309,36 +316,50 @@
 								
 								<div class="featured-box featured-box-primary align-left mt-sm">
 									<div class="box-content">
-										<div class="agent-item book">
-											<div class="row">
-												<div class="col-md-2">
-													<img src="<?php echo base_url() ?>assets/theme/img/pb/pb_1.jpg" class="img-responsive" alt="">
-												</div>
-												<div class="col-md-10">
-													<h3 class="mt-xs mb-xs"><a href="">Umroh Plus Turki 12 Hari</a></h3>
-													<h6 class="mb-xs">06 Oktober 2017 - 12 Hari</h6>
-													<p>A successful real estate broker for over 20 years, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate.</p>
-													
-													
-												</div>
+										<?php
+											$get_listexpe = select_where($this->tbl_experience,'id_member',$data->id)->result();
+										    //print_r($get_whis);exit();
+											foreach ($get_listexpe as $key => $value) {
+												$get_program = select_where($this->tbl_program,'id',$value->id_program)->row();
 												
-											</div>
-										</div>
-										<div class="agent-item book">
-											<div class="row">
-												<div class="col-md-2">
-													<img src="<?php echo base_url() ?>assets/theme/img/pb/pb_1.jpg" class="img-responsive" alt="">
+												$image_program=select_where($this->tbl_program_images,'id_program',$value->id_program)->row();
+												//print_r($image_program);exit();
+												$date_program=select_where($this->tbl_program_day,'id_program',$value->id_program)->row();
+										?>
+												<div class="agent-item book">
+													<div class="row">
+														<div class="col-md-2">
+															<img src="<?php echo base_url() ?>assets/uploads/experience/<?php echo $value->id ?>/<?php echo $value->images ?>" class="img-responsive" alt="">
+														</div>
+														<div class="col-md-8">
+															<h3 class="mt-xs mb-xs"><?php echo $value->title ?> - ( <a href="<?php echo site_url() ?>/Program/detail/<?php echo $get_program->id ?>/<?php echo str_replace(" ", "-",$get_program->title) ?>"><?php echo $get_program->title ?></a> )</h3>
+															<h6 class="mb-xs">
+																<?php echo tanggal_indo(substr($date_program->day, 0,10)) ?> -
+																<?php
+																	$now = $date_program->day; // or your date as well
+																	$your_date = $date_program->off_day;
+																	$datediff = $now - $your_date;
+
+																	if(floor($datediff / (60 * 60 * 24))==0){
+																	echo 1;
+																	}else{
+																		echo floor($datediff / (60 * 60 * 24));
+																	}
+																?>
+
+																 Hari
+															</h6>
+															<p><?php echo $value->your_story ?>.</p>
+															
+															
+														</div>
+														
+													</div>
 												</div>
-												<div class="col-md-8">
-													<h3 class="mt-xs mb-xs"><a href="">Umroh Plus Turki 12 Hari</a></h3>
-													<h6 class="mb-xs">06 Oktober 2017 - 12 Hari</h6>
-													<p>A successful real estate broker for over 20 years, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate.</p>
-													
-													
-												</div>
-												
-											</div>
-										</div>
+										<?php
+											}
+										?>
+										
 									</div>
 								</div>
 							</div>
@@ -365,7 +386,7 @@
 									<li><a href="#mywhislist" data-toggle="tab">My Whislist</a></li>
 									<li><a href="#myexpe" data-toggle="tab">My Experience</a></li>
 									<li><a href="#listexpe" data-toggle="tab">List Experience</a></li>
-									<li><a href="#">Logout</a></li>
+									<li><a href="<?php echo site_url('Account/logout') ?>">Logout</a></li>
 									
 								</ul>
 

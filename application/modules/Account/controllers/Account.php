@@ -66,6 +66,62 @@ class Account extends DC_controller {
     }
   }
 
+  function experience(){
+    $data = $this->controller_attr;
+    $data['function']='whislist';
+    //$data['cek_menu']='1';//1kode active whislist
+    $data['data']=select_where($this->tbl_member,'id',$this->session->userdata('id'))->row();
+    if($this->session->userdata('id')){
+   
+      $table_field = $this->db->list_fields($this->tbl_experience);
+      $insert = array();
+      foreach ($table_field as $field) {
+          if($field!='id'){
+            $insert[$field] = $this->input->post($field);
+          }
+      }           
+      if(empty($_FILES['images']['name'])){
+        $insert['images']=='';
+      }else{
+         $insert['images']=$_FILES['images']['name'];
+      }
+      
+      $insert['date_created']= date("Y-m-d H:i:s");
+     
+      $query=insert_all($this->tbl_experience,$insert);
+      //print_r($this->db->insert_id());exit();
+      //$insert['id']=$this->input->post('id');
+      if($query){
+        if(!empty($_FILES['images']['name'])){
+          if (!file_exists('assets/uploads/experience/'.$this->db->insert_id())) {
+            mkdir('assets/uploads/experience/'.$this->db->insert_id(), 0777, true);
+          }
+          $config['upload_path'] = 'assets/uploads/experience/'.$this->db->insert_id();
+           $config['allowed_types'] = 'jpg|jpeg|png|gif';
+           $config['file_name'] = $_FILES['images']['name'];
+           $this->upload->initialize($config);
+           if($this->upload->do_upload('images')){
+                  $uploadData = $this->upload->data();
+              }else{
+                  echo"error upload";
+                  die();
+            }
+        }
+        $this->session->set_flashdata('notif','success');
+        $this->session->set_flashdata('msg','Your data have been added. Please check your list experience');
+      }else{
+        $this->session->set_flashdata('notif','error');
+        $this->session->set_flashdata('msg','Your data not added');
+      }
+      redirect(site_url('Account?mn=experience'));
+      
+    }else{
+      $this->session->set_flashdata('msg','Maaf anda harus login terlebih dahulu untuk memesan program');
+      redirect(site_url('Account/login'));
+     
+    }
+  }
+
 	function login(){
 		$data = $this->controller_attr;
 		$this->load->library('facebook');
