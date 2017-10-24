@@ -2355,10 +2355,11 @@ aside ul.nav-list > li > a {
 	
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 400px) {
 	.slider-container .main-label {
 		left:30px;
-		font-size: 32px !important;
+		width: 100%;
+		font-size: 22px !important;
 		
 	}
 	.slider-container .top-label {
@@ -2368,6 +2369,7 @@ aside ul.nav-list > li > a {
 	}
 	.slider-container .more-info {
 		left:35px;
+
 		font-size: 11px !important;
 		width:200px;
 		
