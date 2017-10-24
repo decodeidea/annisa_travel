@@ -28,7 +28,7 @@
                   data-whitespace="normal"
                   data-transform_in="opacity:0;s:600;"
                   data-transform_out="opacity:0;s:600;"
-                  data-width="650"
+                  data-width="750"
                   data-height="auto"
                   style="z-index: 5"
                   data-mask_in="x:0px;y:0px;"><?php echo $key->title ?></div>
