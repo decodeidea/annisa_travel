@@ -72,7 +72,7 @@
               <div class="col-md-12">
                 <h1 class="mb-sm" style="width:70%;margin-top:50px;"><strong>Umroh plus Jordan Aqso *5</strong></h1>
                 <h4 class="mb-lg"><span class="label label-light text-color-dark p-md">Start from <strong>IDR 45.900.000</strong></span></h4>
-                <p class="text-color-light" style="font-size:20px;width:40%">
+                <p class="text-color-light text-in-banner">
                   Rasakan dan nikmati indahnya beribadah di dua kota suci Mekkah dan Madinah serta menilik peradaban manusia di Jordan dan Aqso
                 </p>
                 <a href="#" class="btn btn-danger mr-xs mb-sm pl-xlg pr-xlg" style="border-radius:30px">Book Now</a>

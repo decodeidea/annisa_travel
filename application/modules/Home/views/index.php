@@ -221,22 +221,17 @@ echo 1;
 											<div class="pd-dest">
 												<a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo $key->title ?>" style="text-decoration: none;"><span class="pd-dest-tit"><?php echo $key->title ?></span></a>
 												</br>
-												<span class="pd-dest-date"><?php echo tanggal_indo(substr($key->date->day, 0,10)) ?> - <?php
+												<span class="pd-dest-date">
+												<?php echo tanggal_indo(substr($key->date->day, 0,10)) ?> - <?php
+												$now = $key->date->day; // or your date as well
+												$your_date = $key->date->off_day;
+												$datediff = $now - $your_date;
 
-
-$now = $key->date->day; // or your date as well
-$your_date = $key->date->off_day;
-$datediff = $now - $your_date;
-
-if(floor($datediff / (60 * 60 * 24))==0){
-echo 1;
-}else{
-	echo floor($datediff / (60 * 60 * 24));
-}
-
-
-
-								 ?> Hari</span>
+												if(floor($datediff / (60 * 60 * 24))==0){
+												echo 1;
+												}else{
+													echo floor($datediff / (60 * 60 * 24));
+												} ?> Hari</span>
 												</br>
 												<div class="product-ratings" >
 													<span class="pd-dest-child">fasilitas</span>
@@ -248,7 +243,7 @@ echo 1;
 											</div>
 										  </div>
 										</div>
-										<?php $no++; } ?>
+									<?php $no++; } ?>
 								  </div>
 								  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
 								  <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
@@ -407,41 +402,55 @@ echo 1;
 			</div>
 		</section>
 
-        <section class="section section-no-background">
-          <div class="container mt-xlg">
-            <div class="row">
-            	<?php 
-            	$no=0;
-            	foreach ($article as $key) {	
-            	 $no++;
-            	 if($no==1 or $no==3){
-            	 	echo"<div class='row'>";
-            	 }
-            	 ?>
-              <div class="col-md-6 mb-xlg ">
-      					<article  style="border-bottom: 1px solid #eee;padding-left: 20px; padding-right: 20px;">
-      						<div class="col-md-9">
-      							<a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>"><h2 style="color: #3C3C3C"><b><?php echo $key->title ?></b></h2>
-      							<?php echo substr($key->content, 0,250) ?>....</p>
-      						</div>
-        						<div class="col-md-3 pl-none pr-none">
-      								<img src="<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/thumb_<?php echo $key->images ?>" alt="" class="img-responsive" style="width:100%">
-        						</div>
-        						<div class="clearfix"></div>
-      					</article>
-      				</div>
-      				<?php
-      				if($no==2 or $no==4){
-            	 	echo"</div>";
-            	 }
-      				?>
-      				<?php } ?>
-              <div class="col-md-12 mt-xlg center">
-                <a href="<?php echo site_url() ?>/Article"><button type="button" class="btn btn-primary">See More</button></a>
-              </div>
-    				</div>
-          </div>
-        </section>
+        <div class="container">
+			<div class="row">
+				<div class="row">
+			
+					<div class="col-md-12 center">
+						<h1 class="title-news"> Article </h1>
+						<div class="bg-line-red"> </div>
+					</div>
+				</div>
+				<div class="featured row">
+					<ul id="portfolioGrid" class="p-none">
+					<?php 
+					$no=0;
+					foreach ($article as $key) {	
+					 $no++;
+					
+					 ?>
+					 
+
+						<li class="col-sm-6 col-md-4 isotope-item p-none">
+							<div class="portfolio-grid-item">
+								<a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>" class="text-decoration-none popup-with-move-anim">
+									<span class="thumb-info">
+										<span class="thumb-info-wrapper size-4 m-none">
+											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/thumb_<?php echo $key->images ?>');"></span>
+										
+										</span>
+									</span>
+								</a>
+								<div class="pd-article">
+									<div class="testimonial-author">
+										<a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>" style="text-decoration: none;"><span class="item-title"><?php echo $key->title; ?></span>	</a>
+										
+										<p><?php echo substr($key->content, 0,200) ?>...</p>
+										
+									</div>
+								</div>
+							</div>
+							
+						</li>
+					<?php } ?>
+					</ul>
+					<div class="col-md-12 mt-xlg center">
+						<a href="<?php echo site_url() ?>/Article"><button type="button" class="btn btn-primary">See More</button></a>
+					</div>
+				</div>
+				
+			</div>
+		</div>
 
         <div class="container mt-xlg">
           <div class="row">

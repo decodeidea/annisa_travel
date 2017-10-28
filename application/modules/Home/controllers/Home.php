@@ -38,7 +38,7 @@ class Home extends DC_controller {
 			$key->date=$date;
 		}
 		$data['video']=select_where_limit_order($this->tbl_video,'lang',$this->lang->lang(),'3','id','DESC')->result();
-		$data['article']=select_where_limit_order($this->tbl_news,'lang',$this->lang->lang(),'4','id','DESC')->result();
+		$data['article']=select_where_limit_order($this->tbl_news,'lang',$this->lang->lang(),'3','id','DESC')->result();
 		$data['feat_article']=select_where_limit_order($this->tbl_news,'lang',$this->lang->lang(),'1','id','ASC')->row();
 		$data['popular_destination']=$popular_destination;
 		$data['destination']=select_where_limit_order($this->tbl_destination,'lang',$this->lang->lang(),5,'id','ASC')->result();

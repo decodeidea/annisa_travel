@@ -77,6 +77,50 @@ h1, h2, h3, h4, h5, h6, a, p, span {
     opacity: 1;
   }
 }
+/* neo */
+.pd-article{
+    padding: 0px 0px 7px 0px;
+    border: 1px solid #c8e5e7;
+    margin-top: 8px;
+}
+.pd-article .testimonial-author {
+    margin: 8px 0 0 0;
+}
+.pd-article .testimonial-author p {
+    color: #999;
+    margin: 0 0 0 14px;
+    text-align: left;
+}
+.pd-article .testimonial-author span {
+   
+    margin: 0 0 0 14px;
+    text-align: left;
+}
+
+.s2{
+  padding: 12px;
+}
+
+.text-in-banner{
+  font-size:20px;
+  width:40%
+}
+@media (max-width: 400px){
+  .s2{
+    padding-top: 0 !important;
+  }
+  .select2{
+    width: 100% !Important;
+  }
+  .text-in-banner {
+    font-size: 16px;
+    width: 62%;
+  }
+}
+
+
+
+
 /* evolution */
 .badge {
   position: absolute;
@@ -241,6 +285,47 @@ h1, h2, h3, h4, h5, h6, a, p, span {
   position:relative;
   top: 25px;
 }
+@media (max-width: 400px){
+  .red-cat {
+    
+    width: 95% !Important; 
+    top: 0px !Important;
+  }
+  .thumb-info-plus-catra{
+     top: 10%;
+  }
+  .thumb-info-plus-catra-title {
+    font-size: 19px;
+    top: 18%;
+    left: 37px;
+    width: 60%;
+    text-align: left;
+  }
+
+  .thumb-info-plus-catra-p {
+    top: 50%;
+    text-align: left;
+    width: 50%;
+  }
+
+  .thumb-info-plus-catra-2{
+     top: 10%;
+  }
+  .thumb-info-plus-catra-title-2 {
+    font-size: 19px;
+    top: 18%;
+    left: 37px;
+    width: 70%;
+    text-align: left;
+  }
+
+  .thumb-info-plus-catra-p-2 {
+    top: 50%;
+    text-align: left;
+    width: 50%;
+  }
+
+}
 .red-cat .sf{
   margin: 0;
     padding: 0;
@@ -276,6 +361,14 @@ h1, h2, h3, h4, h5, h6, a, p, span {
   font-size: 28px;
     line-height: 32px;
     width: 100%;
+}
+@media (max-width: 400px){
+  .title-cat {
+    font-size: 20px;
+  
+    padding-top: 10px;
+    margin-bottom: 5px;
+  }
 }
 .thumb-info-plus-out-pd {
     color: #fff;
@@ -1046,6 +1139,20 @@ html .sidebar > .div-room > .rto > h5{
   background-color:#fff;
   position: relative;
 }
+@media (max-width: 400px) {
+  .div-room-white{
+      padding-bottom: 15px;
+  }
+  .div-room{
+     padding-bottom: 15px;
+  }
+  .btn-book{
+    width: 100% !important;
+  }
+  .btn-whis{
+    width: 100% !important;
+  }
+}
 .div-btn{
   margin: 42px 0;
 }
@@ -1134,17 +1241,24 @@ html .annis-title{
 .top-desti{
     height: 346px!important;
     margin-left: 52px;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 @media only screen and (min-width:960px){
   .ml{
     margin-left:0 !important;
   }
 }
+
 .bg-breadcumb{
   padding-left: 0;
-  padding-top: 44px;
+  padding-top: 1px;
 }
+@media only screen and (max-width:450px){
+  .bg-breadcumb{
+    padding-left: 14px; 
+  }
+}
+
 .bg-title{
   position: relative;
     padding:0;
@@ -1245,7 +1359,7 @@ html .annis-title{
     font-weight: bold;
 }
 .button-see{
-  margin-top: 70px;
+  margin-top: 40px;
 }
 .button-see2{
   margin-top: 30px;
@@ -1302,6 +1416,11 @@ html .annis-title{
 .ulasan{
   padding-left: 14px;
     padding-right: 29px;
+}
+@media (max-width: 400px){
+  .ulasan {
+    padding-left: 26px;
+  }
 }
 .ulasan>h4{
   color:#297c80;
@@ -1387,12 +1506,18 @@ span.glyphicon.glyphicon-star-empty{
 .pd-dest{
   padding: 10px;
     border: 1px solid #c8e5e7;
-    margin-top: 8px;
+    margin-top: 0;
 }
 .pd-dest-tit{
   color: #ae0613;
     font-weight: bold;
     font-size: 17px;
+}
+@media (max-width: 400px){
+    .pd-dest-tit{
+      
+        font-size: 12px;
+    }
 }
 .pd-dest-date{
   font-size: 12px;
