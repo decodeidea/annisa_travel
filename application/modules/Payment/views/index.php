@@ -80,7 +80,7 @@
 				<div class="col-md-12">
 					<div class="payment">
 						<h4><strong>PEMBAYRAN</strong></h4>
-						<div class="tp2">
+						<!-- <div class="tp2">
 							<div class="panel-heading">
 								<div class="panel-title PMP">Pilih Metode Pembayaran</div>
 							</div>
@@ -138,6 +138,379 @@
 												</div>
 										</h4>
 									</div>
+									</div>
+								</div>
+							</div>
+						</div> -->
+						<div class="tp2">
+							<div class="panel-heading">
+								<div class="panel-title PMP">Pilih Metode Pembayaran</div>
+							</div>
+							<div class="panel-group" id="accordion">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										
+										<h4 class="panel-title cpay">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+												<div class="cr">
+													<div class="circle"></div>
+												</div>
+												Kartu Kredit / Debit
+											</a>
+										</h4>
+									</div>
+									<div id="collapseOne" class="accordion-body collapse in">
+										<div class="panel-body">
+											<form action="http://preview.oklerthemes.com/" id="frmBillingAddress" method="post">
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-5">
+															<label>Pilih Kartu</label>
+															<select class="form-control">
+																<option value="15">Semua Kartu Kredit</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-12">
+															<ul class="LP list-pay-atts">
+																<li>Selesaikan Pembayaran dalam waktu 1 jam untuk menghindari pembatalan transaksi secara otomatis</li>
+																<li>Pilih metode pembayaran ini untuk menikmati promo khusus dari Bank pilihan</li>
+															</ul>
+														</div>
+														
+													</div>
+												</div>
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-12">
+															<ul class="LP list-pay">
+																<li class="m-none"><img src="<?php echo base_url() ?>assets/theme/img/pay-visa.jpg" /></li>
+																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-mastercard.jpg" /></li>
+																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-paypal.jpg" /></li>
+																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-bca.jpg" /></li>
+															</ul>
+														</div>
+														
+													</div>
+												</div>
+											
+											</form>
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										
+										<h4 class="panel-title cpay">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+												<div class="cr">
+													<div class="circle"></div>
+												</div>
+												Cicilan Tanpa Kartu Kredit
+											</a>
+										</h4>
+									</div>
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										
+										<h4 class="panel-title cpay">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+												<div class="cr">
+													<div class="circle"></div>
+												</div>
+												Internet Banking
+											</a>
+										</h4>
+									</div>
+									<div id="collapseTwo" class="accordion-body collapse">
+										<div class="panel-body">
+											<form action="http://preview.oklerthemes.com/" id="frmBillingAddress" method="post">
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-5">
+															<label>Pilih Kartu</label>
+															<select class="form-control">
+																<option value="">-- Pilih Opsi Pembayaran --</option>
+															</select>
+														</div>
+														<div class="col-md-5">
+															<label>Tipe Pembayaran</label>
+															<select class="form-control">
+																<option value="">Bayar Penuh</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-12">
+															<ul class="LP list-pay-atts">
+																<li>Selesaikan Pembayaran dalam waktu 1 jam untuk menghindari pembatalan transaksi secara otomatis</li>
+																<li>Pilih metode pembayaran ini untuk menikmati promo khusus dari Bank pilihan</li>
+															</ul>
+														</div>
+														
+													</div>
+												</div>
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-12">
+															<ul class="LP list-pay">
+																<li class="m-none"><img src="<?php echo base_url() ?>assets/theme/img/pay-visa.jpg" /></li>
+																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-mastercard.jpg" /></li>
+																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-paypal.jpg" /></li>
+																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-bca.jpg" /></li>
+															</ul>
+														</div>
+														
+													</div>
+												</div>
+											
+											</form>
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										
+										<h4 class="panel-title cpay">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+												<div class="cr">
+													<div class="circle"></div>
+												</div>
+												Transfer	
+											</a>
+										</h4>
+									</div>
+									<div id="collapseTwo" class="accordion-body collapse">
+										<div class="panel-body">
+											<form action="http://preview.oklerthemes.com/" id="frmBillingAddress" method="post">
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-5">
+															<label>Pilih Kartu</label>
+															<select class="form-control">
+																<option value="">-- Pilih Opsi Pembayaran --</option>
+															</select>
+														</div>
+														<div class="col-md-5">
+															<label>Tipe Pembayaran</label>
+															<select class="form-control">
+																<option value="">Bayar Penuh</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-12">
+															<ul class="LP list-pay-atts">
+																<li>Selesaikan Pembayaran dalam waktu 1 jam untuk menghindari pembatalan transaksi secara otomatis</li>
+																<li>Pilih metode pembayaran ini untuk menikmati promo khusus dari Bank pilihan</li>
+															</ul>
+														</div>
+														
+													</div>
+												</div>
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-12">
+															<ul class="LP list-pay">
+																<li class="m-none"><img src="<?php echo base_url() ?>assets/theme/img/pay-visa.jpg" /></li>
+																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-mastercard.jpg" /></li>
+																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-paypal.jpg" /></li>
+																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-bca.jpg" /></li>
+															</ul>
+														</div>
+														
+													</div>
+												</div>
+											
+											</form>
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										
+										<h4 class="panel-title cpay">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+												<div class="cr">
+													<div class="circle"></div>
+												</div>
+												Uang Elektronik
+											</a>
+										</h4>
+									</div>
+									<div id="collapseTwo" class="accordion-body collapse">
+										<div class="panel-body">
+											<form action="http://preview.oklerthemes.com/" id="frmBillingAddress" method="post">
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-5">
+															<label>Pilih Kartu</label>
+															<select class="form-control">
+																<option value="">-- Pilih Opsi Pembayaran --</option>
+															</select>
+														</div>
+														<div class="col-md-5">
+															<label>Tipe Pembayaran</label>
+															<select class="form-control">
+																<option value="">Bayar Penuh</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-12">
+															<ul class="LP list-pay-atts">
+																<li>Selesaikan Pembayaran dalam waktu 1 jam untuk menghindari pembatalan transaksi secara otomatis</li>
+																<li>Pilih metode pembayaran ini untuk menikmati promo khusus dari Bank pilihan</li>
+															</ul>
+														</div>
+														
+													</div>
+												</div>
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-12">
+															<ul class="LP list-pay">
+																<li class="m-none"><img src="<?php echo base_url() ?>assets/theme/img/pay-visa.jpg" /></li>
+																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-mastercard.jpg" /></li>
+																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-paypal.jpg" /></li>
+																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-bca.jpg" /></li>
+															</ul>
+														</div>
+														
+													</div>
+												</div>
+											
+											</form>
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										
+										<h4 class="panel-title cpay">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+												<div class="cr">
+													<div class="circle"></div>
+												</div>
+												Indomaret
+											</a>
+										</h4>
+									</div>
+									<div id="collapseTwo" class="accordion-body collapse">
+										<div class="panel-body">
+											<form action="http://preview.oklerthemes.com/" id="frmBillingAddress" method="post">
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-5">
+															<label>Pilih Kartu</label>
+															<select class="form-control">
+																<option value="">-- Pilih Opsi Pembayaran --</option>
+															</select>
+														</div>
+														<div class="col-md-5">
+															<label>Tipe Pembayaran</label>
+															<select class="form-control">
+																<option value="">Bayar Penuh</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-12">
+															<ul class="LP list-pay-atts">
+																<li>Selesaikan Pembayaran dalam waktu 1 jam untuk menghindari pembatalan transaksi secara otomatis</li>
+																<li>Pilih metode pembayaran ini untuk menikmati promo khusus dari Bank pilihan</li>
+															</ul>
+														</div>
+														
+													</div>
+												</div>
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-12">
+															<ul class="LP list-pay">
+																<li class="m-none"><img src="<?php echo base_url() ?>assets/theme/img/pay-visa.jpg" /></li>
+																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-mastercard.jpg" /></li>
+																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-paypal.jpg" /></li>
+																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-bca.jpg" /></li>
+															</ul>
+														</div>
+														
+													</div>
+												</div>
+											
+											</form>
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										
+										<h4 class="panel-title cpay">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+												<div class="cr">
+													<div class="circle"></div>
+												</div>
+												Pos Indonesia
+											</a>
+										</h4>
+									</div>
+									<div id="collapseTwo" class="accordion-body collapse">
+										<div class="panel-body">
+											<form action="http://preview.oklerthemes.com/" id="frmBillingAddress" method="post">
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-5">
+															<label>Pilih Kartu</label>
+															<select class="form-control">
+																<option value="">-- Pilih Opsi Pembayaran --</option>
+															</select>
+														</div>
+														<div class="col-md-5">
+															<label>Tipe Pembayaran</label>
+															<select class="form-control">
+																<option value="">Bayar Penuh</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-12">
+															<ul class="LP list-pay-atts">
+																<li>Selesaikan Pembayaran dalam waktu 1 jam untuk menghindari pembatalan transaksi secara otomatis</li>
+																<li>Pilih metode pembayaran ini untuk menikmati promo khusus dari Bank pilihan</li>
+															</ul>
+														</div>
+														
+													</div>
+												</div>
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-12">
+															<ul class="LP list-pay">
+																<li class="m-none"><img src="<?php echo base_url() ?>assets/theme/img/pay-visa.jpg" /></li>
+																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-mastercard.jpg" /></li>
+																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-paypal.jpg" /></li>
+																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-bca.jpg" /></li>
+															</ul>
+														</div>
+														
+													</div>
+												</div>
+											
+											</form>
+										</div>
 									</div>
 								</div>
 							</div>

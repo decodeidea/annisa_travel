@@ -15,10 +15,15 @@
                       <div class="form-group">
                         <label class="form-label">Title</label>
                         <div class="controls">
-                          <input type="text" name="title" class="form-control" value="<?php if(isset($data)){ echo $data->title; } ?>">
+                          <input type="text" required name="title" class="form-control" value="<?php if(isset($data)){ echo $data->title; } ?>">
                         </div>
                       </div>
-
+                       <div class="form-group">
+                        <label class="form-label">Category</label>
+                        <div class="controls">
+                          <input class="form-control" type="text" name="category" required <?php if(isset($data)){ echo $data->category; } ?> >
+                        </div>
+                      </div>
                       <div class="form-group">
                         <label class="form-label">Images (1800x500)</label>
                         
@@ -34,17 +39,12 @@
                       <div class="form-group">
                         <label class="form-label">Description</label>
                         <div class="controls">
-                           <textarea id="summernote" name="description" placeholder="Enter text ..." class="form-control" rows="10"><?php if(isset($data)){ echo $data->description; } ?></textarea>
+                           <textarea required id="summernote" name="description" placeholder="Enter text ..." class="form-control" rows="10"><?php if(isset($data)){ echo $data->description; } ?></textarea>
                         </div>
                       </div>
 
 
-                      <div class="form-group">
-                        <label class="form-label">Link</label>
-                        <div class="controls">
-                          <input type="text" name="link" class="form-control" value="<?php if(isset($data)){ echo $data->link; } ?>">
-                        </div>
-                      </div>
+                     
 
                         <div class="form-group">
                         <div class="controls">
