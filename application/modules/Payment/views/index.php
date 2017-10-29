@@ -161,12 +161,11 @@
 									</div>
 									<div id="collapseOne" class="accordion-body collapse in">
 										<div class="panel-body">
-											<form action="http://preview.oklerthemes.com/" id="frmBillingAddress" method="post">
 												<div class="row">
 													<div class="form-group">
 														<div class="col-md-5">
 															<label>Pilih Kartu</label>
-															<select class="form-control">
+															<select name="pembayaran" class="form-control">
 																<option value="15">Semua Kartu Kredit</option>
 															</select>
 														</div>
@@ -196,8 +195,6 @@
 														
 													</div>
 												</div>
-											
-											</form>
 										</div>
 									</div>
 								</div>
@@ -227,7 +224,7 @@
 									</div>
 									<div id="collapseTwo" class="accordion-body collapse">
 										<div class="panel-body">
-											<form action="http://preview.oklerthemes.com/" id="frmBillingAddress" method="post">
+										
 												<div class="row">
 													<div class="form-group">
 														<div class="col-md-5">
@@ -268,8 +265,6 @@
 														
 													</div>
 												</div>
-											
-											</form>
 										</div>
 									</div>
 								</div>
@@ -287,7 +282,6 @@
 									</div>
 									<div id="collapseTwo" class="accordion-body collapse">
 										<div class="panel-body">
-											<form action="http://preview.oklerthemes.com/" id="frmBillingAddress" method="post">
 												<div class="row">
 													<div class="form-group">
 														<div class="col-md-5">
@@ -328,8 +322,6 @@
 														
 													</div>
 												</div>
-											
-											</form>
 										</div>
 									</div>
 								</div>
@@ -347,7 +339,7 @@
 									</div>
 									<div id="collapseTwo" class="accordion-body collapse">
 										<div class="panel-body">
-											<form action="http://preview.oklerthemes.com/" id="frmBillingAddress" method="post">
+										
 												<div class="row">
 													<div class="form-group">
 														<div class="col-md-5">
@@ -389,7 +381,6 @@
 													</div>
 												</div>
 											
-											</form>
 										</div>
 									</div>
 								</div>
@@ -407,7 +398,7 @@
 									</div>
 									<div id="collapseTwo" class="accordion-body collapse">
 										<div class="panel-body">
-											<form action="http://preview.oklerthemes.com/" id="frmBillingAddress" method="post">
+											
 												<div class="row">
 													<div class="form-group">
 														<div class="col-md-5">
@@ -448,8 +439,6 @@
 														
 													</div>
 												</div>
-											
-											</form>
 										</div>
 									</div>
 								</div>
@@ -467,7 +456,7 @@
 									</div>
 									<div id="collapseTwo" class="accordion-body collapse">
 										<div class="panel-body">
-											<form action="http://preview.oklerthemes.com/" id="frmBillingAddress" method="post">
+											
 												<div class="row">
 													<div class="form-group">
 														<div class="col-md-5">
@@ -508,8 +497,6 @@
 														
 													</div>
 												</div>
-											
-											</form>
 										</div>
 									</div>
 								</div>
