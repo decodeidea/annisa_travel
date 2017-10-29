@@ -31,7 +31,7 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="form-label">Images (1800x500)</label>
+                        <label class="form-label">Images (1800x800)</label>
                         
 
                         <div class="box">

@@ -20,7 +20,7 @@
                       </div>
 
                       <div class="form-group">
-                        <label class="form-label">Images</label>
+                        <label class="form-label">Images (1600x900)</label>
                         
 
                         <div class="box">

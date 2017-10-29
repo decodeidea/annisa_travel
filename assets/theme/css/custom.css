@@ -393,7 +393,7 @@ h1, h2, h3, h4, h5, h6, a, p, span {
 .bgc-title{
   position: absolute;
     left: 0;
-    top: 50%;
+    top: 30%;
     width: 100%;
     text-align: center;
     color: #FFF;
@@ -2241,10 +2241,13 @@ text-align: center;
 }
 .sidebar-article{
   margin-bottom: 20px;
+  text-align: center;
 }
 .sidebar-article span{
   font-weight: bold;
   color: #000;
+  font-size: 17px;
+  margin-top: 5px;
 }
 .login-form{
   padding-top: 30%;

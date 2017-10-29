@@ -16,12 +16,12 @@
                       <div class="form-group">
                         <label class="form-label">Title</label>
                         <div class="controls">
-                          <input type="text" name="title" class="form-control" value="<?php if(isset($data)){ echo $data->title; } ?>">
+                          <input type="text" name="title" required= class="form-control" value="<?php if(isset($data)){ echo $data->title; } ?>">
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label class="form-label">Images</label>
+                        <label class="form-label">Images (1024x926)</label>
                         
 
                         <div class="box">

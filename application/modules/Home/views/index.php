@@ -246,13 +246,15 @@ echo IntervalDays($key->date->day,$key->date->off_day)
 				</div>
 				<div class="featured row">
 					<ul id="portfolioGrid" class="p-none">
+						<?php foreach ($experience as $key) {
+						 ?>
 						<li class="col-sm-6 col-md-3 isotope-item p-none">
 							<div class="portfolio-grid-item">
-								<a href="<?php echo site_url() ?>/Experience/detail" class="text-decoration-none popup-with-move-anim">
+								<a href="<?php echo site_url() ?>/Experience/detail/<?php echo $key->id ?>/<?php echo url_title($key->title) ?>" class="text-decoration-none popup-with-move-anim">
 									<span class="thumb-info">
 										<span class="thumb-info-wrapper size-4 m-none">
-											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/expe/expe_1.jpg');"></span>
-											<span class="thumb-info-plus-out-expe">NIKMATNYA <br/>UMROH BERSAMA</br>ANNISA TRAVEL</span>
+											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/uploads/experience/<?php echo $key->id ?>/<?php echo $key->images ?>');"></span>
+											<span class="thumb-info-plus-out-expe"><?php echo $key->title ?></span>
 											
 										</span>
 									</span>
@@ -260,38 +262,13 @@ echo IntervalDays($key->date->day,$key->date->off_day)
 								<div class="pd-expe">
 									<div class="testimonial-author">
 										<div class="testimonial-author-thumbnail">
-											<img src="<?php echo base_url() ?>assets/theme/img/annisa/umara.png" class="img-responsive img-circle" alt="">
+											<?php if($key->user->login_type==1){ ?>
+										<img src="<?php echo base_url() ?>assets/uploads/profile/<?php echo $key->id_member ?>/<?php echo $key->user->profile_pict?>" class="img-responsive img-circle" width="100"/>
+										<?php }else{ ?>
+										<img class="img-responsive img-circle" src="<?php echo $key->user->profile_pict ?>" width="100"/>
+										<?php } ?>
 										</div>
-										<p><strong>John Smith - SEMARANG</strong></p>
-										<div class="product-ratings" >
-												<span class="pd-dest-child">Review</span>
-												<div class="ratings-box tl-dest">
-													
-													<div class="rating" style="width:80%"></div>
-												</div>
-											</div>
-									</div>
-								</div>
-							</div>
-							
-						</li>
-						<li class="col-sm-6 col-md-3 isotope-item p-none">
-							<div class="portfolio-grid-item">
-								<a href="<?php echo site_url() ?>/Experience/detail" class="text-decoration-none popup-with-move-anim">
-									<span class="thumb-info">
-										<span class="thumb-info-wrapper size-4 m-none">
-											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/expe/expe_2.jpg');"></span>
-											<span class="thumb-info-plus-out-expe">MINISTRY OF <br/>TRADE GOES</br>TO AFRICA</span>
-											
-										</span>
-									</span>
-								</a>
-								<div class="pd-expe">
-									<div class="testimonial-author">
-										<div class="testimonial-author-thumbnail">
-											<img src="<?php echo base_url() ?>/assets/theme/img/annisa/umara.png" class="img-responsive img-circle" alt="">
-										</div>
-										<p><strong>John Smith - SEMARANG</strong></p>
+										<p><strong><?php echo $key->name ?></strong></p>
 										<div class="product-ratings" >
 												<span class="pd-dest-child">Review</span>
 												<div class="ratings-box tl-dest">
@@ -303,62 +280,7 @@ echo IntervalDays($key->date->day,$key->date->off_day)
 								</div>
 							</div>
 						</li>
-						<li class="col-sm-6 col-md-3 isotope-item p-none">
-							<div class="portfolio-grid-item">
-								<a href="<?php echo site_url() ?>/Experience/detail" class="text-decoration-none popup-with-move-anim">
-									<span class="thumb-info">
-										<span class="thumb-info-wrapper size-4 m-none">
-											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/expe/expe_3.jpg');"></span>
-											<span class="thumb-info-plus-out-expe">MINISTRY OF <br/>TRADE GOES</br>TO AFRICA</span>
-											
-										</span>
-									</span>
-								</a>
-								<div class="pd-expe">
-									<div class="testimonial-author">
-										<div class="testimonial-author-thumbnail">
-											<img src="<?php echo base_url() ?>assets/theme/img/annisa/umara.png" class="img-responsive img-circle" alt="">
-										</div>
-										<p><strong>John Smith - SEMARANG</strong></p>
-										<div class="product-ratings" >
-												<span class="pd-dest-child">Review</span>
-												<div class="ratings-box tl-dest">
-													
-													<div class="rating" style="width:80%"></div>
-												</div>
-											</div>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="col-sm-6 col-md-3 isotope-item p-none">
-							<div class="portfolio-grid-item">
-								<a href="<?php echo site_url() ?>/Experience/detail" class="text-decoration-none popup-with-move-anim">
-									<span class="thumb-info">
-										<span class="thumb-info-wrapper size-4 m-none">
-											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/theme/img/expe/expe_4.jpg');"></span>
-											<span class="thumb-info-plus-out-expe">MINISTRY OF <br/>TRADE GOES</br>TO AFRICA</span>
-											
-										</span>
-									</span>
-								</a>
-								<div class="pd-expe">
-									<div class="testimonial-author">
-										<div class="testimonial-author-thumbnail">
-											<img src="<?php echo base_url() ?>/assets/theme/img/annisa/umara.png" class="img-responsive img-circle" alt="">
-										</div>
-										<p><strong>John Smith - SEMARANG</strong></p>
-										<div class="product-ratings" >
-												<span class="pd-dest-child">Review</span>
-												<div class="ratings-box tl-dest">
-													
-													<div class="rating" style="width:80%"></div>
-												</div>
-											</div>
-									</div>
-								</div>
-							</div>
-						</li>
+						<?php } ?>
 					</ul>
 					<div class="button-see2 col-md-12 center">
 						<a class="btn btn-primary mt-xl mb-sm" href="#">See More <i class="fa fa-angle-right pl-xs"></i></a>
@@ -377,7 +299,7 @@ echo IntervalDays($key->date->day,$key->date->off_day)
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<h1 style="width:35%;margin-top:250px;"><strong><?php echo $feat_article->title ?></strong></h2>
+						<a href="<?php echo site_url('Article/detail/'.$feat_article->id.'/'.url_title($feat_article->title)) ?>"><h1 style="width:35%;margin-top:250px;"><strong><?php echo $feat_article->title ?></strong></h2>
 						
 					</div>
 				</div>
@@ -399,7 +321,7 @@ echo IntervalDays($key->date->day,$key->date->off_day)
       					<article  style="border-bottom: 1px solid #eee;padding-left: 20px; padding-right: 20px;">
       						<div class="col-md-9">
       							<a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>"><h2 style="color: #3C3C3C"><b><?php echo $key->title ?></b></h2>
-      							<?php echo substr($key->content, 0,250) ?>....</p>
+      							<p><?php echo substr($key->summary, 0,250) ?>....</p>
       						</div>
         						<div class="col-md-3 pl-none pr-none">
       								<img src="<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/thumb_<?php echo $key->images ?>" alt="" class="img-responsive" style="width:100%">

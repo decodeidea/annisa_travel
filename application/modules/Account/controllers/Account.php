@@ -116,7 +116,8 @@ class Account extends DC_controller {
         $update['first_name']=$first_name;
         $update['date_created']=$static->date_created;
         $update['date_modified']= date("Y-m-d H:i:s");
-      
+        $update['login_type']== $static->login_type;
+        $update['password']== $static->password;
         $query=update($this->tbl_member,$update,'id',$id);
     if($query){
       if(!empty($_FILES['profile_pict']['name'])){

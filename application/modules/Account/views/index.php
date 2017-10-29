@@ -459,7 +459,7 @@
 								<ul class="nav nav-list">
 									<div class="side-profile">
 										<?php if($data->login_type==1){ ?>
-										<img src="<?php echo base_url() ?>assets/uploads/member/<?php echo $data->id ?>/<?php echo $this->session->userdata('photo') ?>" width="235"/>
+										<img src="<?php echo base_url() ?>assets/uploads/profile/<?php echo $data->id ?>/<?php echo $this->session->userdata('photo') ?>" width="235"/>
 										<?php }else{ ?>
 										<img src="<?php echo $this->session->userdata('photo') ?>" width="235"/>
 										<?php } ?>

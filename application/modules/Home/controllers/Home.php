@@ -42,6 +42,12 @@ class Home extends DC_controller {
 		$data['feat_article']=select_where_limit_order($this->tbl_news,'lang',$this->lang->lang(),'1','id','ASC')->row();
 		$data['popular_destination']=$popular_destination;
 		$data['destination']=select_where_limit_order($this->tbl_destination,'lang',$this->lang->lang(),5,'id','ASC')->result();
+		$experience=select_all_limit_order($this->tbl_experience,'4','id','DESC')->result();
+		foreach ($experience as $key) {
+			$user=select_where($this->tbl_member,'id',$key->id_member)->row();
+			$key->user=$user;
+		}
+		$data['experience']=$experience;
 		$data['page'] = $this->load->view('Home/index',$data,true);
 		$this->load->view('layout_frontend',$data);
 	}

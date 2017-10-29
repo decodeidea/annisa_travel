@@ -19,6 +19,12 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label class="form-label">Rating</label>
+                        <div class="controls">
+                          <input type="text" name="rating" required class="form-control" value="<?php if(isset($data)){ echo $data->rating; } ?>">
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label class="form-label">Destination</label>
                         <div class="controls">
                           <select class="select2 form-control" name="id_destination" required>

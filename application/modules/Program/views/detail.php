@@ -83,9 +83,10 @@
               <aside class="sidebar annis">
 
                 <h4 class="heading-primary annis-title">HARGA</h4>
+                <form action="<?php echo site_url('Payment/tmp_payment'); ?>" method="POST">
+                  <?php if($data->price1!=0){ ?>
                 <div class="nav div-room-white">
-                  <form action="<?php echo site_url('Payment/tmp_payment'); ?>" method="POST">
-                    <input type="hidden" name="id_program" value="<?php echo $data->id ?>">
+                  <input type="hidden" name="id_program" value="<?php echo $data->id ?>">
                   <div class="col-md-7 rt">
                     <span class="room-type">QUAD ROOM</span></br>
                     <span class="room-price">Rp. <?php echo idr($data->price1) ?>/orang</span>
@@ -98,6 +99,8 @@
                     </div>
                   </div>
                 </div>
+                <?php } ?>
+                 <?php if($data->price1!=2){ ?>
                 <div class="nav div-room">
                   <div class="col-md-7 rt">
                     <span class="room-type">TRIPLE ROOM</span></br>
@@ -111,6 +114,8 @@
                     </div>
                   </div>
                 </div>
+                 <?php } ?>
+                 <?php if($data->price3!=0){ ?>
                 <div class="nav div-room-white">
                   <div class="col-md-7 rt">
                     <span class="room-type">DOUBLE ROOM</span></br>
@@ -124,6 +129,7 @@
                     </div>
                   </div>
                 </div>
+                <?php } ?>
                 <div class="col-md-12 br-bar">
                   <div class="line-bar"></div>
                 </div>
@@ -242,7 +248,7 @@
                     <div style="min-height: 50px">
                     <h4 class="font-weight-semibold mb-xs"><?php echo $key->title ?></h4>
                     </div>
-                   <p> <?php echo substr(strip_tags($key->itenary),0,200) . "..."; ?></p>
+                   <p> <?php echo substr($key->summary,0,200) . "..."; ?></p>
                     <span class="sf">Start From</span>
                     <span class="item-rp-pb">Rp</span>
                     <span class="item-price-pb"><?php echo idr($key->price1) ?></span>
