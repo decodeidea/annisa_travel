@@ -33,7 +33,7 @@
                   style="z-index: 5"
                   data-mask_in="x:0px;y:0px;"><?php echo $key->title ?></div>
 
-                <a href="<?php echo $key->link ?>"
+                <a href="<?php echo site_url('Banner/'.$key->id.'/'.$key->title) ?>"
                   class="tp-caption more-info"
                   data-hash
                   data-hash-offset="85"
