@@ -59,6 +59,12 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label class="form-label">Short Content</label>
+                        <div class="controls">
+                          <textarea name="summary" style="height: 300px;" required class="form-control"><?php if(isset($data)){ echo $data->summary; } ?></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label class="form-label">Itenary</label>
                        
                         <div class="controls">

@@ -19,6 +19,18 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label class="form-label">Destination</label>
+                        <div class="controls">
+                          <select name="id_destination" required class="select2 form-control">
+                            <option value="">Choose Destination</option>
+                            <option value="none">None</option>
+                            <?php foreach ($destination as $key) { ?>
+                            <option value="<?php echo $key->id ?>" <?php if(isset($data) and $data->id_destination==$key->id){ echo"selected"; } ?> ><?php echo $key->title ?></option>
+                            <?php } ?>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label class="form-label">Images (1800x500)</label>
                         
 
@@ -29,6 +41,12 @@
 
         <img id="output" class="ouput_image_input" <?php if($data){ ?> src="<?php echo base_url() ?>assets/uploads/news/<?php if($data->images==''){echo"default.jpg";}else{echo $data->id."/".$data->images;} }?> " />
         </div>
+                      <div class="form-group">
+                        <label class="form-label">Short Content</label>
+                        <div class="controls">
+                          <textarea name="summary" style="height: 300px;" required class="form-control"><?php if(isset($data)){ echo $data->summary; } ?></textarea>
+                        </div>
+                      </div>
 
                       <div class="form-group">
                         <label class="form-label">Content</label>

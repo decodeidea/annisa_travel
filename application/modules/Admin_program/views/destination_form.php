@@ -43,8 +43,8 @@
                         <div class="controls">
                          <select name="featured" class="select form-control">
                            <option value="">Select Featured</option>
-                           <option value="1">Yes</option>
-                           <option value="0">No</option>
+                           <option <?php if(isset($data) and $data->featured==1){ echo"selected";}  ?> value="1">Yes</option>
+                           <option <?php if(isset($data) and $data->featured==2){ echo"selected";}  ?> value="0">No</option>
                          </select>
                          </div>
                       </div>

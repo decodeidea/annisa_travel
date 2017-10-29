@@ -169,6 +169,7 @@ class Admin_content extends DC_controller {
         else{
             $data['data'] = null;
         }
+        $data['destination']=select_where($this->tbl_destination,'lang',$this->lang->lang())->result();
 		$data['page'] = $this->load->view('Admin_content/news_form',$data,true);
 		$this->load->view('layout_backend',$data);
 	}
