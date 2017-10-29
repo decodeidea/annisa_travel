@@ -19,7 +19,7 @@
 									data-y="center" data-voffset="-67"
 									data-start="200"
 									style="z-index: 5"
-									data-transform_in="opacity:0;s:600;">Article</div>
+									data-transform_in="opacity:0;s:600;"><?php echo $key->category ?></div>
 
                 <div class="tp-caption main-label"
                   data-x="left" data-hoffset="-30"
@@ -31,9 +31,9 @@
                   data-width="750"
                   data-height="auto"
                   style="z-index: 5"
-                  data-mask_in="x:0px;y:0px;"><?php echo $key->title ?></div>
+                  data-mask_in="x:0px;y:0px;"> <a href="<?php echo site_url('Banner/detail/'.$key->id.'/'.url_title($key->title)) ?>"><h1 class="home-slider"><?php echo $key->title ?></h1></a></div>
 
-                <a href="<?php echo site_url('Banner/'.$key->id.'/'.$key->title) ?>"
+                <a href="<?php echo site_url('Banner/detail/'.$key->id.'/'.url_title($key->title)) ?>"
                   class="tp-caption more-info"
                   data-hash
                   data-hash-offset="85"

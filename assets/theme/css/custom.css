@@ -2432,3 +2432,12 @@ text-align: center;
     right: 5px!important;
     width: 20px;
 }
+.home-slider{
+  font-weight: 600px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bolder;
+}
+.tp-tabs-inner-wrapper .selected{
+  border-top:2px solid #fff;
+}
