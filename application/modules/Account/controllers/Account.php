@@ -24,16 +24,16 @@ class Account extends DC_controller {
 		$data = $this->controller_attr;
 		$data['function']='index';
     $data['cek_menu']='0';//kode 0 active default
-    $data_pesanan=select_where_array($this->tbl_payment,$arrayName = array('id_member' => $this->session->userdata('id'),'inquiry'=>'0' ))->result();
+    $data_pesanan=select_where_array($this->tbl_payment,$arrayName = array('id_member' => $this->session->userdata('id'),'inquiry'=>NULL ))->result();
     foreach ($data_pesanan as $key) {
       $doku=select_where($this->tbl_doku,'transidmerchant',$key->invoice)->row();
       $key->doku=$doku;
         $pay_program=select_where($this->tbl_payment_product,'id_payment',$key->id)->result();
-        $key->product=$pay_program;
         foreach ($pay_program as $key2) {
           $program=select_where($this->tbl_program,'id',$key2->id_program)->row();
+          $key2->title=$program->title;
         }
-        $key->program=$program->title;
+        $key->product=$pay_program;
     }
     $data['data_pesanan']=$data_pesanan;
     $data['data']=select_where($this->tbl_member,'id',$this->session->userdata('id'))->row();
@@ -197,7 +197,7 @@ class Account extends DC_controller {
     	{
       $row = $query->row();
       $data = array(
-          'id' => $row->id,
+                    'id' => $row->id,
                     'email' => $row->email,
                     'password' => $row->password,
                     'firstname'=>$row->first_name,
@@ -327,6 +327,7 @@ public function do_login()
                     'password' => $row->password,
                     'firstname'=>$row->first_name,
                     'photo'=>$row->profile_pict,
+                    'phone'=>$row->phone,
                     'validated' => true
                     );
 
@@ -350,8 +351,16 @@ public function do_login()
       }
   }
 	function register(){
+    $this->load->library('facebook');
+      $this->load->library('googleplus');
 		$data = $this->controller_attr;
 		$data['function']='register';
+              $data['login_url'] = $this->facebook->getLoginUrl(array(
+                'redirect_uri' => site_url('Account/login'), 
+                 'scope'         => 'email, user_birthday, user_location, user_work_history, user_hometown, user_photos,'
+              ));
+          
+        $data['login_google'] = $this->googleplus->loginURL();
 		$data['list']='';
 		$data['page'] = $this->load->view('Account/register',$data,true);
 		$this->load->view('layout_frontend',$data);
@@ -363,7 +372,7 @@ public function do_login()
         'first_name'=>$this->input->post('first_name'),
         'login_type' => 1,
         'email'=>$this->input->post('email'),
-        'email'=>$this->input->post('phone'),
+        'phone'=>$this->input->post('phone'),
         'verified_account'=>0,
         'password'=>$this->input->post('password'),
         'date_created' => date('Y-m-d h:i:s', now()),
@@ -377,11 +386,6 @@ public function do_login()
           redirect(site_url('Account/register'));
         }
       else{
-        if($data['password']!=$this->input->post('cpass')){
-        $this->session->set_flashdata('notif','failed');
-        $this->session->set_flashdata('msg','Gagal, Password dan Konfirmasi Password harus sama!');
-        redirect('register');
-      }else{
         $insert=$this->db->insert('dc_member',$data);
         if($insert){
           $row=$this->db->query("select * from dc_member where email='".$this->input->post('email')."'")->row();
@@ -391,14 +395,16 @@ public function do_login()
                     'password' => $row->password,
                     'firstname'=>$row->first_name,
                     'photo'=>$row->profile_pict,
+                    'phone'=>$row->phone,
                     'validated' => true
                     );
                     $this->session->set_userdata($data);
           redirect(site_url('Account'));
         }else{
-          echo"failed";
+          $this->session->set_flashdata('msg','Failed');
+          redirect(site_url('Account/register'));
         }
-        }
+        
   }
 }
 	 function logout(){

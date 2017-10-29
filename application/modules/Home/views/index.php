@@ -85,15 +85,7 @@
 							<div class="image-gallery-date">
 								<span class="item-date"><?php echo tanggal_indo(substr($key->date->day, 0,10)) ?> - <?php
 
-
-$now = $key->date->day; // or your date as well
-$your_date = $key->date->off_day;
-$datediff = $now - $your_date;
-if(floor($datediff / (60 * 60 * 24))==0){
-echo 1;
-}else{
-	echo floor($datediff / (60 * 60 * 24));
-}
+echo IntervalDays($key->date->day,$key->date->off_day)
 
 
 
@@ -221,22 +213,7 @@ echo 1;
 											<div class="pd-dest">
 												<a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo $key->title ?>" style="text-decoration: none;"><span class="pd-dest-tit"><?php echo $key->title ?></span></a>
 												</br>
-												<span class="pd-dest-date"><?php echo tanggal_indo(substr($key->date->day, 0,10)) ?> - <?php
-
-
-$now = $key->date->day; // or your date as well
-$your_date = $key->date->off_day;
-$datediff = $now - $your_date;
-
-if(floor($datediff / (60 * 60 * 24))==0){
-echo 1;
-}else{
-	echo floor($datediff / (60 * 60 * 24));
-}
-
-
-
-								 ?> Hari</span>
+												<span class="pd-dest-date"><?php echo tanggal_indo(substr($key->date->day, 0,10)) ?> - <?php  echo IntervalDays($key->date->day,$key->date->off_day)?> Hari</span>
 												</br>
 												<div class="product-ratings" >
 													<span class="pd-dest-child">fasilitas</span>
@@ -401,7 +378,7 @@ echo 1;
 				<div class="row">
 					<div class="col-md-12">
 						<h1 style="width:35%;margin-top:250px;"><strong><?php echo $feat_article->title ?></strong></h2>
-						<h4><i>Ujang Suryana</i><h4>
+						
 					</div>
 				</div>
 			</div>

@@ -5,7 +5,7 @@
           <br><br>
           <span>Masuk dengan</span>
           <br><br>
-          <A href="<?php echo $login_url ?>"><img src="<?php echo base_url() ?>assets/theme/img/facebook-login.png" height="40px"></A><br><br>
+          <a href="<?php echo $login_url ?>"><img src="<?php echo base_url() ?>assets/theme/img/facebook-login.png" height="40px"></A><br><br>
           <a href="<?php echo $login_google ?>"><img src="<?php echo base_url() ?>assets/theme/img/google-login.png" height="40px"></a>
         </div>
       </div>

@@ -47,7 +47,25 @@
                                   } ?></td>
                     <td><?php echo $qtt ?> Orang</td>
                     <td><?php echo $data->voucher_amount ?></td>
-                    <td><?php echo $data->type_transaction ?></td>
+                    <td><?php
+                    if($data->type_transaction==15){
+                      echo"Credit Card";
+                    }elseif(35){
+                      echo"ALFA DOKU";
+                    }elseif(04){
+                      echo"Doku Wallet";
+                    }elseif(28){
+                      echo"Permata.net";
+                    }elseif(25){
+                      echo"IB MUAMALAT";
+                    }elseif(36){
+                      echo"Permata VA";
+                    }else{
+                      echo "Mandiri VA";
+                    }
+
+
+                     ?></td>
                     <td><?php echo idr($data->total_all_amount) ?></td>
                     <td><?php if($data->inquiry==0){echo"Belum Melengkapi";}else{ echo"Sudah Melengkapi";} ?></td>
                     <td><?php echo $data->doku->trxstatus ?></td>

@@ -27,11 +27,19 @@ class Payment extends DC_controller {
 		$data['page'] = $this->load->view('Payment/index',$data,true);
 		$this->load->view('layout_frontend',$data);
 	}
-	function finish(){
+	function finish($invoice=null){
 		$data = $this->controller_attr;
 		$data['function']='finish';
-		$data['data']=select_where($this->tbl_payment,'invoice',$_POST['order_number'])->row();
-		$data['product']=select_where($this->tbl_payment_product,'id_payment',$data['data']->id)->result();
+		if(isset($_POST['order_number'])){
+			$invoice=$invoice;
+		}
+		$data['data']=select_where($this->tbl_payment,'invoice',$invoice)->row();
+		$product=select_where($this->tbl_payment_product,'id_payment',$data['data']->id)->result();
+		foreach ($product as $key) {
+			$program=select_where($this->tbl_program,'id',$key->id_program)->row();
+			$key->program=$program;
+		}
+		$data['product']=$product;
 		$data['page'] = $this->load->view('Payment/finish',$data,true);
 		$this->load->view('layout_frontend',$data);
 	}
@@ -102,7 +110,8 @@ class Payment extends DC_controller {
 			'total_amount_ppn'=> $this->input->post('ppn'),
 			'type_transaction' =>$this->input->post('pembayaran'),
 			'id_voucher' => 0,
-			'total_amount_ppn'=> $this->input->post('ppn')+$this->input->post('total_amount'),
+			'voucher_amount' => 0,
+			'total_all_amount'=> $this->input->post('ppn')+$this->input->post('total_amount'),
 			'date_created' => date('Y-m-d H:i:s'),
 		);
 		$insert=$this->db->insert($this->tbl_payment,$data_payment);
@@ -123,6 +132,8 @@ class Payment extends DC_controller {
 	}
 	if($insert){
 		$this->db->query("INSERT INTO doku SET transidmerchant='".$data_payment['invoice']."',trxstatus='Requested'");
+		$id_doku=$this->db->insert_id();
+		$this->db->query("UPDATE ".$this->tbl_payment." SET id_doku='".$id_doku."' where invoice='".$data_payment['invoice']."'");
 		$amount=$this->input->post('total_amount')+$this->input->post('ppn');
 		$this->db->query("DELETE FROM ".$this->tbl_tmp_payment." where ".$this->tbl_tmp_payment.".id_member ='".$this->session->userdata('id')."' ");
 		$sess=md5(date("Y-m-d H:i:s").rand(111,999));
@@ -163,92 +174,80 @@ class Payment extends DC_controller {
 	}
 	}
 	function regnotify(){
-              error_reporting(E_ALL ^ E_NOTICE);
-       if($_POST['TRANSIDMERCHANT']) {
+		$this->db->query("INSERT INTO notif SET msg='".serialize($_POST)."',tipe='registration'");
+		if($_POST['TRANSIDMERCHANT']) {
         $order_number = $_POST['TRANSIDMERCHANT'];
         
-  }elseif($_POST['BILLNUMBER']){
-    $order_number = $_POST['BILLNUMBER'];
-  }
-        else { $order_number = 0; }
+	} 
+else {
+	$order_number = 0;
+	}
+    
     $totalamount = $_POST['AMOUNT'];
     $words    = $_POST['WORDS'];
     $statustype = $_POST['STATUSTYPE'];
     $response_code = $_POST['RESPONSECODE'];
     $approvalcode   = $_POST['APPROVALCODE'];
-    $status         = (isset($_POST['STATUS']) ? $_POST['STATUS'] :  $_POST['RESULTMSG'] );
-    
-   $paymentcode = $_POST['PAYMENTCODE'];
-   $session_id = $_POST['SESSIONID'];
-   $bank_issuer = $_POST['BANK'];
-    $cardnumber = $_POST['CARDNUMBER'];
-    $payment_date_time = date('Y-m-d H:i:s');
-    $customer=$_POST['CUSTOMERID'];
-   $verifyid = $_POST['VERIFYID'];
-   $sql = "select transidmerchant,totalamount from doku where transidmerchant='".$order_number."'and trxstatus='Requested'";
-  $checkout=$this->db->query($sql)->row_array();
-  $hasil=$checkout['transidmerchant'];
-  $amount=$checkout['totalamount'];
-    if ($status=="SUCCESS") {
-       //             $sql = "UPDATE doku SET trxstatus='Success', words='$words', statustype='$statustype',
-       //       trxstatus='$status', payment_channel='$paymentchannel', creditcard='$cardnumber',
-       // payment_date_time='$payment_date_time' where transidmerchant='$order_number'";
-       //             // echo "sql : ".$sql;
-       //             //$qz=$this->db->query("UPDATE sv_invoices SET status='Paid' WHERE no_invoice='$order_number'");
-       //              $qzz=$this->db->query("UPDATE sv_donatur SET status='Active' WHERE id='$customer'");
-       //              $qzzz=$this->db->query("UPDATE sv_invoices SET status='Paid' WHERE no_invoice='$order_number'");
-       //              $result = $this->db->query($sql) ;
-       //              if(!$result){die("Stop2");}
-          
-          // $this->load->library('email');
-          //   $config['protocol'] = 'sendmail';
-          //   $config['mailtype'] = 'html';
-          //   $config['charset'] = 'iso-8859-1';
-          //   $config['wordwrap'] = TRUE;
+    $status         = $_POST['RESULTMSG'];
+    $paymentchannel = $_POST['PAYMENTCHANNEL'];
+    $paymentcode = $_POST['PAYMENTCODE'];
+    $session_id = $_POST['SESSIONID'];
+    $bank_issuer = $_POST['BANK'];
+    $cardnumber = $_POST['MCN'];
+    $payment_date_time = $_POST['PAYMENTDATETIME'];
+    $verifyid = $_POST['VERIFYID'];
+    $verifyscore = $_POST['VERIFYSCORE'];
+    $verifystatus = $_POST['VERIFYSTATUS'];
 
-          //   $this->email->initialize($config);
-         
-        
-          //   $this->email->from('donasi@yappika-actionaid.or.id', 'Donasi YAPPIKA');
-          //   $this->email->to($data['email']); 
-          // //$this->email->cc('another@another-example.com'); 
-          // //$this->email->bcc('them@their-example.com'); 
-          //   $mail=$this->load->view('donasi/mail_sukses',NULL,TRUE);
+// Validasi Wors
+   $MALLID =''; //input mallid
+   $SHAREDKEY =''; //input sharedkey
+   
+   $WORDS_GENERATED = sha1($totalamount.$MALLID.$SHAREDKEY.$order_number.$status.$verifystatus);    
+   if ( $words == $WORDS_GENERATED ) {
 
-          //   $this->email->subject('Terima Kasih Untuk Donasi Anda');
-          //   $this->email->message($mail);
+// Basic SQL
+	$sql = "select transidmerchant,totalamount from doku where transidmerchant='".$order_number."'and trxstatus='Requested'";
+	$checkout = mysql_fetch_array(mysql_query($sql));
+	// echo "sql : ".$sql;
+	$hasil=$checkout['transidmerchant'];
+	$amount=$checkout['totalamount'];
 
-          //   $this->email->send(); 
-      
-    } else {
-      // $sql = "UPDATE doku set trxstatus='Failed' where transidmerchant='".$order_number."'";
-      // $result = $this->db->query($sql) ;
-      //                     if(!$result){die("Stop3");}
-      //         $this->load->library('email');
-      //     $config['protocol'] = 'sendmail';
-      //     $config['mailtype'] = 'html';
-      //     $config['charset'] = 'iso-8859-1';
-      //     $config['wordwrap'] = TRUE;
+// Custom Field
 
-      //     $this->email->initialize($config);
-        
-        
-      //     $this->email->from('donasi@yappika-actionaid.or.id', 'Donasi YAPPIKA');
-      //     $this->email->to($data['email']); 
-      //     //$this->email->cc('another@another-example.com'); 
-      //     //$this->email->bcc('them@their-example.com'); 
-      //     $mail=$this->load->view('donasi/mail_failed',NULL,TRUE);
+	if (!$hasil) {
 
-      //     $this->email->subject('Terima Kasih Untuk Dukungan Anda');
-      //     $this->email->message($mail); 
+	  echo 'Stop1';
 
-      //     $this->email->send();
+	} else {
+
+		if ($status=="SUCCESS") {
+                   $sql = "UPDATE doku SET trxstatus='Success', words='$words', statustype='$statustype', response_code='$response_code', approvalcode='$approvalcode',
+		         trxstatus='$status', payment_channel='$paymentchannel', paymentcode='$paymentcode', session_id='$session_id', bank_issuer='$bank_issuer', creditcard='$cardnumber',
+			 payment_date_time='$payment_date_time', verifyid='$verifyid', verifyscore='$verifyscore', verifystatus='$verifystatus' where transidmerchant='$order_number'";
+        // echo "sql : ".$sql;
+		$result = mysql_query($sql) or die ("Stop2");
+		  
+		} else {
+ 
+ 		  $sql = "UPDATE doku set trxstatus='Failed' where transidmerchant='".$order_number."'";
+
+		  $result = mysql_query($sql) or die ("Stop3");
  
  
-    }
-    echo 'Continue';
+		}
+		echo 'Continue';
+	
+	}
+	
+	mysql_close();
+} else {
+	echo "Stop | Words not match";
+	}
   
   }
-
+function notify(){
+	echo "Continue";
+}
 }
 

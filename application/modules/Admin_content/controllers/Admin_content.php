@@ -210,8 +210,7 @@ class Admin_content extends DC_controller {
                     $config_th["source_image"] = 'assets/uploads/news/'.$id.'/'.$_FILES['images']['name'];
 			$config_th['new_image'] = 'assets/uploads/news/'.$id.'/thumb_'.$_FILES['images']['name'];
 			$config_th["width"] = 250;
-			$config_th["height"] = 350;
-			$config_th['maintain_ratio'] = FALSE;
+			$config_th['maintain_ratio'] = TRUE;
 			$config_th['image_library'] = 'gd2';
 			 $this->image_lib->clear();
 			$this->image_lib->initialize($config_th);
@@ -265,8 +264,7 @@ class Admin_content extends DC_controller {
                     $config_th["source_image"] = 'assets/uploads/news/'.$id.'/'.$_FILES['images']['name'];
 			$config_th['new_image'] = 'assets/uploads/news/'.$id.'/thumb_'.$_FILES['images']['name'];
 			$config_th["width"] = 250;
-			$config_th["height"] = 350;
-			$config_th['maintain_ratio'] = FALSE;
+			$config_th['maintain_ratio'] = TRUE;
 			$config_th['image_library'] = 'gd2';
 			 $this->image_lib->clear();
 			$this->image_lib->initialize($config_th);

@@ -6,14 +6,14 @@
             <br><br>
             <span>Masuk dengan</span>
             <br><br>
-            <A href="#"><img src="<?php echo base_url() ?>assets/theme/img/facebook-login.png" height="40px"></A><br><br>
-            <a href="#"><img src="<?php echo base_url() ?>assets/theme/img/google-login.png" height="40px"></a>
+            <a href="<?php echo $login_url ?>"><img src="<?php echo base_url() ?>assets/theme/img/facebook-login.png" height="40px"></A><br><br>
+            <a href="<?php echo $login_google ?>"><img src="<?php echo base_url() ?>assets/theme/img/google-login.png" height="40px"></a>
           </div>
         </div>
         <div class="col-md-6">
           <div class="register-form">
             <h3>Daftar Annisa Travel</h3>
-            <span>Sudah punya akun? Masuk </span><a href="login.html">di sini</a>
+            <span>Sudah punya akun? Masuk </span><a href="<?php echo site_url('Account/login') ?>">di sini</a>
             <form action="<?php echo site_url() ?>/Account/do_register" class="form-login"  method="post">
             <div class="form-group">
               <div class="inner-addon left-addon">
@@ -24,14 +24,14 @@
             <div class="form-group">
               <div class="inner-addon left-addon">
                 <i class="glyphicon glyphicon-phone"></i>
-                <input type="password" name="phone" required class="form-control text-login" placeholder="Nomor Telepon" />
+                <input type="text" name="phone" required class="form-control text-login" placeholder="Nomor Telepon" />
                 <span class="help-block">Pastikan nomor ponsel Anda aktif untuk keamanan dan kemudahan transaksi.</span>
               </div>
             </div>
             <div class="form-group">
               <div class="inner-addon left-addon">
                 <i class="glyphicon glyphicon-envelope"></i>
-                <input type="password" name="email" required class="form-control text-login" placeholder="Email" />
+                <input type="email" name="email" required class="form-control text-login" placeholder="Email" />
               </div>
             </div>
             <div class="form-group">

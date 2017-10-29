@@ -15,7 +15,7 @@
       <div class="container">
         <div class="col-md-12">
           <div class="payment">
-            <h4><strong>Pesan</strong></h4>
+            <h4><strong>Pesanan</strong></h4>
             <div class="tp">
               <table class="table-payment">
                 <thead>
@@ -33,33 +33,26 @@
                   $no=0;
                   foreach ($product as $key) {
                     $no++;
-                   $total_price+=$key->price*$key->qtt;
-                  ?>
+                   ?>
 
-                  <input type="hidden" name="id_program<?php echo $no ?>" value="<?php echo $key->program->id ?>">
-                  <input type="hidden" name="type_room<?php echo $no ?>" value="<?php echo $key->type_room ?>">
-                  <input type="hidden" name="qtt<?php echo $no ?>" value="<?php echo $key->qtt ?>">
-                  <input type="hidden" name="total_amountp<?php echo $no ?>" value="<?php echo $key->price*$key->qtt?>">
                   <tr class="py-tr">
                     <td><?php echo $key->program->title ?></td>
                     <td style="text-transform: uppercase;"><?php echo $key->type_room ?></td>
-                    <td>Rp. <?php echo idr($key->price) ?>.-</td>
+                    <td>Rp. <?php if($key->type_room=='quad'){echo idr($key->program->price1); }elseif ($key->type_room=='triple') {
+                      echo idr($key->program->price2);}else{echo idr($key->program->price3);}  ?>.-</td>
                     <td><?php echo $key->qtt ?> Orang</td>
-                    <td>Rp. <?php echo idr($key->price*$key->qtt) ?></td>
-                    <td class="text-center"><a href="#" alt="delete" onclick="delete_tmp(<?php echo $key->id ?>)" ><span class="glyphicon glyphicon-remove"></span></a></td>
+                    <td>Rp. <?php echo idr($key->total_amount) ?></td>
                   </tr>
-                  <?php }
-                  $ppn=$total_price/100*10;
-                  ?>
+                  <?php }?>
                   <tr class="py-col">
                     <td colspan="3"></td>
                     <td class="ppn">Ppn 10%</td>
-                    <td><?php echo idr($ppn) ?></td>
+                    <td><?php echo idr($data->total_amount_ppn) ?></td>
                   </tr>
                   <tr class="py-col">
                     <td colspan="3"></td>
                     <td class="tot">Total Pembayaran</td>
-                    <td class="tot"><?php echo idr($ppn+$total_price); ?></td>
+                    <td class="tot"><?php echo idr($data->total_all_amount); ?></td>
                   </tr>
                 </tbody>
               </table>

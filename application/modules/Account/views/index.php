@@ -129,6 +129,7 @@
 											<div class="tab-content">
 												<div id="psi" class="tab-pane active">
 													<h4><strong>Detail Transaksi</strong></h4>
+													<br>
 													<?php foreach ($data_pesanan as $key) {
 														# code...
 													?>
@@ -136,7 +137,7 @@
 														<table class="table-payment">
 															<thead>
 																<tr>
-																	<th>PRODUCT</th>
+																	<th>PROGRAM</th>
 																	<th>ROOM</th>
 																	<th>PAX</th>
 																	<th>TOTAL PEMBAYARAN</th>
@@ -145,17 +146,27 @@
 															</thead>
 															<tbody>
 																<tr class="py-tr">
-																	<td><a href="" ><?php echo $key->program ?></a></td>
-																	<td style="text-transform: uppercase;"><?php 
-																	$qtt=0;
-																	foreach ($key->product as $key2) {
-																		$qtt+=$key2->qtt;
-																		echo $key2->type_room.", ";
-																	} ?></td>	
-																	<td><?php echo $qtt ?> Orang</td>
+																	<td>
+																		<?php $no=1;
+																	foreach ($key->product as $product) {
+																	 if($no==1){?>
+																	<a href="#" ><?php
+																		echo $product->title;
+																		$no++;
+																	
+																	?></a><?php }} ?></td>
+																	<td style="text-transform: uppercase;"><?php
+																	foreach ($key->product as $product) {
+																		echo $product->type_room.", ";
+																	}
+																	?></td>	
+																	<td><?php $qtt=0;foreach ($key->product as $product) {
+																		$qtt+=$product->qtt; 
+
+																	} echo $qtt; ?> Orang</td>
 																	<td> 
 																		Rp. <?php echo idr($key->total_all_amount) ?> 
-																		<a class="lr" href="">Lihat Rincian</a>
+																		<a class="lr" href="<?php echo site_url('Payment/finish/'.$key->invoice) ?>">Lihat Rincian</a>
 																	</td>
 																	<td style="text-transform: uppercase;"><?php echo $key->doku->trxstatus ?></td>
 																</tr>

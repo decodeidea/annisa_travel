@@ -1,3 +1,7 @@
+<?php
+header("Cache-Control: no-store, no-cache, must-revalidate");
+$this->session->unset_userdata('notif');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +53,7 @@
       <a href="<?php echo site_url() ?>/Admin"><img src="<?php echo base_url() ?>assets/uploads/settings/<?php echo $this->appearance->logo ?>" class="logo" alt=""  data-src="<?php echo base_url() ?>assets/uploads/settings/<?php echo $this->appearance->logo ?>" data-src-retina="<?php echo base_url() ?>assets/uploads/settings/<?php echo $this->appearance->logo ?>" height="40px" style="margin-top: 10px" /></a>
       <!-- END LOGO -->
       <ul class="nav pull-right notifcation-center">
-        <li class="dropdown" id="header_task_bar"> <a href="<?php echo site_url() ?>/admin" class="dropdown-toggle active" data-toggle="">
+        <li class="dropdown" id="header_task_bar"> <a href="<?php echo site_url() ?>/Admin" class="dropdown-toggle active" data-toggle="">
           <div class="iconset top-home"></div>
           </a> </li>
       </ul>
@@ -147,7 +151,7 @@
       <!-- BEGIN SIDEBAR MENU -->
       <p class="menu-title">BROWSE <span class="pull-right"><a href="javascript:;"><i class="fa fa-refresh"></i></a></span></p>
       <ul>
-        <li class="start"> <a href="<?php echo site_url() ?>Admin"> <i class="icon-custom-home"></i> <span class="title">Dashboard</span> <span class="selected"></span></a> 
+        <li class="start"> <a href="<?php echo site_url() ?>/Admin"> <i class="icon-custom-home"></i> <span class="title">Dashboard</span> <span class="selected"></span></a> 
         </li>
 <?php foreach ($menu as $submenu) { ?>
   <?php if( $submenu->sub_menu==0){?>
