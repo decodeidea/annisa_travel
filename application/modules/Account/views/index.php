@@ -22,12 +22,16 @@
 								
 								<h1 class="h2 heading-primary font-weight-normal">Profile</h1>
 								<?php 
-									if($this->session->flashdata('msg')){
+									if(isset($_GET['mn']) && $_GET['mn'] == 'profile'){
+
+									
+										if($this->session->flashdata('msg')){
 								?>
-										<div class="alert alert-danger text-center text-login" style="height: auto;">
-				                        	<?php echo $this->session->flashdata('msg') ?>
-				                        </div>
+											<div class="alert alert-danger text-center text-login" style="height: auto;">
+					                        	<?php echo $this->session->flashdata('msg') ?>
+					                        </div>
 								<?php
+										}
 									}
 								?>
 								<div class="featured-box featured-box-primary featured-box-flat featured-box-text-left mt-md">
@@ -103,6 +107,65 @@
 													</div>
 												</div>
 											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+
+							<div id="cp" class="col-md-9 col-md-push-3 my-account form-section tab-pane <?php echo (isset($_GET['mn']) && $_GET['mn'] == 'change_password')?"active":"" ?>">
+								
+								<h1 class="h2 heading-primary font-weight-normal">Change Password</h1>
+								<?php 
+									if(isset($_GET['mn']) && $_GET['mn'] == 'change_password'){
+
+									
+										if($this->session->flashdata('msg')){
+								?>
+											<div class="alert alert-danger text-center text-login" style="height: auto;">
+					                        	<?php echo $this->session->flashdata('msg') ?>
+					                        </div>
+								<?php
+										}
+									}
+								?>
+								<div class="featured-box featured-box-primary featured-box-flat featured-box-text-left mt-md">
+									<div class="box-content">
+									
+										<form action="<?php echo site_url('Account/change_password') ?>" id="frmBillingAddress" method="POST" enctype="multipart/form-data">
+											<input type="hidden" name="id" value="<?php echo $data->id ?>">
+											
+											<h4 class="heading-primary text-uppercase mb-lg">Manage your security setting</h4>
+											
+											<div class="row">
+												<div class="col-sm-4 col-md-6">
+													<div class="form-group">
+														<label class="font-weight-normal">Enter your new password <span class="required">*</span></label>
+														<input type="password" name="password1" value="" class="form-control" required>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-4 col-md-6">
+													<div class="form-group">
+														<label class="font-weight-normal">Confirm new password <span class="required">*</span></label>
+														<input type="password" name="password2" value="" class="form-control" required>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-xs-12">
+													<p class="required mt-lg mb-none">* Required Fields</p>
+
+													<div class="form-action clearfix mt-none">
+														<a href="#" class="pull-left"><i class="fa fa-angle-double-left"></i> Back</a>
+
+														<input type="submit" name="submit" class="btn btn-primary" value="Save">
+													</div>
+												</div>
+											</div>
+
+											
+
 										</form>
 									</div>
 								</div>
@@ -252,13 +315,17 @@
 							
 							<div id="myexpe" class="col-md-9 col-md-push-3 my-account form-section tab-pane <?php echo (isset($_GET['mn']) && $_GET['mn'] == 'experience')?"active":"" ?>">
 								<h1 class="h2 heading-primary font-weight-normal">Share Your Experience</h1>
-								<?php 
-									if($this->session->flashdata('msg')){
+											<?php 
+									if(isset($_GET['mn']) && $_GET['mn'] == 'experience'){
+
+									
+										if($this->session->flashdata('msg')){
 								?>
-										<div class="alert alert-danger text-center text-login" style="height: auto;">
-				                        	<?php echo $this->session->flashdata('msg') ?>
-				                        </div>
+											<div class="alert alert-danger text-center text-login" style="height: auto;">
+					                        	<?php echo $this->session->flashdata('msg') ?>
+					                        </div>
 								<?php
+										}
 									}
 								?>
 								
@@ -405,7 +472,10 @@
 									<li><a href="#mywhislist" data-toggle="tab">My Whislist</a></li>
 									<li><a href="#myexpe" data-toggle="tab">My Experience</a></li>
 									<li><a href="#listexpe" data-toggle="tab">List Experience</a></li>
+									<li><a href="#cp" data-toggle="tab">Change Password</a></li>
 									<li><a href="<?php echo site_url('Account/logout') ?>">Logout</a></li>
+
+
 									
 								</ul>
 

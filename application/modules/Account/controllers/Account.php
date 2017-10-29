@@ -66,6 +66,37 @@ class Account extends DC_controller {
     }
   }
 
+  function change_password(){
+    $data = $this->controller_attr;
+    $data['function']='change password';
+    $id=$this->input->post('id');
+    $p1 = $this->input->post('password1');
+    $p2 = $this->input->post('password2');
+    $cek = select_where($this->tbl_member,'id',$id)->row();
+    
+    if($p1 == $p2){
+        $table_field = $this->db->list_fields($this->tbl_member);
+        $static=select_where($this->tbl_member,'id',$id)->row();
+        
+            $update['password']=md5($p1);
+           
+            $update['date_modified']= date("Y-m-d H:i:s");
+          
+            $query=update($this->tbl_member,$update,'id',$id);
+        if($query){
+        
+          $this->session->set_flashdata('notif','success');
+          $this->session->set_flashdata('msg','Your password have been updated');
+        }else{
+          $this->session->set_flashdata('notif','error');
+          $this->session->set_flashdata('msg','Your data not updated');
+        }
+    }else{
+          $this->session->set_flashdata('notif','error');
+          $this->session->set_flashdata('msg','Wrong confirmation password');
+    }
+    redirect(site_url('Account?mn=change_password'));
+  }
   function change_profile(){
     $data = $this->controller_attr;
     $data['function']='profile';

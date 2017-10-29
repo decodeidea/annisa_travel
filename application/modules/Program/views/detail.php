@@ -133,7 +133,7 @@
                     <h5>Ketersedian Tanggal</h5>
                   </div>
                 </div>
-                <div class="">
+                <div class="s2">
                   <select name="date" required class="select2 form-control">
                     <?php foreach ($date as $key) {
                   # code...
