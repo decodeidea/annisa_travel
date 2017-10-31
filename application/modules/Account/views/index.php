@@ -362,7 +362,22 @@
 													</div>
 												</div>
 											</div>
-											
+											<div class="row">
+												<div class="form-group">
+													<div class="col-md-12">
+														<label>Rating</label>
+														<select class="form-control" name="rating" id="id_program">
+															<option value="">Select rating for program</option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															
+														</select>
+													</div>
+												</div>
+											</div>
 											<div class="row">
 												<div class="form-group">
 													<div class="col-md-12">

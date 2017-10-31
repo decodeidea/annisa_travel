@@ -280,6 +280,10 @@ class Account extends DC_controller {
 			$this->load->view('layout_frontend',$data);
 		}
 	}
+
+  public function loginfb(){
+    
+  }
    public function google(){
     $this->load->library('googleplus');
             if (isset($_GET['code'])) {

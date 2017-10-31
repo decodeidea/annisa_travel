@@ -210,9 +210,9 @@ echo IntervalDays($key->date->day,$key->date->off_day)
 								  	<?php $no=1; foreach ($popular_destination as $key) { ?>
 										<div class="item <?php if($no==1){echo"active";} ?> ">
 										  <div class="col-lg-4 col-xs-4 col-md-4 col-sm-4">
-											<a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo $key->title ?>"><img src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->image_id ?>/<?php echo $key->image ?>" class="img-responsive"></a>
+											<a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo url_title($key->title); ?>"><img src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->image_id ?>/<?php echo $key->image ?>" class="img-responsive"></a>
 											<div class="pd-dest">
-												<a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo $key->title ?>" style="text-decoration: none;"><span class="pd-dest-tit"><?php echo $key->title ?></span></a>
+												<a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo url_title($key->title); ?>" style="text-decoration: none;"><span class="pd-dest-tit"><?php echo $key->title ?></span></a>
 												</br>
 												<span class="pd-dest-date"><?php echo tanggal_indo(substr($key->date->day, 0,10)) ?> - <?php  echo IntervalDays($key->date->day,$key->date->off_day)?> Hari</span>
 												</br>
@@ -220,7 +220,7 @@ echo IntervalDays($key->date->day,$key->date->off_day)
 													<span class="pd-dest-child">fasilitas</span>
 													<div class="ratings-box tl-dest">
 														
-														<div class="rating" style="width:80%"></div>
+														<div class="rating<?php echo $key->rating ?>" style="width:100%"></div>
 													</div>
 												</div>
 											</div>
@@ -274,7 +274,7 @@ echo IntervalDays($key->date->day,$key->date->off_day)
 												<span class="pd-dest-child">Review</span>
 												<div class="ratings-box tl-dest">
 													
-													<div class="rating" style="width:80%"></div>
+													<div class="rating<?php echo $key->rating ?>" style="width:100%"></div>
 												</div>
 											</div>
 									</div>
@@ -283,8 +283,8 @@ echo IntervalDays($key->date->day,$key->date->off_day)
 						</li>
 						<?php } ?>
 					</ul>
-					<div class="button-see2 col-md-12 center">
-						<a class="btn btn-primary mt-xl mb-sm" href="#">See More <i class="fa fa-angle-right pl-xs"></i></a>
+					<div class="button-see2 col-md-12 center"><!-- 
+						<a class="btn btn-primary mt-xl mb-sm" href="#">See More <i class="fa fa-angle-right pl-xs"></i></a> -->
 					</div>
 				</div>
 				

@@ -80,7 +80,7 @@
 				<div class="col-md-12">
 					<div class="payment">
 						<h4><strong>PEMBAYRAN</strong></h4>
-						<!-- <div class="tp2">
+						<div class="tp2">
 							<div class="panel-heading">
 								<div class="panel-title PMP">Pilih Metode Pembayaran</div>
 							</div>
@@ -141,8 +141,8 @@
 									</div>
 								</div>
 							</div>
-						</div> -->
-						<div class="tp2">
+						</div>
+						<!-- <div class="tp2">
 							<div class="panel-heading">
 								<div class="panel-title PMP">Pilih Metode Pembayaran</div>
 							</div>
@@ -504,7 +504,7 @@
 						</div>
 						
 						
-					</div>
+					</div> -->
 				</div>
 				
 			</div>

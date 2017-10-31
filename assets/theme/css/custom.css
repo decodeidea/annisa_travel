@@ -1561,7 +1561,7 @@ span.glyphicon.glyphicon-star-empty{
   font-size: 11px;
   line-height: 11px;
 }
-.product-ratings .ratings-box .rating {
+.product-ratings .ratings-box .rating1 {
   float: left;
   height: 11px;
   position: absolute;
@@ -1569,7 +1569,81 @@ span.glyphicon.glyphicon-star-empty{
   top: 0;
   overflow: hidden;
 }
-.product-ratings .ratings-box .rating:before {
+.product-ratings .ratings-box .rating1:before {
+  font-family: "FontAwesome";
+  content: "\f005";
+  width: 64px;
+  height: 11px;
+  color: #ffc600;
+  display: block;
+  font-size: 11px;
+  line-height: 11px;
+}
+
+.product-ratings .ratings-box .rating2 {
+  float: left;
+  height: 11px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
+.product-ratings .ratings-box .rating2:before {
+  font-family: "FontAwesome";
+  content: "\f005\20\f005\20";
+  width: 64px;
+  height: 11px;
+  color: #ffc600;
+  display: block;
+  font-size: 11px;
+  line-height: 11px;
+}
+.product-ratings .ratings-box .rating3 {
+  float: left;
+  height: 11px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
+.product-ratings .ratings-box .rating3:before {
+  font-family: "FontAwesome";
+  content: "\f005\20\f005\20\f005";
+  width: 64px;
+  height: 11px;
+  color: #ffc600;
+  display: block;
+  font-size: 11px;
+  line-height: 11px;
+}
+.product-ratings .ratings-box .rating4 {
+  float: left;
+  height: 11px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
+.product-ratings .ratings-box .rating4:before {
+  font-family: "FontAwesome";
+  content: "\f005\20\f005\20\f005\20\f005";
+  width: 64px;
+  height: 11px;
+  color: #ffc600;
+  display: block;
+  font-size: 11px;
+  line-height: 11px;
+}
+
+.product-ratings .ratings-box .rating5 {
+  float: left;
+  height: 11px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
+.product-ratings .ratings-box .rating5:before {
   font-family: "FontAwesome";
   content: "\f005\20\f005\20\f005\20\f005\20\f005";
   width: 64px;
@@ -1579,7 +1653,6 @@ span.glyphicon.glyphicon-star-empty{
   font-size: 11px;
   line-height: 11px;
 }
-
 .body footer#footer{
   border-top: none;
   background-color: rgb(165, 159, 158) !important;

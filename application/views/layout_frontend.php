@@ -9,7 +9,10 @@ $this->session->unset_userdata('msg');
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-		<title>Annisa Travel</title>
+		<title><?php if($this->uri->segment(2)!=''){ echo $this->uri->segment(2);}else{echo"Annisa Travel";} if($this->uri->segment(5)!='') {
+			echo" | ";
+			echo str_replace("-", " ", $this->uri->segment(5));
+		}  ?></title>
 
 		<meta name="keywords" content="travel, booking online, umrah, haji, wisata" />
 		<meta name="description" content="PT. RADIAN KHARISMA WISATA atau lebih dikenal dengan Annisa Travel, didirikan di Jakarta pada tahun 2003, adalah perusahaan swasta nasional yang bergerak dalam bidang Jasa Perjalanan (Travel). Sejak awal didirikan, Annisa Travel bertekad memberikan pelayanan perjalanan yang prima baik Domestik maupun Internasional. Annisa Travel juga telah memiliki sertifikasi IATA, ASITA, ASPERAPI, HIMPUH, serta izin dari Kementerian Agama sebagai penyelenggara Umrah dan Haji.">
