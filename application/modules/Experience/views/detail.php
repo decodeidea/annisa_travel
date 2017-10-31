@@ -17,7 +17,11 @@
               <div class="col-md-5">
                 <div class="row">
                   <div class="col-md-4">
+                    <?php if($article_user->login_type==1){ ?>
                    <img src="<?php echo base_url() ?>assets/uploads/profile/<?php echo $article_user->id ?>/<?php echo $article_user->profile_pict ?>" width="100%">
+                   <?php }else{ ?>
+                   <img src="<?php echo $article_user->profile_pict ?>" width="100%">
+                   <?php } ?>
                   </div>
                     <div class="col-md-8 patop20">
                       <span class="author-article"><?php echo $article_user->first_name ?> </span><br>
@@ -120,7 +124,7 @@
                     <div style="min-height: 50px">
                     <h4 class="font-weight-semibold mb-xs"><?php echo $key->title ?></h4>
                     </div>
-                    <p><?php echo substr(strip_tags($key->itenary),0,100) . "..."; ?></p>
+                    <p><?php echo substr($key->summary,0,100) . "..."; ?></p>
                     <span class="sf">Start From</span>
                     <span class="item-rp-pb">Rp</span>
                     <span class="item-price-pb"><?php echo idr($key->price1) ?></span>

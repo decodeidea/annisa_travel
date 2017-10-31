@@ -283,15 +283,7 @@
 														<h6 class="mb-xs">
 															<?php echo tanggal_indo(substr($date_program->day, 0,10)) ?> -
 															<?php
-																$now = $date_program->day; // or your date as well
-																$your_date = $date_program->off_day;
-																$datediff = $now - $your_date;
-
-																if(floor($datediff / (60 * 60 * 24))==0){
-																echo 1;
-																}else{
-																	echo floor($datediff / (60 * 60 * 24));
-																}
+																echo IntervalDays($key->date->day,$key->date->off_day);
 															?>
 
 															 Hari
@@ -422,20 +414,12 @@
 															<h6 class="mb-xs">
 																<?php echo tanggal_indo(substr($date_program->day, 0,10)) ?> -
 																<?php
-																	$now = $date_program->day; // or your date as well
-																	$your_date = $date_program->off_day;
-																	$datediff = $now - $your_date;
-
-																	if(floor($datediff / (60 * 60 * 24))==0){
-																	echo 1;
-																	}else{
-																		echo floor($datediff / (60 * 60 * 24));
-																	}
+																	echo IntervalDays($date_program->day,$date_program->off_day)
 																?>
 
 																 Hari
 															</h6>
-															<p><?php echo $value->your_story ?>.</p>
+															<p><?php echo substr($value->your_story,0,100) ?>...</p>
 															
 															
 														</div>
