@@ -31,7 +31,7 @@ class Payment extends DC_controller {
 		$data = $this->controller_attr;
 		$data['function']='finish';
 		if(isset($_POST['order_number'])){
-			$invoice=$invoice;
+			$invoice=$_POST['order_number'];
 		}
 		$data['data']=select_where($this->tbl_payment,'invoice',$invoice)->row();
 		$product=select_where($this->tbl_payment_product,'id_payment',$data['data']->id)->result();
@@ -200,8 +200,8 @@ else {
     $verifystatus = $_POST['VERIFYSTATUS'];
 
 // Validasi Wors
-   $MALLID =''; //input mallid
-   $SHAREDKEY =''; //input sharedkey
+   $MALLID ='5116'; //input mallid
+   $SHAREDKEY ='8NCpDfgS383l'; //input sharedkey
    
    $WORDS_GENERATED = sha1($totalamount.$MALLID.$SHAREDKEY.$order_number.$status.$verifystatus);    
    if ( $words == $WORDS_GENERATED ) {
@@ -226,21 +226,28 @@ else {
 		         trxstatus='$status', payment_channel='$paymentchannel', paymentcode='$paymentcode', session_id='$session_id', bank_issuer='$bank_issuer', creditcard='$cardnumber',
 			 payment_date_time='$payment_date_time', verifyid='$verifyid', verifyscore='$verifyscore', verifystatus='$verifystatus' where transidmerchant='$order_number'";
         // echo "sql : ".$sql;
-		$result = mysql_query($sql) or die ("Stop2");
-		  
+		$result=$this->db->query($sql);
+		  if($result){
+		  	echo"Continue";
+		  }else{
+		  	echo "Stop";
+		  }
 		} else {
  
  		  $sql = "UPDATE doku set trxstatus='Failed' where transidmerchant='".$order_number."'";
 
-		  $result = mysql_query($sql) or die ("Stop3");
- 
+		$this->db->query($sql);
+ 		if($result){
+		  	echo"Continue";
+		  }else{
+		  	echo "Stop";
+		  }
  
 		}
 		echo 'Continue';
 	
 	}
 	
-	mysql_close();
 } else {
 	echo "Stop | Words not match";
 	}

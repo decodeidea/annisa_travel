@@ -21,7 +21,7 @@
                       </div>
 
                       <div class="form-group">
-                        <label class="form-label">Images (1024x926)</label>
+                        <label class="form-label">Images (1000x667)</label>
                         
 
                         <div class="box">

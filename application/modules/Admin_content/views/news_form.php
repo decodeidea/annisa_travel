@@ -23,7 +23,7 @@
                         <div class="controls">
                           <select name="id_destination" required class="select2 form-control">
                             <option value="">Choose Destination</option>
-                            <option value="none">None</option>
+                            <option value="0">None</option>
                             <?php foreach ($destination as $key) { ?>
                             <option value="<?php echo $key->id ?>" <?php if(isset($data) and $data->id_destination==$key->id){ echo"selected"; } ?> ><?php echo $key->title ?></option>
                             <?php } ?>
