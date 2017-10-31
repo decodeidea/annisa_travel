@@ -9,47 +9,27 @@
 							</div>
 						</div>
 						<div class="featured row">
-							<div class="row">
-								<div class="col-md-12">
-									<?php foreach ($list as $key) {
-										# code...
-									 ?>
-									<div class="col-md-4 col-sm-8 col-md-offset-0 col-sm-offset-2 custom-sm-margin-bottom-1 custom-md-margin-bottom-1">
-										<article class="custom-post-blog">
-											<span class="thumb-info custom-thumb-info-2">
-												<span class="thumb-info-wrapper">
-													<a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>">
-														<img src="<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/<?php echo $key->images?>" alt class="img-responsive" />
-													</a>
-												</span>
-												<span class="thumb-info-caption custom-box-shadow">
-													<span class="thumb-info-caption-text">
-														<h4 class="font-weight-bold mb-lg">
-															<a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" class="text-decoration-none custom-secondary-font text-color-dark">
-																<?php echo $key->title ?>
-															</a>
-														</h4>
-														<?php echo substr($key->content, 0,'100') ?></p>
-													</span>
-													<span class="custom-thumb-info-post-infos center">
-														<ul>
-															<li class="text-uppercase">
-																<i class="icon-calendar icons"></i>
-																Nov 18
-															</li>
-															<li class="text-uppercase">
-																<i class="icon-user icons"></i>
-																John Doe
-															</li>
-														</ul>
-													</span>
-												</span>
-											</span>
-										</article>
+							<ul id="portfolioGrid" class="p-none">
+								<?php foreach ($list as $key) {
+									# code...
+								 ?>
+								<li class="col-sm-6 col-md-4 isotope-item p-none mb-xlg">
+									<div class="portfolio-grid-item">
+									<a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" class="text-decoration-none popup-with-move-anim">
+									  <img src="<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/<?php echo $key->images?>" class="img-responsive">
+									  <div class="pd-dest">
+										<span class="pd-dest-tit"><?php echo $key->title ?></span>
+										</br>
+										<span class="pd-dest-date"><?php echo  substr($key->content, 0,250); ?></span>
+										</br>
+											
+									  </div>
+									</a>
 									</div>
-									<?php } ?>
-								</div>
-							</div>
+								</li>
+								<?php } ?>
+							</ul>
+							
 						</div>
 					</div>
 				</section>

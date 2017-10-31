@@ -1243,10 +1243,16 @@ html .annis-title{
     margin-left: 52px;
   margin-bottom: 40px;
 }
+@media (max-width: 400px){
+   .top-desti{
+     margin-bottom: 10px;
+  }
+}
 @media only screen and (min-width:960px){
   .ml{
     margin-left:0 !important;
   }
+ 
 }
 
 .bg-breadcumb{
