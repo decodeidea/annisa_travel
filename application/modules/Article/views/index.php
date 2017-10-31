@@ -20,7 +20,7 @@
 									  <div class="pd-dest">
 										<span class="pd-dest-tit"><?php echo $key->title ?></span>
 										</br>
-										<span class="pd-dest-date"><?php echo  substr($key->content, 0,250); ?></span>
+										<span class="pd-dest-date"><?php echo  substr($key->summary, 0,250); ?></span>
 										</br>
 											
 									  </div>
