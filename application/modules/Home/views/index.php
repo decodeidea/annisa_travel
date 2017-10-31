@@ -3,6 +3,7 @@
 					<div id="revolutionSlider" class="slider rev_slider manual">
 						<ul>
 							<?php foreach ($banner as $key) {
+								//print_r($key);die();
 							?>
 							<li data-transition="fade"
                   data-description="Article"
