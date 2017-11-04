@@ -206,7 +206,7 @@
 			</div>
 		</section>
 </div>
-<script type="text/javascript" id="st_insights_js" src="http://w.sharethis.com/button/buttons.js?publisher=4bbaedf6-2c2f-4846-b1ac-bef09de330ca"></script>
+<script type="text/javascript" id="st_insights_js" src="https://w.sharethis.com/button/buttons.js?publisher=4bbaedf6-2c2f-4846-b1ac-bef09de330ca"></script>
 <script type="text/javascript">
 	stLight.options({publisher: "4bbaedf6-2c2f-4846-b1ac-bef09de330ca", doNotHash: false, doNotCopy: false, hashAddressBar: false});
 </script>
