@@ -245,6 +245,7 @@ $this->session->unset_userdata('msg');
     <script src="<?php echo base_url() ?>assets/theme/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
     <script src="<?php echo base_url() ?>assets/theme/vendor/circle-flip-slideshow/js/jquery.flipshow.min.js"></script>
     <script src="<?php echo base_url() ?>assets/theme/js/views/view.home.js"></script>
+    <script src="<?php echo base_url() ?>assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
 <?php if($this->uri->segment(2)=='Program' and $this->uri->segment(3)=='detail') { }else{?>
 
 	<!-- Theme Custom -->
@@ -256,6 +257,11 @@ $this->session->unset_userdata('msg');
 
 	<script>
 		jQuery(document).ready(function($) {
+			 $('.datepicker').datepicker(
+        {
+    format: 'yyyy-mm-dd',
+        }
+        );
 
 				$('#myCarousel').carousel({
 						interval: 5000

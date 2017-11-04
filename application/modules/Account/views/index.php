@@ -179,10 +179,10 @@
 									<div class="col-md-12">
 										<div class="tabs">
 											<ul class="nav nav-tabs nav-justified">
-												<li class="active">
+												<li class="<?php if(isset($_GET['pesanan'])){ echo"";}else{echo"active";} ?>">
 													<a href="#psi" data-toggle="tab" class="text-center">Pesanan Saat Ini</a>
 												</li>
-												<li>
+												<li class="<?php if(isset($_GET['pesanan'])){ echo"active";} ?>">
 													<a href="#ps" data-toggle="tab" class="text-center">Pesanan Selesai</a>
 												</li>
 												<li>
@@ -190,9 +190,16 @@
 												</li>
 											</ul>
 											<div class="tab-content">
-												<div id="psi" class="tab-pane active">
+												<div id="psi" class="tab-pane <?php if(isset($_GET['pesanan'])){ }else{echo"active";} ?>">
+													<?php if(isset($_GET['inquiry'])){ ?>
 													<h4><strong>Detail Transaksi</strong></h4>
-													<br>
+													<?php }else{ ?>
+													<div class="row">
+														<div class="col-md-7 center">
+															<div class="alert alert-warning text-center">Lengkapi Data Pesanan-Pesanan Anda</div>
+														</div>
+													</div>
+													<?php } ?>
 													<?php foreach ($data_pesanan as $key) {
 														# code...
 													?>
@@ -211,9 +218,10 @@
 																<tr class="py-tr">
 																	<td>
 																		<?php $no=1;
+																		$id_payment=$key->id;
 																	foreach ($key->product as $product) {
 																	 if($no==1){?>
-																	<a href="#" ><?php
+																	<a href="<?php echo site_url('Account?inquiry='.$key->invoice) ?>" ><?php
 																		echo $product->title;
 																		$no++;
 																	
@@ -236,13 +244,306 @@
 															</tbody>
 														</table>
 													</div>
+
+													<br>
 													<?php } ?>
 
-												
+												<?php
+												if(isset($_GET['inquiry'])){ ?>
+
+												<form action="<?php echo site_url('Account/submit_inquiry') ?>" method="post" enctype="multipart/form-data">	
+														<h4><strong>Isi Data</strong></h4>
+												<input type="hidden" name="number" value="<?php echo $qtt  ?>">
+												<input type="hidden" name="id_payment" value="<?php echo $id_payment ?>">
+												<input type="hidden" name="id" value="">
+											<?php
+											for ($i=1; $i <=$qtt; $i++) { ?>
+													<div class="tp">
+															<div class="row">
+																<div class="col-sm-4 col-md-6">
+																	<div class="form-group">
+																		<label class="font-weight-normal">Nama Lengkap<span class="required">*</span></label>
+																		<input type="text" name="nama[<?php echo $i ?>]" class="form-control" required>
+																	</div>
+																</div>
+																<div class="col-sm-4 col-md-6">
+																	<div class="form-group">
+																		<label class="font-weight-normal">Tempat/Tgl lahir<span class="required">*</span></label>
+																		<div class="row">
+																			<div class="col-md-7">
+																		<input  name="tempat_lahir[<?php echo $i ?>]" type="text" required class="form-control">
+																	</div>
+
+																			<div class="col-md-5">
+																		<input name="tgl_lahir[<?php echo $i ?>]" type="text" readonly required class="datepicker form-control">
+																		</div>
+																		<div class="clearfix"></div>
+																	</div>
+																	</div>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-4 col-md-6">
+																	<div class="form-group">
+																		<label  class="font-weight-normal">Nama Ayah<span class="required">*</span></label>
+																		<input name="nama_ayah[<?php echo $i ?>]" type="text" class="form-control" required>
+																	</div>
+																</div>
+																<div class="col-sm-4 col-md-6">
+																	<div class="form-group">
+																		<label  class="font-weight-normal">Nama Ibu</label>
+																		<input name="nama_ibu[<?php echo $i ?>]" type="text" class="form-control">
+																	</div>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-4 col-md-6">
+																	<div class="form-group">
+																		<label class="font-weight-normal">No.ID KTP<span class="required">*</span></label>
+																		<input name="ktp[<?php echo $i ?>]" type="text" class="form-control" required>
+																	</div>
+																</div>
+																<div class="col-sm-4 col-md-6">
+																	<div class="form-group">
+																		<label class="font-weight-normal">Upload KTP</label>
+																		<input required="" name="foto_ktp[<?php echo $i ?>]" type="file" class="form-control">
+																	</div>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-4 col-md-4">
+																	<div class="form-group">
+																		<label class="font-weight-normal">Jenis Kelamin<span class="required">*</span></label>
+																		<select name="jk[<?php echo $i ?>]" class="form-control" required>
+																			<option value="">Pilih Jenis Kelamin</option>
+																			<option value="Laki-laki">Laki-laki</option>
+																			<option value="perempuan">Perempuan</option>
+																		</select>
+																	</div>
+																</div>
+																<div class="col-sm-4 col-md-4">
+																	<div class="form-group">
+																		<label  class="font-weight-normal">Nama Mahram</label>
+																		<input name="nama_mahram[<?php echo $i ?>]" type="input" class="form-control">
+																	</div>
+																</div>
+																<div class="col-sm-4 col-md-4">
+																	<div class="form-group">
+																		<label class="font-weight-normal">Status</label>
+																		<select name="status[<?php echo $i ?>]" class="form-control" required>
+																			<option value="">Pilih Status</option>
+																			<option value="singgle">Singgle</option>
+																			<option value="menikah">Sudah Menikah</option>
+																		</select>
+																	</div>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-xs-12">
+																	<div class="form-group">
+																		<label class="font-weight-normal">Alamat <span class="required">*</span></label>
+																		<textarea name="alamat[<?php echo $i ?>]" required="" class="form-control"></textarea>
+																	</div>
+																</div>
+																<div class="col-sm-4 col-md-2">
+																	<div class="form-group">
+																		<label class="font-weight-normal">RT/RW<span class="required">*</span></label>
+																		<input name="rt_rw[<?php echo $i ?>]" type="input" class="form-control" required>
+																	</div>
+																</div>
+																<div class="col-sm-4 col-md-2">
+																	<div class="form-group">
+																		<label  class="font-weight-normal">Kelurahan<span class="required">*</span></label>
+																		<input name="kelurahan[<?php echo $i ?>]" type="input" class="form-control" required>
+																	</div>
+																</div>
+																<div class="col-sm-4 col-md-2">
+																	<div class="form-group">
+																		<label class="font-weight-normal">Kecamatan<span class="required">*</span></label>
+																		<input name="kecamatan[<?php echo $i ?>]" type="input" class="form-control" required>
+																	</div>
+																</div>
+																<div class="col-sm-4 col-md-2">
+																	<div class="form-group">
+																		<label class="font-weight-normal">Kode Pos<span class="required">*</span></label>
+																		<input  name="kode_pos[<?php echo $i ?>]" type="input" class="form-control" required>
+																	</div>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-4 col-md-6">
+																	<div class="form-group">
+																		<label class="font-weight-normal">Telepon<span class="required">*</span></label>
+																		<input name="telepon[<?php echo $i ?>]" type="text" class="form-control" required>
+																	</div>
+																</div>
+																<div class="col-sm-4 col-md-6">
+																	<div class="form-group">
+																		<label class="font-weight-normal">Email</label>
+																		<input name="email[<?php echo $i ?>]" type="email" class="form-control">
+																	</div>
+																</div>
+															</div>
+															<div class="checkbox mb-xs" style="border: 1px solid #CCC;">
+															</div>
+															<div id="account-chage-pass">
+															
+																<div class="row">
+																	<div class="col-sm-4 col-md-6">
+																		<div class="form-group">
+																			<label class="font-weight-normal">No. Paspor<span class="required">*</span></label>
+																			<input name="paspor[<?php echo $i ?>]" type="text" class="form-control" required>
+																		</div>
+																	</div>
+																	<div class="col-sm-4 col-md-6">
+																		<div class="form-group">
+																			<label class="font-weight-normal">Upload Paspor</label>
+																			<input required name="foto_paspor[<?php echo $i ?>]" type="file" class="form-control">
+																		</div>
+																	</div>
+																
+																</div>
+																<div class="row">
+																	<div class="col-sm-4 col-md-4">
+																		<div class="form-group">
+																			<label class="font-weight-normal">Dikeluarkan di<span class="required">*</span></label>
+																			<input required name="tempat_paspor[<?php echo $i ?>]" type="text" class="form-control">
+																		</div>
+																	</div>
+																	<div class="col-sm-4 col-md-4">
+																		<div class="form-group">
+																			<label class="font-weight-normal">Tanggal dikeluarkan</label>
+																			 <input required readonly name="tgl_paspor[<?php echo $i ?>]" class="datepicker form-control" type="text"> 
+																		</div>
+																	</div>
+																	<div class="col-sm-4 col-md-4">
+																		<div class="form-group">
+																			<label class="font-weight-normal">Tanggal berlaku</label>
+																			<input type="input"  name="tgl_berlaku_paspor[<?php echo $i ?>]" class="datepicker form-control" readonly>
+																		</div>
+																	</div>
+																
+																</div>
+															</div>
+															
+															<div class="checkbox mb-xs" style="border: 1px solid #CCC;">
+																
+															</div>
+															<div id="account-chage-pass">
+															
+																<div class="row">
+																	
+																	<div class="col-sm-4 col-md-3">
+																		<div class="form-group">
+																			<label class="font-weight-normal">Merokok</label>
+																			<select  name="merokok[<?php echo $i ?>]" class="form-control">
+																				<option value="0">Tidak</option>
+																				<option value="1">iya</option>
+																			</select>
+																		</div>
+																	</div>
+																
+																
+																	<div class="col-sm-4 col-md-4">
+																		<div class="form-group">
+																			<label   class="font-weight-normal">Memiliki Penyakit Khusus<span class="required">*</span></label>
+																			<select name="penyakit[<?php echo $i ?>]" class="form-control">
+																				<option value="0">Tidak</option>
+																				<option value="1">iya</option>
+																			</select>
+																			
+																		</div>
+																	</div>
+																	
+																	<div class="col-sm-4 col-md-4">
+																		<div class="form-group">
+																			<label class="font-weight-normal"></label>
+																			<input  name="nama_penyakit[<?php echo $i ?>]" type="input" placeholder="-- sebutkan --" value="" class="form-control">
+																		</div>
+																	</div>
+																
+																</div>
+																<div class="row">
+																	
+																	<div class="col-sm-4 col-md-4">
+																		<div class="form-group">
+																			<label class="font-weight-normal">Kursi Roda</label>
+																			<select  name="kursi_roda[<?php echo $i ?>]" class="form-control">
+																				<option value="0">Tidak</option>
+																				<option value="1">iya</option>
+																			</select>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															
+													</div>
+													<br>
+												<?php } ?>
+												<div class="checkbox mb-xs">
+														<label>
+															<input required="" type="checkbox" value="1" id="change-pass-checkbox">
+															Saya setuju mendaftar Umrah dengan Annisa Travel sesuai dengan syarat dan kondisi yang berlaku
+															</br>
+															<a href="">Terms & Condition</a>
+														</label>
+														<div class="row text-center">
+															<input type="submit" class="btn btn-primary" value="SUBMIT">
+														</div>
+													</div>
+												</form>
+												 <?php } ?> 
 												</div>
 												
-												<div id="ps" class="tab-pane">
+												<div id="ps" class="tab-pane <?php if(isset($_GET['pesanan'])){ echo"active";} ?>">
 													
+													<?php foreach ($data_pesanan_done as $key) {
+														# code...
+													?>
+													<div class="tp">
+														<table class="table-payment">
+															<thead>
+																<tr>
+																	<th>PROGRAM</th>
+																	<th>ROOM</th>
+																	<th>PAX</th>
+																	<th>TOTAL PEMBAYARAN</th>
+																	<th>STATUS</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr class="py-tr">
+																	<td>
+																		<?php $no=1;
+																		$id_payment=$key->id;
+																	foreach ($key->product as $product) {
+																	 if($no==1){?>
+																	<a href="<?php echo site_url('Account?inquiry='.$key->invoice) ?>" ><?php
+																		echo $product->title;
+																		$no++;
+																	
+																	?></a><?php }} ?></td>
+																	<td style="text-transform: uppercase;"><?php
+																	foreach ($key->product as $product) {
+																		echo $product->type_room.", ";
+																	}
+																	?></td>	
+																	<td><?php $qtt=0;foreach ($key->product as $product) {
+																		$qtt+=$product->qtt; 
+
+																	} echo $qtt; ?> Orang</td>
+																	<td> 
+																		Rp. <?php echo idr($key->total_all_amount) ?> 
+																		<a class="lr" href="<?php echo site_url('Payment/finish/'.$key->invoice) ?>">Lihat Rincian</a>
+																	</td>
+																	<td style="text-transform: uppercase;"><?php echo $key->doku->trxstatus ?></td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+
+													<br>
+													<?php } ?>
 												</div>
 												<div id="pb" class="tab-pane">
 													
@@ -467,7 +768,7 @@
 										<p>Member Sejak <?php echo substr(tanggal_indo($data->date_created),12,12) ?></p>
 									</div>
 									<li><a href="#account" data-toggle="tab">Profile</a></li>
-									<li  class="active"><a href="#pesanan" data-toggle="tab">Pesanan</a></li>
+									<li  class="active"><a href="#pesanan" data-toggle="tab">Pesanan (<?php echo $data_pesanan_count ?>)</a></li>
 									<li><a href="#mywhislist" data-toggle="tab">My Whislist</a></li>
 									<li><a href="#myexpe" data-toggle="tab">My Experience</a></li>
 									<li><a href="#listexpe" data-toggle="tab">List Experience</a></li>
