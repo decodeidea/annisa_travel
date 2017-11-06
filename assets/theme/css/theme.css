@@ -307,7 +307,7 @@ li {
 	background: #CCC;
 	color: #FFF;
 	display: none;
-	float: right;
+	float: left;
 	margin: 12px 0 8px 15px;
 }
 
@@ -2360,7 +2360,6 @@ aside ul.nav-list > li > a {
 		left:30px;
 		width: 100%;
 		font-size: 20px !important;
-		
 	}
 	.slider-container .top-label {
 		left:30px;

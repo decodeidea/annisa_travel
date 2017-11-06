@@ -22,7 +22,7 @@ class MY_Lang extends CI_Lang {
 	);
 	
 	// where to redirect if no language in URI
-	var $default_uri = 'Home'; 
+	var $default_uri = 'home'; 
 
 	/**************************************************/
 	

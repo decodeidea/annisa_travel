@@ -49,14 +49,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Home';
+$route['default_controller'] = 'home';
+
+
 require_once( BASEPATH .'database/DB'. EXT );
 $db =& DB();
 $static_page='dc_static_content';
 $query = $db->query("SELECT * from ".$static_page);
 $result = $query->result();
 foreach( $result as $key )
-{	$title=strtolower($key->title);
+{	
+	$title=strtolower($key->title);
+	//print_r(str_replace(' ','-',$title));exit();
 	$route[$key->lang.'/'.str_replace(' ','-',$title)] = 'Static_page/main/'.$key->id;
 }
 $route['en/admin/'] = 'Admin';
@@ -65,9 +69,16 @@ $route['en/admin/(:any)'] = 'Admin/$1';
 $route['id/admin/'] = 'Admin';
 $route['id/admin/(:any)'] = 'Admin/$1';
 
-$route['^(id|en)/(.+)$'] = "$2";
-$route['^id$'] = $route['default_controller'];
-$route['^en$'] = $route['default_controller'];
+
+
+//program
+
+$route['^(id|en)/program'] = 'program/program' ;
+$route['^(id|en)/program/detail/(:any)'] = 'program/program/detail/$1' ;
+
+$route['^(id|en)/(.+)$']        = "$2";
+$route['^(id|en)$'] = $route['default_controller'];
+
 $route['404_override'] = '';
 //static Page
 

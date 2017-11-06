@@ -54,6 +54,7 @@ $this->session->unset_userdata('msg');
 
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="<?php echo base_url() ?>assets/theme/css/custom.css">
+		<link rel="stylesheet" href="<?php echo base_url() ?>assets/theme/css/desktop.css">
 
 		<!-- Head Libs -->
 		<script src="<?php echo base_url() ?>assets/theme/vendor/jquery/jquery.min.js"></script>
@@ -95,13 +96,13 @@ $this->session->unset_userdata('msg');
                 <div class="col-md-5">
                   <h4>Terakreditasi Oleh</h4>
                   <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-sm-2">
                       <img class="img-responsive" src="<?php echo base_url() ?>assets/theme/img/akreditasi_1.jpg" alt="Akreditasi">
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-sm-2">
                       <img class="img-responsive" src="<?php echo base_url() ?>assets/theme/img/akreditasi_2.jpg" alt="Akreditasi">
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-sm-2">
                       <img class="img-responsive" src="<?php echo base_url() ?>assets/theme/img/akreditasi_3.jpg" alt="Akreditasi">
                     </div>
                   </div>
@@ -186,15 +187,15 @@ $this->session->unset_userdata('msg');
 					</div>
           <hr class="solid tall">
           <div class="row">
-            <div class="col-md-1">
+            <div class="col-md-1 col-sm-2">
               <a href="#" class="logo">
                 <img alt="Annisa Travel" class="img-responsive" src="<?php echo base_url() ?>assets/theme/img/logo.png">
               </a>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-7 col-sm-6">
               <p>&copy; 2017 Annisa Travel. All Right Reserved. No part of this site my be reproduced without our written permission</p>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-4">
               <ul class="social-icons pull-right">
                 <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
                 <li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>

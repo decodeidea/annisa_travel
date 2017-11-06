@@ -1033,6 +1033,10 @@ a.social-icon, a.social-icon:visited {
   html #header .header-nav-main nav > ul > li ul li:hover > a {
     background-color: #f5f6f8;
   }
+  
+  #header .header-nav-main nav > ul > li a:focus, #header .header-nav-main nav > ul > li a:active {
+    color: #0099e6 !important;
+  }
 }
 .quantity {
   margin: 15px 14px 0px 0;

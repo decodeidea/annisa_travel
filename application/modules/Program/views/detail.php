@@ -296,8 +296,22 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
 <script type="text/javascript">
-      $( document ).ready(function() {
+    $( document ).ready(function() {
+        // $('.select2').select2();
 
-    $('.select2').select2();
+        $('.quantity .minus').click(function(){
+          var v = $(this).parent().find('input[type=text]').val(), vm = 0;
+          if(v > 0){
+            vm = parseInt(v) - 1;
+          }
+          console.log("ds");
+          $(this).parent().find('input[type=text]').val(vm);
+        });
+
+        $('.quantity .plus').click(function(){
+          var v = $(this).parent().find('input[type=text]').val();
+              vm = parseInt(v) + 1;
+          $(this).parent().find('input[type=text]').val(vm);
+        });
     });
 </script>

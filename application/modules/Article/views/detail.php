@@ -17,11 +17,11 @@
               <div class="col-md-5">
                 <div class="row">
                   <div class="col-md-4">
-                   <img src="<?php echo base_url() ?>assets/uploads/user-admin/<?php echo $article_user->id ?>/<?php echo $article_user->photo ?>" width="100%">
+                   <img src="<?php //echo base_url() ?>assets/uploads/user-admin/<?php //echo $article_user->id ?>/<?php //echo $article_user->photo ?>" width="100%">
                   </div>
                     <div class="col-md-8 patop20">
-                      <span class="author-article"><?php echo $article_user->first_name ?> <?php echo $article_user->last_name ?></span><br>
-                      <span class="date-article"><?php echo tanggal_indo(substr($data->date_created, 0,10)) ?></span>
+                      <span class="author-article"><?php //echo $article_user->first_name ?> <?php //echo $article_user->last_name ?></span><br>
+                      <span class="date-article"><?php //echo tanggal_indo(substr($data->date_created, 0,10)) ?></span>
                     </div>
               </div>
             </div>
@@ -115,7 +115,7 @@
                   <img alt="" class="img-responsive" src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->id_image ?>/<?php echo $key->image ?>">
                 </span>
                 <span class="thumb-info-caption">
-                  <span class="thumb-info-caption-text p-xl">
+                  <span class="thumb-info-caption-text p-xl thumb-wp">
                     <span><?php echo $key->category ?></span>
                     <div style="min-height: 50px">
                     <h4 class="font-weight-semibold mb-xs"><?php echo $key->title ?></h4>
@@ -141,7 +141,7 @@
                   # code...
                  ?>
                 <div class="sidebar-article">
-                  <a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" style="text-decoration: none;"><img src="<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/<?php echo $key->images ?>" width="100%"></a>
+                  <a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" style="text-decoration: none;"><img src="<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/<?php echo $key->images ?>" width="100%" class="pb-md"></a>
                   <a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" style="text-decoration: none;"><span><?php echo $key->title ?></span></a>
                 </div>
                 <?php } ?>
@@ -154,18 +154,20 @@
                   # code...
                  ?>
 					<div class="row m-none mb-xlg">
-						<div class="col-md-6 pl-none pr-none">
+						<div class="col-lg-6 col-md-12 pl-none pr-none pb-md">
 							<!--<div class="badge">
 							  <span>5%</span>
 							</div>-->
 							 <a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" style="text-decoration: none;"><img src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->id_image ?>/<?php echo $key->image ?>" alt="" class="img-responsive" style="width:100%"></a>
 						</div>
-						<div class="col-md-6">
+						<div class="col-lg-6 col-md-12 pl-none pr-none">
 							 <a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" style="text-decoration: none;"><h1 class="title-cat-side"><?php echo $key->title ?></h1></a>
 							<div class="red-cat-side">
 								<span class="sfs">Start From</span>
-								<span class="rps">Rp</span>
-								<span class="prices"><?php echo idr($key->price1) ?></span>
+                <div class="price-wp">
+  								<span class="rps">Rp</span>
+  								<span class="prices"><?php echo idr($key->price1) ?></span>
+                </div>
 								<!--<span class="koss">.000</span>-->
 							</div>
 						</div>
