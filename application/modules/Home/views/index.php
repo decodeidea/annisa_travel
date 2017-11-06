@@ -320,7 +320,7 @@ echo IntervalDays($key->date->day,$key->date->off_day)
             	 ?>
               <div class="col-md-6 mb-xlg ">
       					<article  style="border-bottom: 1px solid #eee;padding-left: 20px; padding-right: 20px;">
-      						<div class="col-md-9">
+      						<div class="col-md-9" style="min-height: 300px;">
       							<a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>"><h2 style="color: #3C3C3C"><b><?php echo $key->title ?></b></h2>
       							<p><?php echo substr($key->summary, 0,250) ?>....</p>
       						</div>

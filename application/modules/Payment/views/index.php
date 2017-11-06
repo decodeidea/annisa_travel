@@ -13,6 +13,9 @@
 				</div>
 			</div>
 		</div>
+		<?php if($this->session->flashdata('msg')){ ?>
+		<div class="col-md-8 alert alert-danger center">Maaf, silahkan pilih salah satu metode pembayaran untuk bisa melanjutkan proses.</div>
+		<?php } ?>
 		<section class="section section-no-border background-color-light p-none">
 			<div class="container">
 				<div class="col-md-12">
@@ -23,6 +26,7 @@
 								<thead>
 									<tr>
 										<th>Program</th>
+										<th>Tanggal</th>
 										<th>ROOM</th>
 										<th>HARGA</th>
 										<th>PAX</th>
@@ -44,6 +48,7 @@
 									<input type="hidden" name="total_amountp<?php echo $no ?>" value="<?php echo $key->price*$key->qtt?>">
 									<tr class="py-tr">
 										<td><?php echo $key->program->title ?></td>
+										<td><?php echo $key->program_day->day ?></td>
 										<td style="text-transform: uppercase;"><?php echo $key->type_room ?></td>
 										<td>Rp. <?php echo idr($key->price) ?>.-</td>
 										<td><?php echo $key->qtt ?> Orang</td>
@@ -56,12 +61,12 @@
 
 									<input type="hidden" name="no" value="<?php echo $no ?>">
 									<tr class="py-col">
-										<td colspan="3"></td>
+										<td colspan="4"></td>
 										<td class="ppn">Ppn 10%</td>
-										<td><?php echo idr($ppn) ?> <input type="hidden" name="ppn" value="<?php echo $ppn ?>"></td>
+										<td><?php echo idr($ppn) ?> <input type="hidden" name="ppn" value="<?php echo $ppn ?>"><input type="hidden" name="day_program" value="<?php echo $key->program_day->id ?>"></td>
 									</tr>
 									<tr class="py-col">
-										<td colspan="3"></td>
+										<td colspan="4"></td>
 										<td class="tot">Total Pembayaran</td>
 										<td class="tot"> <input type="hidden" name="total_amount" value="<?php echo $total_price ?>"><?php echo idr($ppn+$total_price); ?></td>
 									</tr>
@@ -79,7 +84,7 @@
 			<div class="container">
 				<div class="col-md-12">
 					<div class="payment">
-						<h4><strong>PEMBAYRAN</strong></h4>
+						<h4><strong>PEMBAYARAN</strong></h4>
 						<div class="tp2">
 							<div class="panel-heading">
 								<div class="panel-title PMP">Pilih Metode Pembayaran</div>
@@ -87,69 +92,6 @@
 							<div class="panel-group" id="accordion">
 								<div class="panel panel-default">
 									<div class="panel-heading">
-										
-										<div class="panel-heading">
-										
-										<h4 class="panel-title cpay">
-												<div class="cr">
-													<input type="radio" name="pembayaran" required value="04"> Doku Wallet
-												</div>
-										</h4>
-									</div>
-									<div class="panel-heading">
-										<h4 class="panel-title cpay">
-												<div class="cr">
-													<input type="radio" name="pembayaran" required="" value="15"> Kartu Kredit
-												</div>
-										</h4>
-									</div>
-									<div class="panel-heading">
-										<h4 class="panel-title cpay">
-												<div class="cr">
-													<input type="radio" name="pembayaran" required="" value="35"> Alfamart Group
-												</div>
-										</h4>
-									</div>
-									<div class="panel-heading">
-										<h4 class="panel-title cpay">
-												<div class="cr">
-													<input type="radio" name="pembayaran" required="" value="28"> PermataNET
-												</div>
-										</h4>
-									</div>
-									<div class="panel-heading">
-										<h4 class="panel-title cpay">
-												<div class="cr">
-													<input type="radio" name="pembayaran" required="" value="25"> Internet Banking Muamalat
-												</div>
-										</h4>
-									</div>
-									<div class="panel-heading">
-										<h4 class="panel-title cpay">
-												<div class="cr">
-													<input type="radio" name="pembayaran" required="" value="26"> Danamon online banking
-												</div>
-										</h4>
-									</div>
-									<div class="panel-heading">
-										<h4 class="panel-title cpay">
-												<div class="cr">
-													<input type="radio" name="pembayaran" required="" value="36"> Virtual Permata & Virtual Mandiri
-												</div>
-										</h4>
-									</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- <div class="tp2">
-							<div class="panel-heading">
-								<div class="panel-title PMP">Pilih Metode Pembayaran</div>
-							</div>
-							<div class="panel-group" id="accordion">
-								<div class="panel panel-default">
-									<div class="panel-heading">
-										
 										<h4 class="panel-title cpay">
 											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
 												<div class="cr">
@@ -159,14 +101,22 @@
 											</a>
 										</h4>
 									</div>
-									<div id="collapseOne" class="accordion-body collapse in">
+								</div>
+								<div id="collapseOne" class="accordion-body collapse">
 										<div class="panel-body">
-												<div class="row">
+											<div class="row">
 													<div class="form-group">
 														<div class="col-md-5">
 															<label>Pilih Kartu</label>
-															<select name="pembayaran" class="form-control">
-																<option value="15">Semua Kartu Kredit</option>
+															<select name="kartu_kredit" class="form-control">
+																<option value="">-- Pilih Opsi Pembayaran --</option>
+																<option value="15">Semua Kartu</option>
+															</select>
+														</div>
+														<div class="col-md-5">
+															<label>Tipe Pembayaran</label>
+															<select class="form-control">
+																<option value="1">Bayar Penuh</option>
 															</select>
 														</div>
 													</div>
@@ -192,29 +142,17 @@
 																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-bca.jpg" /></li>
 															</ul>
 														</div>
-														
 													</div>
 												</div>
 										</div>
 									</div>
-								</div>
+							</div>
+
+							<div class="panel-group" id="accordion">
 								<div class="panel panel-default">
 									<div class="panel-heading">
-										
 										<h4 class="panel-title cpay">
-											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-												<div class="cr">
-													<div class="circle"></div>
-												</div>
-												Cicilan Tanpa Kartu Kredit
-											</a>
-										</h4>
-									</div>
-								<div class="panel panel-default">
-									<div class="panel-heading">
-										
-										<h4 class="panel-title cpay">
-											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne2">
 												<div class="cr">
 													<div class="circle"></div>
 												</div>
@@ -222,21 +160,18 @@
 											</a>
 										</h4>
 									</div>
-									<div id="collapseTwo" class="accordion-body collapse">
+								</div>
+								<div id="collapseOne2" class="accordion-body collapse">
 										<div class="panel-body">
-										
-												<div class="row">
+											<div class="row">
 													<div class="form-group">
 														<div class="col-md-5">
 															<label>Pilih Kartu</label>
-															<select class="form-control">
+															<select name="internet_banking" class="form-control">
 																<option value="">-- Pilih Opsi Pembayaran --</option>
-															</select>
-														</div>
-														<div class="col-md-5">
-															<label>Tipe Pembayaran</label>
-															<select class="form-control">
-																<option value="">Bayar Penuh</option>
+																<option value="25">Bank Muamalat</option>
+																<option value="28">Bank Permata</option>
+																<option value="28">Bank Danamon</option>
 															</select>
 														</div>
 													</div>
@@ -262,38 +197,33 @@
 																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-bca.jpg" /></li>
 															</ul>
 														</div>
-														
 													</div>
 												</div>
 										</div>
 									</div>
-								</div>
+							</div>
+							<div class="panel-group" id="accordion">
 								<div class="panel panel-default">
 									<div class="panel-heading">
-										
 										<h4 class="panel-title cpay">
-											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne3">
 												<div class="cr">
 													<div class="circle"></div>
 												</div>
-												Transfer	
+												Alfamart Group
 											</a>
 										</h4>
 									</div>
-									<div id="collapseTwo" class="accordion-body collapse">
+								</div>
+								<div id="collapseOne3" class="accordion-body collapse">
 										<div class="panel-body">
-												<div class="row">
+											<div class="row">
 													<div class="form-group">
 														<div class="col-md-5">
 															<label>Pilih Kartu</label>
-															<select class="form-control">
+															<select name="alfamart" class="form-control">
 																<option value="">-- Pilih Opsi Pembayaran --</option>
-															</select>
-														</div>
-														<div class="col-md-5">
-															<label>Tipe Pembayaran</label>
-															<select class="form-control">
-																<option value="">Bayar Penuh</option>
+																<option value="35">Alfamart Group</option>
 															</select>
 														</div>
 													</div>
@@ -319,39 +249,36 @@
 																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-bca.jpg" /></li>
 															</ul>
 														</div>
-														
 													</div>
 												</div>
 										</div>
 									</div>
-								</div>
+							</div>
+							<div class="panel-group" id="accordion">
 								<div class="panel panel-default">
 									<div class="panel-heading">
-										
 										<h4 class="panel-title cpay">
-											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne4">
 												<div class="cr">
 													<div class="circle"></div>
 												</div>
-												Uang Elektronik
+												ATM Transfer
 											</a>
 										</h4>
 									</div>
-									<div id="collapseTwo" class="accordion-body collapse">
+								</div>
+								<div id="collapseOne4" class="accordion-body collapse">
 										<div class="panel-body">
-										
-												<div class="row">
+											<div class="row">
 													<div class="form-group">
 														<div class="col-md-5">
 															<label>Pilih Kartu</label>
-															<select class="form-control">
+															<select name="atm_transfer" class="form-control">
 																<option value="">-- Pilih Opsi Pembayaran --</option>
-															</select>
-														</div>
-														<div class="col-md-5">
-															<label>Tipe Pembayaran</label>
-															<select class="form-control">
-																<option value="">Bayar Penuh</option>
+																<option value="BNI">BNI</option>
+																<option value="BCA">BCA</option>
+																<option value="MANDIRI">MANDIRI</option>
+																<option value="BRI">BRI</option>
 															</select>
 														</div>
 													</div>
@@ -360,7 +287,7 @@
 													<div class="form-group">
 														<div class="col-md-12">
 															<ul class="LP list-pay-atts">
-																<li>Selesaikan Pembayaran dalam waktu 1 jam untuk menghindari pembatalan transaksi secara otomatis</li>
+																<li>Selesaikan Pembayaran dalam waktu 1x24 jam untuk menghindari pembatalan transaksi secara otomatis</li>
 																<li>Pilih metode pembayaran ini untuk menikmati promo khusus dari Bank pilihan</li>
 															</ul>
 														</div>
@@ -377,138 +304,18 @@
 																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-bca.jpg" /></li>
 															</ul>
 														</div>
-														
-													</div>
-												</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="panel panel-default">
-									<div class="panel-heading">
-										
-										<h4 class="panel-title cpay">
-											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-												<div class="cr">
-													<div class="circle"></div>
-												</div>
-												Indomaret
-											</a>
-										</h4>
-									</div>
-									<div id="collapseTwo" class="accordion-body collapse">
-										<div class="panel-body">
-											
-												<div class="row">
-													<div class="form-group">
-														<div class="col-md-5">
-															<label>Pilih Kartu</label>
-															<select class="form-control">
-																<option value="">-- Pilih Opsi Pembayaran --</option>
-															</select>
-														</div>
-														<div class="col-md-5">
-															<label>Tipe Pembayaran</label>
-															<select class="form-control">
-																<option value="">Bayar Penuh</option>
-															</select>
-														</div>
-													</div>
-												</div>
-												<div class="row">
-													<div class="form-group">
-														<div class="col-md-12">
-															<ul class="LP list-pay-atts">
-																<li>Selesaikan Pembayaran dalam waktu 1 jam untuk menghindari pembatalan transaksi secara otomatis</li>
-																<li>Pilih metode pembayaran ini untuk menikmati promo khusus dari Bank pilihan</li>
-															</ul>
-														</div>
-														
-													</div>
-												</div>
-												<div class="row">
-													<div class="form-group">
-														<div class="col-md-12">
-															<ul class="LP list-pay">
-																<li class="m-none"><img src="<?php echo base_url() ?>assets/theme/img/pay-visa.jpg" /></li>
-																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-mastercard.jpg" /></li>
-																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-paypal.jpg" /></li>
-																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-bca.jpg" /></li>
-															</ul>
-														</div>
-														
 													</div>
 												</div>
 										</div>
 									</div>
-								</div>
-								<div class="panel panel-default">
-									<div class="panel-heading">
-										
-										<h4 class="panel-title cpay">
-											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-												<div class="cr">
-													<div class="circle"></div>
-												</div>
-												Pos Indonesia
-											</a>
-										</h4>
-									</div>
-									<div id="collapseTwo" class="accordion-body collapse">
-										<div class="panel-body">
-											
-												<div class="row">
-													<div class="form-group">
-														<div class="col-md-5">
-															<label>Pilih Kartu</label>
-															<select class="form-control">
-																<option value="">-- Pilih Opsi Pembayaran --</option>
-															</select>
-														</div>
-														<div class="col-md-5">
-															<label>Tipe Pembayaran</label>
-															<select class="form-control">
-																<option value="">Bayar Penuh</option>
-															</select>
-														</div>
-													</div>
-												</div>
-												<div class="row">
-													<div class="form-group">
-														<div class="col-md-12">
-															<ul class="LP list-pay-atts">
-																<li>Selesaikan Pembayaran dalam waktu 1 jam untuk menghindari pembatalan transaksi secara otomatis</li>
-																<li>Pilih metode pembayaran ini untuk menikmati promo khusus dari Bank pilihan</li>
-															</ul>
-														</div>
-														
-													</div>
-												</div>
-												<div class="row">
-													<div class="form-group">
-														<div class="col-md-12">
-															<ul class="LP list-pay">
-																<li class="m-none"><img src="<?php echo base_url() ?>assets/theme/img/pay-visa.jpg" /></li>
-																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-mastercard.jpg" /></li>
-																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-paypal.jpg" /></li>
-																<li><img src="<?php echo base_url() ?>assets/theme/img/pay-bca.jpg" /></li>
-															</ul>
-														</div>
-														
-													</div>
-												</div>
-										</div>
-									</div>
-								</div>
 							</div>
 						</div>
-						
-						
-					</div> -->
 				</div>
 				
 			</div>
-			<div class="container mt-xlg">
+		</div>
+		<br>
+			<div class="container">
 				<div class="col-md-12">
 					<div class="payment">
 						<h4><strong>VOUCHER</strong></h4>
@@ -520,7 +327,7 @@
 									<div class="row">
 										<div class="form-group">
 											<div class="col-md-5">
-												<input type="text" value="" class="form-control">
+												<input type="text" value="" name="voucher" class="form-control">
 											</div>
 											
 										</div>

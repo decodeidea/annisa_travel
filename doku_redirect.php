@@ -8,7 +8,7 @@ $paymentchannel = $_POST['PAYMENTCHANNEL'];
 $session_id = $_POST['SESSIONID'];
 $paymentcode = $_POST['PAYMENTCODE'];
 
-$dokuform="<form name=\"param_pass\" id=\"param_pass\" method=\"post\" action=\"https://dev.annisatravel.com/id/Payment/finish\">\n"; //example redirect link
+$dokuform="<form name=\"param_pass\" id=\"param_pass\" method=\"post\" action=\"https://annisatravel.com/id/Payment/finish\">\n"; //example redirect link
 
 $dokuform.="<input name=\"order_number\" type=\"hidden\" id=\"order_number\" value=\"$order_number\">\n";
 $dokuform.="<input name=\"purchase_amt\" type=\"hidden\" id=\"order_number\" value=\"$purchase_amt\">\n";

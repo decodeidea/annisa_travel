@@ -37,6 +37,8 @@ class DC_Controller extends CI_Controller {
         $this->tbl_doku= 'doku';
         $this->tbl_voucher= $this->tbl_prefix .'voucher';
         $this->tbl_experience= $this->tbl_prefix .'experience';
+        $this->tbl_confirmation= $this->tbl_prefix .'confirmation';
+        $this->tbl_inquiry= $this->tbl_prefix .'inquiry';
 
         
 

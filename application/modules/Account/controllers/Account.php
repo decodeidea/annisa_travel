@@ -84,6 +84,33 @@ class Account extends DC_controller {
     }
   }
 
+  function submit_confirmation(){
+    $data = $this->controller_attr;
+    $data['function']='submit_confirmation';
+    $data['cek_menu']='0';//1kode active whislist
+    $payment=select_where($this->tbl_payment,'invoice',$this->input->post('invoice'))->num_rows();
+    if($payment>0){
+        $tmp_data=array(
+          'id_member'=>$this->session->userdata('id'),
+          'invoice'=>$this->input->post('invoice'),
+          'nama_pengirim'=>$this->input->post('nama_pengirim'),
+          'metode_pembayaran'=>$this->input->post('metode_pembayaran'),          
+          'notes'=>$this->input->post('notes'),
+          'date_created'=>date('Y-m-d H:i:s'),
+        );
+        $insert=$this->db->insert($this->tbl_confirmation,$tmp_data);
+        if($insert){
+          $this->session->set_flashdata('msg','Form konfirmasi pesanan anda berhasil dikirim.');
+         redirect(site_url('Account?mn=confirmation'));
+        }
+      
+    }else{
+      $this->session->set_flashdata('msg','Maaf no invoice anda tidak terdaftar');
+      redirect(site_url('Account?mn=confirmation'));
+     
+    }
+  }
+
   function change_password(){
     $data = $this->controller_attr;
     $data['function']='change password';

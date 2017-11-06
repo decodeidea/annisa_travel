@@ -10,10 +10,10 @@
             <div class="container">
               <div class="container-fluid">
           <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
               <div class="head-article">
               <div class="row">
-              <div class="col-md-5">
+             <!--  <div class="col-md-5">
                 <div class="row">
                   <div class="col-md-4">
                    <img src="<?php echo base_url() ?>assets/theme/img/indopos.png" width="100%">
@@ -23,8 +23,8 @@
                       <span class="date-article">21 Oktober 2017, 08:00 WIB</span>
                     </div>
               </div>
-            </div>
-              <div class="col-md-7 patop20">
+            </div> -->
+             <!--  <div class="col-md-7 patop20">
                 <div class="list-head-article">
                 <a href="#"><img src="<?php echo base_url() ?>assets/theme/img/facebook-flat.png" width="40"></a> 
                 <a href="#"><img src="<?php echo base_url() ?>assets/theme/img/twitter-flat.png" width="40"></a> 
@@ -36,7 +36,7 @@
               </div>
               <div class="list-head-article text-center"><span>Share</span><br><span class=" count-share">172</span></div>
               <div class="clearfix"></div>
-              </div>
+              </div> -->
             </div>
             </div>
             <div class="content-article">
@@ -48,7 +48,7 @@
      
           
             </div>
-            <div class="col-md-3 pull-right">
+            <!-- <div class="col-md-3 pull-right">
               <div class="sidebar">
                 <h2>Artikel Populer</h2>
                 <div class="sidebar-article">
@@ -68,7 +68,7 @@
                   <a href="<?php echo site_url() ?>article/detail/1" style="text-decoration: none;"> <span>Jalan-jalan ke Dubai hanya Rp.1000,-</span></a>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
           </div>
         </div>

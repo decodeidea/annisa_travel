@@ -21,13 +21,17 @@
                   <tr>
                   <th>No</th>
                     <th>Name Program</th>
+                    <th>Nama Pemesan</th>
+                    <!-- 
                     <th>Type Room</th>
                     <th>Quantity</th>  
                     <th>Voucher</th>
                     <th>Type Transaction</th>
-                    <th>Total Amount</th>
+                    <th>Total Amount</th> -->
                     <th>Kelengkapan</th>
                     <th>Status</th>
+                    <th>Date Created</th>
+                    <th>Detail</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -39,7 +43,8 @@
                   <tr >
                     <td><?php echo $no ?></td>
                     <td><?php echo $data->program ?></td>
-                    <td><?php 
+                    <td><?php echo $data->member->first_name ?></td>
+                   <!--  <td><?php 
                                   $qtt=0;
                                   foreach ($data->product as $key2) {
                                     $qtt+=$key2->qtt;
@@ -63,12 +68,12 @@
                     }else{
                       echo "Mandiri VA";
                     }
-
-
                      ?></td>
-                    <td><?php echo idr($data->total_all_amount) ?></td>
+                    <td><?php echo idr($data->total_all_amount) ?></td> -->
                     <td><?php if($data->inquiry==0){echo"Belum Melengkapi";}else{ echo"Sudah Melengkapi";} ?></td>
                     <td><?php echo $data->doku->trxstatus ?></td>
+                    <td><?php echo $data->date_created ?></td>
+                    <td> <a href="<?php echo site_url()."/".$controller."/".$function."_detail/"."".$data->id; ?>" ><button   data-toggle="tooltip" data-original-title="Detail" class="btn btn-info btn-xs btn-mini tip" type="button"><i class="fa fa-file"></i></button></a> </td>
                   </tr>
                   <?php } ?>
                 </tbody>

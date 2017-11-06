@@ -112,6 +112,85 @@
 								</div>
 							</div>
 
+							<div id="confirmation" class="col-md-9 col-md-push-3 my-account form-section tab-pane <?php echo (isset($_GET['mn']) && $_GET['mn'] == 'confirmation')?"active":"" ?>">
+								
+								<h1 class="h2 heading-primary font-weight-normal">Konfirmasi Pesanan</h1>
+								<?php 
+									if(isset($_GET['mn']) && $_GET['mn'] == 'confirmation'){
+
+									
+										if($this->session->flashdata('msg')){
+								?>
+											<div class="alert alert-danger text-center text-login center" style="height: auto;">
+					                        	<?php echo $this->session->flashdata('msg') ?>
+					                        </div>
+								<?php
+										}
+									}
+								?>
+								<div class="featured-box featured-box-primary featured-box-flat featured-box-text-left mt-md">
+									<div class="box-content">
+									
+										<form action="<?php echo site_url('Account/submit_confirmation') ?>" id="frmBillingAddress" method="POST" enctype="multipart/form-data">
+											<input type="hidden" name="id_member" value="<?php echo $this->session->userdata('id') ?>">
+											<div class="row">
+												<div class="col-sm-4 col-md-6">
+													<div class="form-group">
+														<label class="font-weight-normal">No. Invoice<span class="required">*</span></label>
+														<input type="text" name="invoice" value="" class="form-control" required>
+													</div>
+												</div>
+											
+												<div class="col-sm-4 col-md-6">
+													<div class="form-group">
+														<label class="font-weight-normal">Nama Pengirim<span class="required">*</span></label>
+														<input type="text" name="nama_pengirim" value="" class="form-control" required>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-4 col-md-6">
+													<div class="form-group">
+														<label class="font-weight-normal">Metode Pembayaran<span class="required">*</span></label>
+														<select name="metode_pembayaran" required class="form-control">
+															<option value="">-- pilih metode pembayaran --</option>
+															<option value="doku_walet">Doku Wallet</option>
+															<option value="kartu_kredit">Kartu Kredit</option>
+															<option value="alfa_group">Alfamart Group</option>
+															<option value="Internet_banking">Internet Banking</option>
+															<option value="atm_transfer">ATM Transfer</option>
+
+															
+														</select>
+													</div>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-xs-12">
+													<div class="form-group">
+														<label class="font-weight-normal">Notes </label>
+														<textarea class="form-control" name="notes"></textarea>
+													</div>
+												</div>
+
+												
+											</div>
+											<div class="row">
+												<div class="col-xs-12">
+													<p class="required mt-lg mb-none">* Required Fields</p>
+
+													<div class="form-action clearfix mt-none">
+														<a href="#" class="pull-left"><i class="fa fa-angle-double-left"></i> Back</a>
+
+														<input type="submit" name="submit" class="btn btn-primary" value="Save">
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
 							<div id="cp" class="col-md-9 col-md-push-3 my-account form-section tab-pane <?php echo (isset($_GET['mn']) && $_GET['mn'] == 'change_password')?"active":"" ?>">
 								
 								<h1 class="h2 heading-primary font-weight-normal">Change Password</h1>
@@ -518,7 +597,7 @@
 																		$id_payment=$key->id;
 																	foreach ($key->product as $product) {
 																	 if($no==1){?>
-																	<a href="<?php echo site_url('Account?inquiry='.$key->invoice) ?>" ><?php
+																	<a href="#" ><?php
 																		echo $product->title;
 																		$no++;
 																	
@@ -769,6 +848,7 @@
 									</div>
 									<li><a href="#account" data-toggle="tab">Profile</a></li>
 									<li  class="active"><a href="#pesanan" data-toggle="tab">Pesanan (<?php echo $data_pesanan_count ?>)</a></li>
+									<li><a href="#confirmation" data-toggle="tab">Konfirmasi Pesanan</a></li>
 									<li><a href="#mywhislist" data-toggle="tab">My Whislist</a></li>
 									<li><a href="#myexpe" data-toggle="tab">My Experience</a></li>
 									<li><a href="#listexpe" data-toggle="tab">List Experience</a></li>
