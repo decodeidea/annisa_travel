@@ -24,8 +24,12 @@ class Account extends DC_controller {
 		$data = $this->controller_attr;
 		$data['function']='index';
     $data['cek_menu']='0';//kode 0 active default
-    $data_pesanan=select_where_array($this->tbl_payment,$arrayName = array('id_member' => $this->session->userdata('id'),'inquiry'=>NULL ))->result();
-    foreach ($data_pesanan as $key) {
+    if(isset($_GET['inquiry'])){
+    $data_pesanan=select_where_array($this->tbl_payment,$arrayName = array('invoice'=>$_GET['inquiry'],'id_member' => $this->session->userdata('id'),'inquiry'=>NULL ));
+    }else{
+    $data_pesanan=select_where_array($this->tbl_payment,$arrayName = array('id_member' => $this->session->userdata('id'),'inquiry'=>NULL ));
+    }
+    foreach ($data_pesanan->result() as $key) {
       $doku=select_where($this->tbl_doku,'transidmerchant',$key->invoice)->row();
       $key->doku=$doku;
         $pay_program=select_where($this->tbl_payment_product,'id_payment',$key->id)->result();
@@ -35,7 +39,21 @@ class Account extends DC_controller {
         }
         $key->product=$pay_program;
     }
-    $data['data_pesanan']=$data_pesanan;
+    $data_pesanan_done=select_where_array($this->tbl_payment,$arrayName = array('id_member' => $this->session->userdata('id'),'inquiry'=>1 ));
+    foreach ($data_pesanan_done->result() as $key) {
+      $doku=select_where($this->tbl_doku,'transidmerchant',$key->invoice)->row();
+      $key->doku=$doku;
+        $pay_program=select_where($this->tbl_payment_product,'id_payment',$key->id)->result();
+        foreach ($pay_program as $key2) {
+          $program=select_where($this->tbl_program,'id',$key2->id_program)->row();
+          $key2->title=$program->title;
+        }
+        $key->product=$pay_program;
+    }
+    $data['data_pesanan_count']=select_where_array($this->tbl_payment,$arrayName = array('id_member' => $this->session->userdata('id'),'inquiry'=>NULL ))->num_rows();
+    $data['data_pesanan']=$data_pesanan->result();
+    
+    $data['data_pesanan_done']=$data_pesanan_done->result();
     $data['data']=select_where($this->tbl_member,'id',$this->session->userdata('id'))->row();
 		$data['page'] = $this->load->view('Account/index',$data,true);
 		$this->load->view('layout_frontend',$data);
@@ -62,6 +80,33 @@ class Account extends DC_controller {
     }else{
       $this->session->set_flashdata('msg','Maaf anda harus login terlebih dahulu untuk memesan program');
       redirect(site_url('Account/login'));
+     
+    }
+  }
+
+  function submit_confirmation(){
+    $data = $this->controller_attr;
+    $data['function']='submit_confirmation';
+    $data['cek_menu']='0';//1kode active whislist
+    $payment=select_where($this->tbl_payment,'invoice',$this->input->post('invoice'))->num_rows();
+    if($payment>0){
+        $tmp_data=array(
+          'id_member'=>$this->session->userdata('id'),
+          'invoice'=>$this->input->post('invoice'),
+          'nama_pengirim'=>$this->input->post('nama_pengirim'),
+          'metode_pembayaran'=>$this->input->post('metode_pembayaran'),          
+          'notes'=>$this->input->post('notes'),
+          'date_created'=>date('Y-m-d H:i:s'),
+        );
+        $insert=$this->db->insert($this->tbl_confirmation,$tmp_data);
+        if($insert){
+          $this->session->set_flashdata('msg','Form konfirmasi pesanan anda berhasil dikirim.');
+         redirect(site_url('Account?mn=confirmation'));
+        }
+      
+    }else{
+      $this->session->set_flashdata('msg','Maaf no invoice anda tidak terdaftar');
+      redirect(site_url('Account?mn=confirmation'));
      
     }
   }
@@ -343,6 +388,48 @@ class Account extends DC_controller {
    
   }
 }
+
+function submit_inquiry(){
+  $table_field = $this->db->list_fields('dc_inquiry');
+    $no=$this->input->post('number');
+    for ($i=1; $i<=1; $i++) { 
+    $insert = array();
+        foreach ($table_field as $field) {
+          if($field!='id'){
+            $insert[$field] = $this->input->post($field)[$i];
+          }
+        }
+        $insert['foto_ktp']=$_FILES['foto_ktp']['name'][$i];
+        $insert['foto_paspor']=$_FILES['foto_paspor']['name'][$i];
+        $insert['date_created']= date("Y-m-d H:i:s");
+        $insert['id_payment']=$this->input->post('id_payment');
+        $query=insert_all('dc_inquiry',$insert);
+        $insert['id']=$this->input->post('id');
+    if($query){
+      if (!file_exists('assets/uploads/inquiry/'.$this->db->insert_id())) {
+            mkdir('assets/uploads/inquiry/'.$this->db->insert_id(), 0777, true);
+       }
+             $file1= 'foto_ktp['.$i.']';
+             $file2= 'foto_paspor['.$i.']';
+             $config['upload_path'] = 'assets/uploads/inquiry/'.$this->db->insert_id();
+             $config['allowed_types'] = 'jpg|jpeg|png|gif';
+             $config['file_name'] = $_FILES['foto_ktp']['name'][$i];
+             $this->upload->initialize($config);
+             $this->upload->do_upload($file1);
+             $this->upload->display_errors();
+             $config['upload_path'] = 'assets/uploads/inquiry/'.$this->db->insert_id();
+             $config['allowed_types'] = 'jpg|jpeg|png|gif';
+             $config['file_name'] = $_FILES['foto_paspor']['name'][$i];
+             $this->upload->initialize($config);
+             $this->upload->do_upload($file2);
+        }
+      }
+      update('dc_payment',$update= array('inquiry' => 1, ),'id',$insert['id_payment']);
+      $this->session->set_flashdata('msg','Perlengkapan data pesanan anda berhasil.');
+      redirect(site_url('Account?pesanan=done'));
+      }
+
+
 public function do_login()
   {
     $this->form_validation->set_rules('email', 'EMAIL', 'trim|required|valid_email');

@@ -2527,3 +2527,8 @@ text-align: center;
 .tp-tabs-inner-wrapper .selected{
   border-top:2px solid #fff;
 }
+.center{
+  float: none;
+  margin: 0 auto;
+  position: relative;
+}

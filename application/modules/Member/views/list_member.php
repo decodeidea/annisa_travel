@@ -21,6 +21,10 @@
                   <tr>
                   <th>No</th>
                     <th>Name</th>
+                     <th>Email</th>
+                      <th>Phone</th>
+                       <th>Address</th>
+                        <th>Join Date</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -32,6 +36,10 @@
                   <tr >
                     <td><?php echo $no ?></td>
                     <td><?php echo $data->first_name ?></td>
+                    <td><?php echo $data->email ?></td>
+                    <td><?php echo $data->phone ?></td>
+                    <td><?php echo $data->address ?></td>
+                    <td><?php echo $data->date_created ?></td>
                   </tr>
                   <?php } ?>
                 </tbody>

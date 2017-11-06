@@ -320,11 +320,18 @@ echo IntervalDays($key->date->day,$key->date->off_day)
             	 ?>
               		<div class="col-md-6 col-sm-6 mb-xlg ">
       					<article  style="border-bottom: 1px solid #eee;padding-left: 20px; padding-right: 20px;">
+<<<<<<< HEAD
       						<div class="row">
 	      						<div class="col-md-9">
 	      							<a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>"><h2 style="color: #3C3C3C"><b><?php echo $key->title ?></b></h2>
 	      							<p><?php echo substr($key->summary, 0,250) ?>....</p>
 	      						</div>
+=======
+      						<div class="col-md-9" style="min-height: 300px;">
+      							<a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>"><h2 style="color: #3C3C3C"><b><?php echo $key->title ?></b></h2>
+      							<p><?php echo substr($key->summary, 0,250) ?>....</p>
+      						</div>
+>>>>>>> 680219b72afef55e18ee84a9e432845531da7ab6
         						<div class="col-md-3 pl-none pr-none">
       								<img src="<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/thumb_<?php echo $key->images ?>" alt="" class="img-responsive" style="width:100%">
         						</div>

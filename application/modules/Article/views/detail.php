@@ -120,7 +120,7 @@
                     <div style="min-height: 50px">
                     <h4 class="font-weight-semibold mb-xs"><?php echo $key->title ?></h4>
                     </div>
-                    <p><?php echo substr($key->summary,0,100) . "..."; ?></p>
+                     <p style="min-height: 100px"> <?php echo substr($key->summary,0,100) . "..."; ?></p>
                     <span class="sf">Start From</span>
                     <span class="item-rp-pb">Rp</span>
                     <span class="item-price-pb"><?php echo idr($key->price1) ?></span>
@@ -208,7 +208,7 @@
 			</div>
 		</section>
 </div>
-<script type="text/javascript" id="st_insights_js" src="http://w.sharethis.com/button/buttons.js?publisher=4bbaedf6-2c2f-4846-b1ac-bef09de330ca"></script>
+<script type="text/javascript" id="st_insights_js" src="https://w.sharethis.com/button/buttons.js?publisher=4bbaedf6-2c2f-4846-b1ac-bef09de330ca"></script>
 <script type="text/javascript">
 	stLight.options({publisher: "4bbaedf6-2c2f-4846-b1ac-bef09de330ca", doNotHash: false, doNotCopy: false, hashAddressBar: false});
 </script>
