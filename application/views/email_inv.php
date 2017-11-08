@@ -178,7 +178,7 @@
 						<div style="margin-top: 15px;width: 45%;float: left;padding: 15px;">
 							<div class="col-md-12" style="height: 80px;padding: 0;clear: both;border-top:1px solid #CCC; border-bottom:1px solid #CCC">
 								<div class="gridb">
-									<img src="img/inv/bca.jpg" width="150" />
+									<img src="<?php echo base_url() ?>assets/theme/inv/img/inv/bca.jpg" width="150" />
 								</div>
 								<div class="gridb" style="text-align: right;padding-top: 17px;">
 									<span style="font-weight: normal;">Bank BCA, Depok</span></br>
@@ -187,7 +187,7 @@
 							</div>
 							<div class="col-md-12" style="height: 80px;padding: 0;clear: both;border-top:1px solid #CCC; border-bottom:1px solid #CCC">
 								<div class="gridb">
-									<img src="img/inv/mandiri-syariah.jpg" width="150" />
+									<img src="<?php echo base_url() ?>assets/theme/inv/img/inv/mandiri-syariah.jpg" width="150" />
 								</div>
 								<div class="gridb" style="    text-align: right;padding-top: 17px;">
 									<span style="font-weight: normal;">Bank BSM, Depok</span></br>
@@ -196,7 +196,7 @@
 							</div>
 							<div class="col-md-12" style="height: 80px;padding: 0;clear: both;border-top:1px solid #CCC; border-bottom:1px solid #CCC">
 								<div class="gridb">
-									<img src="img/inv/bni.jpg" width="150" />
+									<img src="<?php echo base_url() ?>assets/theme/inv/img/inv/bni.jpg" width="150" />
 								</div>
 								<div class="gridb" style="    text-align: right;padding-top: 17px;">
 									<span style="font-weight: normal;">Bank BNI, Depok</span></br>
@@ -205,7 +205,7 @@
 							</div>
 							<div class="col-md-12" style="height: 80px;padding: 0;clear: both;border-top:1px solid #CCC; border-bottom:1px solid #CCC">
 								<div class="gridb">
-									<img src="img/inv/danamon.jpg" width="150" />
+									<img src="<?php echo base_url() ?>assets/theme/inv/img/inv/danamon.jpg" width="150" />
 								</div>
 								<div class="gridb" style="    text-align: right;padding-top: 17px;">
 									<span style="font-weight: normal;">Bank Danamaon, Depok</span></br>
@@ -218,7 +218,7 @@
 						<div style="margin-top: 15px;width: 45%;float: left;padding: 15px;">
 							<div class="col-md-12" style="height: 80px;padding: 0;clear: both;border-top:1px solid #CCC; border-bottom:1px solid #CCC">
 								<div class="gridb">
-									<img src="img/inv/mandiri.jpg" width="150" />
+									<img src="<?php echo base_url() ?>assets/theme/inv/img/inv/mandiri.jpg" width="150" />
 								</div>
 								<div class="gridb" style="    text-align: right;padding-top: 17px;">
 									<span style="font-weight: normal;">Bank Mandiri, Jakarta</span></br>
@@ -227,7 +227,7 @@
 							</div>
 							<div class="col-md-12" style="height: 80px;padding: 0;clear: both;border-top:1px solid #CCC; border-bottom:1px solid #CCC">
 								<div class="gridb">
-									<img src="img/inv/bii.jpg" width="150" />
+									<img src="<?php echo base_url() ?>assets/theme/inv/img/inv/bii.jpg" width="150" />
 								</div>
 								<div class="gridb" style="    text-align: right;padding-top: 17px;">
 									<span style="font-weight: normal;">Bank BII, Depok</span></br>
@@ -236,7 +236,7 @@
 							</div>
 							<div class="col-md-12" style="height: 80px;padding: 0;clear: both;border-top:1px solid #CCC; border-bottom:1px solid #CCC">
 								<div class="gridb">
-									<img src="img/inv/btn.jpg" width="150" />
+									<img src="<?php echo base_url() ?>assets/theme/inv/img/inv/btn.jpg" width="150" />
 								</div>
 								<div class="gridb" style="    text-align: right;padding-top: 17px;">
 									<span style="font-weight: normal;">Bank BTN, Cisalak</span></br>
@@ -245,7 +245,7 @@
 							</div>
 							<div class="col-md-12" style="height: 80px;padding: 0;clear: both;border-top:1px solid #CCC; border-bottom:1px solid #CCC">
 								<div class="gridb">
-									<img src="img/inv/cimb-niaga.jpg" width="150" />
+									<img src="<?php echo base_url() ?>assets/theme/inv/img/inv/cimb-niaga.jpg" width="150" />
 								</div>
 								<div class="gridb" style="    text-align: right;padding-top: 17px;">
 									<span style="font-weight: normal;">Bank CIMB Niaga, Depok</span></br>
@@ -330,7 +330,7 @@
 							<div>
 							<article style="padding-top: 20px;">
 								<div class="col-md-6 pl-none pr-none" style="width:50%; float:left; padding-left:0; padding-right:0;">
-									<img src="img/desti_3.jpg" alt="" class="img-responsive" style="width:100%">
+									<img src="<?php echo base_url() ?>assets/theme/inv/img/desti_3.jpg" alt="" class="img-responsive" style="width:100%">
 								</div>
 								
 								<div class="col-md-6" style="width:45%; float:left; margin-left: 20px;">
