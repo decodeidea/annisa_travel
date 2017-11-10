@@ -18,7 +18,7 @@
 					<li class="col-sm-6 col-md-4 isotope-item p-none mb-xlg">
 						<div class="portfolio-grid-item">
 						<a href="<?php echo site_url() ?>/Destination/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title)?>" class="text-decoration-none popup-with-move-anim">
-						  <img src="<?php echo base_url() ?>assets/uploads/destination/<?php echo $key->id  ?>/<?php echo $key->images ?>" class="img-responsive">
+						  <img src="<?php echo base_url() ?>assets/uploads/destination/<?php echo $key->id  ?>/<?php echo $key->images ?>" class="img-responsive img-fix">
 						  <div class="pd-dest text-center" >
 							<span class="pd-dest-tit"><?php echo $key->title ?></span>
 						  </div>

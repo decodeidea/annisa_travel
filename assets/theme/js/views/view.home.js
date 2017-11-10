@@ -71,16 +71,4 @@ Theme Version:	5.7.2
 		});
 	}
 
-	// Add Object Line
-  var lineEffect = document.createElement('span');
-  lineEffect.className = 'line';
-
-  $('.tp-tabs-inner-wrapper').append(lineEffect);
-
-  // Animation Line
-  var line = $('.line');
-  var activeItem = $('div.tp-tab.selected');
-  // var activeX = $('.tp-tab.selected').position().left;
-  line.width(activeItem.width()).css('left', 0);
-  console.log(activeItem.width());
 }).apply(this, [jQuery]);

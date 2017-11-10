@@ -77,6 +77,20 @@ h1, h2, h3, h4, h5, h6, a, p, span {
     opacity: 1;
   }
 }
+
+
+/*hmm */
+.img-fix{
+    height: 290px !important;
+}
+.img-program{
+  height: 260px !important;
+}
+.img-article{
+  height: 260px !important;
+  width: 392px !important;
+}
+
 /* neo */
 .pd-article{
     padding: 0px 0px 7px 0px;
@@ -1517,6 +1531,10 @@ span.glyphicon.glyphicon-star-empty{
   padding: 10px;
     border: 1px solid #c8e5e7;
     margin-top: 0;
+
+}
+.HA{
+  height: 165px;
 }
 .pd-dest-tit{
   color: #ae0613;
@@ -2110,6 +2128,7 @@ span.glyphicon.glyphicon-star-empty{
   -webkit-transition: ease all 0.3s;
   -moz-transition: ease all 0.3s;
   transition: ease all 0.3s;
+  background-size: 100% 100% !important;
 }
 .portfolio-grid-item .thumb-info .thumb-info-wrapper .thumb-info-title {
   width: 90%;
@@ -2528,7 +2547,7 @@ text-align: center;
   border-top:2px solid #fff;
 }
 .center{
-  float: none;
+  
   margin: 0 auto;
   position: relative;
 }

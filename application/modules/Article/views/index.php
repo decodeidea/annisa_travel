@@ -16,11 +16,11 @@
 								<li class="col-sm-6 col-md-4 isotope-item p-none mb-xlg">
 									<div class="portfolio-grid-item">
 									<a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" class="text-decoration-none popup-with-move-anim">
-									  <img src="<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/<?php echo $key->images?>" class="img-responsive">
-									  <div class="pd-dest">
+									  <img src="<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/<?php echo $key->images?>" class="img-responsive img-article">
+									  <div class="pd-dest HA">
 										<span class="pd-dest-tit"><?php echo $key->title ?></span>
 										</br>
-										<span class="pd-dest-date"><?php echo  substr($key->summary, 0,250); ?></span>
+										<span class="pd-dest-date"><?php echo  substr($key->summary, 0,150); ?></span>
 										</br>
 											
 									  </div>

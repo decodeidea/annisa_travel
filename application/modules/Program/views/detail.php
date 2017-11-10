@@ -1,4 +1,24 @@
 <?php $this->session->set_userdata('current',current_url()); ?>
+<script>
+jQuery(document).ready(function($) {
+  $('.popup').click(function(event) {
+    var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+        url    = this.href,
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+    
+    window.open(url, 'twitter', opts);
+ 
+    return false;
+  });
+   });
+</script>
 <div role="main" class="main pt-sm">
         <div class="container">
       <div class="row">
@@ -174,29 +194,36 @@
                   </div>
                   
                 </div>
-
+                <?php
+                  //print_r(base_url());die();
+                  $title = $data->title;
+                  $summary = $data->summary;
+                  $image='http://demo.berbagiyuks.com/black-white-img/img/1.jpg';
+                  $url = site_url()."/Program/detail/".$data->id."/".str_replace(" ", "-",$data->title);
+                  //print_r($url);die();
+                ?>
                 <div class="nav div-sosmed">
                   <div class="col-md-12">
                     <div class="social">
                       <span class="text-right"><p>SHARE TO FREIND</p></span>
-                      <a class="social-icon facebook" target="blank" data-tooltip="Facebook" href="http://www.facebook.com/SOJITRAHIREN">
+                      <a class="social-icon facebook" target="blank" data-tooltip="Facebook" href="javascript: void(0)" onClick="window.open('http://www.facebook.com/sharer.php?u=[<?php echo $url; ?>]', 'sharer', 'toolbar=0,status=0,width=550,height=400');">
                       <i class="fa fa-facebook"></i>
                       </a>
 
-                      <a class="social-icon twitter" target="blank" data-tooltip="Twitter" href="https://www.twitter.com/Sojitra_Hiren">
+                      <a class="social-icon twitter" target="blank" data-tooltip="Twitter" href="http://twitter.com/share?source=sharethiscom&text=<?php echo $title;?>&url=<?php echo $url; ?>&via=annisa_travel.com">
                       <i class="fa fa-twitter"></i>
                       </a>
 
-                      <a class="social-icon linkedin" target="blank" data-tooltip="LinkedIn" href="https://www.linkedin.com/in/hirensojitraamreli">
+                      <a class="social-icon linkedin" target="blank" data-tooltip="LinkedIn" href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $url; ?> &title=<?php echo $title;?>&summary=<?php echo $summary;?>&source=annisa_travel.com">
                       <i class="fa fa-linkedin"></i>
                       </a>
 
-                      <a class="social-icon google-plus" target="blank" data-tooltip="Google +" href="https://plus.google.com/+HirenSojitraa">
+                      <a class="social-icon google-plus" target="blank" data-tooltip="Google +" href="javascript:void(0);" onclick="popUp=window.open('https://plus.google.com/share?url=<?php echo $url; ?> ','popupwindow','scrollbars=yes,width=800,height=400');popUp.focus();return false">
                       <i class="fa fa-google-plus"></i>
                       </a>
 
-                      <a class="social-icon email" target="blank" data-tooltip="Contact e-Mail" href="mailto:hirensojitra007@gmail.com">
-                      <i class="fa fa-envelope-o"></i>
+                      <!--<a class="social-icon email" target="blank" data-tooltip="Contact e-Mail" href="mailto:hirensojitra007@gmail.com">
+                      <i class="fa fa-envelope-o"></i>!-->
                       </a>
 
                     </div>
