@@ -194,7 +194,7 @@ class Payment extends DC_controller {
     <input name="PURCHASECURRENCY" type="hidden" id="PURCHASECURRENCY" value="360" size="3" maxlength="3" />
     <input name="AMOUNT" type="hidden" id="AMOUNT" value="'.$amount.'.00" size="12" />
     <input name="PURCHASEAMOUNT" type="hidden" id="PURCHASEAMOUNT" value="'.$amount.'.00" size="12" />
-    <input name="TRANSIDMERCHANT" type="hidden" id="TRANSIDMERCHANT" size="16" value="'.$data_payment["invoice"].'" />
+    <input name="TRANSIDMERCHANT" type="hidden" id="TRANSIDMERCHANT" size="16" value="'.$payment_channel.'" />
     <input type="hidden" id="WORDS" name="WORDS"  size="60" value="'.$words.'" />
     <input value="'.date('YmdHis').'" name="REQUESTDATETIME" type="hidden" id="REQUESTDATETIME" size="14" maxlength="14" />
     <input type="hidden" id="SESSIONID" name="SESSIONID" value="'.$sess.'" />
@@ -273,9 +273,10 @@ else {
 	} else {
 
 		if ($status=="SUCCESS") {
-                   $sql = "UPDATE doku SET trxstatus='Success', words='$words', statustype='$statustype', response_code='$response_code', approvalcode='$approvalcode',
-		         trxstatus='$status', payment_channel='$paymentchannel', paymentcode='$paymentcode', session_id='$session_id', bank_issuer='$bank_issuer', creditcard='$cardnumber',
-			 payment_date_time='$payment_date_time', verifyid='$verifyid', verifyscore='$verifyscore', verifystatus='$verifystatus' where transidmerchant='$order_number'";
+                    $sql = "UPDATE doku SET trxstatus='Success', words='$words', statustype='$statustype',
+             trxstatus='$status', payment_channel='$paymentchannel', creditcard='$cardnumber',
+       payment_date_time='$payment_date_time' where transidmerchant='$order_number'";
+        $result = $this->db->query($sql) ;
         // echo "sql : ".$sql;
 		$result=$this->db->query($sql);
 		  if($result){
