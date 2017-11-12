@@ -61,11 +61,17 @@ class Payment extends DC_controller {
 		}
 		
 		if($this->input->post('quantity1')>=1){
+		if($program->disc>0){
+			 $a=($program->price1/100)*$program->disc; 
+			 $price=$program->price1-$a;
+		}else{
+			$price=$program->price1;
+		}
 		$tmp_data=array(
 			'id_member'=>$this->session->userdata('id'),
 			'id_program'=>$this->input->post('id_program'),
 			'id_program_day'=>$this->input->post('date'),
-			'price'=>$program->price1,
+			'price'=>$price,
 			'type_room'=>'quad',
 			'qtt'=>$this->input->post('quantity1'),
 			'date_created'=>date('Y-m-d H:i:s'),
@@ -73,11 +79,17 @@ class Payment extends DC_controller {
 		$insert=$this->db->insert($this->tbl_tmp_payment,$tmp_data);
 		}
 		if($this->input->post('quantity2')>=1){
+			if($program->disc>0){
+			 $a=($program->price2/100)*$program->disc; 
+			 $price=$program->price2-$a;
+		}else{
+			$price=$program->price2;
+		}
 			$tmp_data=array(
 			'id_member'=>$this->session->userdata('id'),
 			'id_program'=>$this->input->post('id_program'),
 			'id_program_day'=>$this->input->post('date'),
-			'price'=>$program->price2,
+			'price'=>$price,
 			'type_room'=>'triple',
 			'qtt'=>$this->input->post('quantity2'),
 			'date_created'=>date('Y-m-d H:i:s'),
@@ -85,11 +97,17 @@ class Payment extends DC_controller {
 		$insert=$this->db->insert($this->tbl_tmp_payment,$tmp_data);
 		}
 		if($this->input->post('quantity3')>=1){
+			if($program->disc>0){
+			 $a=($program->price3/100)*$program->disc; 
+			 $price=$program->price3-$a;
+		}else{
+			$price=$program->price3;
+		}
 			$tmp_data=array(
 			'id_member'=>$this->session->userdata('id'),
 			'id_program'=>$this->input->post('id_program'),
 			'id_program_day'=>$this->input->post('date'),
-			'price'=>$program->price3,
+			'price'=>$price,
 			'type_room'=>'double',
 			'qtt'=>$this->input->post('quantity3'),
 			'date_created'=>date('Y-m-d H:i:s'),
@@ -186,7 +204,7 @@ class Payment extends DC_controller {
 		if($payment=='doku'){
 		$sess=md5(date("Y-m-d H:i:s").rand(111,999));
     $words = sha1($amount.".00".'51168NCpDfgS383l'.$data_payment['invoice']);
-    $form='<form action="https://pay.doku.com/Suite/Receive" id="MerchatPaymentPage" name="MerchatPaymentPage" method="post"  >
+    $form='<form action="https://staging.doku.com/Suite/Receive" id="MerchatPaymentPage" name="MerchatPaymentPage" method="post"  >
     <input name="BASKET" type="hidden" id="BASKET" value="Basket testing 1,'.$amount.'.00,1,'.$amount.'.00" size="100" />
     <input name="MALLID" type="hidden" id="MALLID" value="5116" size="12" />
     <input name="CHAINMERCHANT" type="hidden" id="CHAINMERCHANT" value="NA" size="12" />
@@ -296,37 +314,7 @@ else {
 function notify(){
 	echo "Continue";
 }
-function email(){
-        $emailConfig = [
-            'protocol' => 'smtp', 
-            'smtp_host' => 'ssl://smtp.googlemail.com', 
-            'smtp_port' => 465, 
-            'smtp_user' => 'losing.friends.im@gmail.com', 
-            'smtp_pass' => 'lovelylovely', 
-            'mailtype' => 'html', 
-            'charset' => 'utf-8',
-            'newline'=>'\r\n',
-        ];
-        $from = [
-            'email' => 'losing.friends.im@gmail.com',
-            'name' => 'ilham'
-        ];
-       
-        $to = array('ilhamudzakir@gmail.com');
-        $subject = 'Your gmail subject here';
-     	$message =  'huehehe'; 
-        $this->load->library('email', $emailConfig);
-        $this->email->set_newline("\r\n");
-        $this->email->from($from['email'], $from['name']);
-        $this->email->to($to);
-        $this->email->subject($subject);
-        $this->email->message($message);
-        if (!$this->email->send()) {
-            show_error($this->email->print_debugger());
-        } else {
-            echo 'Success to send email';
-        }
-    }
+
 }
 
 

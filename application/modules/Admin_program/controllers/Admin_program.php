@@ -167,6 +167,22 @@ class Admin_program extends DC_controller {
 		}
 	}
 
+	function program_featured(){
+		$data = $this->controller_attr;
+		$function='program';
+		$id=$this->input->post('id');
+		$value=$this->input->post('value');
+		$update['promo']=$value;
+		$query=update($this->tbl_program,$update,'id',$id);
+		if($query){
+			$this->session->set_flashdata('notif','success');
+			$this->session->set_flashdata('msg','Your data have been deleted');
+		}else{
+			$this->session->set_flashdata('notif','error');
+			$this->session->set_flashdata('msg','Your data not deleted');
+		}
+	}
+
 	function category_program(){
 		$this->check_access();
 		$data = $this->controller_attr;

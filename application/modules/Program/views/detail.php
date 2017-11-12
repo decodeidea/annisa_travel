@@ -109,7 +109,12 @@ jQuery(document).ready(function($) {
                   <input type="hidden" name="id_program" value="<?php echo $data->id ?>">
                   <div class="col-md-7 rt">
                     <span class="room-type">QUAD ROOM</span></br>
-                    <span class="room-price">Rp. <?php echo idr($data->price1) ?>/orang</span>
+                   <?php if($data->disc>0){ ?>
+                       <span class="room-price disc-text">Rp. <?php echo idr($data->price1) ?>/orang</span><br>
+                      <span class="room-price">Rp. <?php $a=($data->price1/100)*$data->disc; $b=$data->price1-$a; echo idr($b);  ?>/orang</span>
+                      <?php }else{ ?>
+                      <span class="room-price">Rp. <?php echo idr($data->price1) ?>/orang</span>
+                      <?php } ?>
                   </div>
                   <div class="col-md-4">
                     <div class="quantity">
@@ -124,7 +129,12 @@ jQuery(document).ready(function($) {
                 <div class="nav div-room">
                   <div class="col-md-7 rt">
                     <span class="room-type">TRIPLE ROOM</span></br>
-                    <span class="room-price">Rp.<?php echo idr($data->price2) ?>/orang</span>
+                   <?php if($data->disc>0){ ?>
+                       <span class="room-price disc-text">Rp. <?php echo idr($data->price2) ?>/orang</span><br>
+                      <span class="room-price">Rp. <?php $a=($data->price2/100)*$data->disc; $b=$data->price2-$a; echo idr($b);  ?>/orang</span>
+                      <?php }else{ ?>
+                      <span class="room-price">Rp. <?php echo idr($data->price2) ?>/orang</span>
+                      <?php } ?>
                   </div>
                   <div class="col-md-4">
                     <div class="quantity">
@@ -139,7 +149,12 @@ jQuery(document).ready(function($) {
                 <div class="nav div-room-white">
                   <div class="col-md-7 rt">
                     <span class="room-type">DOUBLE ROOM</span></br>
-                    <span class="room-price">Rp.<?php echo idr($data->price3) ?>/orang</span>
+                     <?php if($data->disc>0){ ?>
+                       <span class="room-price disc-text">Rp. <?php echo idr($data->price3) ?>/orang</span><br>
+                      <span class="room-price">Rp. <?php $a=($data->price3/100)*$data->disc; $b=$data->price3-$a; echo idr($b);  ?>/orang</span>
+                      <?php }else{ ?>
+                      <span class="room-price">Rp. <?php echo idr($data->price3) ?>/orang</span>
+                      <?php } ?>
                   </div>
                   <div class="col-md-4">
                     <div class="quantity">
@@ -278,7 +293,12 @@ jQuery(document).ready(function($) {
                    <p style="min-height: 100px"> <?php echo substr($key->summary,0,200) . "..."; ?></p>
                     <span class="sf">Start From</span>
                     <span class="item-rp-pb">Rp</span>
-                    <span class="item-price-pb"><?php echo idr($key->price1) ?></span>
+                    <?php if($key->disc>0){ ?>
+                      <span class="item-price-pb-disc1"><?php echo idr($key->price1) ?></span>
+                      <span class="item-price-pb-disc2"><?php $a=($key->price1/100)*$key->disc; $b=$key->price1-$a; echo idr($b);  ?></span>
+                      <?php }else{ ?>
+                      <span class="item-price-pb"><?php echo idr($key->price1) ?></span>
+                      <?php } ?>
                     <!--<span class="item-kos-pb">.000</span>-->
                   </span>
                 </span>

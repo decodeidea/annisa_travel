@@ -14,7 +14,7 @@
 			</div>
 		</div>
 		<?php if($this->session->flashdata('msg')){ ?>
-		<div class="col-md-8 alert alert-danger center">Maaf, silahkan pilih salah satu metode pembayaran untuk bisa melanjutkan proses.</div>
+		<div class="col-md-8 alert alert-danger center-div">Maaf, silahkan pilih salah satu metode pembayaran untuk bisa melanjutkan proses.</div>
 		<?php } ?>
 		<section class="section section-no-border background-color-light p-none">
 			<div class="container">

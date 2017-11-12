@@ -260,7 +260,7 @@ $(document).ready(function() {
         "aoColumnDefs": [
             { "bSortable": false, "aTargets": [ 0 ] }
         ],
-        "aaSorting": [[ 3, "asc" ]],
+        "aaSorting": [[ 1, "asc" ]],
 				"oLanguage": {
 			"sLengthMenu": "_MENU_ ",
 			"sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
@@ -377,6 +377,29 @@ function delete_data()
           };
 
 function featured_destination(id,value){
+	 		controller = $('#controller').val();
+  			method = $('#method').val();
+  			site_url = $('#site_url').val();
+      		$.ajax({
+        	url : controller + "/"+method+"_featured/",
+        	data: {
+        	 "id": id,
+        	 "value":value
+        	  },
+        	type: "POST",
+        	dataType: "JSON",
+        	success: function(data)
+        	{
+        		window.location= site_url +"/"+ controller + "/"+method;
+        	},
+        	error: function (jqXHR, textStatus, errorThrown)
+        	{
+            	alert('Error adding / update data');
+        	}
+    		});
+};
+
+function featured_promo(id,value){
 	 		controller = $('#controller').val();
   			method = $('#method').val();
   			site_url = $('#site_url').val();

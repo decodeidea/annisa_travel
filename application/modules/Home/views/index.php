@@ -74,7 +74,12 @@
 										<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->image_id ?>/<?php echo $key->image ?>');"></span>
 										<span class="item-info">
 											<span class="item-rp">Rp</span>
+											<?php if($key->disc>0){ ?>
+											<span class="item-price-disc1"><?php echo idr($key->price1) ?></span>
+											<span class="item-price-disc2"><?php $a=($key->price1/100)*$key->disc; $b=$key->price1-$a; echo idr($b);  ?></span>
+											<?php }else{ ?>
 											<span class="item-price"><?php echo idr($key->price1) ?></span>
+											<?php } ?>
 										</span>
 									</span>
 								</span>

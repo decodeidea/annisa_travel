@@ -190,6 +190,25 @@ h1, h2, h3, h4, h5, h6, a, p, span {
     bottom: 2px;
     font-weight: 900;
 }
+
+.red-cat-side .prices-disc1 {
+    color: #fff;
+    font-size: 12px;
+    position: absolute;
+    left: 41px;
+    bottom: 9px;
+    font-weight: 900;
+    text-decoration: line-through;
+}
+
+.red-cat-side .prices-disc2 {
+    color: #fff;
+    font-size: 12px;
+    position: absolute;
+    left: 41px;
+    bottom: -2px;
+    font-weight: 900;
+}
 .red-cat-side .koss {
     color: #fff;
     font-size: 11px;
@@ -297,7 +316,6 @@ h1, h2, h3, h4, h5, h6, a, p, span {
   width:80%;
   background-color:#ae0613;
   position:relative;
-  top: 25px;
 }
 @media (max-width: 400px){
   .red-cat {
@@ -361,6 +379,26 @@ h1, h2, h3, h4, h5, h6, a, p, span {
     position: absolute;
     left: 67px;
     bottom: 7px;
+    font-weight: 900;
+}
+.red-cat .price-disc1{
+      color: #fff;
+    font-size: 15px;
+    position: absolute;
+    left: 67px;
+    bottom: 13px;
+    font-weight: 900;
+    text-decoration: line-through;
+}
+.disc-text{
+  text-decoration: line-through;
+}
+.red-cat .price-disc2{
+      color: #fff;
+    font-size: 15px;
+    position: absolute;
+    left: 67px;
+    bottom: 0px;
     font-weight: 900;
 }
 .red-cat .kos{
@@ -826,6 +864,24 @@ ul.custom-comments-style .comment-block {
     position: absolute;
     left: 60px;
     bottom: 13px;
+    font-weight: 900;
+}
+
+.thumb-info-side-image-custom .thumb-info-caption .item-price-pb-disc1{
+    color: #ae0613;
+    font-size: 15px;
+    position: absolute;
+    left: 60px;
+    bottom: 18px;
+    font-weight: 900;
+    text-decoration: line-through;
+}
+.thumb-info-side-image-custom .thumb-info-caption .item-price-pb-disc2{
+    color: #ae0613;
+    font-size: 15px;
+    position: absolute;
+    left: 60px;
+    bottom: 5px;
     font-weight: 900;
 }
 .thumb-info-side-image-custom .thumb-info-caption .item-kos-pb {
@@ -1349,13 +1405,12 @@ html .annis-title{
 }
 .item-info{
   position: absolute;
-    bottom: 10%;
+    bottom: 20%;
     left: 50%;
     z-index: 99;
     background-color: #ae0613;
     width: 205px;
     height: 54px;
-  
 }
 
 .item-rp{
@@ -1374,6 +1429,25 @@ html .annis-title{
     bottom: 13px;
     font-weight: 900;
 }
+
+.item-price-disc1{
+  color: #fff;
+    font-size: 20px;
+    position: absolute;
+    left: 45px;
+    top: 5px;
+    font-weight: 900;
+    text-decoration: line-through;
+}
+.item-price-disc2{
+  color: #fff;
+    font-size: 20px;
+    position: absolute;
+    left: 45px;
+    bottom: 5px;
+    font-weight: 900;
+}
+
 .item-kos{
   color: #fff;
     font-size: 16px;

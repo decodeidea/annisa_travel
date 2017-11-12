@@ -127,7 +127,12 @@
                     <p style="min-height: 100px"><?php echo substr($key->summary,0,100) . "..."; ?></p>
                     <span class="sf">Start From</span>
                     <span class="item-rp-pb">Rp</span>
-                    <span class="item-price-pb"><?php echo idr($key->price1) ?></span>
+                    <?php if($key->disc>0){ ?>
+                      <span class="item-price-pb-disc1"><?php echo idr($key->price1) ?></span>
+                      <span class="item-price-pb-disc2"><?php $a=($key->price1/100)*$key->disc; $b=$key->price1-$a; echo idr($b);  ?></span>
+                      <?php }else{ ?>
+                      <span class="item-price-pb"><?php echo idr($key->price1) ?></span>
+                      <?php } ?>
                     <!--<span class="item-kos-pb">.000</span>-->
                   </span>
                 </span>
@@ -154,22 +159,24 @@
       <div class="col-md-4 pull-right mt-xlg">
               <div class="sidebar">
                 <h2>Hot Promo</h2>
-                <?php foreach ($promo as $key) {
+               <?php foreach ($promo as $key) {
                   # code...
                  ?>
           <div class="row m-none mb-xlg">
-            <div class="col-md-6 pl-none pr-none">
+            <div class="col-lg-6 col-md-12 pl-none pr-none pb-md">
               <!--<div class="badge">
                 <span>5%</span>
               </div>-->
                <a href="<?php echo site_url() ?>/program/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" style="text-decoration: none;"><img src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->id_image ?>/<?php echo $key->image ?>" alt="" class="img-responsive" style="width:100%"></a>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-12 pl-none pr-none">
                <a href="<?php echo site_url() ?>/program/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" style="text-decoration: none;"><h1 class="title-cat-side"><?php echo $key->title ?></h1></a>
               <div class="red-cat-side">
                 <span class="sfs">Start From</span>
-                <span class="rps">Rp</span>
-                <span class="prices"><?php echo idr($key->price1) ?></span>
+                <div class="price-wp">
+                  <span class="rps">Rp</span>
+                  <span class="prices"><?php echo idr($key->price1) ?></span>
+                </div>
                 <!--<span class="koss">.000</span>-->
               </div>
             </div>

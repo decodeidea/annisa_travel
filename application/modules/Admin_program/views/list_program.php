@@ -19,11 +19,14 @@
               <table class="table" id="list_data" >
                 <thead>
                   <tr>
+                    <th></th>
                   <th>No</th>
                     <th><?php echo lang('title') ?></th>
                     <th>Destination</th>
                     <th>Category</th>
+                    <th>Promo</th>
                     <th><?php echo lang('action') ?></th>
+
                     
                   </tr>
                 </thead>
@@ -34,10 +37,12 @@
                 $no++;
                 ?>
                   <tr >
+                    <td></td>
                     <td><?php echo $no ?></td>
                     <td><?php echo $data->title ?></td>
                     <td><?php echo $data->destination ?></td>
                     <td><?php echo $data->category ?></td>
+                    <td><button class="btn btn-<?php if($data->promo==1){echo"info";}else{echo"danger";}?>" onclick="featured_destination(<?php echo $data->id ?>,<?php if($data->promo==1){echo"0";}else{echo"1";} ?>)" id="featured_<?php echo $data->id ?>" data-id="<?php echo $data->id ?>"><?php if($data->promo==0){echo"No";}else{echo"Yes";} ?></button></td>
                     <td>
                     <a href="<?php echo site_url($controller."/".$function."_form/"."".$data->id) ?>" ><button   data-toggle="tooltip" data-original-title="<?php echo lang('edit') ?>" class="btn btn-warning btn-xs btn-mini tip" type="button"><i class="fa fa-pencil"></i></button></a> 
                     <a href="<?php echo site_url($controller."/album_program/"."".$data->id) ?>" ><button   data-toggle="tooltip" data-original-title="Album" class="btn btn-info btn-xs btn-mini tip" type="button"><i class="fa fa-picture-o"></i></button></a> 

@@ -39,7 +39,7 @@ class Article extends DC_controller {
 			$key->category=$category->title;
 		}
 		$data['program_related']=$program_related;
-		$promo=select_where_array_limit_order($this->tbl_program,$array=array('lang'=>$this->lang->lang()),3,'id','DESC')->result();
+		$promo=select_where_array_limit_order($this->tbl_program,$array=array('lang'=>$this->lang->lang(),'promo'=>1),3,'id','DESC')->result();
 		foreach ($promo as $key) {
 			$image=select_where($this->tbl_program_images,'id_program',$key->id)->row();
 			$key->image=$image->images;

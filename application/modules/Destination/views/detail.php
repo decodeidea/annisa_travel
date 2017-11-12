@@ -72,7 +72,14 @@
             <div class="row">
               <div class="col-md-12">
                 <h1 class="mb-sm" style="width:70%;margin-top:50px;"><strong><?php echo $key->title ?> *5</strong></h1>
-                <h4 class="mb-lg"><span class="label label-light text-color-dark p-md">Start from <strong>IDR <?php echo idr($key->price1) ?></strong></span></h4>
+                <h4 class="mb-lg"><span class="label label-light text-color-dark p-md">Start from <strong>IDR </strong> 
+                  <?php if($key->disc>0){ ?>
+                       <strong class="disc-text"><?php echo idr($key->price1) ?></strong>
+                      <strong><?php $a=($key->price1/100)*$key->disc; $b=$key->price1-$a; echo idr($b);  ?></strong>
+                      <?php }else{ ?>
+                      <strong><?php echo idr($key->price1) ?></strong>
+                      <?php } ?>
+                 </span></h4>
                 <p class="text-color-light text-in-banner">
                 <?php echo $key->summary ?>
                 </p>
@@ -96,10 +103,18 @@
               <div class="col-md-6">
                 <a href="<?php echo site_url('program/detail/'.$key->id."/".url_title($key->title)) ?>"><h1 class="title-cat"><?php echo $key->title ?> *<?php echo $no ?></h1></a><!-- 
                 <p><?php echo substr($key->summary, 0,200) ?></p> -->
+               
+                <br>
                 <div class="red-cat">
                   <span class="sf">Start From</span>
                   <span class="rp">Rp</span>
-                  <span class="price"><?php echo idr($key->price1) ?></span><!-- 
+                  <?php if($key->disc>0){ ?>
+                      <span class="price-disc1"><?php echo idr($key->price1) ?></span>
+                      <span class="price-disc2"><?php $a=($key->price1/100)*$key->disc; $b=$key->price1-$a; echo idr($b);  ?></span>
+                      <?php }else{ ?>
+                      <span class="price"><?php echo idr($key->price1) ?></span>
+                      <?php } ?>
+                  <!-- 
                   <span class="kos">.000</span> -->
                 </div>
               </div>
@@ -145,7 +160,6 @@
                   <span class="thumb-info">
                     <span class="thumb-info-wrapper size-cat m-none">
                       <span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>/assets/uploads/news/<?php echo $key->id ?>/<?php echo $key->images ?>');"></span>
-                      <span class="thumb-info-plus-catra">INDO POS</span>
                       <span class="thumb-info-plus-catra-title"><?php echo $key->title ?></span>
                       <p style="min-height: 200px" class="thumb-info-plus-catra-p"><?php echo substr($key->summary, 0,250) ?>.... Red More</p>
                     
@@ -200,7 +214,12 @@
                    <p style="min-height: 150px"> <?php echo substr($key->summary,0,150) . "..."; ?></p>
                     <span class="sf">Start From</span>
                     <span class="item-rp-pb">Rp</span>
-                    <span class="item-price-pb"><?php echo idr($key->price1) ?></span>
+                    <?php if($key->disc>0){ ?>
+                      <span class="item-price-pb-disc1"><?php echo idr($key->price1) ?></span>
+                      <span class="item-price-pb-disc2"><?php $a=($key->price1/100)*$key->disc; $b=$key->price1-$a; echo idr($b);  ?></span>
+                      <?php }else{ ?>
+                      <span class="item-price-pb"><?php echo idr($key->price1) ?></span>
+                      <?php } ?>
                     <!--<span class="item-kos-pb">.000</span>-->
                   </span>
                 </span>

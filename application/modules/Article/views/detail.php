@@ -123,7 +123,12 @@
                      <p style="min-height: 100px"> <?php echo substr($key->summary,0,100) . "..."; ?></p>
                     <span class="sf">Start From</span>
                     <span class="item-rp-pb">Rp</span>
-                    <span class="item-price-pb"><?php echo idr($key->price1) ?></span>
+                   <?php if($key->disc>0){ ?>
+                      <span class="item-price-pb-disc1"><?php echo idr($key->price1) ?></span>
+                      <span class="item-price-pb-disc2"><?php $a=($key->price1/100)*$key->disc; $b=$key->price1-$a; echo idr($b);  ?></span>
+                      <?php }else{ ?>
+                      <span class="item-price-pb"><?php echo idr($key->price1) ?></span>
+                      <?php } ?>
                     <!--<span class="item-kos-pb">.000</span>-->
                   </span>
                 </span>
@@ -166,7 +171,12 @@
 								<span class="sfs">Start From</span>
                 <div class="price-wp">
   								<span class="rps">Rp</span>
-  								<span class="prices"><?php echo idr($key->price1) ?></span>
+                  <?php if($key->disc>0){ ?>
+                      <span class="prices-disc1"><?php echo idr($key->price1) ?></span>
+                      <span class="prices-disc2"><?php $a=($key->price1/100)*$key->disc; $b=$key->price1-$a; echo idr($b);  ?></span>
+                      <?php }else{ ?>
+                      <span class="prices"><?php echo idr($key->price1) ?></span>
+                      <?php } ?>
                 </div>
 								<!--<span class="koss">.000</span>-->
 							</div>

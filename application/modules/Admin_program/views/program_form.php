@@ -65,6 +65,23 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label class="form-label">Discount(%)</label>
+                        <div class="controls">
+                          <input type="text" name="disc" required class="form-control" value="<?php if(isset($data)){ echo $data->disc; } ?>">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">Promo</label>
+                        <div class="controls">
+                          <select required class="select2 form-control" name="promo">
+                            <option value="0" <?php if(isset($data) and $data->promo==0){ echo"selected";} ?>>No</option>
+                             <option value="1" <?php if(isset($data) and $data->promo==1){ echo"selected";} ?>>Yes</option>
+                          </select>
+                        </div>
+                      </div>
+
+
+                      <div class="form-group">
                         <label class="form-label">Short Content</label>
                         <div class="controls">
                           <textarea name="summary" style="height: 300px;" required class="form-control"><?php if(isset($data)){ echo $data->summary; } ?></textarea>
