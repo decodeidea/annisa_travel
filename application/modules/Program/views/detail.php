@@ -221,7 +221,7 @@ jQuery(document).ready(function($) {
                   <div class="col-md-12">
                     <div class="social">
                       <span class="text-right"><p>SHARE TO FREIND</p></span>
-                      <a class="social-icon facebook" target="blank" data-tooltip="Facebook" href="javascript: void(0)" onClick="window.open('http://www.facebook.com/sharer.php?u=[<?php echo $url; ?>]', 'sharer', 'toolbar=0,status=0,width=550,height=400');">
+                      <a class="social-icon facebook" data-tooltip="Facebook" href="javascript: void(0)" onClick="window.open('http://www.facebook.com/sharer.php?u=<?php echo $url; ?>', 'sharer', 'toolbar=0,status=0,width=550,height=400');">
                       <i class="fa fa-facebook"></i>
                       </a>
 
