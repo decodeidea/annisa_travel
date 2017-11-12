@@ -233,7 +233,6 @@ class Payment extends DC_controller {
 else {
 	$order_number = 0;
 	}
-    
     $totalamount = $_POST['AMOUNT'];
     $words    = $_POST['WORDS'];
     $statustype = $_POST['STATUSTYPE'];
@@ -249,29 +248,21 @@ else {
     $verifyid = $_POST['VERIFYID'];
     $verifyscore = $_POST['VERIFYSCORE'];
     $verifystatus = $_POST['VERIFYSTATUS'];
-
 // Validasi Wors
    $MALLID ='5116'; //input mallid
    $SHAREDKEY ='8NCpDfgS383l'; //input sharedkey
-   
    $WORDS_GENERATED = sha1($totalamount.$MALLID.$SHAREDKEY.$order_number.$status.$verifystatus);    
    if ( $words == $WORDS_GENERATED ) {
-
 // Basic SQL
 	$sql = "select transidmerchant,totalamount from doku where transidmerchant='".$order_number."'and trxstatus='Requested'";
 	$hasil=$this->db->query($sql)->num_rows();
 	// echo "sql : ".$sql;
 	$hasil=$checkout['transidmerchant'];
 	$amount=$checkout['totalamount'];
-
 // Custom Field
-
 	if ($hasil<1) {
-
 	  echo 'Stop1';
-
 	} else {
-
 		if ($status=="SUCCESS") {
                     $sql = "UPDATE doku SET trxstatus='Success', words='$words', statustype='$statustype',
              trxstatus='$status', payment_channel='$paymentchannel', creditcard='$cardnumber',
@@ -294,12 +285,9 @@ else {
 		  }else{
 		  	echo "Stop";
 		  }
- 
 		}
 		echo 'Continue';
-	
 	}
-	
 } else {
 	echo "Stop | Words not match";
 	}
@@ -308,5 +296,37 @@ else {
 function notify(){
 	echo "Continue";
 }
+function email(){
+        $emailConfig = [
+            'protocol' => 'smtp', 
+            'smtp_host' => 'ssl://smtp.googlemail.com', 
+            'smtp_port' => 465, 
+            'smtp_user' => 'losing.friends.im@gmail.com', 
+            'smtp_pass' => 'lovelylovely', 
+            'mailtype' => 'html', 
+            'charset' => 'utf-8',
+            'newline'=>'\r\n',
+        ];
+        $from = [
+            'email' => 'losing.friends.im@gmail.com',
+            'name' => 'ilham'
+        ];
+       
+        $to = array('ilhamudzakir@gmail.com');
+        $subject = 'Your gmail subject here';
+     	$message =  'huehehe'; 
+        $this->load->library('email', $emailConfig);
+        $this->email->set_newline("\r\n");
+        $this->email->from($from['email'], $from['name']);
+        $this->email->to($to);
+        $this->email->subject($subject);
+        $this->email->message($message);
+        if (!$this->email->send()) {
+            show_error($this->email->print_debugger());
+        } else {
+            echo 'Success to send email';
+        }
+    }
 }
+
 

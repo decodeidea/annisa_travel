@@ -2,11 +2,11 @@
   <div class="header-body-none">
     <div class="header-container container">
       <div class="header-logo">
-        <a href="<?php echo site_url() ?>">
+        <a href="<?php echo base_url() ?>">
           <img alt="Annisa Travel" width="160" src="<?php echo base_url() ?>assets/theme/img/logo.png">
         </a>
       </div>
-      <div class="header-nav header-menu-left">
+      <div class="header-nav">
         <div class="header-nav-main collapse">
           <nav>
             <ul class="nav nav-pills" id="mainNav">
@@ -16,7 +16,7 @@
                 </a>
               </li>
               <li class="dropdown">
-                <a class="dropdown-toggle dnone" href="#">
+                <a class="dropdown-toggle dnone" href="<?php echo site_url('program') ?>">
                   Wisata
                 </a>
               </li>
@@ -47,16 +47,20 @@
         <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
           <i class="fa fa-bars"></i>
         </button>
-        <button class="btn header-btn-collapse-nav nv-right" href="javascript:void()" data-toggle="modal" data-target="#modal-search">
-            <i class="fa fa-search"></i>
-        </button>
-
         <div class="header-nav-main header-nav-main-right collapse">
           <nav>
             <ul class="nav nav-pills" id="mainNav">
               <li class="dropdown">
                 <a class="dropdown-toggle" href="#">
-                  <img src="<?php echo base_url() ?>assets/theme/img/blank.gif" class="flag flag-us" alt="English">
+                  <?php
+                  if($this->lang->lang()=='en'){
+                    $flag='us';
+                    }else{
+                      $flag='id';
+                    }  
+                   ?>
+                  
+                  <img src="<?php echo base_url() ?>assets/theme/img/blank.gif" class="flag flag-<?php echo $flag ?>" alt="Indonesia">
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li>
@@ -69,16 +73,16 @@
               </li>
               <?php if($this->session->userdata('validated')){ ?>
               <li class="">
-                <a class="dnone" href="<?php echo site_url('Account') ?>">Hello, <?php echo $this->session->userdata('firstname') ?></a>
+                <a class="dnone" href="<?php echo site_url('account') ?>">Hello, <?php echo $this->session->userdata('firstname') ?></a>
               </li>
               <?php }else{ ?>
               <li class="">
-                <a class="dnone"  href="<?php echo site_url('Account/login') ?>">
+                <a class="dnone"  href="<?php echo site_url('account/login') ?>">
                   Sign In
                 </a>
               </li>
               <li class="">
-                <a class="dnone" href="<?php echo site_url('Account/register') ?>">
+                <a class="dnone" href="<?php echo site_url('account/register') ?>">
                   Sign Up
                 </a>
               </li>

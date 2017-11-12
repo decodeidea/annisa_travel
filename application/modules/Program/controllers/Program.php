@@ -27,6 +27,8 @@ class Program extends DC_controller {
 			$image=select_where($this->tbl_program_images,'id_program',$key->id)->row();
 			$key->image=$image->images;
 			$key->id_image=$image->id;
+			$date=select_where($this->tbl_program_day,'id_program',$key->id)->row();
+			$key->date=$date;
 		}
 		$data['list']=$program;
 		$data['page'] = $this->load->view('Program/index',$data,true);

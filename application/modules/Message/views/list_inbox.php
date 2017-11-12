@@ -41,7 +41,7 @@
                     <td><?php echo $data->subject ?></td>
                     <td><?php echo get_date($data->date_created) ?></td>
                     <td>
-                    <a href="<?php echo base_url()."".$controller."/compose/".urlencode($data->email); ?>" ><button   data-toggle="tooltip" data-original-title="Reply" class="btn btn-warning btn-xs btn-mini tip" type="button"><i class="fa fa-reply"></i></button></a>  </td>
+                    <a href="<?php echo base_url().$this->lang->lang()."/".$controller."/compose/".urlencode($data->email); ?>" ><button   data-toggle="tooltip" data-original-title="Reply" class="btn btn-warning btn-xs btn-mini tip" type="button"><i class="fa fa-reply"></i></button></a>  </td>
                   </tr>
                   <?php } ?>
                 </tbody>

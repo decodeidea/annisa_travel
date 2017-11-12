@@ -113,7 +113,7 @@
         <?php foreach ($program_related as $key) {
          ?>
           <div class="col-sm-4 col-md-4">
-            <a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" class="text-decoration-none">
+            <a href="<?php echo site_url() ?>/program/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" class="text-decoration-none">
               <span class="thumb-info thumb-info-side-image thumb-info-side-image-custom thumb-info-no-zoom thumb-info-no-zoom thumb-info-side-image-custom-highlight">
                 <span class="thumb-info-side-image-wrapper">
                   <img alt="" class="img-responsive" src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->id_image ?>/<?php echo $key->image ?>">
@@ -124,7 +124,7 @@
                     <div style="min-height: 50px">
                     <h4 class="font-weight-semibold mb-xs"><?php echo $key->title ?></h4>
                     </div>
-                    <p><?php echo substr($key->summary,0,100) . "..."; ?></p>
+                    <p style="min-height: 100px"><?php echo substr($key->summary,0,100) . "..."; ?></p>
                     <span class="sf">Start From</span>
                     <span class="item-rp-pb">Rp</span>
                     <span class="item-price-pb"><?php echo idr($key->price1) ?></span>
@@ -145,8 +145,8 @@
                   # code...
                  ?>
                 <div class="sidebar-article">
-                  <a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" style="text-decoration: none;"><img src="<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/<?php echo $key->images ?>" width="100%"></a>
-                  <a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" style="text-decoration: none;"><span><?php echo $key->title ?></span></a>
+                  <a href="<?php echo site_url() ?>/article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" style="text-decoration: none;"><img src="<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/<?php echo $key->images ?>" width="100%"></a>
+                  <a href="<?php echo site_url() ?>/article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" style="text-decoration: none;"><span><?php echo $key->title ?></span></a>
                 </div>
                 <?php } ?>
               </div>
@@ -162,10 +162,10 @@
               <!--<div class="badge">
                 <span>5%</span>
               </div>-->
-               <a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" style="text-decoration: none;"><img src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->id_image ?>/<?php echo $key->image ?>" alt="" class="img-responsive" style="width:100%"></a>
+               <a href="<?php echo site_url() ?>/program/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" style="text-decoration: none;"><img src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->id_image ?>/<?php echo $key->image ?>" alt="" class="img-responsive" style="width:100%"></a>
             </div>
             <div class="col-md-6">
-               <a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" style="text-decoration: none;"><h1 class="title-cat-side"><?php echo $key->title ?></h1></a>
+               <a href="<?php echo site_url() ?>/program/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" style="text-decoration: none;"><h1 class="title-cat-side"><?php echo $key->title ?></h1></a>
               <div class="red-cat-side">
                 <span class="sfs">Start From</span>
                 <span class="rps">Rp</span>

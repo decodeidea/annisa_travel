@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2017 at 02:48 AM
+-- Generation Time: Nov 12, 2017 at 02:12 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -361,7 +361,7 @@ CREATE TABLE `dc_member` (
 --
 
 INSERT INTO `dc_member` (`id`, `login_type`, `password`, `first_name`, `email`, `address`, `phone`, `profile_pict`, `date_created`, `date_modified`, `verified_account`, `delete_flag`) VALUES
-(14, 3, 'a', 'Ilham Mudzakir', 'ilhamudzakir@gmail.com', '', '', 'https://lh3.googleusercontent.com/-0IuMoSMq5Cc/AAAAAAAAAAI/AAAAAAAAACg/xIyLski47ss/photo.jpg', '2017-10-15 04:59:35', '0000-00-00 00:00:00', 0, 0),
+(14, 0, '', 'Ilham Mudzakirr', 'ilhamudzakir@gmail.com', 'fsdfsdfsd', '423523', 'https://lh3.googleusercontent.com/-0IuMoSMq5Cc/AAAAAAAAAAI/AAAAAAAAACg/xIyLski47ss/photo.jpg', '2017-10-15 04:59:35', '2017-11-11 14:45:02', 0, NULL),
 (15, 1, '123456', 'hahaha', 'ilhamudzakirr@gmail.com', NULL, '087874238245', NULL, '2017-10-24 09:48:17', NULL, 0, NULL),
 (16, 1, '4ee48d77', 'Reni Wati', 'reniwati@annisatravel.com', NULL, '08111140706', NULL, '2017-10-24 09:48:26', NULL, 0, NULL),
 (17, 1, 'wirubel', 'Cahya', 'cahya@annisatravel.com', NULL, '085755827627', NULL, '2017-10-24 09:49:28', NULL, 0, NULL),
@@ -863,6 +863,25 @@ INSERT INTO `dc_static_content` (`id`, `title`, `images`, `content`, `lang`, `da
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `dc_subscribe`
+--
+
+CREATE TABLE `dc_subscribe` (
+  `id` int(110) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `created_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `dc_subscribe`
+--
+
+INSERT INTO `dc_subscribe` (`id`, `email`, `created_date`) VALUES
+(2, 'ilhamudzakir@gmail.com', '2017-11-12 06:20:49');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `dc_tmp_payment`
 --
 
@@ -876,6 +895,13 @@ CREATE TABLE `dc_tmp_payment` (
   `qtt` int(100) NOT NULL,
   `date_created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `dc_tmp_payment`
+--
+
+INSERT INTO `dc_tmp_payment` (`id`, `id_member`, `id_program`, `id_program_day`, `type_room`, `price`, `qtt`, `date_created`) VALUES
+(1, 14, 15, 19, 'quad', 12450000, 1, '2017-11-07 17:04:28');
 
 -- --------------------------------------------------------
 
@@ -1179,6 +1205,12 @@ ALTER TABLE `dc_static_content`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `dc_subscribe`
+--
+ALTER TABLE `dc_subscribe`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `dc_tmp_payment`
 --
 ALTER TABLE `dc_tmp_payment`
@@ -1324,10 +1356,15 @@ ALTER TABLE `dc_program_images`
 ALTER TABLE `dc_static_content`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
+-- AUTO_INCREMENT for table `dc_subscribe`
+--
+ALTER TABLE `dc_subscribe`
+  MODIFY `id` int(110) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `dc_tmp_payment`
 --
 ALTER TABLE `dc_tmp_payment`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `dc_user`
 --

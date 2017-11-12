@@ -15,7 +15,13 @@
                       <div class="form-group">
                         <label class="form-label">Email</label>
                         <div class="controls">
-                          <input type="text" name="email" class="form-control" value="<?php if(isset($email)){ echo urldecode($email); } ?>">
+                          <select class="select2 form-control" required name="email">
+                            <?php if(isset($email)){echo"<option value='urldecode($email)'>".urldecode($email)."</option>"; } ?>
+                            <option value="all">all</option>
+                            <?php foreach ($list as $key){ ?>
+                            <option value="<?php echo $key->email ?>"><?php echo $key->email ?></option>
+                            <?php } ?>
+                          </select>
                         </div>
                       </div>
 
@@ -48,5 +54,5 @@
             </div>
           </div>
 
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.js"></script>

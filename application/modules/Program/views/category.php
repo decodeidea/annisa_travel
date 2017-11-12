@@ -18,7 +18,7 @@
            ?>
           <li class="col-sm-6 col-md-4 isotope-item p-none mb-xlg">
             <div class="portfolio-grid-item">
-            <a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo str_replace(" " , "-", $key->title) ?>" class="text-decoration-none popup-with-move-anim">
+            <a href="<?php echo site_url() ?>/program/detail/<?php echo $key->id ?>/<?php echo str_replace(" " , "-", $key->title) ?>" class="text-decoration-none popup-with-move-anim">
               <img src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->id_image ?>/<?php echo $key->image ?>" class="img-responsive">
               <div class="pd-dest">
               <span class="pd-dest-tit"><?php echo $key->title ?></span>

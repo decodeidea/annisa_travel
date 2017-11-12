@@ -40,6 +40,7 @@ class Message extends DC_controller {
         else{
             $data['email'] = null;
         }
+        $data['list']=select_all('dc_subscribe');
 		$data['page'] = $this->load->view('Message/inbox_form',$data,true);
 		$this->load->view('layout_backend',$data);
 	}

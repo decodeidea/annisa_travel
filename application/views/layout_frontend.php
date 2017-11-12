@@ -9,7 +9,7 @@ $this->session->unset_userdata('msg');
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-		<title><?php if($this->uri->segment(2)!=''){ echo $this->uri->segment(2);}else{echo"Annisa Travel";} if($this->uri->segment(5)!='') {
+		<title><?php if($this->uri->segment(2)=='' or $this->uri->segment(2)=='home'){echo"Annisa Travel"; }else{echo ucwords($this->uri->segment(2));} if($this->uri->segment(5)!='') {
 			echo" | ";
 			echo str_replace("-", " ", $this->uri->segment(5));
 		}  ?></title>
@@ -81,6 +81,7 @@ $this->session->unset_userdata('msg');
 
   <body>
     <div class="body">
+    	<input type="hidden" name="base_url" id="base_url" value="<?php echo base_url() ?>">
      <?php
      if($this->uri->segment(3)!='register' and $this->uri->segment(3)!='login'){
         $this->load->view('header');
@@ -163,11 +164,13 @@ $this->session->unset_userdata('msg');
   								<form id="newsletterForm" action="#" method="POST">
                     <div class="row">
                       <div class="col-md-9">
-                        <input class="form-control" style="height: 50px;" placeholder="Masukkan Email Kamu di Sini" name="newsletterEmail" id="newsletterEmail" type="text">
+                        <input id="subscribe_txt" class="form-control" style="height: 50px;" placeholder="Masukkan Email Kamu di Sini" name="newsletterEmail" id="newsletterEmail" type="email">
                       </div>
 
                       <div class="col-md-3" style="padding-left: 0px;">
-                        <button class="btn btn-primary btn-block" style="height: 50px;" type="submit">Kirim</button>
+                        <button class="btn btn-primary btn-block" style="height: 50px;" type="button" onclick="save_subscribe()" id="btn_subscribe">Kirim</button>
+                      </div>
+                      <div class="col-md-9" id="result_subscribe">
                       </div>
                     </div>
   								</form>
@@ -247,7 +250,7 @@ $this->session->unset_userdata('msg');
     <script src="<?php echo base_url() ?>assets/theme/vendor/circle-flip-slideshow/js/jquery.flipshow.min.js"></script>
     <script src="<?php echo base_url() ?>assets/theme/js/views/view.home.js"></script>
     <script src="<?php echo base_url() ?>assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
-<?php if($this->uri->segment(2)=='Program' and $this->uri->segment(3)=='detail') { }else{?>
+<?php if($this->uri->segment(2)=='program' and $this->uri->segment(3)=='detail') { }else{?>
 
 	<!-- Theme Custom -->
 	<script src="<?php echo base_url() ?>assets/theme/js/custom.js"></script>

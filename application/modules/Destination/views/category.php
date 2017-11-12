@@ -34,7 +34,7 @@
                  ?>
             <div class="col-md-4">
         <div class="portfolio-grid-item">
-          <a href="<?php echo site_url() ?>/Program/category/<?php echo $data->id ?>/<?php echo $key->category->id ?>/<?php echo str_replace(" ", "-", $key->category->title) ?>" class="text-decoration-none popup-with-move-anim">
+          <a href="<?php echo site_url() ?>/program/category/<?php echo $data->id ?>/<?php echo $key->category->id ?>/<?php echo str_replace(" ", "-", $key->category->title) ?>" class="text-decoration-none popup-with-move-anim">
             <span class="thumb-info">
               <span class="thumb-info-wrapper size-4 m-none">
                 <span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/uploads/category_program/<?php echo $key->category->id ?>/<?php echo $key->category->images ?>');"></span>

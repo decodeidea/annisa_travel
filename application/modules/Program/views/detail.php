@@ -120,7 +120,7 @@ jQuery(document).ready(function($) {
                   </div>
                 </div>
                 <?php } ?>
-                 <?php if($data->price1!=2){ ?>
+                 <?php if($data->price2!=0){ ?>
                 <div class="nav div-room">
                   <div class="col-md-7 rt">
                     <span class="room-type">TRIPLE ROOM</span></br>
@@ -199,7 +199,7 @@ jQuery(document).ready(function($) {
                   $title = $data->title;
                   $summary = $data->summary;
                   $image='http://demo.berbagiyuks.com/black-white-img/img/1.jpg';
-                  $url = site_url()."/Program/detail/".$data->id."/".str_replace(" ", "-",$data->title);
+                  $url = site_url()."/program/detail/".$data->id."/".str_replace(" ", "-",$data->title);
                   //print_r($url);die();
                 ?>
                 <div class="nav div-sosmed">
@@ -264,7 +264,7 @@ jQuery(document).ready(function($) {
         <?php foreach ($program_related as $key) {
          ?>
           <div class="col-sm-4 col-md-3">
-            <a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" class="text-decoration-none">
+            <a href="<?php echo site_url() ?>/program/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-", $key->title) ?>" class="text-decoration-none">
               <span class="thumb-info thumb-info-side-image thumb-info-side-image-custom thumb-info-no-zoom thumb-info-no-zoom thumb-info-side-image-custom-highlight">
                 <span class="thumb-info-side-image-wrapper">
                   <img alt="" class="img-responsive" src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->id_image ?>/<?php echo $key->image ?>">

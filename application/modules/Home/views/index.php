@@ -32,9 +32,9 @@
                   data-width="750"
                   data-height="auto"
                   style="z-index: 5"
-                  data-mask_in="x:0px;y:0px;"> <a href="<?php echo site_url('Banner/detail/'.$key->id.'/'.url_title($key->title)) ?>"><h1 class="home-slider"><?php echo $key->title ?></h1></a></div>
+                  data-mask_in="x:0px;y:0px;"> <a href="<?php echo site_url('banner/detail/'.$key->id.'/'.url_title($key->title)) ?>"><h1 class="home-slider"><?php echo $key->title ?></h1></a></div>
 
-                <a href="<?php echo site_url('Banner/detail/'.$key->id.'/'.url_title($key->title)) ?>"
+                <a href="<?php echo site_url('banner/detail/'.$key->id.'/'.url_title($key->title)) ?>"
                   class="tp-caption more-info"
                   data-hash
                   data-hash-offset="85"
@@ -68,7 +68,7 @@
 					<?php foreach ($top_destination as $key) { ?>
 					<li class="col-md-4 isotope-item p-none top-desti ml">
 						<div class="portfolio-grid-item">
-							<a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>" class="text-decoration-none popup-with-move-anim">
+							<a href="<?php echo site_url() ?>/program/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>" class="text-decoration-none popup-with-move-anim">
 								<span class="thumb-info">
 									<span class="thumb-info-wrapper size-3 m-none">
 										<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->image_id ?>/<?php echo $key->image ?>');"></span>
@@ -81,7 +81,7 @@
 							</a>
 							<div class="image-gallery-line"></div>
 							<div class="image-gallery-title">
-								<a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>" style="text-decoration: none;"><span class="item-title"><?php echo $key->title ?></span>	</a>
+								<a href="<?php echo site_url() ?>/program/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>" style="text-decoration: none;"><span class="item-title"><?php echo $key->title ?></span>	</a>
 							</div>
 							<div class="image-gallery-date">
 								<span class="item-date"><?php echo tanggal_indo(substr($key->date->day, 0,10)) ?> - <?php
@@ -102,7 +102,7 @@ echo IntervalDays($key->date->day,$key->date->off_day)
 				
 				
 				<div class="button-see col-md-12 center">
-					<a class="btn btn-primary mt-xl mb-sm" href="<?php echo site_url() ?>/Program">See More <i class="fa fa-angle-right pl-xs"></i></a>
+					<a class="btn btn-primary mt-xl mb-sm" href="<?php echo site_url() ?>/program">See More <i class="fa fa-angle-right pl-xs"></i></a>
 				</div>
 			</div>
 
@@ -127,7 +127,7 @@ echo IntervalDays($key->date->day,$key->date->off_day)
 						?>
 						<li class="col-sm-12 col-md-<?php if($no==1){echo"8";}elseif($no==2){echo"4";}elseif($no==4){echo"2";}elseif($no==5){echo"8";}else{echo"2";} ?> isotope-item p-none">
 							<div class="portfolio-grid-item">
-								<a href="<?php echo site_url() ?>/Destination/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title)?>" class="text-decoration-none popup-with-move-anim">
+								<a href="<?php echo site_url() ?>/destination/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title)?>" class="text-decoration-none popup-with-move-anim">
 									<span class="thumb-info">
 										<span class="thumb-info-wrapper size-1 m-none">
 											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/uploads/destination/<?php echo $key->id  ?>/<?php echo $key->images ?>');"></span>
@@ -141,7 +141,7 @@ echo IntervalDays($key->date->day,$key->date->off_day)
 						<?php } ?>
 					</ul>
 					<div class="button-see2 col-md-12 center">
-						<a class="btn btn-primary mt-xl mb-sm" href="<?php echo site_url('Destination') ?>">See More <i class="fa fa-angle-right pl-xs"></i></a>
+						<a class="btn btn-primary mt-xl mb-sm" href="<?php echo site_url('destination') ?>">See More <i class="fa fa-angle-right pl-xs"></i></a>
 					</div>
 			</div>
 		</div>
@@ -177,7 +177,7 @@ echo IntervalDays($key->date->day,$key->date->off_day)
 					<?php } ?>
 				</ul>
 				<div class="button-see2 col-md-12 center">
-					<a class="btn btn-primary mt-xl mb-sm" href="<?php echo site_url() ?>/Video">See More <i class="fa fa-angle-right pl-xs"></i></a>
+					<a class="btn btn-primary mt-xl mb-sm" href="<?php echo site_url() ?>/video">See More <i class="fa fa-angle-right pl-xs"></i></a>
 				</div>
 			</div>
 			
@@ -210,7 +210,7 @@ echo IntervalDays($key->date->day,$key->date->off_day)
 								  	<?php $no=1; foreach ($popular_destination as $key) { ?>
 										<div class="item <?php if($no==1){echo"active";} ?> ">
 										  <div class="col-lg-4 col-xs-4 col-md-4 col-sm-4">
-											<a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo url_title($key->title); ?>"><img src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->image_id ?>/<?php echo $key->image ?>" class="img-responsive img-program"></a>
+											<a href="<?php echo site_url() ?>/program/detail/<?php echo $key->id ?>/<?php echo url_title($key->title); ?>"><img src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->image_id ?>/<?php echo $key->image ?>" class="img-responsive img-program"></a>
 											<div class="pd-dest">
 												<a href="<?php echo site_url() ?>/Program/detail/<?php echo $key->id ?>/<?php echo url_title($key->title); ?>" style="text-decoration: none;"><span class="pd-dest-tit"><?php echo $key->title ?></span></a>
 												</br>
@@ -251,7 +251,7 @@ echo IntervalDays($key->date->day,$key->date->off_day)
 						 ?>
 						<li class="col-sm-6 col-md-3 isotope-item p-none">
 							<div class="portfolio-grid-item">
-								<a href="<?php echo site_url() ?>/Experience/detail/<?php echo $key->id ?>/<?php echo url_title($key->title) ?>" class="text-decoration-none popup-with-move-anim">
+								<a href="<?php echo site_url() ?>/experience/detail/<?php echo $key->id ?>/<?php echo url_title($key->title) ?>" class="text-decoration-none popup-with-move-anim">
 									<span class="thumb-info">
 										<span class="thumb-info-wrapper size-4 m-none">
 											<span class="thumb-info-background" style="background-image: url('<?php echo base_url() ?>assets/uploads/experience/<?php echo $key->id ?>/<?php echo $key->images ?>');"></span>
@@ -300,7 +300,7 @@ echo IntervalDays($key->date->day,$key->date->off_day)
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<a href="<?php echo site_url('Article/detail/'.$feat_article->id.'/'.url_title($feat_article->title)) ?>"><h1 style="width:35%;margin-top:250px;"><strong><?php echo $feat_article->title ?></strong></h2>
+						<a href="<?php echo site_url('article/detail/'.$feat_article->id.'/'.url_title($feat_article->title)) ?>"><h1 style="width:35%;margin-top:250px;"><strong><?php echo $feat_article->title ?></strong></h2>
 						
 					</div>
 				</div>
@@ -322,13 +322,9 @@ echo IntervalDays($key->date->day,$key->date->off_day)
       					<article  style="border-bottom: 1px solid #eee;padding-left: 20px; padding-right: 20px;">
 
       						<div class="row">
-	      						<div class="col-md-9">
-	      							<a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>"><h2 style="color: #3C3C3C"><b><?php echo $key->title ?></b></h2>
-	      							<p><?php echo substr($key->summary, 0,250) ?>....</p>
-	      						</div>
 
       						<div class="col-md-9" style="min-height: 300px;">
-      							<a href="<?php echo site_url() ?>/Article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>"><h2 style="color: #3C3C3C"><b><?php echo $key->title ?></b></h2>
+      							<a href="<?php echo site_url() ?>/article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>"><h2 style="color: #3C3C3C"><b><?php echo $key->title ?></b></h2>
       							<p><?php echo substr($key->summary, 0,250) ?>....</p>
       						</div>
 
@@ -346,13 +342,13 @@ echo IntervalDays($key->date->day,$key->date->off_day)
       				?>
       				<?php } ?>
               <div class="col-md-12 mt-xlg center">
-                <a href="<?php echo site_url() ?>/Article"><button type="button" class="btn btn-primary">See More</button></a>
+                <a href="<?php echo site_url() ?>/article"><button type="button" class="btn btn-primary">See More</button></a>
               </div>
     				</div>
           </div>
         </section>
 
-        <div class="container mt-xlg">
+        <!-- <div class="container mt-xlg">
           <div class="row">
             <div class="col-md-6">
               <h4 class="center"><strong>Airlines Partner</strong></h4>
@@ -424,6 +420,6 @@ echo IntervalDays($key->date->day,$key->date->off_day)
     					</div>
             </div>
           </div>
-        </div>
+        </div> -->
 
       </div>

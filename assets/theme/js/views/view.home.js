@@ -72,3 +72,18 @@ Theme Version:	5.7.2
 	}
 
 }).apply(this, [jQuery]);
+
+function save_subscribe(){
+	$("#btn_subscribe").html('<i class="fa fa-refresh fa-spin"></i> Loading...');
+  $.ajax({
+        url: $('#base_url').val()+"id/home"+"/subscribe",
+        data: { "subscribe": $('#subscribe_txt').val() },
+        dataType:"html",
+        type: "post",
+        success: function(data){
+        $("#btn_subscribe").html('Kirim');
+        $('#subscribe_txt').val("");
+         $("#result_subscribe").html(data);
+        }
+    });	
+}

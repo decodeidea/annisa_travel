@@ -51,6 +51,21 @@ class Home extends DC_controller {
 		$data['page'] = $this->load->view('Home/index',$data,true);
 		$this->load->view('layout_frontend',$data);
 	}
+
+	function subscribe(){
+		$subscribe=$this->input->post('subscribe');
+		$count=select_where('dc_subscribe','email',$subscribe)->num_rows();
+		if($count>0){
+			echo"<div class='alert alert-danger'>Maaf, email anda sudah terdaftar di sistem kami.</div>";
+		}else{
+			$insert=insert_all('dc_subscribe',$data=array('email'=>$subscribe,'created_date'=>date('Y-m-d H:i:s')));
+			if($insert){
+				echo"<div class='alert alert-info'>Selamat, email anda berhasil di daftarkan di newsletter.</div>";
+			}else{
+				echo"<div class='alert alert-danger'>Maaf, email anda gagal didaftarkan</div>";
+			}
+		}
+	}
 	
 }
 

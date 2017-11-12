@@ -27,7 +27,7 @@
 									
 										if($this->session->flashdata('msg')){
 								?>
-											<div class="alert alert-danger text-center text-login" style="height: auto;">
+											<div class="alert alert-info text-center text-login center-div" style="height: auto;">
 					                        	<?php echo $this->session->flashdata('msg') ?>
 					                        </div>
 								<?php
@@ -121,7 +121,7 @@
 									
 										if($this->session->flashdata('msg')){
 								?>
-											<div class="alert alert-danger text-center text-login center" style="height: auto;">
+											<div class="alert alert-info text-center text-login center-div" style="height: auto;">
 					                        	<?php echo $this->session->flashdata('msg') ?>
 					                        </div>
 								<?php
@@ -274,9 +274,11 @@
 													<h4><strong>Detail Transaksi</strong></h4>
 													<?php }else{ ?>
 													<div class="row">
-														<div class="col-md-7 center">
+														<?php if($data_pesanan_count>0){ ?>
+														<div class="col-md-7 center-div">
 															<div class="alert alert-warning text-center">Lengkapi Data Pesanan-Pesanan Anda</div>
 														</div>
+														<?php } ?>
 													</div>
 													<?php } ?>
 													<?php foreach ($data_pesanan as $key) {
