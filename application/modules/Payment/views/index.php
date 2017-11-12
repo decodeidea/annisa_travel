@@ -110,7 +110,10 @@
 															<label>Pilih Kartu</label>
 															<select name="kartu_kredit" class="form-control">
 																<option value="">-- Pilih Opsi Pembayaran --</option>
-																<option value="15">Semua Kartu</option>
+																<option value="15">BNI</option>
+																<option value="15">BCA</option>
+																<option value="15">MANDIRI</option>
+																<option value="15">BRI</option>
 															</select>
 														</div>
 														<div class="col-md-5">

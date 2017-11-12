@@ -305,7 +305,7 @@
                                   <div class="col-sm-4 col-md-6">
                                     <div class="form-group">
                                       <label class="font-weight-normal">Foto Paspor</label>
-                                       <img height="300px" src="<?php echo base_url() ?>assets/uploads/inquiry/<?php echo $key->id ?>/<?php echo $key->foto_ktp ?>">
+                                       <img height="300px" src="<?php echo base_url() ?>assets/uploads/inquiry/<?php echo $key->id ?>/<?php echo $key->foto_paspor ?>">
                                     </div>
                                   </div>
                                 

@@ -88,7 +88,7 @@
         </div>
         <div class="button-bayar text-center">
           <?php if($doku->trxstatus!='Failed'){ ?>
-            <a class="btn btn-payment mt-xl mb-sm" href="<?php echo site_url() ?>/Account">LENGKAPI DATA ANDA</a>
+            <a class="btn btn-payment mt-xl mb-sm" href="<?php echo site_url() ?>/Account?inquiry=<?php echo $data->invoice ?>">LENGKAPI DATA ANDA</a>
             <?php } ?>
           </div>
       </div>

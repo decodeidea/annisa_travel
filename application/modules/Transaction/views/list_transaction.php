@@ -20,6 +20,7 @@
                 <thead>
                   <tr>
                   <th>No</th>
+                  <th>No. Invoice</th>
                     <th>Name Program</th>
                     <th>Nama Pemesan</th>
                     <!-- 
@@ -42,6 +43,7 @@
                 ?>
                   <tr >
                     <td><?php echo $no ?></td>
+                    <td><?php echo $data->invoice ?></td>
                     <td><?php echo $data->program ?></td>
                     <td><?php echo $data->member->first_name ?></td>
                    <!--  <td><?php 
@@ -71,7 +73,10 @@
                      ?></td>
                     <td><?php echo idr($data->total_all_amount) ?></td> -->
                     <td><?php if($data->inquiry==0){echo"Belum Melengkapi";}else{ echo"Sudah Melengkapi";} ?></td>
-                    <td><?php echo $data->doku->trxstatus ?></td>
+                    <td><?php if($data->doku->trxstatus=='Success'){echo"Paid";}
+                      elseif($data->doku->trxstatus=='Failed'){
+                        echo"Rejected";
+                      }else{echo"Requested";} ?></td>
                     <td><?php echo $data->date_created ?></td>
                     <td> <a href="<?php echo site_url()."/".$controller."/".$function."_detail/"."".$data->id; ?>" ><button   data-toggle="tooltip" data-original-title="Detail" class="btn btn-info btn-xs btn-mini tip" type="button"><i class="fa fa-file"></i></button></a> </td>
                   </tr>

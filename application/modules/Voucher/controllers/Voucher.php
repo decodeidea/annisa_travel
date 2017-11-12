@@ -56,7 +56,7 @@ class Voucher extends DC_controller {
         }
       	$update['status']= $voucher->status;
         $update['date_modified']= date("Y-m-d H:i:s");
-        $update['id_modifier']=$this->session->userdata['admin']['id'];
+        $update['id_modifier']=$this->session->userdata('admin')['id'];
         $query=update($this->tbl_voucher,$update,'id',$id);
 		if($query){
 			
@@ -75,12 +75,15 @@ class Voucher extends DC_controller {
 		$table_field = $this->db->list_fields($this->tbl_voucher);
 		$insert = array();
 		foreach ($table_field as $field) {
-            $insert[$field] = $this->input->post($field);
+           if($field!='id'){
+            	$insert[$field] = $this->input->post($field);
+			}
         }
 		$insert['status']= 1;
         $insert['date_created']= date("Y-m-d H:i:s");
-        $insert['id_creator']=$this->session->userdata['admin']['id'];
+        $insert['id_creator']=$this->session->userdata('admin')['id'];
         $query=insert_all($this->tbl_voucher,$insert);
+        $insert['id']=$this->input->post('id');
 		if($query){
 			
 			$this->session->set_flashdata('notif','success');

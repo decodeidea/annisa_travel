@@ -56,7 +56,7 @@ class Program extends DC_controller {
 		$data = $this->controller_attr;
 		$data['function']='register';
 		$data['data']=select_where($this->tbl_program,'id',$id)->row();
-		$data['album_image']=select_where($this->tbl_program_images,'id_program',$id)->result();
+		$data['album_image']=select_where_limit_order($this->tbl_program_images,'id_program',$id,'4','id','ASC')->result();
 		$data['date']=select_where($this->tbl_program_day,'id_program',$id)->result();
 		$data['date_start']=select_where_order($this->tbl_program_day,'id_program',$id,'id','ASC')->row();
 		$data['date_stop']=select_where_order($this->tbl_program_day,'id_program',$id,'id','DESC')->row();

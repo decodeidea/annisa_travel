@@ -150,7 +150,7 @@ class Payment extends DC_controller {
 			redirect('Payment');
 		}
 		if($this->input->post('voucher')!=''){
-			$voucher=select_where_array($this->tbl_voucher,$array=array('kode_voucer'=>$this->input->post('voucher'),'status'=>0));
+			$voucher=select_where_array($this->tbl_voucher,$array=array('kode_voucher'=>$this->input->post('voucher'),'status'=>0));
 			if($voucher->num_rows()>0){
 				$voucher=$voucher->row();
 				$id_voucher=$voucher->id;
