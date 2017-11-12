@@ -27,7 +27,7 @@ class Account extends DC_controller {
     if(isset($_GET['inquiry'])){
     $data_pesanan=select_where_array($this->tbl_payment,$arrayName = array('invoice'=>$_GET['inquiry'],'id_member' => $this->session->userdata('id'),'inquiry'=>NULL ));
     }else{
-    $data_pesanan=select_where_array($this->tbl_payment,$arrayName = array('id_member' => $this->session->userdata('id'),'inquiry'=>NULL ));
+    $data_pesanan=$this->db->query("select dc_payment.* from dc_payment inner join doku on doku.id=dc_payment.id_doku where dc_payment.id_member='".$this->session->userdata('id')."' and doku.trxstatus!='Failed' and dc_payment.inquiry=''");
     }
     foreach ($data_pesanan->result() as $key) {
       $doku=select_where($this->tbl_doku,'transidmerchant',$key->invoice)->row();
@@ -39,7 +39,7 @@ class Account extends DC_controller {
         }
         $key->product=$pay_program;
     }
-    $data_pesanan_done=select_where_array($this->tbl_payment,$arrayName = array('id_member' => $this->session->userdata('id'),'inquiry'=>1 ));
+    $data_pesanan_done=$this->db->query("select dc_payment.* from dc_payment inner join doku on doku.id=dc_payment.id_doku where dc_payment.id_member='".$this->session->userdata('id')."' and doku.trxstatus!='Failed' and dc_payment.inquiry='1'");
     foreach ($data_pesanan_done->result() as $key) {
       $doku=select_where($this->tbl_doku,'transidmerchant',$key->invoice)->row();
       $key->doku=$doku;
@@ -50,10 +50,23 @@ class Account extends DC_controller {
         }
         $key->product=$pay_program;
     }
-    $data['data_pesanan_count']=select_where_array($this->tbl_payment,$arrayName = array('id_member' => $this->session->userdata('id'),'inquiry'=>NULL ))->num_rows();
+
+    $data_pesanan_failed= $this->db->query("select dc_payment.* from dc_payment inner join doku on doku.id=dc_payment.id_doku where dc_payment.id_member='".$this->session->userdata('id')."' and doku.trxstatus='Failed'");
+    foreach ($data_pesanan_failed->result() as $key) {
+      $doku=select_where($this->tbl_doku,'transidmerchant',$key->invoice)->row();
+      $key->doku=$doku;
+        $pay_program=select_where($this->tbl_payment_product,'id_payment',$key->id)->result();
+        foreach ($pay_program as $key2) {
+          $program=select_where($this->tbl_program,'id',$key2->id_program)->row();
+          $key2->title=$program->title;
+        }
+        $key->product=$pay_program;
+    }
+    $data['data_pesanan_count']=$this->db->query("select dc_payment.* from dc_payment inner join doku on doku.id=dc_payment.id_doku where dc_payment.id_member='".$this->session->userdata('id')."' and doku.trxstatus!='Failed' and dc_payment.inquiry=''")->num_rows();
     $data['data_pesanan']=$data_pesanan->result();
     
     $data['data_pesanan_done']=$data_pesanan_done->result();
+    $data['data_pesanan_failed']=$data_pesanan_failed->result();
     $data['data']=select_where($this->tbl_member,'id',$this->session->userdata('id'))->row();
 		$data['page'] = $this->load->view('Account/index',$data,true);
 		$this->load->view('layout_frontend',$data);

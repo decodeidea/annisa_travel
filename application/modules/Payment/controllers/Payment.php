@@ -40,6 +40,7 @@ class Payment extends DC_controller {
 			$program=select_where($this->tbl_program,'id',$key->id_program)->row();
 			$key->program=$program;
 		}
+		$data['doku']=select_where($this->tbl_doku,'transidmerchant',$data['data']->invoice)->row();
 		$data['product']=$product;
 		$data['page'] = $this->load->view('Payment/finish',$data,true);
 		$this->load->view('layout_frontend',$data);
@@ -212,11 +213,11 @@ class Payment extends DC_controller {
     <input name="PURCHASECURRENCY" type="hidden" id="PURCHASECURRENCY" value="360" size="3" maxlength="3" />
     <input name="AMOUNT" type="hidden" id="AMOUNT" value="'.$amount.'.00" size="12" />
     <input name="PURCHASEAMOUNT" type="hidden" id="PURCHASEAMOUNT" value="'.$amount.'.00" size="12" />
-    <input name="TRANSIDMERCHANT" type="hidden" id="TRANSIDMERCHANT" size="16" value="'.$payment_channel.'" />
+    <input name="TRANSIDMERCHANT" type="hidden" id="TRANSIDMERCHANT" size="16" value="'.$data_payment['invoice'].'" />
     <input type="hidden" id="WORDS" name="WORDS"  size="60" value="'.$words.'" />
     <input value="'.date('YmdHis').'" name="REQUESTDATETIME" type="hidden" id="REQUESTDATETIME" size="14" maxlength="14" />
     <input type="hidden" id="SESSIONID" name="SESSIONID" value="'.$sess.'" />
-    <input name="PAYMENTCHANNEL" type="hidden" id="PAYMENTCHANNEL" value="'.$this->input->post("pembayaran").'"  />
+    <input name="PAYMENTCHANNEL" type="hidden" id="PAYMENTCHANNEL" value="'.$payment_channel.'"  />
     <input name="EMAIL" type="hidden" id="EMAIL" value="'.$this->session->userdata("email").'" size="12" />
     <input name="NAME" type="hidden" id="NAME" value="'.$this->session->userdata("firstname").'" size="30" maxlength="50" />
     <input name="ADDRESS" type="hidden" id="ADDRESS" value="" size="50" maxlength="50" />
@@ -243,72 +244,60 @@ class Payment extends DC_controller {
 	}
 	}
 	function regnotify(){
-		$this->db->query("INSERT INTO notif SET msg='".serialize($_POST)."',tipe='registration'");
-		if($_POST['TRANSIDMERCHANT']) {
-        $order_number = $_POST['TRANSIDMERCHANT'];
-        
-	} 
-else {
-	$order_number = 0;
-	}
-    $totalamount = $_POST['AMOUNT'];
-    $words    = $_POST['WORDS'];
-    $statustype = $_POST['STATUSTYPE'];
-    $response_code = $_POST['RESPONSECODE'];
-    $approvalcode   = $_POST['APPROVALCODE'];
-    $status         = $_POST['RESULTMSG'];
-    $paymentchannel = $_POST['PAYMENTCHANNEL'];
-    $paymentcode = $_POST['PAYMENTCODE'];
-    $session_id = $_POST['SESSIONID'];
-    $bank_issuer = $_POST['BANK'];
-    $cardnumber = $_POST['MCN'];
-    $payment_date_time = $_POST['PAYMENTDATETIME'];
-    $verifyid = $_POST['VERIFYID'];
-    $verifyscore = $_POST['VERIFYSCORE'];
-    $verifystatus = $_POST['VERIFYSTATUS'];
-// Validasi Wors
-   $MALLID ='5116'; //input mallid
-   $SHAREDKEY ='8NCpDfgS383l'; //input sharedkey
-   $WORDS_GENERATED = sha1($totalamount.$MALLID.$SHAREDKEY.$order_number.$status.$verifystatus);    
-   if ( $words == $WORDS_GENERATED ) {
-// Basic SQL
-	$sql = "select transidmerchant,totalamount from doku where transidmerchant='".$order_number."'and trxstatus='Requested'";
-	$hasil=$this->db->query($sql)->num_rows();
-	// echo "sql : ".$sql;
-	$hasil=$checkout['transidmerchant'];
-	$amount=$checkout['totalamount'];
-// Custom Field
-	if ($hasil<1) {
-	  echo 'Stop1';
-	} else {
-		if ($status=="SUCCESS") {
-                    $sql = "UPDATE doku SET trxstatus='Success', words='$words', statustype='$statustype',
-             trxstatus='$status', payment_channel='$paymentchannel', creditcard='$cardnumber',
-       payment_date_time='$payment_date_time' where transidmerchant='$order_number'";
-        $result = $this->db->query($sql) ;
-        // echo "sql : ".$sql;
-		$result=$this->db->query($sql);
-		  if($result){
-		  	echo"Continue";
-		  }else{
-		  	echo "Stop";
-		  }
-		} else {
- 
- 		  $sql = "UPDATE doku set trxstatus='Failed' where transidmerchant='".$order_number."'";
-
-		$this->db->query($sql);
- 		if($result){
-		  	echo"Continue";
-		  }else{
-		  	echo "Stop";
-		  }
+		$this->db->query("INSERT INTO notif SET msg='".serialize($_POST)."',created_date='".date('Y-m-d H:i:s')."'");
+		//$id_doku=17;
+		$id_doku=$this->db->insert_id();
+		$notif=select_where('notif','id',$id_doku);
+		if($notif->num_rows()>0){
+			$notif=$notif->row();
+			$doku=unserialize($notif->msg);
+			$order_number = $doku['TRANSIDMERCHANT'];
+			$totalamount = $doku['AMOUNT'];
+    		$words    = $doku['WORDS'];
+    		$statustype = $doku['STATUSTYPE'];
+    		$response_code = $doku['RESPONSECODE'];
+    		$approvalcode   = $doku['APPROVALCODE'];
+    		$status         = $doku['RESULTMSG'];
+    		$paymentchannel = $doku['PAYMENTCHANNEL'];
+    		$session_id = $doku['SESSIONID'];
+    		$bank_issuer = $doku['BANK'];
+    		$cardnumber = $doku['MCN'];
+    		$payment_date_time = $doku['PAYMENTDATETIME'];
+    		$verifyid = $doku['VERIFYID'];
+    		$verifyscore = $doku['VERIFYSCORE'];
+    		$verifystatus = $doku['VERIFYSTATUS'];
+    		if($status=='SUCCESS'){
+    			$data=array(
+    				'transidmerchant' => $order_number,
+    				'totalamount' =>$totalamount,
+    				'words'=>$words,
+    				'statustype'=>$statustype,
+    				'response_code'=>$response_code,
+    				'approvalcode'=>$approvalcode,
+    				'trxstatus'=>'Success',
+    				'payment_channel'=>$paymentchannel,
+    				'session_id'=>$session_id,
+    				'bank_issuer'=>$bank_issuer,
+    				'payment_date_time'=>date('Y-m-d H:i:s'),
+    			);
+    			$update=update('doku',$data,'transidmerchant',$order_number);
+    			if($update){
+    				echo"Continue";
+    			}
+    			else{
+    				echo "Stop";
+    			}
+    		}else{
+    			$data=array(
+    				'trxstatus'=>'Failed',
+    				'payment_date_time'=>date('Y-m-d H:i:s'),
+    			);
+    			$update=update('doku',$data,'transidmerchant',$order_number);
+    		}
+		}else{
+			echo "Stop1";
 		}
-		echo 'Continue';
-	}
-} else {
-	echo "Stop | Words not match";
-	}
+
   
   }
 function notify(){

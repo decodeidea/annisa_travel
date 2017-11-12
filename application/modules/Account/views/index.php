@@ -320,7 +320,13 @@
 																		Rp. <?php echo idr($key->total_all_amount) ?> 
 																		<a class="lr" href="<?php echo site_url('Payment/finish/'.$key->invoice) ?>">Lihat Rincian</a>
 																	</td>
-																	<td style="text-transform: uppercase;"><?php echo $key->doku->trxstatus ?></td>
+																	<td style="text-transform: uppercase;"><?php 
+
+																	 if($key->doku->trxstatus=='Success'){echo"Paid";}
+                      elseif($key->doku->trxstatus=='Failed'){
+                        echo"Rejected";
+                      }else{echo"Requested";}
+																	 ?></td>
 																</tr>
 															</tbody>
 														</table>
@@ -617,7 +623,13 @@
 																		Rp. <?php echo idr($key->total_all_amount) ?> 
 																		<a class="lr" href="<?php echo site_url('Payment/finish/'.$key->invoice) ?>">Lihat Rincian</a>
 																	</td>
-																	<td style="text-transform: uppercase;"><?php echo $key->doku->trxstatus ?></td>
+																	<td style="text-transform: uppercase;"><?php 
+
+																	 if($key->doku->trxstatus=='Success'){echo"Paid";}
+                      elseif($key->doku->trxstatus=='Failed'){
+                        echo"Rejected";
+                      }else{echo"Requested";}
+																	 ?></td>
 																</tr>
 															</tbody>
 														</table>
@@ -627,7 +639,59 @@
 													<?php } ?>
 												</div>
 												<div id="pb" class="tab-pane">
-													
+													<?php foreach ($data_pesanan_failed as $key) {
+														# code...
+													?>
+													<div class="tp">
+														<table class="table-payment">
+															<thead>
+																<tr>
+																	<th>PROGRAM</th>
+																	<th>ROOM</th>
+																	<th>PAX</th>
+																	<th>TOTAL PEMBAYARAN</th>
+																	<th>STATUS</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr class="py-tr">
+																	<td>
+																		<?php $no=1;
+																		$id_payment=$key->id;
+																	foreach ($key->product as $product) {
+																	 if($no==1){?>
+																	<a href="#" ><?php
+																		echo $product->title;
+																		$no++;
+																	
+																	?></a><?php }} ?></td>
+																	<td style="text-transform: uppercase;"><?php
+																	foreach ($key->product as $product) {
+																		echo $product->type_room.", ";
+																	}
+																	?></td>	
+																	<td><?php $qtt=0;foreach ($key->product as $product) {
+																		$qtt+=$product->qtt; 
+
+																	} echo $qtt; ?> Orang</td>
+																	<td> 
+																		Rp. <?php echo idr($key->total_all_amount) ?> 
+																		<a class="lr" href="<?php echo site_url('Payment/finish/'.$key->invoice) ?>">Lihat Rincian</a>
+																	</td>
+																	<td style="text-transform: uppercase;"><?php 
+
+																	 if($key->doku->trxstatus=='Success'){echo"Paid";}
+                      elseif($key->doku->trxstatus=='Failed'){
+                        echo"Rejected";
+                      }else{echo"Requested";}
+																	 ?></td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+
+													<br>
+													<?php } ?>
 												</div>
 											</div>
 										</div>

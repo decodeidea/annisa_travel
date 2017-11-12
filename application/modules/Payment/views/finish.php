@@ -64,14 +64,32 @@
       </div>
       <div class="container">
         <div class="col-md-12 mt-cs text-center">
-          <h3><strong>TERIMA KASIH</strong></h3>
+          <h3><strong><?php
+            if($doku->trxstatus=='Success'){echo"TERIMA KASIH";}
+                      elseif($doku->trxstatus=='Failed'){
+                        echo"MOHON MAAF";
+                      }else{echo"TERIMA KASIH";}
+                                   ?>
+           </strong></h3>
           <p>Transaksi anda telah di proses</p>
+          <p>Status Anda : </p>
+          <h1 class="f-blue">
+          <?php 
+
+                                   if($doku->trxstatus=='Success'){echo"Paid";}
+                      elseif($doku->trxstatus=='Failed'){
+                        echo"Rejected";
+                      }else{echo"Requested";}
+                                   ?>
+                                 </h1>
           <p>Kode Transaksi :</p>
           <h1 class="f-blue">#<?php echo $data->invoice ?></h1>
           
         </div>
         <div class="button-bayar text-center">
+          <?php if($doku->trxstatus!='Failed'){ ?>
             <a class="btn btn-payment mt-xl mb-sm" href="<?php echo site_url() ?>/Account">LENGKAPI DATA ANDA</a>
+            <?php } ?>
           </div>
       </div>
       
