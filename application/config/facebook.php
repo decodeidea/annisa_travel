@@ -1,7 +1,13 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 
-$config['appId']   = '1900904640228296';
+$config['appId']   = '158461151228944';
+$config['secret']  = 'b543dae15063429f7ae0251c117e081b';
+
+
+
+/**$config['appId']   = '1900904640228296';
 $config['secret']  = '8912f2292773f68f633a3f8ad70e6fa0';
+**/
 
 ?>
