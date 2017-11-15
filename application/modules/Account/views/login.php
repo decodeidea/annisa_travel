@@ -5,7 +5,13 @@
           <br><br>
           <span>Masuk dengan</span>
           <br><br>
-          <a href="<?php echo $login_url ?>"><img src="<?php echo base_url() ?>assets/theme/img/facebook-login.png" height="40px"></A><br><br>
+          <?php 
+            $url = site_url().'/account/loginFb';
+           
+          ?>
+          <?php echo linkNewTabFb($url);?><br><br>
+          <!--<a href="<?php echo $login_url ?>"><img src="<?php echo base_url() ?>assets/theme/img/facebook-login.png" height="40px"></a><br><br>
+          !-->
           <a href="<?php echo $login_google ?>"><img src="<?php echo base_url() ?>assets/theme/img/google-login.png" height="40px"></a>
         </div>
       </div>
@@ -48,3 +54,24 @@
       </div>
     </div>
   
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{your-app-id}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{latest-api-version}'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>

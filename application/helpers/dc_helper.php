@@ -1,5 +1,31 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+function linkNewTabFb($url){
+	//debugCode($url);
+
+    echo'<a target="_blank" href="#" onclick="PopupCenter(\'' . $url . '\',\'xtf\',\'800\',\'500\');" href="#" class="facebook-btn btn" id="facebook" type="button"><img src="'.base_url().'assets/theme/img/facebook-login.png" height="40px"></a>';
+    // echo '<a href="#" onclick="PopupCenter(\'' . $url . '\',\'xtf\',\'800\',\'500\');">Log in with Facebook!</a>';
+    echo'<script>
+        function PopupCenter(url, title, w, h) {
+            // Fixes dual-screen position                         Most browsers      Firefox
+            var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+            var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+
+            var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+            var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+            var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+            var top = ((height / 2) - (h / 2)) + dualScreenTop;
+            var newWindow = window.open(url, title, \'scrollbars=yes, width=\' + w + \', height=\' + h + \', top=\' + top + \', left=\' + left);
+
+            // Puts focus on the newWindow
+            if (window.focus) {
+                newWindow.focus();
+            }
+        }
+        </script>';
+}
+
 function get_client_ip_server() {
         $ipaddress = '';
         if (isset($_SERVER['HTTP_CLIENT_IP']))
