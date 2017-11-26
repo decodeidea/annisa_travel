@@ -8,18 +8,33 @@ $this->session->unset_userdata('msg');
     <!-- Basic -->
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+ 				<?php
+ 				if($this->uri->segment(2)=='program' or $this->uri->segment(2)=='Program' and $this->uri->segment(3)=='detail'){
+                     $no=1;
+                     foreach ($album_image as $key) {
+                      if($no==1){
+                     ?>
+                   <meta property="og:image" content="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->id ?>/<?php echo $key->images ?>"/>
+                    <?php
+                     $no++;
+                    }}
+                     } ?>
 		<title><?php if($this->uri->segment(2)=='' or $this->uri->segment(2)=='Home' or $this->uri->segment(2)=='home'){echo"Annisa Travel"; }else{echo ucwords($this->uri->segment(2));} if($this->uri->segment(5)!='') {
 			echo" | ";
 			echo str_replace("-", " ", $this->uri->segment(5));
 		}  ?></title>
 
 		<meta name="keywords" content="travel, booking online, umrah, haji, wisata" />
+		<?php
+ 				if($this->uri->segment(2)=='program' or $this->uri->segment(2)=='Program' and $this->uri->segment(3)=='detail'){ ?>
+		<meta name="description" content="<?php echo $data->summary ?>">
+		<?php }else{ ?>
 		<meta name="description" content="PT. RADIAN KHARISMA WISATA atau lebih dikenal dengan Annisa Travel, didirikan di Jakarta pada tahun 2003, adalah perusahaan swasta nasional yang bergerak dalam bidang Jasa Perjalanan (Travel). Sejak awal didirikan, Annisa Travel bertekad memberikan pelayanan perjalanan yang prima baik Domestik maupun Internasional. Annisa Travel juga telah memiliki sertifikasi IATA, ASITA, ASPERAPI, HIMPUH, serta izin dari Kementerian Agama sebagai penyelenggara Umrah dan Haji.">
+		<?php } ?>
 		<meta name="author" content="Decode">
 
 		<!-- Favicon -->
-		<link rel="shortcut icon" href="<?php echo base_url() ?>assets/theme/img/favicon.ico" type="image/x-icon" />
+		<link rel="icon" href="<?php echo base_url() ?>assets/theme/img/favicon.ico" type="image/x-icon" />
 		<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 
 		<!-- Mobile Metas -->
