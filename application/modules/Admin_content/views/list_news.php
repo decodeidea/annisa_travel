@@ -19,6 +19,7 @@
               <table class="table" id="list_data" >
                 <thead>
                   <tr>
+                    <th></th>
                   <th>No</th>
                     <th>Title</th>
                     <th>Action</th>
@@ -31,6 +32,7 @@
                 $no++;
                 ?>
                   <tr >
+                    <td></td>
                     <td><?php echo $no ?></td>
                     <td><?php echo $data->title ?></td>
                     <td>

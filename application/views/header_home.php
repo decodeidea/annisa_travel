@@ -6,16 +6,10 @@
           <img alt="Annisa Travel" width="160" src="<?php echo site_url() ?>assets/theme/img/logo.png">
         </a>
       </div>
-      <div class="header-nav header-menu-left">
+      <div class="header-nav">
         <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
-          <i class="fa fa-search"></i>
-        </button> 
-       
-        <button class="btn header-btn-collapse-nav nv-right" href="javascript:void()" data-toggle="modal" data-target="#modal-search">
-            <i class="fa fa-search"></i>
+          <i class="fa fa-bars"></i>
         </button>
-
-
         <div class="header-nav-main collapse">
           <nav>
             <ul class="nav nav-pills" id="mainNav">

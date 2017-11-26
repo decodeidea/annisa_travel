@@ -9,7 +9,7 @@ $this->session->unset_userdata('msg');
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-		<title><?php if($this->uri->segment(2)=='' or $this->uri->segment(2)=='home'){echo"Annisa Travel"; }else{echo ucwords($this->uri->segment(2));} if($this->uri->segment(5)!='') {
+		<title><?php if($this->uri->segment(2)=='' or $this->uri->segment(2)=='Home' or $this->uri->segment(2)=='home'){echo"Annisa Travel"; }else{echo ucwords($this->uri->segment(2));} if($this->uri->segment(5)!='') {
 			echo" | ";
 			echo str_replace("-", " ", $this->uri->segment(5));
 		}  ?></title>
@@ -161,7 +161,6 @@ $this->session->unset_userdata('msg');
                   <div class="heading heading-border heading-middle-border">
                     <h4><strong>Subscribe</strong></h4>
                   </div>
-  								<form id="newsletterForm" action="#" method="POST">
                     <div class="row">
                       <div class="col-md-9">
                         <input id="subscribe_txt" class="form-control" style="height: 50px;" placeholder="Masukkan Email Kamu di Sini" name="newsletterEmail" id="newsletterEmail" type="email">
@@ -173,18 +172,17 @@ $this->session->unset_userdata('msg');
                       <div class="col-md-9" id="result_subscribe">
                       </div>
                     </div>
-  								</form>
                 </div>
 							</div>
 						</div>
 						<div class="col-md-3">
 							<h5 class="bold mb-sm"><strong>Hubungi Annisa Travel</strong></h5>
 							<ul class="list list-icons mt-xl">
-								<li><i class="fa fa-map-marker"></i> <strong></strong> Gedung Aneka Tambang Tower B Mezzanine Floor<br>Jl. TB Simatupang No. 1 Jakarta Selatan 12530</li>
-								<li><i class="fa fa-phone"></i> <strong></strong> <a href="#">+62 21 2912 7777</a></li>
-								<li><i class="fa fa-envelope"></i> <strong></strong> <a href="#">halo@annnisatravel.com</a></li>
-								<li><i class="fa fa-whatsapp"></i> <strong></strong> <a href="#">+62 8123 45678</a></li>
-								<li><i class="fa fa-comment"></i> <strong></strong> <a href="#">Live Chat</a></li>
+								<li><i class="fa fa-map-marker"></i> <strong></strong>Jl. Raya Lenteng Agung Timur Blok A No.8A, RT.5/RW.8, Lenteng Agung, Jagakarsa, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12610</li>
+								<li><i class="fa fa-phone"></i> <strong></strong> <a href="tel:+622129127777">+62 21 2912 7777</a></li>
+								<li><i class="fa fa-envelope"></i> <strong></strong> <a href="mailto:info@annisatravel.com">info@annnisatravel.com</a></li>
+								<li><i class="fa fa-whatsapp"></i> <strong></strong> <a href="https://api.whatsapp.com/send?phone=+628113567777&text=Hello, bantu saya untuk menemukan program travel terbaik">+62 811 356 7777</a></li>
+								
 							</ul>
 						</div>
 					</div>
@@ -196,7 +194,7 @@ $this->session->unset_userdata('msg');
               </a>
             </div>
             <div class="col-md-7 col-sm-6">
-              <p>&copy; 2017 Annisa Travel. All Right Reserved. No part of this site my be reproduced without our written permission</p>
+              <p>&copy; 2017 Annisa Travel. All Right Reserved. </p>
             </div>
             <div class="col-md-4 col-sm-4">
               <ul class="social-icons pull-right">

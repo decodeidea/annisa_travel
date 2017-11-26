@@ -33,7 +33,9 @@ class Payment extends DC_controller {
 		$data['function']='finish';
 		if(isset($_POST['order_number'])){
 			$invoice=$_POST['order_number'];
+			$this->email_invoice($invoice);
 		}
+		$this->email_invoice($invoice);
 		$data['data']=select_where($this->tbl_payment,'invoice',$invoice)->row();
 		$product=select_where($this->tbl_payment_product,'id_payment',$data['data']->id)->result();
 		foreach ($product as $key) {
@@ -204,10 +206,10 @@ class Payment extends DC_controller {
 		$this->db->query("DELETE FROM ".$this->tbl_tmp_payment." where ".$this->tbl_tmp_payment.".id_member ='".$this->session->userdata('id')."' ");
 		if($payment=='doku'){
 		$sess=md5(date("Y-m-d H:i:s").rand(111,999));
-    $words = sha1($amount.".00".'51168NCpDfgS383l'.$data_payment['invoice']);
-    $form='<form action="https://staging.doku.com/Suite/Receive" id="MerchatPaymentPage" name="MerchatPaymentPage" method="post"  >
+    $words = sha1($amount.".00".'28048NCpDfgS383l'.$data_payment['invoice']);
+    $form='<form action="https://pay.doku.com/Suite/Receive" id="MerchatPaymentPage" name="MerchatPaymentPage" method="post"  >
     <input name="BASKET" type="hidden" id="BASKET" value="Basket testing 1,'.$amount.'.00,1,'.$amount.'.00" size="100" />
-    <input name="MALLID" type="hidden" id="MALLID" value="5116" size="12" />
+    <input name="MALLID" type="hidden" id="MALLID" value="2804" size="12" />
     <input name="CHAINMERCHANT" type="hidden" id="CHAINMERCHANT" value="NA" size="12" />
     <input name="CURRENCY" type="hidden" id="CURRENCY" value="360" size="3" maxlength="3" />
     <input name="PURCHASECURRENCY" type="hidden" id="PURCHASECURRENCY" value="360" size="3" maxlength="3" />
@@ -302,6 +304,60 @@ class Payment extends DC_controller {
   }
 function notify(){
 	echo "Continue";
+}
+
+function email_invoice($invoice){
+	$data['data']=select_where($this->tbl_payment,'invoice',$invoice)->row();
+		$product=select_where($this->tbl_payment_product,'id_payment',$data['data']->id)->result();
+		$data['member']=select_where($this->tbl_member,'id',$data['data']->id_member)->row();
+		foreach ($product as $key) {
+			$program=select_where($this->tbl_program,'id',$key->id_program)->row();
+			$key->program=$program;
+		}
+		$data['product_rek']=select_where_array($this->tbl_program,$array=array('promo' =>1,'lang'=>$this->lang->lang()))->row();
+		$data['produck_rek_image']=select_where($this->tbl_program_images,'id_program',$data['product_rek']->id)->row();
+		$data['doku']=select_where($this->tbl_doku,'transidmerchant',$data['data']->invoice)->row();
+		$data['product']=$product;
+	$message=$this->load->view('Payment/email_inv',$data,TRUE);
+	$config = Array(
+'protocol' => 'smtp',
+'smtp_host' => 'ssl://smtp.googlemail.com',
+'smtp_port' => 465,
+'smtp_user' => 'noreply@annisatravel.com',
+'smtp_pass' => 'annisa2017yes',
+'mailtype'  => 'html', 
+'charset'   => 'iso-8859-1'
+);
+$this->load->library('email', $config);
+$this->email->set_newline("\r\n");
+
+$this->email->from('noreply@annisatravel.com', 'Annisa Travel');
+    $this->email->to($data['member']->email);
+    $this->email->subject('Invoice');
+    $this->email->message($message);
+    $this->email->send();
+}
+function email(){
+	$config = Array(
+'protocol' => 'smtp',
+'smtp_host' => 'ssl://smtp.googlemail.com',
+'smtp_port' => 465,
+'smtp_user' => 'info@annisatravel.com',
+'smtp_pass' => 'annisa2017oke',
+'mailtype'  => 'html', 
+'charset'   => 'iso-8859-1'
+);
+$this->load->library('email', $config);
+$this->email->set_newline("\r\n");
+
+$this->email->from('info@annisatravel.com', 'Annisa Travel');
+    $this->email->to('ilhamudzakir@gmail.com');
+    $this->email->subject('coba');
+    $message = "Thanks for signing up! Your account has been created...!";
+    $this->email->message($message);
+    if ( ! $this->email->send()) {
+        show_error($this->email->print_debugger());
+    } 
 }
 
 }

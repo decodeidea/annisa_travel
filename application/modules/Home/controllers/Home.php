@@ -39,9 +39,9 @@ class Home extends DC_controller {
 		}
 		$data['video']=select_where_limit_order($this->tbl_video,'lang',$this->lang->lang(),'3','id','DESC')->result();
 		$data['article']=select_where_limit_order($this->tbl_news,'lang',$this->lang->lang(),'4','id','DESC')->result();
-		$data['feat_article']=select_where_limit_order($this->tbl_news,'lang',$this->lang->lang(),'1','id','ASC')->row();
+		$data['feat_article']=select_where_limit_order($this->tbl_news,'lang',$this->lang->lang(),'1','id','DESC')->row();
 		$data['popular_destination']=$popular_destination;
-		$data['destination']=select_where_limit_order($this->tbl_destination,'lang',$this->lang->lang(),5,'id','ASC')->result();
+		$data['destination']=select_where_array_limit_order($this->tbl_destination,$array=array('lang'=>$this->lang->lang(),'featured'=>1),5,'id','DESC')->result();
 		$experience=select_all_limit_order($this->tbl_experience,'4','id','DESC')->result();
 		foreach ($experience as $key) {
 			$user=select_where($this->tbl_member,'id',$key->id_member)->row();

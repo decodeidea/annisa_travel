@@ -45,6 +45,49 @@ class Message extends DC_controller {
 		$this->load->view('layout_backend',$data);
 	}
 
+	function send(){
+		$data = $this->controller_attr;
+		$data['function']='inbox';
+		$config = Array(
+			'protocol' => 'smtp',
+			'smtp_host' => 'ssl://smtp.googlemail.com',
+			'smtp_port' => 465,
+			'smtp_user' => 'info@annisatravel.com',
+			'smtp_pass' => 'annisa2017oke',
+			'mailtype'  => 'html', 
+			'charset'   => 'iso-8859-1'
+		);
+		$this->load->library('email', $config);
+		$this->email->set_newline("\r\n");
+		$this->email->from('info@annisatravel.com', 'Annisa Travel');
+		if($this->input->post('email')=='all'){
+			$list=select_all('dc_subscribe');
+			foreach ($list as $key) {
+				$email=$key->email;
+				$this->email->to($email);
+		    $this->email->subject($this->input->post('subject'));
+		    $message = $this->input->post('content');
+		    $this->email->message($message);
+			}
+		}else{
+			$email=$this->input->post('email');
+			$this->email->to($email);
+		    $this->email->subject($this->input->post('subject'));
+		    $message = $this->input->post('content');
+		    $this->email->message($message);
+		}
+		    
+		    if ( ! $this->email->send()) {
+		       $this->session->set_flashdata('notif','success');
+				$this->session->set_flashdata('msg','Your email have been sended');
+				redirect($data['controller']."/".$data['function']);
+		    }else{
+		    	$this->session->set_flashdata('notif','success');
+				$this->session->set_flashdata('msg','Your email have been sended');
+				redirect($data['controller']."/".$data['function']);
+		    } 
+	}
+	
 	function inbox_add(){
 		$data = $this->controller_attr;
 		$data['function']='inbox';

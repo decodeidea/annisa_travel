@@ -9,8 +9,8 @@ class Account extends DC_controller {
 	function __construct() {
 		parent::__construct();
     $this->fb = new Facebook\Facebook([
-      'app_id' => '1752266781742441',
-      'app_secret' => '9fecfe7b76f7f374f3df224bc7425b29',
+      'app_id' => '1900904640228296',
+      'app_secret' => '8912f2292773f68f633a3f8ad70e6fa0',
       'default_graph_version' => 'v2.5',
     ]);
 

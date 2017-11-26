@@ -334,7 +334,7 @@ echo IntervalDays($key->date->day,$key->date->off_day)
       						</div>
 
         						<div class="col-md-3 pl-none pr-none">
-      								<img src="<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/thumb_<?php echo $key->images ?>" alt="" class="img-responsive" style="width:100%">
+      								<img src="<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/<?php echo $key->images ?>" alt="" class="img-responsive" style="width:100%">
         						</div>
     						</div>
     						<div class="clearfix"></div>

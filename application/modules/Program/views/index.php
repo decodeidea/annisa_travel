@@ -28,7 +28,7 @@
 							  <span class="pd-dest-child">fasilitas</span>
 							  <div class="ratings-box tl-dest">
 								
-								<div class="rating<?php echo $key->rating ?>" style="width:80%"></div>
+								<div class="rating<?php echo $key->rating ?>" style="width:100%"></div>
 							  </div>
 							</div>
 						  </div>

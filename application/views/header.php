@@ -11,7 +11,7 @@
           <nav>
             <ul class="nav nav-pills" id="mainNav">
               <li class="dropdown">
-                <a class="dropdown-toggle dnone" href="#">
+                <a class="dropdown-toggle dnone" href="<?php echo site_url("program/category/12/4/Wisata-Religi") ?>">
                   Umrah & Haji
                 </a>
               </li>
