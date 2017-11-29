@@ -63,7 +63,7 @@ jQuery(document).ready(function($) {
                     foreach ($album_image as $key) {
                      ?>
                     <li class="thumb-sub-alif">
-                      <a class="img-alif" id="carousel-selector-<?php echo $no ?>"><img src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->id ?>/<?php echo $key->images ?>"></a>
+                      <a class="img-alif" id="carousel-selector-<?php echo $no ?>"><img class="thm-img" src="<?php echo base_url() ?>assets/uploads/album_program/<?php echo $key->id ?>/<?php echo $key->images ?>"></a>
                     </li>
                     <?php
                      $no++;

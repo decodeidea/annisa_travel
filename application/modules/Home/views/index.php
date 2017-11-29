@@ -296,7 +296,7 @@ echo IntervalDays($key->date->day,$key->date->off_day)
 			</div>
 		</div>
 
-	  <section class="section section-text-light section-background" style="background-image: url(<?php echo base_url() ?>assets/uploads/news/<?php echo $feat_article->id ?>/<?php echo $feat_article->images ?>);background-position:center; background-size: cover; margin-top: 95px;">
+	  <section class="section section-text-light section-background" style="background-image: url(<?php echo base_url() ?>assets/uploads/news/<?php echo $feat_article->id ?>/<?php echo $feat_article->images ?>);background-position:center; background-size: cover; margin-top: 30px;">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 center">
@@ -312,7 +312,7 @@ echo IntervalDays($key->date->day,$key->date->off_day)
 			</div>
 		</section>
 
-        <section class="section section-no-background">
+        <section class="section section-no-background rpm">
           <div class="container mt-xlg">
             <div class="row article-home">
             	<?php 
@@ -328,13 +328,13 @@ echo IntervalDays($key->date->day,$key->date->off_day)
 
       						<div class="row">
 
-      						<div class="col-md-9" style="min-height: 300px;">
+      						<div class="col-md-9 p-article">
       							<a href="<?php echo site_url() ?>/article/detail/<?php echo $key->id ?>/<?php echo str_replace(" ", "-",$key->title) ?>"><h2 style="color: #3C3C3C"><b><?php echo $key->title ?></b></h2>
       							<p><?php echo substr($key->summary, 0,250) ?>....</p>
       						</div>
 
         						<div class="col-md-3 pl-none pr-none">
-      								<img src="<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/<?php echo $key->images ?>" alt="" class="img-responsive" style="width:100%">
+      								<img  class="im-article" src="<?php echo base_url() ?>assets/uploads/news/<?php echo $key->id ?>/<?php echo $key->images ?>" alt="" class="img-responsive" style="width:100%">
         						</div>
     						</div>
     						<div class="clearfix"></div>

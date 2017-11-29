@@ -14,12 +14,12 @@
             <div class="col-md-8">
               <div class="head-article">
               <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-5 col-sm-5">
                 <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-4 col-sm-4">
                    <img src="<?php echo base_url() ?>assets/uploads/user-admin/<?php echo $article_user->id ?>/<?php echo $article_user->photo ?>" width="100%">
                   </div>
-                    <div class="col-md-8 patop20">
+                    <div class="col-md-8 col-sm-6 patop20">
                       <span class="author-article"><?php echo $article_user->first_name ?> <?php echo $article_user->last_name ?></span><br>
                       <span class="date-article"><?php echo tanggal_indo(substr($data->date_created, 0,10)) ?></span>
                     </div>

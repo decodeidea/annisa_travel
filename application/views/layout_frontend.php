@@ -91,34 +91,147 @@ $this->session->unset_userdata('msg');
     	?>
       <footer id="footer">
         <div class="container">
-					<div class="row">
-            <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-5">
-                  <h4>Terakreditasi Oleh</h4>
-                  <div class="row">
-                    <div class="col-md-2 col-sm-2">
-                      <img class="img-responsive" src="<?php echo base_url() ?>assets/theme/img/akreditasi_1.jpg" alt="Akreditasi">
-                    </div>
-                    <div class="col-md-2 col-sm-2">
-                      <img class="img-responsive" src="<?php echo base_url() ?>assets/theme/img/akreditasi_2.jpg" alt="Akreditasi">
-                    </div>
-                    <div class="col-md-2 col-sm-2">
-                      <img class="img-responsive" src="<?php echo base_url() ?>assets/theme/img/akreditasi_3.jpg" alt="Akreditasi">
-                    </div>
-                  </div>
-                </div>
+        			<!-- start footer mobile !-->
+        			<div class="row subscribe-mobile">
+        				<div class="col-md-12 center">
+							<h4 class="title-news">Sign Up for our weekly newsletter </h4>
+							<div class="bg-line-red"> </div>
+						</div>
+						<div class="col-md-12 center">
+							<p class="p-scb">Get more travel inspiration, tips and exculsive offers sent straight to your inbox</p>
+							
+						</div>
+						<div class="col-md-12 center">
+							<div class="col-md-6">
+								<input id="subscribe_txt" class="form-control" style="height: 50px;" placeholder="Masukkan Email Kamu di Sini" name="newsletterEmail" id="newsletterEmail" type="email">
+								<button class="btn btn-primary btn-block" style="height: 50px;" type="button" onclick="save_subscribe()" id="btn_subscribe">Kirim</button>
+							</div>
+							<div class="col-md-3" >
+								
+							</div>
+							<div class="col-md-9" id="result_subscribe">
+						</div>
+						
 
-                <div class="col-md-7">
-                  <h4>Pembayaran dapat dilakukan melalui</h4>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <img class="img-responsive" src="<?php echo base_url() ?>assets/theme/img/pembayaran.png" alt="Pembayaran">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+						
+						
+						</div>
+        			</div>
+        			<div class="row f-mobile">
+        				<div class="panel-group without-bg custom-accordion-style-1 pt-xl pb-xl" id="accordion">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse7One" aria-expanded="true">
+												MENU
+												<span class="custom-accordion-plus"></span>
+											</a>
+										</h4>
+									</div>
+									<div id="collapse7One" class="accordion-body collapse in" aria-expanded="true">
+										<div class="panel-body">
+											<ul class="list-unstyled">
+												<li><a href="#">Tentang Kami</a></li>
+												<li><a href="#">CSR</a></li>
+												<li><a href="#">Karir</a></li>
+												<li><a href="#">Blog</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse7Two" aria-expanded="false">
+												BANTUAN
+												<span class="custom-accordion-plus"></span>
+											</a>
+										</h4>
+									</div>
+									<div id="collapse7Two" class="accordion-body collapse" aria-expanded="false" style="height: 0px;">
+										<div class="panel-body">
+											<ul class="list-unstyled">
+												<li><a href="#">Kontak</a></li>
+												<li><a href="#">Pembayaran</a></li>
+												<li><a href="#">Jadwal Acara</a></li>
+												<li><a href="#">Masuk</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion7" href="#collapse7Three" aria-expanded="false">
+												DOKUMEN
+												<span class="custom-accordion-plus"></span>
+											</a>
+										</h4>
+									</div>
+									<div id="collapse7Three" class="accordion-body collapse" aria-expanded="false" style="height: 0px;">
+										<div class="panel-body">
+											<ul class="list-unstyled">
+												<li><a href="#">Mitra dan Rekanan</a></li>
+												<li><a href="#">Syarat dan Ketentuan</a></li>
+												<li><a href="#">Kebijakan Pribadi</a></li>
+												<li><a href="#">FAQ</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion7" href="#collapse7Four" aria-expanded="false">
+												PENDAFTARAN
+												<span class="custom-accordion-plus"></span>
+											</a>
+										</h4>
+									</div>
+									<div id="collapse7Four" class="accordion-body collapse" aria-expanded="false" style="height: 0px;">
+										<div class="panel-body">
+											<ul class="list-unstyled">
+												<li><a href="#">Umroh</a></li>
+												<li><a href="#">Haji</a></li>
+												<li><a href="#">Mitra</a></li>
+												<li><a href="#">Kredit Pelanggan</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+						</div>
+        			</div>
+
+        			<!-- end footer mobile !-->
+        			
+					<div class="row f-dekstop">
+			            <div class="col-md-12 foot-mitra">
+				            <div class="row">
+				                <div class="col-md-5">
+				                  <h4>Terakreditasi Oleh</h4>
+				                  <div class="row">
+				                    <div class="col-md-2 col-sm-2">
+				                      <img class="img-responsive" src="<?php echo base_url() ?>assets/theme/img/akreditasi_1.jpg" alt="Akreditasi">
+				                    </div>
+				                    <div class="col-md-2 col-sm-2">
+				                      <img class="img-responsive" src="<?php echo base_url() ?>assets/theme/img/akreditasi_2.jpg" alt="Akreditasi">
+				                    </div>
+				                    <div class="col-md-2 col-sm-2">
+				                      <img class="img-responsive" src="<?php echo base_url() ?>assets/theme/img/akreditasi_3.jpg" alt="Akreditasi">
+				                    </div>
+				                  </div>
+				                </div>
+
+				                <div class="col-md-7">
+				                  <h4>Pembayaran dapat dilakukan melalui</h4>
+				                  <div class="row">
+				                    <div class="col-md-12">
+				                      <img class="img-responsive" src="<?php echo base_url() ?>assets/theme/img/pembayaran.png" alt="Pembayaran">
+				                    </div>
+				                  </div>
+				                </div>
+				            </div>
+			            </div>
 						<div class="col-md-9">
 							<div class="row">
 								<div class="col-md-3">
@@ -157,22 +270,22 @@ $this->session->unset_userdata('msg');
 										<li><a href="#">Kredit Pelanggan</a></li>
 									</ul>
 								</div>
-                <div class="col-md-8">
-                  <div class="heading heading-border heading-middle-border">
-                    <h4><strong>Subscribe</strong></h4>
-                  </div>
-                    <div class="row">
-                      <div class="col-md-9">
-                        <input id="subscribe_txt" class="form-control" style="height: 50px;" placeholder="Masukkan Email Kamu di Sini" name="newsletterEmail" id="newsletterEmail" type="email">
-                      </div>
+				                <div class="col-md-8">
+				                  <div class="heading heading-border heading-middle-border">
+				                    <h4><strong>Subscribe</strong></h4>
+				                  </div>
+				                    <div class="row">
+				                      <div class="col-md-9">
+				                        <input id="subscribe_txt" class="form-control" style="height: 50px;" placeholder="Masukkan Email Kamu di Sini" name="newsletterEmail" id="newsletterEmail" type="email">
+				                      </div>
 
-                      <div class="col-md-3" style="padding-left: 0px;">
-                        <button class="btn btn-primary btn-block" style="height: 50px;" type="button" onclick="save_subscribe()" id="btn_subscribe">Kirim</button>
-                      </div>
-                      <div class="col-md-9" id="result_subscribe">
-                      </div>
-                    </div>
-                </div>
+				                      <div class="col-md-3" style="padding-left: 0px;">
+				                        <button class="btn btn-primary btn-block" style="height: 50px;" type="button" onclick="save_subscribe()" id="btn_subscribe">Kirim</button>
+				                      </div>
+				                      <div class="col-md-9" id="result_subscribe">
+				                      </div>
+				                    </div>
+				                </div>
 							</div>
 						</div>
 						<div class="col-md-3">
@@ -186,25 +299,31 @@ $this->session->unset_userdata('msg');
 							</ul>
 						</div>
 					</div>
-          <hr class="solid tall">
-          <div class="row">
-            <div class="col-md-1 col-sm-2">
-              <a href="#" class="logo">
-                <img alt="Annisa Travel" class="img-responsive" src="<?php echo base_url() ?>assets/theme/img/logo.png">
-              </a>
-            </div>
-            <div class="col-md-7 col-sm-6">
-              <p>&copy; 2017 Annisa Travel. All Right Reserved. </p>
-            </div>
-            <div class="col-md-4 col-sm-4">
-              <ul class="social-icons pull-right">
-                <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                <li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                <li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-              </ul>
-            </di>
-          </div>
+          		<hr class="solid tall">
+				<div class="row">
+					<div class="col-md-1 col-sm-2 f-tl">
+						<a href="#" class="logo">
+							<img alt="Annisa Travel" class="img-responsive" src="<?php echo base_url() ?>assets/theme/img/logo.png">
+						</a>
+					</div>
+					<div class="col-md-7 col-sm-6 cpright-d">
+						<p class="p-d">&copy; 2017 Annisa Travel. All Right Reserved. </p>
+					</div>
+					<div class="col-md-4 col-sm-4 f-tr">
+						<ul class="social-icons pull-right">
+							<li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+							<li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+							<li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+						
+						</ul>
+					</diV>
 				</div>
+				<div class="row">
+					<div class="col-md-7 col-sm-6 cpright-m">
+						<p class="p-m">&copy; 2017 Annisa Travel. All Right Reserved. </p>
+					</div>
+				</div>
+			</div>
       </footer>
       <?php } ?>
 
@@ -260,31 +379,12 @@ $this->session->unset_userdata('msg');
 	<script>
 		jQuery(document).ready(function($) {
 			 $('.datepicker').datepicker(
-        {
-    format: 'yyyy-mm-dd',
-        }
-        );
+        	{
+   					 format: 'yyyy-mm-dd',
+        	}
+        	);
 
-				$('#myCarousel').carousel({
-						interval: 5000
-				});
-
-				$('#carousel-text').html($('#slide-content-0').html());
-
-				//Handles the carousel thumbnails
-				$('[id^=carousel-selector-]').click( function(){
-						var id_selector = $(this).attr("id");
-						var id = id_selector.substr(id_selector.length -1);
-						var id = parseInt(id);
-						$('#myCarousel').carousel(id);
-				});
-
-
-				// When the carousel slides, auto update the text
-				$('#myCarousel').on('slid', function (e) {
-						var id = $('.item.active').data('slide-number');
-						$('#carousel-text').html($('#slide-content-'+id).html());
-				});
+				
 		});
 
 		// Starrr plugin (https://github.com/dobtco/starrr)
